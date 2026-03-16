@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Speedrun AI Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--white:#FBFBFB;--black:#1D1D1F;--grey-light:#E5E5E7;--grey-nav:#86868B;--grey-mid:#6E6E73;--grey-dark:#424245;--font-sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;--font-serif:'Instrument Serif',Georgia,'Times New Roman',serif}
+        html{scroll-behavior:smooth}
+        body{font-family:var(--font-sans);background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;display:flex;flex-direction:column;min-height:100vh}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,251,251,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
+        .nav-inner{max-width:980px;margin:0 auto;padding:0 22px;height:80px;display:flex;align-items:center;justify-content:center}
+        .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--black)}
+        .nav-logo img{height:78px;width:auto;display:block}
+        .content{flex:1;display:flex;align-items:center;justify-content:center;padding:120px 22px 80px;text-align:center}
+        .thank-you h1{font-family:var(--font-serif);font-size:clamp(32px,5vw,48px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:16px}
+        .thank-you p{font-family:var(--font-sans);font-size:clamp(16px,2vw,18px);color:var(--grey-dark);line-height:1.6;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
+        .back-btn{display:inline-block;font-family:var(--font-sans);font-size:15px;font-weight:500;color:var(--white);background:var(--black);text-decoration:none;border-radius:980px;padding:14px 40px;transition:opacity 0.2s}
+        .back-btn:hover{opacity:0.82}
+        .footer{border-top:1px solid var(--grey-light);padding:20px 22px;text-align:center}
+        .footer p{font-family:var(--font-sans);font-size:12px;color:var(--grey-mid)}
+        .footer a{color:var(--grey-mid);text-decoration:none}
+        .footer a:hover{color:var(--black)}
+        @media(max-width:768px){.nav-logo img{height:55px}}
+        @media(max-width:480px){.nav-logo img{height:48px}.back-btn{width:100%;text-align:center}}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-logo" href="https://speedrunlab.ai">
+                <img src="logo.png" alt="Speedrun AI Labs">
+            </a>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="thank-you">
+            <h1>Thank you.</h1>
+            <p>Your message has been received. We will get back to you soon.</p>
+            <a href="https://speedrunlab.ai" class="back-btn">Back to Home</a>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://speedrunlab.ai">speedrunlab.ai</a></p>
+    </footer>
+</body>
+</html>
