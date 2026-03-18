@@ -1,0 +1,27 @@
+# Speedrun AI Labs
+
+> AI with action. We build working AI products that make a meaningful difference.
+
+## Who We Are
+
+Speedrun AI Labs is a Sydney, Australia-based AI company. We build custom AI agents and AI-powered tools for Australian businesses, founders, and teams.
+
+Our motto: whatever we create, whatever we ship, we deliver more value than we extract.
+
+## What We Build
+
+### ClawBot
+Custom AI agent deployment for Australian businesses. ClawBot builds on OpenClaw to deliver tailored AI solutions hosted locally or on a private VPN — fully under the client's control, fully configured to their operations.
+
+### EasyENT
+An AI-powered tool that helps GPs identify and diagnose ENT conditions earlier. Australia faces a growing shortage of ENT surgeons. EasyENT helps patients get the right care faster without waiting months for a specialist referral.
+
+## Contact
+
+- Website: https://www.speedrunlab.ai
+- Email: info@speedrunlab.ai
+- Location: Sydney, Australia
+
+## Research
+
+Research papers are in development. Details will be published at speedrunlab.ai when ready.
