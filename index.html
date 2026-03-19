@@ -262,9 +262,12 @@
     <div class="contact">
         <h2>Get in touch</h2>
         <p class="contact-sub">Have a project in mind, a partnership to explore, or just want to say hello? Drop us a message.</p>
-        <form id="cForm" action="/api/contact" method="POST">
+        <form id="cForm" action="https://formsubmit.co/info@speedrunlab.ai" method="POST">
+            <input type="hidden" name="_subject" value="New enquiry from speedrunlab.ai">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://speedrunlab.ai/thank-you.html">
             <input type="hidden" name="submitted_at_sydney" id="sydTime" value="">
-            <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="text" name="_honey" style="display:none">
             <div class="form-group"><label for="c-name">Name</label><input type="text" id="c-name" name="name" placeholder="Your name" autocomplete="name" required></div>
             <div class="form-group"><label for="c-email">Email</label><input type="email" id="c-email" name="email" placeholder="you@example.com" autocomplete="email" required></div>
             <div class="form-group"><label for="c-subject">Subject</label><input type="text" id="c-subject" name="subject" placeholder="What is this about?"></div>
@@ -281,8 +284,7 @@
 <script>
 function go(p){document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});document.getElementById('p-'+p).classList.add('active');document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===p)});window.scrollTo(0,0)}
 var cA,cB;function genCap(){cA=Math.floor(Math.random()*10)+1;cB=Math.floor(Math.random()*10)+1;document.getElementById('capQ').textContent='What is '+cA+' + '+cB+'?'}genCap();
-document.getElementById('cForm').addEventListener('submit',function(ev){var ph=document.getElementById('c-phone').value.trim();var a=document.getElementById('capA').value.trim();if(ph){var digits=ph.replace(/[\s\-()]+/g,'');if(!/^(04\d{8}|0[2378]\d{8}|\+614\d{8})$/.test(digits)){ev.preventDefault();alert('Please enter a valid Australian phone number (e.g. 04XX XXX XXX or 02 XXXX XXXX).');return}}if(parseInt(a)!==(cA+cB)){ev.preventDefault();alert('That does not look right. Please try the maths question again.');genCap();document.getElementById('capA').value='';return}document.getElementById('sydTime').value=new Date().toLocaleString('en-AU',{timeZone:'Australia/Sydney',dateStyle:'full',timeStyle:'short'})});
-(function(){var p=new URLSearchParams(window.location.search);if(p.get('error')){go('contact');alert('Something went wrong sending your message. Please try again.');}if(p.get('limit')){go('contact');alert('We have received a high volume of messages today. Please try again tomorrow or email us directly at info@speedrunlab.ai');}})()
+document.getElementById('cForm').addEventListener('submit',function(ev){var ph=document.getElementById('c-phone').value.trim();var a=document.getElementById('capA').value.trim();if(ph){var digits=ph.replace(/[\s\-()]+/g,'');if(!/^(04\d{8}|0[2378]\d{8}|\+614\d{8})$/.test(digits)){ev.preventDefault();alert('Please enter a valid Australian phone number (e.g. 04XX XXX XXX or 02 XXXX XXXX).');return}}if(parseInt(a)!==(cA+cB)){ev.preventDefault();alert('That does not look right. Please try the maths question again.');genCap();document.getElementById('capA').value='';return}document.getElementById('sydTime').value=new Date().toLocaleString('en-AU',{timeZone:'Australia/Sydney',dateStyle:'full',timeStyle:'short'})})
 </script>
 
 </body>
