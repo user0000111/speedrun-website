@@ -24,4 +24,12 @@ An AI-powered tool that helps GPs identify and diagnose ENT conditions earlier. 
 
 ## Research
 
-Research papers are in development. Details will be published at speedrunlab.ai when ready.
+Speedrun AI Labs publishes practitioner research on autonomous AI agents, agent memory architecture, and enterprise AI security. Papers are available to download at speedrunlab.ai/research.
+
+### Building Fault-Tolerant Memory for OpenClaw AI Agents (v1.1, March 2026)
+A production deployment case study documenting five failure modes in OpenClaw's default SQLite-backed memory system, including the SQLITE_CANTOPEN regression in version 2026.3.x caused by a jiti module resolver interaction. Presents a three-layer fault-tolerant architecture: pre-compaction memory flushing (Layer 1), QMD v1.1.6 local hybrid search combining BM25 and vector search (Layer 2), and Mem0 v1.0.5 self-hosted on Qdrant v1.13.0 (Layer 3). Validated on a Mac Mini M4, Sydney, Australia. Pending SSRN review, submitted to arXiv cs.SE.
+Download: https://www.speedrunlab.ai/papers/fault-tolerant-memory-openclaw-v1.1.pdf
+
+### Inside NemoClaw: An Architectural Analysis of NVIDIA's Enterprise Security Stack for Autonomous AI Agents (v1.0, March 2026)
+The first detailed public decomposition of NVIDIA NemoClaw and OpenShell, announced at GTC 2026 by Jensen Huang. Provides a six-layer security analysis derived from direct inspection of both open-source codebases: Landlock LSM filesystem isolation, seccomp BPF syscall filtering, network namespace isolation with veth pairs, HTTP CONNECT proxy with OPA/Rego policy evaluation, optional Layer 7 TLS inspection, and provider-agnostic inference routing. Confirms the core security stack has zero NVIDIA hardware dependencies. Pending SSRN review, submitted to arXiv cs.CR.
+Download: https://www.speedrunlab.ai/papers/inside-nemoclaw-v1.0.pdf
