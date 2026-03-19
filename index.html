@@ -174,19 +174,24 @@
         .coming-soon p{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);line-height:1.6}
 
         .research{max-width:680px;margin:0 auto;padding:80px 22px 100px}
-        .research h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;color:var(--black);margin-bottom:8px}
-        .research-sub{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);margin-bottom:48px;line-height:1.5}
-        .paper-card{padding:32px 0;border-bottom:1px solid var(--grey-light)}
+        .research-header{margin-bottom:64px}
+        .research-header h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:10px}
+        .research-header p{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);line-height:1.5}
+        .paper-card{padding:52px 0;border-bottom:1px solid var(--grey-light)}
         .paper-card:first-of-type{border-top:1px solid var(--grey-light)}
-        .paper-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+        .paper-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
         .paper-badge{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:980px;border:1px solid var(--grey-light);color:var(--grey-mid)}
         .paper-badge.pending{color:#b45309;border-color:#fde68a;background:#fffbeb}
-        .paper-card h3{font-family:var(--font-sans);font-size:18px;font-weight:600;color:var(--black);margin-bottom:4px;line-height:1.35}
-        .paper-subtitle{font-family:var(--font-sans);font-size:13px;color:var(--grey-mid);margin-bottom:12px;line-height:1.4}
-        .paper-meta{font-family:var(--font-sans);font-size:12px;color:var(--grey-nav);margin-bottom:14px}
-        .paper-abstract{font-family:var(--font-sans);font-size:15px;color:var(--grey-dark);line-height:1.65;margin-bottom:20px}
-        .paper-download{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--black);border:1px solid var(--grey-light);border-radius:980px;padding:8px 20px;text-decoration:none;transition:border-color 0.2s,background 0.2s}
-        .paper-download:hover{border-color:var(--black);background:rgba(0,0,0,0.03)}
+        .paper-hook{font-family:var(--font-sans);font-size:clamp(22px,3.5vw,30px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:10px;letter-spacing:-0.02em}
+        .paper-card h3{font-family:var(--font-sans);font-size:14px;font-weight:400;color:var(--grey-mid);margin-bottom:6px;line-height:1.4}
+        .paper-meta{font-family:var(--font-sans);font-size:12px;color:var(--grey-nav);margin-bottom:20px}
+        .paper-abstract{display:none;font-family:var(--font-sans);font-size:15px;color:var(--grey-dark);line-height:1.65;margin-bottom:24px;padding-top:4px}
+        .paper-abstract.open{display:block}
+        .paper-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+        .paper-toggle{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--black);background:none;border:1px solid var(--grey-light);border-radius:980px;padding:8px 20px;cursor:pointer;transition:border-color 0.2s,background 0.2s}
+        .paper-toggle:hover{border-color:var(--black);background:rgba(0,0,0,0.03)}
+        .paper-download{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--white);background:var(--black);border:1px solid var(--black);border-radius:980px;padding:8px 20px;text-decoration:none;transition:opacity 0.2s}
+        .paper-download:hover{opacity:0.82}
 
         .projects{max-width:680px;margin:0 auto;padding:80px 22px 100px}
         .projects h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;color:var(--black);margin-bottom:48px}
@@ -265,22 +270,27 @@
 
 <section id="p-research" class="page">
     <div class="research">
-        <h2>Research Papers</h2>
-        <p class="research-sub">Practitioner research from Speedrun AI Labs, Sydney, Australia. Papers are pending SSRN review and will be updated upon acceptance.</p>
+        <div class="research-header">
+            <h2>We publish before the industry notices.</h2>
+            <p>Practitioner research from Speedrun AI Labs, Sydney, Australia. Pending SSRN review.</p>
+        </div>
         <div class="paper-card">
             <div class="paper-badges">
                 <span class="paper-badge pending">Pending SSRN Review</span>
                 <span class="paper-badge">cs.SE</span>
                 <span class="paper-badge">OpenClaw</span>
             </div>
-            <h3>Building Fault-Tolerant Memory for OpenClaw AI Agents</h3>
-            <p class="paper-subtitle">A Three-Layer Architecture for the SQLITE_CANTOPEN Regression in 2026.3.x — A Production Deployment Case Study</p>
-            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney, Australia &middot; March 16, 2026 &middot; Version 1.1</p>
-            <p class="paper-abstract">OpenClaw's default memory system exhibits recurring reliability failures — SQLite crashes, dirty indexes, and complete persistence loss during active sessions. This paper presents a three-layer fault-tolerant architecture combining pre-compaction memory flushing, QMD-based local hybrid search, and Mem0 self-hosted on Qdrant, validated in a production deployment on a Mac Mini that eliminated all documented failure modes while maintaining zero cloud dependency for search.</p>
-            <a class="paper-download" href="/papers/fault-tolerant-memory-openclaw-v1.1.pdf" download>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download PDF
-            </a>
+            <p class="paper-hook">The first production fix for OpenClaw's broken memory.</p>
+            <h3>Building Fault-Tolerant Memory for OpenClaw AI Agents — A Three-Layer Architecture for the SQLITE_CANTOPEN Regression in 2026.3.x</h3>
+            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; March 16, 2026 &middot; v1.1</p>
+            <p class="paper-abstract" id="abs1">OpenClaw's default memory system exhibits recurring reliability failures — SQLite crashes, dirty indexes, and complete persistence loss during active sessions. This paper presents a three-layer fault-tolerant architecture combining pre-compaction memory flushing, QMD-based local hybrid search, and Mem0 self-hosted on Qdrant, validated in a production deployment on a Mac Mini that eliminated all documented failure modes while maintaining zero cloud dependency for search.</p>
+            <div class="paper-actions">
+                <button class="paper-toggle" onclick="toggleAbstract('abs1', this)">Read Abstract</button>
+                <a class="paper-download" href="/papers/fault-tolerant-memory-openclaw-v1.1.pdf" download>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download PDF
+                </a>
+            </div>
         </div>
         <div class="paper-card">
             <div class="paper-badges">
@@ -288,14 +298,17 @@
                 <span class="paper-badge">cs.CR</span>
                 <span class="paper-badge">NemoClaw</span>
             </div>
+            <p class="paper-hook">The first inside look at NVIDIA's NemoClaw — published the day after GTC 2026.</p>
             <h3>Inside NemoClaw: An Architectural Analysis of NVIDIA's Enterprise Security Stack for Autonomous AI Agents</h3>
-            <p class="paper-subtitle">A Six-Layer Security Decomposition of NemoClaw and OpenShell — GTC 2026</p>
-            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney, Australia &middot; March 17, 2026 &middot; Version 1.0</p>
-            <p class="paper-abstract">NVIDIA NemoClaw, announced at GTC 2026 by Jensen Huang, is the first major vendor implementation of enterprise-grade security for OpenClaw autonomous AI agents. This paper presents the first detailed public decomposition of the NemoClaw and OpenShell security architecture across six layers — Landlock filesystem isolation, seccomp BPF syscall filtering, network namespace isolation, OPA/Rego policy enforcement, TLS inspection, and provider-agnostic inference routing — derived from direct inspection of both open-source codebases.</p>
-            <a class="paper-download" href="/papers/inside-nemoclaw-v1.0.pdf" download>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download PDF
-            </a>
+            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; March 17, 2026 — one day after GTC 2026 &middot; v1.0</p>
+            <p class="paper-abstract" id="abs2">NVIDIA NemoClaw, announced at GTC 2026 by Jensen Huang, is the first major vendor implementation of enterprise-grade security for OpenClaw autonomous AI agents. This paper presents the first detailed public decomposition of the NemoClaw and OpenShell security architecture across six layers — Landlock filesystem isolation, seccomp BPF syscall filtering, network namespace isolation, OPA/Rego policy enforcement, TLS inspection, and provider-agnostic inference routing — derived from direct inspection of both open-source codebases.</p>
+            <div class="paper-actions">
+                <button class="paper-toggle" onclick="toggleAbstract('abs2', this)">Read Abstract</button>
+                <a class="paper-download" href="/papers/inside-nemoclaw-v1.0.pdf" download>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download PDF
+                </a>
+            </div>
         </div>
     </div>
     <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai" target="_blank">speedrunlab.ai</a></p></footer>
@@ -344,6 +357,7 @@
 <script>
 function go(p){document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});document.getElementById('p-'+p).classList.add('active');document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===p)});window.scrollTo(0,0)}
 var cA,cB;function genCap(){cA=Math.floor(Math.random()*10)+1;cB=Math.floor(Math.random()*10)+1;document.getElementById('capQ').textContent='What is '+cA+' + '+cB+'?'}genCap();
+function toggleAbstract(id,btn){var el=document.getElementById(id);var open=el.classList.toggle('open');btn.textContent=open?'Hide Abstract':'Read Abstract'}
 document.getElementById('cForm').addEventListener('submit',function(ev){var ph=document.getElementById('c-phone').value.trim();var a=document.getElementById('capA').value.trim();if(ph){var digits=ph.replace(/[\s\-()]+/g,'');if(!/^(04\d{8}|0[2378]\d{8}|\+614\d{8})$/.test(digits)){ev.preventDefault();alert('Please enter a valid Australian phone number (e.g. 04XX XXX XXX or 02 XXXX XXXX).');return}}if(parseInt(a)!==(cA+cB)){ev.preventDefault();alert('That does not look right. Please try the maths question again.');genCap();document.getElementById('capA').value='';return}document.getElementById('sydTime').value=new Date().toLocaleString('en-AU',{timeZone:'Australia/Sydney',dateStyle:'full',timeStyle:'short'})})
 </script>
 
