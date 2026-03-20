@@ -71,19 +71,19 @@ export default async function handler(req, res) {
     const body = Buffer.concat(chunks).toString();
     fields = parseFormBody(body);
   } catch {
-    return res.redirect(302, '/#contact?error=1');
+    return res.redirect(303, '/#contact?error=1');
   }
 
   // Honeypot check — bots fill hidden fields, humans don't
   if (fields.website && fields.website.trim().length > 0) {
     // Silent success to confuse bots
-    return res.redirect(302, '/thank-you.html');
+    return res.redirect(303, '/thank-you.html');
   }
 
   // Server-side field validation
   const validationError = validateFields(fields);
   if (validationError) {
-    return res.redirect(302, '/#contact?error=1');
+    return res.redirect(303, '/#contact?error=1');
   }
 
   // Rate limit check
@@ -92,7 +92,7 @@ export default async function handler(req, res) {
     const current = await redisGet(dateKey);
     const count = current ? parseInt(current, 10) : 0;
     if (count >= DAILY_LIMIT) {
-      return res.redirect(302, '/#contact?limit=1');
+      return res.redirect(303, '/#contact?limit=1');
     }
 
     // Increment counter; set 25h TTL on first entry to ensure it expires overnight
@@ -133,14 +133,14 @@ export default async function handler(req, res) {
     if (!emailRes.ok) {
       const errText = await emailRes.text();
       console.error('Resend error:', errText);
-      return res.redirect(302, '/#contact?error=1');
+      return res.redirect(303, '/#contact?error=1');
     }
   } catch (err) {
     console.error('Email send failed:', err);
-    return res.redirect(302, '/#contact?error=1');
+    return res.redirect(303, '/#contact?error=1');
   }
 
-  return res.redirect(302, '/thank-you.html');
+  return res.redirect(303, '/thank-you.html');
 }
 
 function escapeHtml(str) {
