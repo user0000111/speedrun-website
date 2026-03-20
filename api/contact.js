@@ -54,7 +54,7 @@ function parseFormBody(body) {
 function validateFields({ name, email, message }) {
   if (!name || name.trim().length < 2) return 'Name is required.';
   if (!email || !email.includes('@')) return 'A valid email is required.';
-  if (!message || message.trim().length < 10) return 'Message must be at least 10 characters.';
+  if (!message || message.trim().length < 2) return 'Message is required.';
   return null;
 }
 
