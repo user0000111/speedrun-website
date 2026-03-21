@@ -137,7 +137,7 @@
                 "name": "What is the OpenClaw Skill Library?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The OpenClaw Skill Library is a collection of free, open-source, production-grade skills for Claude Code and OpenClaw agents, built by Speedrun AI Labs in Sydney, Australia. The first skill is /deep-audit, a four-phase code auditor that chains planning mode, security review, extended thinking, and execution into a single pipeline. Skills are compatible with Claude Code, OpenClaw, and any tool supporting the Agent Skills open standard. Available at github.com/Speedrunlab."
+                    "text": "The OpenClaw Skill Library is a collection of free, open-source, production-grade skills for Claude Code and OpenClaw agents, built by Speedrun AI Labs in Sydney, Australia. The first skill is /deep-audit (v1.1), a four-phase code auditor with operating modes, severity definitions, and an evidence standard that prevents overclaiming. Runs in Full, Scoped, PR, Audit-Only, or Fix Mode. Skills are compatible with Claude Code, OpenClaw, and any tool supporting the Agent Skills open standard. Available at github.com/Speedrunlab."
                 }
             }
         ]
@@ -383,10 +383,10 @@
                 <span class="skill-badge">OpenClaw</span>
                 <span class="skill-badge">Agent Skills Standard</span>
             </div>
-            <p class="skill-hook">AI writes your code. This skill makes sure it does not ship broken.</p>
-            <h3>/deep-audit -- A four-phase code auditor that chains planning mode, security review, extended thinking, and execution into a single disciplined pipeline.</h3>
-            <p class="skill-meta">Speedrun AI Labs &middot; v1.0 &middot; March 2026 &middot; MIT License</p>
-            <p class="skill-desc">Catches what pattern-matching tools miss: business logic flaws, race conditions, silent failures, subtle auth bypasses, and the kind of bugs that survive years of human review. Every finding comes with a file, a line number, and a fix. Compatible with Claude Code, OpenClaw, and any tool supporting the Agent Skills open standard.</p>
+            <p class="skill-hook">AI writes your code. This skill audits it like an accountant &mdash; evidence first, findings second, fixes only when it can prove them.</p>
+            <h3>/deep-audit &mdash; A four-phase code auditor with operating modes, severity definitions, and an evidence standard that prevents overclaiming.</h3>
+            <p class="skill-meta">Speedrun AI Labs &middot; v1.1 &middot; March 2026 &middot; MIT License</p>
+            <p class="skill-desc">Catches what pattern-matching tools miss: business logic flaws, race conditions, silent failures, subtle auth bypasses, and the kind of bugs that survive years of human review. Every finding is labelled observed or inferred, comes with a file path and line number, and includes a fix only when the evidence supports it. Runs in Full, Scoped, PR, Audit-Only, or Fix Mode. Compatible with Claude Code, OpenClaw, and any tool supporting the Agent Skills open standard.</p>
             <div class="skill-install" id="install1">
                 <p class="skill-install-label">Install (Claude Code)</p>
                 <code>mkdir -p ~/.claude/skills
