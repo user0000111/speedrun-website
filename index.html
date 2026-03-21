@@ -131,6 +131,14 @@
                     "@type": "Answer",
                     "text": "NemoClaw is NVIDIA's enterprise security stack for OpenClaw autonomous AI agents, announced by CEO Jensen Huang at GTC 2026. It provides six layers of isolation: Landlock filesystem access control, seccomp BPF syscall filtering, network namespace isolation, OPA/Rego policy enforcement, optional TLS inspection, and provider-agnostic inference routing via OpenShell. Speedrun AI Labs, based in Sydney, Australia, published the first detailed architectural analysis of NemoClaw derived from direct inspection of the open-source codebase."
                 }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the OpenClaw Skill Library?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The OpenClaw Skill Library is a collection of free, open-source, production-grade skills for Claude Code and OpenClaw agents, built by Speedrun AI Labs in Sydney, Australia. The first skill is /deep-audit, a four-phase code auditor that chains planning mode, security review, extended thinking, and execution into a single pipeline. Skills are compatible with Claude Code, OpenClaw, and any tool supporting the Agent Skills open standard. Available at github.com/Speedrunlab."
+                }
             }
         ]
     }
@@ -202,6 +210,30 @@
         .project-type{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:12px}
         .project-card p{font-family:var(--font-sans);font-size:15px;color:var(--grey-dark);line-height:1.6}
 
+        .skills{max-width:680px;margin:0 auto;padding:80px 22px 100px}
+        .skills-header{margin-bottom:64px}
+        .skills-header h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:10px}
+        .skills-header p{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);line-height:1.5}
+        .skill-card{padding:52px 0;border-bottom:1px solid var(--grey-light)}
+        .skill-card:first-of-type{border-top:1px solid var(--grey-light)}
+        .skill-image{width:100%;height:220px;object-fit:cover;border-radius:12px;display:block;margin-bottom:28px}
+        .skill-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+        .skill-badge{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:980px;border:1px solid var(--grey-light);color:var(--grey-mid)}
+        .skill-badge.free{color:#065f46;border-color:#a7f3d0;background:#ecfdf5}
+        .skill-hook{font-family:var(--font-sans);font-size:clamp(22px,3.5vw,30px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:10px;letter-spacing:-0.02em}
+        .skill-card h3{font-family:var(--font-sans);font-size:14px;font-weight:400;color:var(--grey-mid);margin-bottom:6px;line-height:1.4}
+        .skill-meta{font-family:var(--font-sans);font-size:12px;color:var(--grey-nav);margin-bottom:20px}
+        .skill-desc{font-family:var(--font-sans);font-size:15px;color:var(--grey-dark);line-height:1.65;margin-bottom:24px}
+        .skill-install{display:none;margin-bottom:24px;padding:20px;background:rgba(0,0,0,0.03);border-radius:8px;border:1px solid var(--grey-light)}
+        .skill-install.open{display:block}
+        .skill-install code{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;color:var(--black);line-height:1.7;display:block;white-space:pre-wrap;word-break:break-all}
+        .skill-install-label{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:10px}
+        .skill-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+        .skill-toggle{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--black);background:none;border:1px solid var(--grey-light);border-radius:980px;padding:8px 20px;cursor:pointer;transition:border-color 0.2s,background 0.2s}
+        .skill-toggle:hover{border-color:var(--black);background:rgba(0,0,0,0.03)}
+        .skill-github{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--white);background:var(--black);border:1px solid var(--black);border-radius:980px;padding:8px 20px;text-decoration:none;transition:opacity 0.2s}
+        .skill-github:hover{opacity:0.82}
+
         .contact{max-width:520px;margin:0 auto;padding:80px 22px 100px}
         .contact h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;color:var(--black);margin-bottom:12px}
         .contact-sub{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);margin-bottom:40px;line-height:1.5}
@@ -243,6 +275,7 @@
             <li><a data-p="projects" onclick="go('projects')">Projects</a></li>
             <li><a data-p="research" onclick="go('research')">Research Papers</a></li>
             <li><a data-p="contact" onclick="go('contact')">Contact Us</a></li>
+                <li><a data-p="skills" onclick="go('skills')">Skill Library</a></li>
         </ul>
     </div>
 </nav>
@@ -336,6 +369,43 @@
     <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai" target="_blank">speedrunlab.ai</a></p></footer>
 </section>
 
+<section id="p-skills" class="page">
+    <div class="skills">
+        <div class="skills-header">
+            <h2>OpenClaw Skill Library.</h2>
+            <p>Production-grade skills for Claude Code and OpenClaw agents. Built by Speedrun AI Labs, Sydney, Australia. Free and open source.</p>
+        </div>
+        <div class="skill-card">
+            <img class="skill-image" src="/images/skill-deep-audit.png" alt="Abstract visualization of code audit pipeline">
+            <div class="skill-badges">
+                <span class="skill-badge free">Free</span>
+                <span class="skill-badge">Claude Code</span>
+                <span class="skill-badge">OpenClaw</span>
+                <span class="skill-badge">Agent Skills Standard</span>
+            </div>
+            <p class="skill-hook">AI writes your code. This skill makes sure it does not ship broken.</p>
+            <h3>/deep-audit -- A four-phase code auditor that chains planning mode, security review, extended thinking, and execution into a single disciplined pipeline.</h3>
+            <p class="skill-meta">Speedrun AI Labs &middot; v1.0 &middot; March 2026 &middot; MIT License</p>
+            <p class="skill-desc">Catches what pattern-matching tools miss: business logic flaws, race conditions, silent failures, subtle auth bypasses, and the kind of bugs that survive years of human review. Every finding comes with a file, a line number, and a fix. Compatible with Claude Code, OpenClaw, and any tool supporting the Agent Skills open standard.</p>
+            <div class="skill-install" id="install1">
+                <p class="skill-install-label">Install (Claude Code)</p>
+                <code>mkdir -p ~/.claude/skills
+git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-audit</code>
+                <p class="skill-install-label" style="margin-top:16px">Then run</p>
+                <code>/deep-audit</code>
+            </div>
+            <div class="skill-actions">
+                <button class="skill-toggle" onclick="toggleInstall('install1', this)">Install Instructions</button>
+                <a class="skill-github" href="https://github.com/Speedrunlab/deep-audit" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai" target="_blank">speedrunlab.ai</a></p></footer>
+</section>
+
 <section id="p-contact" class="page">
     <div class="contact">
         <h2>Get in touch</h2>
@@ -362,6 +432,7 @@ function go(p){document.querySelectorAll('.page').forEach(function(el){el.classL
 if(window.location.search.includes('error=1')){var e=document.getElementById('formErr');if(e){e.style.display='block';go('contact');}}if(window.location.search.includes('limit=1')){var e=document.getElementById('formErr');if(e){e.textContent='Too many submissions today. Please try again tomorrow.';e.style.display='block';go('contact');}}
 var cA,cB;function genCap(){cA=Math.floor(Math.random()*10)+1;cB=Math.floor(Math.random()*10)+1;document.getElementById('capQ').textContent='What is '+cA+' + '+cB+'?'}genCap();
 function toggleAbstract(id,btn){var el=document.getElementById(id);var open=el.classList.toggle('open');btn.textContent=open?'Hide Abstract':'Read Abstract'}
+function toggleInstall(id,btn){var el=document.getElementById(id);if(el.classList.contains('open')){el.classList.remove('open');btn.textContent='Install Instructions';}else{el.classList.add('open');btn.textContent='Hide Instructions';}}
 document.getElementById('cForm').addEventListener('submit',function(ev){var ph=document.getElementById('c-phone').value.trim();var a=document.getElementById('capA').value.trim();if(ph){var digits=ph.replace(/[\s\-()]+/g,'');if(!/^(04\d{8}|0[2378]\d{8}|\+614\d{8})$/.test(digits)){ev.preventDefault();alert('Please enter a valid Australian phone number (e.g. 04XX XXX XXX or 02 XXXX XXXX).');return}}if(parseInt(a)!==(cA+cB)){ev.preventDefault();alert('That does not look right. Please try the maths question again.');genCap();document.getElementById('capA').value='';return}document.getElementById('sydTime').value=new Date().toLocaleString('en-AU',{timeZone:'Australia/Sydney',dateStyle:'full',timeStyle:'short'})})
 </script>
 
