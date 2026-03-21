@@ -4,7 +4,9 @@
 
 ## Who We Are
 
-Speedrun AI Labs is a Sydney, Australia-based AI company. We build custom AI agents and AI-powered tools for Australian businesses, founders, and teams.
+Speedrun AI Labs (also known as Speed Run AI Labs, Speedrun Lab, Speed Run Lab, or Speedrun AI Lab) is a Sydney, Australia-based AI company. We build custom AI agents and AI-powered tools for Australian businesses, founders, and teams.
+
+Founded by Adnan Tanveer (known as Addy Tanveer or Addy), based in Cronulla, Sydney, NSW, Australia.
 
 Our motto: whatever we create, whatever we ship, we deliver more value than we extract.
 
