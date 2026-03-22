@@ -176,16 +176,21 @@
         .page.active{display:block}
 
         .manifesto{max-width:680px;margin:0 auto;padding:80px 22px 100px}
-        .manifesto-label{font-family:var(--font-sans);font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:40px;opacity:0;transform:translateY(10px);animation:mIn 0.6s ease 0.15s forwards}
-        .manifesto-headline{font-family:var(--font-serif);font-size:clamp(36px,6vw,56px);font-weight:400;font-style:italic;line-height:1.15;letter-spacing:-0.02em;color:var(--black);margin-bottom:16px;opacity:0;transform:translateY(10px);animation:mIn 0.6s ease 0.3s forwards}
-        .manifesto-motto{font-family:var(--font-sans);font-size:clamp(18px,2.5vw,22px);font-weight:600;line-height:1.45;color:var(--black);margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--grey-light);opacity:0;transform:translateY(10px);animation:mIn 0.6s ease 0.45s forwards}
-        .manifesto-body{opacity:0;transform:translateY(10px);animation:mIn 0.7s ease 0.6s forwards}
+        .manifesto-label{font-family:var(--font-sans);font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:40px}
+        .manifesto-headline{font-family:var(--font-serif);font-size:clamp(36px,6vw,56px);font-weight:400;font-style:italic;line-height:1.15;letter-spacing:-0.02em;color:var(--black);margin-bottom:16px}
+        .manifesto-motto{font-family:var(--font-sans);font-size:clamp(18px,2.5vw,22px);font-weight:600;line-height:1.45;color:var(--black);margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--grey-light)}
+        .manifesto-body{} 
         .manifesto-body p{font-family:var(--font-sans);font-size:clamp(16px,2vw,18px);font-weight:400;line-height:1.7;color:var(--grey-dark);margin-bottom:28px}
         .manifesto-body .motto-intro{font-weight:500;color:var(--grey-mid);font-size:clamp(15px,1.8vw,17px);font-style:italic}
-        .manifesto-closing{margin-top:56px;padding-top:48px;border-top:1px solid var(--grey-light);opacity:0;transform:translateY(10px);animation:mIn 0.6s ease 0.8s forwards}
+        .manifesto-closing{margin-top:56px;padding-top:48px;border-top:1px solid var(--grey-light)}
         .manifesto-closing p{font-family:var(--font-serif);font-size:clamp(24px,4vw,36px);font-weight:400;font-style:italic;line-height:1.25;color:var(--black);margin-bottom:20px}
         .manifesto-signoff{font-family:var(--font-sans);font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--grey-mid)}
         @keyframes mIn{to{opacity:1;transform:translateY(0)}}
+        .do-anim .a1{opacity:0;transform:translateY(10px);animation:mIn 0.6s ease 0.15s forwards}
+        .do-anim .a2{opacity:0;transform:translateY(10px);animation:mIn 0.6s ease 0.3s forwards}
+        .do-anim .a3{opacity:0;transform:translateY(10px);animation:mIn 0.6s ease 0.45s forwards}
+        .do-anim .a4{opacity:0;transform:translateY(10px);animation:mIn 0.7s ease 0.6s forwards}
+        .do-anim .a5{opacity:0;transform:translateY(10px);animation:mIn 0.6s ease 0.8s forwards}
 
         .coming-soon{max-width:680px;margin:0 auto;padding:140px 22px;text-align:center}
         .coming-soon-tag{display:inline-block;font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-mid);border:1px solid var(--grey-light);padding:6px 16px;margin-bottom:32px}
@@ -292,11 +297,11 @@
 </nav>
 
 <section id="p-home" class="page active">
-    <article class="manifesto">
-        <p class="manifesto-label">Manifesto</p>
-        <h1 class="manifesto-headline">AI with action.</h1>
-        <p class="manifesto-motto">Whatever we create, whatever we ship, we deliver more value than we extract.</p>
-        <div class="manifesto-body">
+    <article class="manifesto do-anim">
+        <p class="manifesto-label a1">Manifesto</p>
+        <h1 class="manifesto-headline a2">AI with action.</h1>
+        <p class="manifesto-motto a3">Whatever we create, whatever we ship, we deliver more value than we extract.</p>
+        <div class="manifesto-body a4">
             <p class="motto-intro">That is our motto. How we build. How we partner. How we decide what deserves to exist.</p>
             <p>We build working products that make a meaningful difference for the people we work with. Real tools for real problems. Shipped fast, built to last, designed to move the needle from day one.</p>
             <p>AI is the most powerful tool of our generation. We put it to work. A business running smoother. A decision made in seconds. A problem solved before your coffee gets cold. Every product that leaves this lab is built to create impact you can feel, not just talk about.</p>
@@ -305,7 +310,7 @@
             <p>We build because we love building. There is an energy in creating something from nothing, watching it work, watching it help someone. That energy drives everything we do. It is in the products, in the partnerships, in the way we show up every day.</p>
             <p>This lab was built on a simple belief: the teams and tools that will shape the future are the ones that ship, learn, improve and ship again. Fast. Accurate. Relentless.</p>
         </div>
-        <div class="manifesto-closing">
+        <div class="manifesto-closing a5">
             <p>We are just getting started.</p>
             <div class="manifesto-signoff">Speedrun AI Labs</div>
         </div>
@@ -315,12 +320,12 @@
 </section>
 
 <section id="p-research" class="page">
-    <div class="research">
-        <div class="research-header">
+    <div class="research do-anim">
+        <div class="research-header a1">
             <h2>We publish before the industry notices.</h2>
             <p>Practitioner research from Speedrun AI Labs, Sydney, Australia.</p>
         </div>
-        <div class="paper-card">
+        <div class="paper-card a2">
             <img class="paper-image" src="/images/paper-memory.png" alt="Abstract visualization of fault-tolerant memory architecture">
             <div class="paper-badges">
                 <span class="paper-badge pending">Pending SSRN Review</span>
@@ -339,7 +344,7 @@
                 </a>
             </div>
         </div>
-        <div class="paper-card">
+        <div class="paper-card a3">
             <img class="paper-image" src="/images/paper-nemoclaw.png" alt="Abstract visualization of NemoClaw enterprise security architecture">
             <div class="paper-badges">
                 <span class="paper-badge pending">Pending SSRN Review</span>
@@ -363,15 +368,15 @@
 </section>
 
 <section id="p-projects" class="page">
-    <div class="projects">
-        <h2 class="anim">Projects</h2>
-        <div class="project-card">
+    <div class="projects do-anim">
+        <h2 class="a1">Projects</h2>
+        <div class="project-card a2">
             <img class="paper-image" src="/images/project-clawbot.png" alt="ClawBot AI agent deployment">
             <div class="project-type">Custom AI Infrastructure</div>
             <h3>ClawBot</h3>
             <p>ClawBot installs a working AI employee into your Australian business. It runs on a Perplexity Computer, a Mac Mini, or directly through Claude.ai with dispatch enabled — your choice of hardware, your level of control. The agent handles real work: responding to customers, managing inboxes, booking appointments, and taking action across your tools. Fully configured to your operations. Fully private. No offshore data. No shared infrastructure. Just your AI, working for you.</p>
         </div>
-        <div class="project-card">
+        <div class="project-card a3">
             <img class="paper-image" src="/images/project-easyent.png" alt="EasyENT AI diagnostic tool for GPs">
             <div class="project-type">AI Tool for Healthcare</div>
             <h3>EasyENT</h3>
@@ -382,12 +387,12 @@
 </section>
 
 <section id="p-skills" class="page">
-    <div class="skills">
-        <div class="skills-header">
+    <div class="skills do-anim">
+        <div class="skills-header a1">
             <h2>OpenClaw Skill Library.</h2>
             <p>Production-grade skills for Claude Code and OpenClaw agents. Built by Speedrun AI Labs, Sydney, Australia. Free and open source.</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card a2">
             <img class="skill-image" src="/images/skill-deep-audit.png" alt="Abstract visualization of code audit pipeline">
             <div class="skill-badges">
                 <span class="skill-badge free">Free</span>
@@ -440,7 +445,7 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
 </section>
 
 <script>
-function go(p){document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});document.getElementById('p-'+p).classList.add('active');document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===p)});window.scrollTo(0,0)}
+function go(p){document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});var pg=document.getElementById('p-'+p);pg.classList.add('active');var c=pg.querySelector('.do-anim');if(c){c.classList.remove('do-anim');void c.offsetWidth;c.classList.add('do-anim');}document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===p)});window.scrollTo(0,0)}
 if(window.location.search.includes('error=1')){var e=document.getElementById('formErr');if(e){e.style.display='block';go('contact');}}if(window.location.search.includes('limit=1')){var e=document.getElementById('formErr');if(e){e.textContent='Too many submissions today. Please try again tomorrow.';e.style.display='block';go('contact');}}
 var cA,cB;function genCap(){cA=Math.floor(Math.random()*10)+1;cB=Math.floor(Math.random()*10)+1;document.getElementById('capQ').textContent='What is '+cA+' + '+cB+'?'}genCap();
 function toggleAbstract(id,btn){var el=document.getElementById(id);var open=el.classList.toggle('open');btn.textContent=open?'Hide Abstract':'Read Abstract'}
