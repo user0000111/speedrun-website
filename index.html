@@ -10,7 +10,6 @@
     <meta name="keywords" content="AI, artificial intelligence, machine learning, AI tools, Sydney, Australia, Speedrun AI Labs, Speed Run AI Labs, Speedrun Lab, Speed Run Lab, Speedrun AI Lab Sydney, ClawBot, EasyENT, Adnan Tanveer, Addy Tanveer, Addy Speedrun, Adnan Speedrun AI Labs">
     <meta name="author" content="Speedrun AI Labs">
     <meta name="robots" content="index, follow">
-    <meta name="color-scheme" content="light">
     <link rel="canonical" href="https://www.speedrunlab.ai/">
     <meta property="og:title" content="Speedrun AI Labs — AI with action">
     <meta property="og:description" content="Whatever we create, whatever we ship, we deliver more value than we extract.">
@@ -167,7 +166,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        :root{color-scheme:light;--white:#FBFBFB;--black:#1D1D1F;--grey-light:#E5E5E7;--grey-nav:#86868B;--grey-mid:#6E6E73;--grey-dark:#424245;--font-sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;--font-serif:'Instrument Serif',Georgia,'Times New Roman',serif}
+        :root{--white:#FBFBFB;--black:#1D1D1F;--grey-light:#E5E5E7;--grey-nav:#86868B;--grey-mid:#6E6E73;--grey-dark:#424245;--font-sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;--font-serif:'Instrument Serif',Georgia,'Times New Roman',serif}
         html{scroll-behavior:smooth}
         body{font-family:var(--font-sans);background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
 
@@ -292,7 +291,10 @@
 <nav>
     <div class="nav-inner">
         <a class="nav-logo" onclick="go('home')">
-            <img src="logo.png" alt="Speedrun AI Labs" loading="eager">
+            <picture>
+                <source srcset="logo-white.png" media="(prefers-color-scheme: dark)">
+                <img src="logo.png" alt="Speedrun AI Labs" loading="eager">
+            </picture>
         </a>
         <ul class="nav-links">
             <li><a class="active" data-p="home" onclick="go('home')">Home</a></li>
