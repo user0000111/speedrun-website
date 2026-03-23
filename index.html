@@ -11,15 +11,21 @@
     <meta name="author" content="Speedrun AI Labs">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.speedrunlab.ai/">
-    <meta property="og:title" content="Speedrun AI Labs -- AI with action">
+    <meta property="og:title" content="Speedrun AI Labs — AI with action">
     <meta property="og:description" content="Whatever we create, whatever we ship, we deliver more value than we extract.">
     <meta property="og:url" content="https://www.speedrunlab.ai/">
     <meta property="og:site_name" content="Speedrun AI Labs">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_AU">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Speedrun AI Labs -- AI with action">
+    <meta property="og:image" content="https://www.speedrunlab.ai/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Speedrun AI Labs — AI with action. Sydney, Australia.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Speedrun AI Labs — AI with action">
     <meta name="twitter:description" content="Whatever we create, whatever we ship, we deliver more value than we extract.">
+    <meta name="twitter:image" content="https://www.speedrunlab.ai/images/og-image.png">
+    <meta name="twitter:image:alt" content="Speedrun AI Labs — AI with action. Sydney, Australia.">
     <meta name="geo.region" content="AU-NSW">
     <meta name="geo.placename" content="Sydney">
     <meta name="geo.position" content="-33.8688;151.2093">
@@ -443,6 +449,16 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
     </div>
     <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai" target="_blank">speedrunlab.ai</a></p></footer>
 </section>
+
+<noscript>
+    <style>
+        #p-home{display:block!important}
+        .nav-links a{cursor:default}
+    </style>
+    <div style="position:fixed;top:0;left:0;right:0;background:#1D1D1F;color:#FBFBFB;font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;text-align:center;padding:10px;z-index:9999">
+        JavaScript is disabled. Some navigation features won't work — please enable JavaScript for the full experience.
+    </div>
+</noscript>
 
 <script>
 function go(p){document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});var pg=document.getElementById('p-'+p);pg.classList.add('active');var c=pg.querySelector('.do-anim');if(c){c.classList.remove('do-anim');void c.offsetWidth;c.classList.add('do-anim');}document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===p)});window.scrollTo(0,0)}
