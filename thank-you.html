@@ -16,6 +16,9 @@
         .nav-inner{max-width:980px;margin:0 auto;padding:0 22px;height:80px;display:flex;align-items:center;justify-content:center}
         .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--black)}
         .nav-logo img{height:106px;width:auto;display:block}
+        .nav-logo .logo-dark{display:block}
+        .nav-logo .logo-light{display:none}
+        @media(prefers-color-scheme:dark){.nav-logo .logo-dark{display:none}.nav-logo .logo-light{display:block}}
         .content{flex:1;display:flex;align-items:center;justify-content:center;padding:120px 22px 80px;text-align:center}
         .thank-you h1{font-family:var(--font-serif);font-size:clamp(32px,5vw,48px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:16px}
         .thank-you p{font-family:var(--font-sans);font-size:clamp(16px,2vw,18px);color:var(--grey-dark);line-height:1.6;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
@@ -33,7 +36,8 @@
     <nav>
         <div class="nav-inner">
             <a class="nav-logo" href="https://speedrunlab.ai">
-                <img src="logo.png" alt="Speedrun AI Labs">
+                <img class="logo-dark" src="logo.png" alt="Speedrun AI Labs">
+                <img class="logo-light" src="logo-white.png" alt="Speedrun AI Labs">
             </a>
         </div>
     </nav>
