@@ -1,0 +1,122 @@
+# Skill Banner Generation SOP
+**Speedrun AI Labs — Internal Reference**
+*Not for distribution. This file is excluded from the public website via .vercelignore.*
+
+---
+
+## Character Reference
+**The Speedrun Bird** — metallic cyborg avian speedrunner.
+
+Full visual spec: see `Speedrun_AI_Labs_Master_Spec_V1.pdf` in this folder.
+
+Key attributes (non-negotiable):
+- Material: brushed silver chrome/metal with anisotropic reflections
+- Lighting: high-key white from above + internal blue/copper-glow pulses
+- Pose: mid-stride profile run, forward-leaning, right-to-left orientation
+- Accessories: semi-translucent purple/blue tech goggles, bionic fist with glowing circuitry (left arm), metallic clipboard + pen (right hand)
+- Background: navy-blue tech gradient with data-swirl light lines
+- FX: trailing digital pixels (blue/copper) + motion blur lines
+
+---
+
+## Generation Model
+**Model:** `google/gemini-3-pro-image-preview` via OpenRouter
+
+**No substitutions. No flash variants. No other Gemini versions.**
+
+If this model is unavailable, stop and escalate to Addy — do not fall back to another model.
+
+---
+
+## Master Prompt Template
+
+```
+A high-resolution, 3D digital render of the precise metallic cyborg speedrunner bird character,
+identical in pose and brushed chrome material. All details (purple-blue goggles, bionic fist
+circuitry, and colorful pixels) must be preserved without variance. Centered on the metallic
+clipboard, render the text '[INSERT_TEXT]' in all-caps, black, clear sans-serif font, mapped flat
+to the surface. Frame the full character with small top/bottom gaps.
+```
+
+Replace `[INSERT_TEXT]` with the skill name in **ALL CAPS**.
+
+Examples: `WRITING`, `DEEP AUDIT`, `WEATHER`, `MEMORY`
+
+---
+
+## QA Checklist (every banner — no exceptions)
+
+### Step 1 — Watermark Scan
+Pixel-scan the bottom-right 200×200px for Gemini's sparkle watermark (bright pixels on a dark background).
+
+```python
+from PIL import Image
+img = Image.open('banner.png').convert('RGBA')
+w, h = img.size
+for y in range(h - 200, h):
+    for x in range(w - 200, w):
+        r, g, b, a = img.getpixel((x, y))
+        if r > 60 or g > 70 or b > 90:
+            # Watermark detected — paint over with sampled background colour
+            img.putpixel((x, y), (10, 14, 30, 255))  # approx dark navy bg
+img.save('banner-clean.png')
+```
+
+### Step 2 — Independent Validation
+**Validator model:** `qwen/qwen3-vl-235b-a22b-thinking` via OpenRouter
+
+Never use Gemini to validate Gemini output. Never use Claude to validate Claude output.
+
+Validation prompt:
+```
+Rate this skill banner 1–10. Check:
+1. Text is visible and perfectly centered on the clipboard surface
+2. Character matches spec: chrome bird, purple-blue goggles, bionic fist, clipboard + pen
+3. No watermarks, artefacts, or visual noise
+4. Text follows clipboard perspective (flat-mapped to surface, not floating)
+5. Overall production quality — would this look professional on a public website?
+
+Score each criterion 1–10 and give an overall score.
+```
+
+### Step 3 — Approval Gate
+- Qwen overall score must be **≥ 8/10**
+- Addy must approve via Telegram before the banner is committed to the repo
+
+If Qwen scores < 8, regenerate. Do not ask Addy to review a substandard banner.
+
+---
+
+## Critical Rules
+
+**Never use PIL/Pillow to overlay text on 3D renders.**
+Text must be rendered INTO the scene by Gemini using the master prompt above.
+PIL text on a 3D surface looks flat, misaligned, and unprofessional.
+
+**Never skip the watermark scan.**
+Gemini adds a sparkle watermark to generated images. It must be removed before any banner goes live.
+
+**Never substitute the generation model.**
+The character fidelity depends on Gemini 3 Pro specifically. Other models produce drift.
+
+---
+
+## Output Specifications
+
+| Property | Value |
+|----------|-------|
+| Format | PNG |
+| Dimensions | Gemini native output (do not resize) |
+| Location in repo | `images/skill-[slug].png` |
+| Naming convention | `skill-[skill-name-lowercase-hyphenated].png` |
+
+Examples: `skill-deep-audit.png`, `skill-no-slop.png`, `skill-weather.png`
+
+---
+
+## Existing Banners
+
+| Skill | File | Status |
+|-------|------|--------|
+| Deep Audit | `images/skill-deep-audit.png` | Live ✅ |
+| No-Slop Writing | `images/skill-no-slop.png` | Live ✅ |
