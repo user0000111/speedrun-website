@@ -168,6 +168,74 @@
     }
     </script>
 
+    <!-- Press Coverage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Press Coverage of Speedrun AI Labs",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "NewsArticle",
+                    "headline": "Sydney AI Lab Launches with Open Source Tools and Runs Testing of Autonomous Coding Agent in Fintech Environment",
+                    "url": "https://natlawreview.com/press-releases/sydney-ai-lab-launches-open-source-tools-and-runs-testing-autonomous-coding",
+                    "datePublished": "2026-03-25",
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "National Law Review"
+                    },
+                    "about": {
+                        "@type": "Organization",
+                        "name": "Speedrun AI Labs",
+                        "url": "https://www.speedrunlab.ai"
+                    }
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "NewsArticle",
+                    "headline": "Sydney AI Lab Launches with Open Source Tools and Runs Testing of Autonomous Coding Agent in Fintech Environment",
+                    "url": "https://www.einpresswire.com/article/901533369/sydney-ai-lab-launches-with-open-source-tools-and-runs-testing-of-autonomous-coding-agent-in-fintech-environment",
+                    "datePublished": "2026-03-25",
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "EIN Presswire"
+                    },
+                    "about": {
+                        "@type": "Organization",
+                        "name": "Speedrun AI Labs",
+                        "url": "https://www.speedrunlab.ai"
+                    }
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                    "@type": "NewsArticle",
+                    "headline": "Sydney AI Lab's Autonomous Agent Fixes Bug in 2 Hours That Stumped Dev Team for Weeks",
+                    "url": "https://cbherald.com/sydney-ai-labs-autonomous-agent-fixes-bug-in-2-hours-that-stumped-dev-team-for-weeks/",
+                    "datePublished": "2026-03-30",
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "CB Herald"
+                    },
+                    "about": {
+                        "@type": "Organization",
+                        "name": "Speedrun AI Labs",
+                        "url": "https://www.speedrunlab.ai"
+                    }
+                }
+            }
+        ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -267,6 +335,21 @@
         .skill-github{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--white);background:var(--black);border:1px solid var(--black);border-radius:980px;padding:8px 20px;text-decoration:none;transition:opacity 0.2s}
         .skill-github:hover{opacity:0.82}
 
+        .press{max-width:680px;margin:0 auto;padding:80px 22px 100px}
+        .press-header{margin-bottom:64px}
+        .press-header h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:10px}
+        .press-header p{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);line-height:1.5}
+        .press-card{padding:52px 0;border-bottom:1px solid var(--grey-light)}
+        .press-card:first-of-type{border-top:1px solid var(--grey-light)}
+        .press-pub{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;display:inline-block;padding:4px 12px;border-radius:980px;border:1px solid var(--grey-light);color:var(--grey-mid);margin-bottom:20px}
+        .press-card h3{font-family:var(--font-sans);font-size:clamp(20px,3vw,26px);font-weight:700;color:var(--black);line-height:1.25;margin-bottom:10px;letter-spacing:-0.01em}
+        .press-card h3 a{color:inherit;text-decoration:none;transition:color 0.2s}
+        .press-card h3 a:hover{color:var(--grey-mid)}
+        .press-date{font-family:var(--font-sans);font-size:12px;color:var(--grey-nav);margin-bottom:16px}
+        .press-excerpt{font-family:var(--font-sans);font-size:15px;color:var(--grey-dark);line-height:1.65;margin-bottom:24px}
+        .press-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--white);background:var(--black);border:1px solid var(--black);border-radius:980px;padding:8px 20px;text-decoration:none;transition:opacity 0.2s}
+        .press-link:hover{opacity:0.82}
+
         .contact{max-width:520px;margin:0 auto;padding:80px 22px 100px}
         .contact h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;color:var(--black);margin-bottom:12px}
         .contact-sub{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);margin-bottom:40px;line-height:1.5}
@@ -309,6 +392,7 @@
             <li><a data-p="projects" onclick="go('projects')">Projects</a></li>
             <li><a data-p="skills" onclick="go('skills')">Skill Library</a></li>
             <li><a data-p="research" onclick="go('research')">Research Papers</a></li>
+            <li><a data-p="press" onclick="go('press')">Press</a></li>
             <li><a data-p="contact" onclick="go('contact')">Contact Us</a></li>
         </ul>
     </div>
@@ -497,6 +581,46 @@ git clone https://github.com/Speedrunlab/no-slop-writing-au.git ~/.claude/skills
                     View on GitHub
                 </a>
             </div>
+        </div>
+    </div>
+    <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai" target="_blank">speedrunlab.ai</a></p></footer>
+</section>
+
+<section id="p-press" class="page">
+    <div class="press do-anim">
+        <div class="press-header a1">
+            <h2>In the press.</h2>
+            <p>Coverage of Speedrun AI Labs from publications around the world.</p>
+        </div>
+        <div class="press-card a2">
+            <span class="press-pub">National Law Review</span>
+            <h3><a href="https://natlawreview.com/press-releases/sydney-ai-lab-launches-open-source-tools-and-runs-testing-autonomous-coding" target="_blank" rel="noopener">Sydney AI Lab Launches with Open Source Tools and Runs Testing of Autonomous Coding Agent in Fintech Environment</a></h3>
+            <p class="press-date">March 25, 2026</p>
+            <p class="press-excerpt">Speedrun AI Labs deploys an autonomous coding agent running on OpenClaw inside a regulated fintech environment, using open source tools to ship production code without human intervention. The first known deployment of its kind in Australian financial services.</p>
+            <a class="press-link" href="https://natlawreview.com/press-releases/sydney-ai-lab-launches-open-source-tools-and-runs-testing-autonomous-coding" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Read on National Law Review
+            </a>
+        </div>
+        <div class="press-card a3">
+            <span class="press-pub">EIN Presswire</span>
+            <h3><a href="https://www.einpresswire.com/article/901533369/sydney-ai-lab-launches-with-open-source-tools-and-runs-testing-of-autonomous-coding-agent-in-fintech-environment" target="_blank" rel="noopener">Sydney AI Lab Launches with Open Source Tools and Runs Testing of Autonomous Coding Agent in Fintech Environment</a></h3>
+            <p class="press-date">March 25, 2026</p>
+            <p class="press-excerpt">The original press wire release covering Speedrun AI Labs' launch and the deployment of an autonomous AI coding agent within a regulated Australian fintech company. Distributed globally via EIN Presswire.</p>
+            <a class="press-link" href="https://www.einpresswire.com/article/901533369/sydney-ai-lab-launches-with-open-source-tools-and-runs-testing-of-autonomous-coding-agent-in-fintech-environment" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Read on EIN Presswire
+            </a>
+        </div>
+        <div class="press-card a4">
+            <span class="press-pub">CB Herald</span>
+            <h3><a href="https://cbherald.com/sydney-ai-labs-autonomous-agent-fixes-bug-in-2-hours-that-stumped-dev-team-for-weeks/" target="_blank" rel="noopener">Sydney AI Lab's Autonomous Agent Fixes Bug in 2 Hours That Stumped Dev Team for Weeks</a></h3>
+            <p class="press-date">March 30, 2026</p>
+            <p class="press-excerpt">An autonomous AI agent deployed by Speedrun AI Labs diagnosed and fixed a production bug in under two hours that had blocked a human development team for weeks. Coverage of the real-world results from agentic AI in Australian business.</p>
+            <a class="press-link" href="https://cbherald.com/sydney-ai-labs-autonomous-agent-fixes-bug-in-2-hours-that-stumped-dev-team-for-weeks/" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Read on CB Herald
+            </a>
         </div>
     </div>
     <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai" target="_blank">speedrunlab.ai</a></p></footer>
