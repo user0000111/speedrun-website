@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://www.speedrunlab.ai/:path*",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "speedrunlab.ai"
+        }
+      ]
+    }
+  ]
+}
