@@ -136,6 +136,17 @@ Examples: `skill-deep-audit.png`, `skill-no-slop.png`, `skill-weather.png`
 
 ---
 
+## New Skill Launch Checklist
+
+Every new skill repo MUST include on first commit — no exceptions:
+- [ ] `SKILL.md` — the skill content
+- [ ] `README.md` — origin story, problem, install instructions, site link, Skill Library cross-links
+- [ ] `LICENSE` — copy from any existing Speedrunlab repo (MIT, copyright Speedrun AI Labs Pty Ltd)
+
+GitHub shows "MIT License" in repo listings only when a `LICENSE` file exists. Missing it looks unprofessional.
+
+---
+
 ## Existing Banners
 
 | Skill | File | Status |
