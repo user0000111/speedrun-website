@@ -27,6 +27,14 @@
     <meta name="geo.region" content="AU-NSW">
     <meta name="geo.placename" content="Sydney">
 
+    <!-- Citation meta tags for Google Scholar indexing -->
+    <meta name="citation_title" content="Building Fault-Tolerant Memory for OpenClaw AI Agents: A Three-Layer Architecture for the SQLITE_CANTOPEN Regression in 2026.3.x">
+    <meta name="citation_author" content="Tanveer, Adnan">
+    <meta name="citation_publication_date" content="2026/03/16">
+    <meta name="citation_abstract_html_url" content="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436099">
+    <meta name="citation_pdf_url" content="https://www.speedrunlab.ai/papers/fault-tolerant-memory-openclaw-v1.1.pdf">
+    <meta name="citation_journal_title" content="SSRN Electronic Journal">
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -46,13 +54,21 @@
                 "author": {
                     "@type": "Person",
                     "name": "Adnan Tanveer",
-                    "alternateName": "Addy Tanveer"
+                    "alternateName": ["Addy Tanveer", "Addy"],
+                    "url": "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=1",
+                    "worksFor": {
+                        "@type": "Organization",
+                        "name": "Speedrun AI Labs",
+                        "url": "https://www.speedrunlab.ai"
+                    }
                 },
                 "datePublished": "2026-03-16",
-                "url": "https://www.speedrunlab.ai/papers/fault-tolerant-memory-openclaw-v1.1.pdf",
+                "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436099",
+                "sameAs": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436099",
+                "isAccessibleForFree": true,
                 "publisher": {
                     "@type": "Organization",
-                    "name": "Speedrun AI Labs"
+                    "name": "SSRN"
                 },
                 "about": "OpenClaw AI agent memory architecture, SQLite fault tolerance, QMD, Mem0, Qdrant"
             },
@@ -62,15 +78,55 @@
                 "author": {
                     "@type": "Person",
                     "name": "Adnan Tanveer",
-                    "alternateName": "Addy Tanveer"
+                    "alternateName": ["Addy Tanveer", "Addy"],
+                    "worksFor": {
+                        "@type": "Organization",
+                        "name": "Speedrun AI Labs",
+                        "url": "https://www.speedrunlab.ai"
+                    }
                 },
                 "datePublished": "2026-03-17",
-                "url": "https://www.speedrunlab.ai/papers/inside-nemoclaw-v1.0.pdf",
+                "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436138",
+                "sameAs": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436138",
+                "isAccessibleForFree": true,
                 "publisher": {
                     "@type": "Organization",
-                    "name": "Speedrun AI Labs"
+                    "name": "SSRN"
                 },
                 "about": "NemoClaw, NVIDIA, enterprise AI security, OpenClaw, autonomous AI agents"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Author schema — Addy as published AI researcher -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Adnan Tanveer",
+        "alternateName": ["Addy Tanveer", "Addy"],
+        "jobTitle": "Founder",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Speedrun AI Labs",
+            "url": "https://www.speedrunlab.ai"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sydney",
+            "addressRegion": "NSW",
+            "addressCountry": "AU"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/adnanmtanveer/",
+            "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=1"
+        ],
+        "hasCredential": [
+            {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "Master of Business Administration"
             }
         ]
     }
@@ -108,6 +164,9 @@
         .paper-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
         .paper-badge{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:980px;border:1px solid var(--grey-light);color:var(--grey-mid)}
         .paper-badge.pending{color:#b45309;border-color:#fde68a;background:#fffbeb}
+        .paper-badge.published{color:#166534;border-color:#bbf7d0;background:#f0fdf4}
+        .paper-ssrn{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--black);background:none;border:1px solid var(--grey-light);border-radius:980px;padding:8px 20px;text-decoration:none;transition:border-color 0.2s,background 0.2s}
+        .paper-ssrn:hover{border-color:var(--black);background:rgba(0,0,0,0.03)}
         .paper-hook{font-family:var(--font-sans);font-size:clamp(22px,3.5vw,30px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:10px;letter-spacing:-0.02em}
         .paper-card h2{font-family:var(--font-sans);font-size:14px;font-weight:400;color:var(--grey-mid);margin-bottom:6px;line-height:1.4}
         .paper-meta{font-family:var(--font-sans);font-size:12px;color:var(--grey-nav);margin-bottom:20px}
@@ -156,16 +215,20 @@
         <article class="paper-card">
             <img class="paper-image" src="/images/paper-memory.png" alt="Abstract visualization of fault-tolerant memory architecture">
             <div class="paper-badges">
-                <span class="paper-badge pending">Pending SSRN Review</span>
+                <span class="paper-badge published">Published on SSRN</span>
                 <span class="paper-badge">cs.SE</span>
                 <span class="paper-badge">OpenClaw</span>
             </div>
             <p class="paper-hook">The first production fix for OpenClaw's broken memory.</p>
             <h2>Building Fault-Tolerant Memory for OpenClaw AI Agents: A Three-Layer Architecture for the SQLITE_CANTOPEN Regression in 2026.3.x</h2>
-            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; March 16, 2026 &middot; v1.1</p>
+            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; March 16, 2026 &middot; v1.1 &middot; SSRN 6436099</p>
             <p class="paper-abstract" id="abs1">OpenClaw's default memory system exhibits recurring reliability failures: SQLite crashes, dirty indexes, and complete persistence loss during active sessions. This paper presents a three-layer fault-tolerant architecture combining pre-compaction memory flushing, QMD-based local hybrid search, and Mem0 self-hosted on Qdrant, validated in a production deployment on a Mac Mini that eliminated all documented failure modes while maintaining zero cloud dependency for search.</p>
             <div class="paper-actions">
                 <button class="paper-toggle" onclick="toggleAbstract('abs1', this)">Read Abstract</button>
+                <a class="paper-ssrn" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436099" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    View on SSRN
+                </a>
                 <a class="paper-download" href="/papers/fault-tolerant-memory-openclaw-v1.1.pdf" download>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     Download PDF
@@ -176,16 +239,20 @@
         <article class="paper-card">
             <img class="paper-image" src="/images/paper-nemoclaw.png" alt="Abstract visualization of NemoClaw enterprise security architecture">
             <div class="paper-badges">
-                <span class="paper-badge pending">Pending SSRN Review</span>
+                <span class="paper-badge published">Published on SSRN</span>
                 <span class="paper-badge">cs.CR</span>
                 <span class="paper-badge">NemoClaw</span>
             </div>
             <p class="paper-hook">The first inside look at NVIDIA's NemoClaw. Published the day after GTC 2026.</p>
             <h2>Inside NemoClaw: An Architectural Analysis of NVIDIA's Enterprise Security Stack for Autonomous AI Agents</h2>
-            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; March 17, 2026, one day after GTC 2026 &middot; v1.0</p>
+            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; March 17, 2026, one day after GTC 2026 &middot; v1.0 &middot; SSRN 6436138</p>
             <p class="paper-abstract" id="abs2">NVIDIA NemoClaw, announced at GTC 2026 by Jensen Huang, is the first major vendor implementation of enterprise-grade security for OpenClaw autonomous AI agents. This paper presents the first detailed public decomposition of the NemoClaw and OpenShell security architecture across six layers: Landlock filesystem isolation, seccomp BPF syscall filtering, network namespace isolation, OPA/Rego policy enforcement, TLS inspection, and provider-agnostic inference routing, derived from direct inspection of both open-source codebases.</p>
             <div class="paper-actions">
                 <button class="paper-toggle" onclick="toggleAbstract('abs2', this)">Read Abstract</button>
+                <a class="paper-ssrn" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436138" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    View on SSRN
+                </a>
                 <a class="paper-download" href="/papers/inside-nemoclaw-v1.0.pdf" download>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     Download PDF
