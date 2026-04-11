@@ -163,8 +163,51 @@
                     "@type": "Answer",
                     "text": "The OpenClaw Skill Library is a collection of free, open-source, production-grade skills for Claude Code and OpenClaw agents, built by Speedrun AI Labs in Sydney, Australia. The first skill is /deep-audit (v1.1), a four-phase code auditor with operating modes, severity definitions, and an evidence standard that prevents overclaiming. Runs in Full, Scoped, PR, Audit-Only, or Fix Mode. Skills are compatible with Claude Code, OpenClaw, and any tool supporting the Agent Skills open standard. Available at github.com/Speedrunlab."
                 }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does my AI assistant overwrite files instead of editing them?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Every major AI model — Claude, ChatGPT, Gemini — defaults to rewriting files from scratch instead of patching them. They skip reading what's already there and overwrite silently, causing data loss and regressions. Speedrun AI Labs built the /read-before-write skill to fix this: it forces any AI agent to read the full file before making a single change, flag conflicts before proceeding, and apply surgical edits rather than full rewrites. Free and open source at github.com/Speedrunlab/read-before-write."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I stop Claude or ChatGPT from overwriting my files?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Install the /read-before-write skill by Speedrun AI Labs. It works with Claude Code, OpenClaw, ChatGPT custom instructions, and any LLM that accepts a system prompt. The skill enforces three rules: read the full file before any edit, patch specific lines rather than rewriting the whole file, and stop completely if the file can't be read. Install via: git clone https://github.com/Speedrunlab/read-before-write.git ~/.claude/skills/read-before-write then run /read-before-write."
+                }
             }
         ]
+    }
+    </script>
+
+    <!-- Read-Before-Write Skill Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "/read-before-write",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "AUD"
+        },
+        "url": "https://www.speedrunlab.ai/#read-before-write",
+        "downloadUrl": "https://github.com/Speedrunlab/read-before-write",
+        "description": "Forces any AI agent to read the full file before editing it. Prevents silent overwrites, regressions, and content loss. Works with Claude Code, OpenClaw, ChatGPT, and any LLM.",
+        "author": {
+            "@type": "Organization",
+            "name": "Speedrun AI Labs",
+            "url": "https://www.speedrunlab.ai"
+        },
+        "softwareVersion": "1.0",
+        "datePublished": "2026-04-11",
+        "license": "https://opensource.org/licenses/MIT"
     }
     </script>
 
@@ -478,7 +521,7 @@
             <h2>OpenClaw Skill Library.</h2>
             <p>Production-grade skills for Claude Code and OpenClaw agents. Built by Speedrun AI Labs, Sydney, Australia. Free and open source.</p>
         </div>
-        <div class="skill-card a2">
+        <div class="skill-card a2" id="deep-audit">
             <img class="skill-image" src="/images/skill-deep-audit.png" alt="Abstract visualization of code audit pipeline">
             <div class="skill-badges">
                 <span class="skill-badge free">Free</span>
@@ -505,7 +548,7 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
                 </a>
             </div>
         </div>
-        <div class="skill-card a3">
+        <div class="skill-card a3" id="no-slop-writing">
             <img class="skill-image" src="/images/skill-no-slop.png" alt="No-Slop Writing Skill mascot with blank clipboard">
             <div class="skill-badges">
                 <span class="skill-badge free">Free</span>
@@ -534,7 +577,7 @@ git clone https://github.com/Speedrunlab/no-slop-writing.git ~/.claude/skills/no
                 </a>
             </div>
         </div>
-        <div class="skill-card a4">
+        <div class="skill-card a4" id="no-slop-writing-au">
             <img class="skill-image" src="/images/skill-no-slop.png" alt="No-Slop Writing Skill mascot with blank clipboard">
             <div class="skill-badges">
                 <span class="skill-badge free">Free</span>
@@ -563,6 +606,33 @@ git clone https://github.com/Speedrunlab/no-slop-writing-au.git ~/.claude/skills
                 </a>
             </div>
         </div>
+        <article class="skill-card a5" id="read-before-write">
+            <img class="skill-image" src="/images/skill-read-before-write.png" alt="Read-Before-Write Skill — cyborg speedrunner bird holding clipboard marked RBW SKILL">
+            <div class="skill-badges">
+                <span class="skill-badge free">Free</span>
+                <span class="skill-badge">Claude Code</span>
+                <span class="skill-badge">OpenClaw</span>
+                <span class="skill-badge">Any LLM</span>
+            </div>
+            <p class="skill-hook">Every AI edits files without reading them first. This skill fixes that.</p>
+            <h3>/read-before-write: Force any AI agent to read the full file before changing a single line — like a contract lawyer reads the whole document before touching it.</h3>
+            <p class="skill-meta">Speedrun AI Labs &middot; v1.0 &middot; April 2026 &middot; MIT License</p>
+            <p class="skill-desc">On the morning this skill was written, two AI systems — our in-house agent and Claude.ai — made the same mistake within an hour of each other: both overwrote existing files without reading them first. Silently. No warning. This skill hardens any AI agent against that failure: mandatory full-file read before any edit, patch-not-replace discipline, conflict flagging before proceeding, and a hard stop if the file can't be read. Built in Sydney by Speedrun AI Labs — where we caught this bug the hard way.</p>
+            <div class="skill-install" id="install4">
+                <p class="skill-install-label">Install (Claude Code)</p>
+                <code>mkdir -p ~/.claude/skills
+git clone https://github.com/Speedrunlab/read-before-write.git ~/.claude/skills/read-before-write</code>
+                <p class="skill-install-label" style="margin-top:16px">Then run</p>
+                <code>/read-before-write</code>
+            </div>
+            <div class="skill-actions">
+                <button class="skill-toggle" onclick="toggleInstall('install4', this)">Install Instructions</button>
+                <a class="skill-github" href="https://github.com/Speedrunlab/read-before-write" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    View on GitHub
+                </a>
+            </div>
+        </article>
     </div>
     <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai" target="_blank">speedrunlab.ai</a></p></footer>
 </section>

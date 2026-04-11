@@ -28,7 +28,29 @@ If this model is unavailable, stop and escalate to Addy — do not fall back to 
 
 ---
 
-## Master Prompt Template
+## Generation Method — REFERENCE IMAGE TECHNIQUE (NON-NEGOTIABLE)
+
+**Do NOT use the text-only master prompt alone. Always use the reference image technique.**
+
+The correct method (discovered 2026-04-11 by Addy):
+1. Take an existing approved banner (e.g. `skill-no-slop.png`) as the reference image
+2. Send it to Gemini with this prompt:
+
+```
+I need this image file 100% replicated with one change: on the clipboard where it says [EXISTING_TEXT],
+I need that text replaced with "[INSERT_TEXT]"
+```
+
+Replace `[EXISTING_TEXT]` with what's currently on the clipboard (e.g. `WRITING`).
+Replace `[INSERT_TEXT]` with the new skill text in ALL CAPS (e.g. `RBW SKILL`).
+
+**Why this works:** Gemini replicates the exact pose, material, lighting, and composition from the reference. Text-only prompts produce standing poses and wrong character proportions.
+
+**Reference image to use:** `images/skill-no-slop.png` (approved Writing banner — canonical reference)
+
+---
+
+## Master Prompt Template (fallback only — if no reference image available)
 
 ```
 A high-resolution, 3D digital render of the precise metallic cyborg speedrunner bird character,
@@ -120,3 +142,4 @@ Examples: `skill-deep-audit.png`, `skill-no-slop.png`, `skill-weather.png`
 |-------|------|--------|
 | Deep Audit | `images/skill-deep-audit.png` | Live ✅ |
 | No-Slop Writing | `images/skill-no-slop.png` | Live ✅ |
+| Read-Before-Write | `images/skill-read-before-write.png` | Live ✅ |
