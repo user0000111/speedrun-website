@@ -14,9 +14,21 @@
   </url>
   <url>
     <loc>https://www.speedrunlab.ai/papers/</loc>
-    <lastmod>2026-04-09</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.speedrunlab.ai/papers/NemoClaw_Apple_Silicon_v2.1.pdf</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.speedrunlab.ai/papers/Self_Improving_Agents_v2.1.pdf</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.speedrunlab.ai/papers/fault-tolerant-memory-openclaw-v1.1.pdf</loc>

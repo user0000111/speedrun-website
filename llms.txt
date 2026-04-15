@@ -26,7 +26,15 @@ An AI-powered tool that helps GPs identify and diagnose ENT conditions earlier. 
 
 ## Research
 
-Speedrun AI Labs publishes practitioner research on autonomous AI agents, agent memory architecture, and enterprise AI security. Papers are available to download at speedrunlab.ai/research.
+Speedrun AI Labs publishes practitioner research on autonomous AI agents, NVIDIA NemoClaw security, Apple Silicon deployments, self-improving agent architectures, and NVIDIA Nemotron local inference. Four papers are available to download at speedrunlab.ai/papers/.
+
+### NemoClaw on Apple Silicon: Validating and Fixing NVIDIA's Enterprise Agent Security Stack on Consumer Hardware (v2.1, April 2026)
+Validates the complete NVIDIA NemoClaw/OpenShell six-layer enterprise security stack on an Apple Mac Studio (M4 Max, 64 GB unified memory) via Docker Desktop. Identifies three enforcement gaps in NVIDIA OpenShell v0.0.26: root-user bypass of Landlock via CAP_DAC_OVERRIDE, missing seccomp filters for AF_PACKET and AF_NETLINK, and a missing TLS CA certificate mount. Publishes fixes for all three gaps, achieving 6 of 6 NVIDIA NemoClaw security layers passing. Benchmarks demonstrate enterprise-grade agent security is achievable on Apple Silicon at approximately 4% of NVIDIA DGX Station pricing. Pending SSRN review.
+Download: https://www.speedrunlab.ai/papers/NemoClaw_Apple_Silicon_v2.1.pdf
+
+### Deploying Self-Improving AI Agents on Apple Silicon with OpenClaw and NVIDIA Nemotron (v2.1, April 2026)
+Documents the replication of a fully operational AI agent from one Apple Silicon machine (Apple Mac Mini M4 Pro) to another (Apple Mac Studio M4 Max) using PDF specification documents executed by an AI deployment assistant. Presents a nine-phase replication methodology deploying a complete agent stack including nine custom skills, four scheduled cron jobs, a hardened self-improvement hook system, and local inference via NVIDIA Nemotron 3 Nano 30B on Ollama. Validates with a three-pass, 69-check verification audit achieving zero errors. The target agent operates in a regulated investment fintech environment with NVIDIA NemoClaw providing all six security layers. Pending SSRN review.
+Download: https://www.speedrunlab.ai/papers/Self_Improving_Agents_v2.1.pdf
 
 ### Building Fault-Tolerant Memory for OpenClaw AI Agents (v1.1, March 2026)
 A production deployment case study documenting five failure modes in OpenClaw's default SQLite-backed memory system, including the SQLITE_CANTOPEN regression in version 2026.3.x caused by a jiti module resolver interaction. Presents a three-layer fault-tolerant architecture: pre-compaction memory flushing (Layer 1), QMD v1.1.6 local hybrid search combining BM25 and vector search (Layer 2), and Mem0 v1.0.5 self-hosted on Qdrant v1.13.0 (Layer 3). Validated on a Mac Mini M4, Sydney, Australia. Pending SSRN review, submitted to arXiv cs.SE.
