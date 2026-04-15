@@ -145,7 +145,7 @@
                 "name": "What research has Speedrun AI Labs published?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Speedrun AI Labs has published two practitioner research papers on SSRN from Sydney, Australia. The first, 'Building Fault-Tolerant Memory for OpenClaw AI Agents' (SSRN 6436099), documents a three-layer architecture using QMD and Mem0 on Qdrant to fix the SQLITE_CANTOPEN regression in OpenClaw 2026.3.x. The second, 'Inside NemoClaw' (SSRN 6436138), provides the first detailed architectural analysis of NVIDIA's NemoClaw enterprise security stack for autonomous AI agents, announced at GTC 2026. Both papers are published on SSRN and available to download at speedrunlab.ai/papers/."
+                    "text": "Speedrun AI Labs has published four practitioner research papers from Sydney, Australia. 'NemoClaw on Apple Silicon' validates NVIDIA's six-layer NemoClaw security stack on an Apple Mac Studio, finding and fixing three bugs. 'Deploying Self-Improving AI Agents' documents agent replication across Apple Silicon hardware using NVIDIA Nemotron for local inference. 'Building Fault-Tolerant Memory for OpenClaw AI Agents' (SSRN 6436099) presents a three-layer architecture fixing the SQLITE_CANTOPEN regression. 'Inside NemoClaw' (SSRN 6436138) provides the first architectural analysis of NVIDIA's enterprise security stack announced at GTC 2026. All papers are available at speedrunlab.ai/papers/."
                 }
             },
             {
@@ -460,7 +460,7 @@
             <li><a class="active" data-p="home" onclick="go('home')">Home</a></li>
             <li><a data-p="projects" onclick="go('projects')">Projects</a></li>
             <li><a data-p="skills" onclick="go('skills')">Skill Library</a></li>
-            <li><a data-p="research" onclick="go('research')">Research Papers</a></li>
+            <li><a href="/papers/">Research Papers</a></li>
             <li><a data-p="press" onclick="go('press')">Press</a></li>
             <li><a data-p="contact" onclick="go('contact')">Contact Us</a></li>
         </ul>
@@ -490,61 +490,7 @@
     <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai" target="_blank">speedrunlab.ai</a></p></footer>
 </section>
 
-<section id="p-research" class="page">
-    <div class="research do-anim">
-        <div class="research-header a1">
-            <h2>We publish before the industry notices.</h2>
-            <p>Practitioner research from Speedrun AI Labs, Sydney, Australia.</p>
-        </div>
-        <div class="paper-card a2">
-            <img class="paper-image" src="/images/paper-memory.png" alt="Abstract visualization of fault-tolerant memory architecture">
-            <div class="paper-badges">
-                <span class="paper-badge published">Published on SSRN</span>
-                <span class="paper-badge">cs.SE</span>
-                <span class="paper-badge">OpenClaw</span>
-            </div>
-            <p class="paper-hook">The first production fix for OpenClaw's broken memory.</p>
-            <h3>Building Fault-Tolerant Memory for OpenClaw AI Agents: A Three-Layer Architecture for the SQLITE_CANTOPEN Regression in 2026.3.x</h3>
-            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; March 16, 2026 &middot; v1.1 &middot; SSRN 6436099</p>
-            <p class="paper-abstract" id="abs1">OpenClaw's default memory system exhibits recurring reliability failures: SQLite crashes, dirty indexes, and complete persistence loss during active sessions. This paper presents a three-layer fault-tolerant architecture combining pre-compaction memory flushing, QMD-based local hybrid search, and Mem0 self-hosted on Qdrant, validated in a production deployment on a Mac Mini that eliminated all documented failure modes while maintaining zero cloud dependency for search.</p>
-            <div class="paper-actions">
-                <button class="paper-toggle" onclick="toggleAbstract('abs1', this)">Read Abstract</button>
-                <a class="paper-ssrn" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436099" target="_blank" rel="noopener">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    View on SSRN
-                </a>
-                <a class="paper-download" href="/papers/fault-tolerant-memory-openclaw-v1.1.pdf" download>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Download PDF
-                </a>
-            </div>
-        </div>
-        <div class="paper-card a3">
-            <img class="paper-image" src="/images/paper-nemoclaw.png" alt="Abstract visualization of NemoClaw enterprise security architecture">
-            <div class="paper-badges">
-                <span class="paper-badge published">Published on SSRN</span>
-                <span class="paper-badge">cs.CR</span>
-                <span class="paper-badge">NemoClaw</span>
-            </div>
-            <p class="paper-hook">The first inside look at NVIDIA's NemoClaw. Published the day after GTC 2026.</p>
-            <h3>Inside NemoClaw: An Architectural Analysis of NVIDIA's Enterprise Security Stack for Autonomous AI Agents</h3>
-            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; March 17, 2026, one day after GTC 2026 &middot; v1.0 &middot; SSRN 6436138</p>
-            <p class="paper-abstract" id="abs2">NVIDIA NemoClaw, announced at GTC 2026 by Jensen Huang, is the first major vendor implementation of enterprise-grade security for OpenClaw autonomous AI agents. This paper presents the first detailed public decomposition of the NemoClaw and OpenShell security architecture across six layers: Landlock filesystem isolation, seccomp BPF syscall filtering, network namespace isolation, OPA/Rego policy enforcement, TLS inspection, and provider-agnostic inference routing, derived from direct inspection of both open-source codebases.</p>
-            <div class="paper-actions">
-                <button class="paper-toggle" onclick="toggleAbstract('abs2', this)">Read Abstract</button>
-                <a class="paper-ssrn" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436138" target="_blank" rel="noopener">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    View on SSRN
-                </a>
-                <a class="paper-download" href="/papers/inside-nemoclaw-v1.0.pdf" download>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Download PDF
-                </a>
-            </div>
-        </div>
-    </div>
-    <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai" target="_blank">speedrunlab.ai</a></p></footer>
-</section>
+<!-- Research Papers section removed — now lives at /papers/ as single source of truth -->
 
 <section id="p-projects" class="page">
     <div class="projects do-anim">
