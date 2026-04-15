@@ -7,12 +7,12 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
-    <meta name="description" content="Practitioner research from Speedrun AI Labs, Sydney, Australia. Papers on autonomous AI agents, memory architecture, and enterprise AI security.">
+    <meta name="description" content="Practitioner research from Speedrun AI Labs, Sydney, Australia. Four papers on NVIDIA NemoClaw, Apple Silicon agent deployment, self-improving AI agents with NVIDIA Nemotron, and fault-tolerant memory architecture.">
     <meta name="author" content="Speedrun AI Labs">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.speedrunlab.ai/papers/">
     <meta property="og:title" content="Research Papers | Speedrun AI Labs">
-    <meta property="og:description" content="Practitioner research from Speedrun AI Labs, Sydney, Australia. Papers on autonomous AI agents, memory architecture, and enterprise AI security.">
+    <meta property="og:description" content="Four practitioner research papers from Speedrun AI Labs, Sydney. NVIDIA NemoClaw on Apple Silicon, self-improving AI agents with NVIDIA Nemotron, and more.">
     <meta property="og:url" content="https://www.speedrunlab.ai/papers/">
     <meta property="og:site_name" content="Speedrun AI Labs">
     <meta property="og:type" content="website">
@@ -22,7 +22,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Research Papers | Speedrun AI Labs">
-    <meta name="twitter:description" content="Practitioner research from Speedrun AI Labs, Sydney, Australia.">
+    <meta name="twitter:description" content="Four practitioner research papers from Speedrun AI Labs, Sydney. NVIDIA NemoClaw on Apple Silicon, self-improving AI agents with NVIDIA Nemotron, and more.">
     <meta name="twitter:image" content="https://www.speedrunlab.ai/images/og-image.png">
     <meta name="geo.region" content="AU-NSW">
     <meta name="geo.placename" content="Sydney">
@@ -40,7 +40,7 @@
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "Research Papers",
-        "description": "Practitioner research from Speedrun AI Labs on autonomous AI agents, memory architecture, and enterprise AI security.",
+        "description": "Practitioner research from Speedrun AI Labs on NVIDIA NemoClaw, Apple Silicon agent deployment, self-improving AI agents with NVIDIA Nemotron, and fault-tolerant memory architecture.",
         "url": "https://www.speedrunlab.ai/papers/",
         "publisher": {
             "@type": "Organization",
@@ -48,6 +48,40 @@
             "url": "https://www.speedrunlab.ai"
         },
         "hasPart": [
+            {
+                "@type": "ScholarlyArticle",
+                "name": "NemoClaw on Apple Silicon: Validating and Fixing NVIDIA's Enterprise Agent Security Stack on Consumer Hardware",
+                "author": {
+                    "@type": "Person",
+                    "name": "Adnan Tanveer",
+                    "alternateName": "Addy Tanveer"
+                },
+                "datePublished": "2026-04-13",
+                "url": "https://www.speedrunlab.ai/papers/NemoClaw_Apple_Silicon_v2.1.pdf",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Speedrun AI Labs"
+                },
+                "about": "NVIDIA NemoClaw, Apple Silicon, Apple Mac Studio, M4 Max, OpenShell, enterprise AI agent security, Docker Desktop, Landlock, seccomp, NVIDIA DGX, GTC 2026",
+                "keywords": ["NVIDIA", "NemoClaw", "Apple Silicon", "Apple Mac Studio", "M4 Max", "OpenShell", "enterprise AI security", "NVIDIA DGX", "GTC 2026"]
+            },
+            {
+                "@type": "ScholarlyArticle",
+                "name": "Deploying Self-Improving AI Agents on Apple Silicon with OpenClaw and NVIDIA Nemotron",
+                "author": {
+                    "@type": "Person",
+                    "name": "Adnan Tanveer",
+                    "alternateName": "Addy Tanveer"
+                },
+                "datePublished": "2026-04-13",
+                "url": "https://www.speedrunlab.ai/papers/Self_Improving_Agents_v2.1.pdf",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Speedrun AI Labs"
+                },
+                "about": "Self-improving AI agents, Apple Silicon, Apple Mac Mini, Apple Mac Studio, NVIDIA Nemotron 3 Nano 30B, OpenClaw, agent replication, multi-agent systems, Ollama",
+                "keywords": ["NVIDIA Nemotron", "Apple Silicon", "Apple Mac Mini", "Apple Mac Studio", "self-improving agents", "OpenClaw", "agent replication", "Ollama"]
+            },
             {
                 "@type": "ScholarlyArticle",
                 "name": "Building Fault-Tolerant Memory for OpenClaw AI Agents: A Three-Layer Architecture for the SQLITE_CANTOPEN Regression in 2026.3.x",
@@ -211,6 +245,48 @@
             <h1>We publish before the industry notices.</h1>
             <p>Practitioner research from Speedrun AI Labs, Sydney, Australia.</p>
         </div>
+
+        <article class="paper-card">
+            <img class="paper-image" src="/images/paper-nemoclaw-apple.png" alt="NVIDIA NemoClaw validated on Apple Silicon - enterprise agent security at 4% of NVIDIA DGX pricing">
+            <div class="paper-badges">
+                <span class="paper-badge pending">Pending SSRN Review</span>
+                <span class="paper-badge">NVIDIA NemoClaw</span>
+                <span class="paper-badge">Apple Silicon</span>
+                <span class="paper-badge">cs.CR</span>
+            </div>
+            <p class="paper-hook">We found three security bugs in NVIDIA's NemoClaw. Then we fixed them -- on an Apple Mac Studio.</p>
+            <h2>NemoClaw on Apple Silicon: Validating and Fixing NVIDIA's Enterprise Agent Security Stack on Consumer Hardware</h2>
+            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; April 13, 2026 &middot; v2.1</p>
+            <p class="paper-abstract" id="abs3">NVIDIA NemoClaw provides a six-layer enterprise security stack for autonomous AI agents running on the OpenClaw platform. The architecture was designed and announced alongside NVIDIA DGX hardware at GTC 2026. DGX Station systems list at US$80,000 to US$125,000. This paper validates the complete NVIDIA NemoClaw/OpenShell security stack on an Apple Mac Studio (M4 Max, 64 GB unified memory, A$4,849) via Docker Desktop. We identify three enforcement gaps in NVIDIA OpenShell v0.0.26 -- root-user bypass of Landlock via CAP_DAC_OVERRIDE, missing seccomp filters for AF_PACKET and AF_NETLINK, and a missing TLS CA certificate mount -- develop and publish fixes for all three gaps, achieving 6 of 6 security layers passing, and benchmark sandbox startup latency, memory overhead, and infrastructure cost, demonstrating that enterprise-grade agent security is achievable on Apple Silicon at approximately 4% of NVIDIA DGX Station pricing.</p>
+            <div class="paper-actions">
+                <button class="paper-toggle" onclick="toggleAbstract('abs3', this)">Read Abstract</button>
+                <a class="paper-download" href="/papers/NemoClaw_Apple_Silicon_v2.1.pdf" download>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download PDF
+                </a>
+            </div>
+        </article>
+
+        <article class="paper-card">
+            <img class="paper-image" src="/images/paper-self-improving.png" alt="Self-improving AI agents deployed on Apple Silicon with NVIDIA Nemotron">
+            <div class="paper-badges">
+                <span class="paper-badge pending">Pending SSRN Review</span>
+                <span class="paper-badge">NVIDIA Nemotron</span>
+                <span class="paper-badge">Apple Silicon</span>
+                <span class="paper-badge">cs.AI</span>
+            </div>
+            <p class="paper-hook">One Apple Mac Mini. One NVIDIA Nemotron model. A fully autonomous AI agent -- replicated from PDFs.</p>
+            <h2>Deploying Self-Improving AI Agents on Apple Silicon with OpenClaw and NVIDIA Nemotron</h2>
+            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; April 13, 2026 &middot; v2.1</p>
+            <p class="paper-abstract" id="abs4">Deploying autonomous AI agents in production requires extensive configuration of infrastructure, security policies, memory systems, scheduled tasks, and operational tooling. This paper documents the replication of a fully operational AI agent from one Apple Silicon machine to another using PDF specification documents executed by an AI deployment assistant. We present a nine-phase replication methodology that deploys a complete agent stack -- including nine custom skills, four scheduled cron jobs, a hardened self-improvement hook system, and local inference via NVIDIA Nemotron 3 Nano 30B on Ollama -- from specification documents alone; document a self-improvement architecture where agents log errors and corrections, promote recurring patterns to permanent identity files, and inject live learning summaries at every session bootstrap; and validate the deployment with a three-pass, 69-check verification audit achieving zero errors. The target agent operates on an Apple Mac Studio (M4 Max) in a regulated investment fintech environment, running marketing workloads with NVIDIA NemoClaw providing all six security layers.</p>
+            <div class="paper-actions">
+                <button class="paper-toggle" onclick="toggleAbstract('abs4', this)">Read Abstract</button>
+                <a class="paper-download" href="/papers/Self_Improving_Agents_v2.1.pdf" download>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download PDF
+                </a>
+            </div>
+        </article>
 
         <article class="paper-card">
             <img class="paper-image" src="/images/paper-memory.png" alt="Abstract visualization of fault-tolerant memory architecture">
