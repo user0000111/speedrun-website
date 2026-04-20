@@ -151,6 +151,7 @@ GitHub shows "MIT License" in repo listings only when a `LICENSE` file exists. M
 
 | Skill | File | Status |
 |-------|------|--------|
+| Hermes | `images/skill-hermes.png` | Live ✅ |
 | Deep Audit | `images/skill-deep-audit.png` | Live ✅ |
 | No-Slop Writing | `images/skill-no-slop.png` | Live ✅ |
 | Read-Before-Write | `images/skill-read-before-write.png` | Live ✅ |

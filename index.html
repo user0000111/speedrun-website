@@ -158,6 +158,14 @@
             },
             {
                 "@type": "Question",
+                "name": "What is the Hermes Agent skill by Speedrun AI Labs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The /hermes-agent-as-a-skill-file skill by Speedrun AI Labs packages the Hermes Agent learning-loop patterns (by Nous Research, MIT licence) as a portable SKILL.md file. Instead of migrating to a new agent runtime, you drop this skill into your existing agent — Claude Code, OpenClaw, NemoClaw, or any AgentSkills-compatible framework — and it gains a closed self-improvement loop: auto skill creation after complex tasks, cross-session recall before asking users to repeat themselves, memory capacity management, periodic self-checks, compound learning from mistakes, skill versioning, and inter-agent skill sharing. Free and open source at github.com/Speedrunlab/hermes-agent-as-a-skill-file."
+                }
+            },
+            {
+                "@type": "Question",
                 "name": "What is the OpenClaw Skill Library?",
                 "acceptedAnswer": {
                     "@type": "Answer",
@@ -181,6 +189,33 @@
                 }
             }
         ]
+    }
+    </script>
+
+    <!-- Hermes Agent as a Skill File Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "/hermes-agent-as-a-skill-file",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "AUD"
+        },
+        "url": "https://www.speedrunlab.ai/#hermes-agent-as-a-skill",
+        "downloadUrl": "https://github.com/Speedrunlab/hermes-agent-as-a-skill-file",
+        "description": "Hermes Agent as a skill file. Packages the Hermes Agent learning-loop patterns (Nous Research) as a portable SKILL.md file. Auto skill creation, cross-session recall, memory management, compound learning, and more. Works with Claude Code, OpenClaw, NemoClaw, Hermes Agent, and any AgentSkills-compatible framework.",
+        "author": {
+            "@type": "Organization",
+            "name": "Speedrun AI Labs",
+            "url": "https://www.speedrunlab.ai"
+        },
+        "softwareVersion": "1.0",
+        "datePublished": "2026-04-21",
+        "license": "https://opensource.org/licenses/MIT"
     }
     </script>
 
@@ -521,6 +556,37 @@
             <p>Production-grade skills for Claude Code and OpenClaw agents. Built by Speedrun AI Labs, Sydney, Australia. Free and open source.</p>
         </div>
         <div class="skills-grid">
+        <article class="skill-card" id="hermes-agent-as-a-skill">
+            <img class="skill-image" src="/images/skill-hermes.png" alt="Hermes Skill — cyborg speedrunner bird holding clipboard marked HERMES">
+            <div class="skill-badges">
+                <span class="skill-badge free">Free</span>
+                <span class="skill-badge">Claude Code</span>
+                <span class="skill-badge">OpenClaw</span>
+                <span class="skill-badge">NemoClaw</span>
+                <span class="skill-badge">Hermes Agent</span>
+                <span class="skill-badge">AgentSkills</span>
+            </div>
+            <p class="skill-hook">Hermes Agent as a skill file: Upgrade your existing agent, no need to migrate.</p>
+            <h3>/hermes-agent-as-a-skill-file: A closed self-improvement loop that makes your agent smarter with every task it completes.</h3>
+            <p class="skill-meta">Speedrun AI Labs &middot; Inspired by Nous Research &middot; v1.0 &middot; April 2026 &middot; MIT License</p>
+            <p class="skill-desc">Nous Research released Hermes Agent -- a genuinely useful learning loop for autonomous agents. This skill packages those patterns as a portable SKILL.md file: auto skill creation, cross-session recall, memory capacity management, periodic self-checks, compound learning, skill versioning, and inter-agent skill sharing. Drop it into your existing agent. No migration. No new runtime.</p>
+            <details class="skill-install-details">
+                <summary>Install Instructions</summary>
+                <div class="skill-install-body">
+                    <p class="skill-install-label">Install (Claude Code)</p>
+                    <code>mkdir -p ~/.claude/skills
+git clone https://github.com/Speedrunlab/hermes-agent-as-a-skill-file.git ~/.claude/skills/hermes-agent-as-a-skill-file</code>
+                    <p class="skill-install-label" style="margin-top:16px">Then run</p>
+                    <code>/hermes-agent-as-a-skill-file</code>
+                </div>
+            </details>
+            <div class="skill-actions">
+                <a class="skill-github" href="https://github.com/Speedrunlab/hermes-agent-as-a-skill-file" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    View on GitHub
+                </a>
+            </div>
+        </article>
         <article class="skill-card" id="read-before-write">
             <img class="skill-image" src="/images/skill-read-before-write.png" alt="Read-Before-Write Skill — cyborg speedrunner bird holding clipboard marked RBW SKILL">
             <div class="skill-badges">
