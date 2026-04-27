@@ -805,6 +805,7 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
 <script>
 function go(p){document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});var pg=document.getElementById('p-'+p);pg.classList.add('active');var c=pg.querySelector('.do-anim');if(c){c.classList.remove('do-anim');void c.offsetWidth;c.classList.add('do-anim');}document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===p)});window.scrollTo(0,0)}
 if(window.location.search.includes('error=1')){var e=document.getElementById('formErr');if(e){e.style.display='block';go('contact');}}if(window.location.search.includes('limit=1')){var e=document.getElementById('formErr');if(e){e.textContent='Too many submissions today. Please try again tomorrow.';e.style.display='block';go('contact');}}
+var hash=window.location.hash.replace('#','');if(hash&&document.getElementById('p-'+hash)){go(hash);}
 var cA,cB;function genCap(){cA=Math.floor(Math.random()*10)+1;cB=Math.floor(Math.random()*10)+1;document.getElementById('capQ').textContent='What is '+cA+' + '+cB+'?'}genCap();
 function toggleAbstract(id,btn){var el=document.getElementById(id);var open=el.classList.toggle('open');btn.textContent=open?'Hide Abstract':'Read Abstract'}
 
