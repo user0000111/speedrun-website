@@ -26,6 +26,10 @@
   var inner = document.createElement('div');
   inner.className = 'nav-inner';
 
+  // Top row: logo + LinkedIn
+  var topRow = document.createElement('div');
+  topRow.className = 'nav-top-row';
+
   // Logo
   var logo = document.createElement('a');
   logo.className = 'nav-logo';
@@ -38,13 +42,23 @@
   logo.innerHTML =
     '<img class="logo-dark" src="/logo.png" alt="Speedrun AI Labs" loading="eager">' +
     '<img class="logo-light" src="/logo-white.png" alt="Speedrun AI Labs" loading="eager">';
-  inner.appendChild(logo);
+  topRow.appendChild(logo);
 
-  // Links
+  // LinkedIn icon (top row, right side)
+  var liLink = document.createElement('a');
+  liLink.href = 'https://www.linkedin.com/company/speedrun-ai-labs';
+  liLink.target = '_blank';
+  liLink.rel = 'noopener noreferrer';
+  liLink.className = 'nav-linkedin';
+  liLink.setAttribute('aria-label', 'Speedrun AI Labs on LinkedIn');
+  liLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
+  topRow.appendChild(liLink);
+
+  inner.appendChild(topRow);
+
+  // Links row
   var ul = document.createElement('ul');
   ul.className = 'nav-links';
-
-  var activePath = currentActive();
 
   LINKS.forEach(function (link) {
     var li = document.createElement('li');
@@ -70,16 +84,6 @@
   });
 
   inner.appendChild(ul);
-
-  // LinkedIn icon
-  var liLink = document.createElement('a');
-  liLink.href = 'https://www.linkedin.com/company/speedrun-ai-labs';
-  liLink.target = '_blank';
-  liLink.rel = 'noopener noreferrer';
-  liLink.className = 'nav-linkedin';
-  liLink.setAttribute('aria-label', 'Speedrun AI Labs on LinkedIn');
-  liLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
-  inner.appendChild(liLink);
 
   nav.appendChild(inner);
 
