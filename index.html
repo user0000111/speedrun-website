@@ -610,13 +610,12 @@
             .nav-inner{height:auto;flex-direction:column;align-items:stretch;padding:0;gap:0}
             .nav-top-row{display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:64px}
             .nav-logo img{height:65px}
-            .nav-links{display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:0;list-style:none;border-top:1px solid var(--grey-light);padding:0 18px}
-            .nav-links::-webkit-scrollbar{display:none}
-            .nav-links li{flex-shrink:0}
-            .nav-links a{font-size:12px;font-weight:400;padding:10px 12px;display:block;white-space:nowrap;color:var(--grey-nav)}
+            .nav-links{display:grid;grid-template-columns:repeat(3,1fr);gap:0;list-style:none;border-top:1px solid var(--grey-light);padding:4px 8px 6px}
+            .nav-links li{display:flex;justify-content:center}
+            .nav-links a{font-size:12px;font-weight:400;padding:8px 6px;display:block;white-space:nowrap;color:var(--grey-nav);text-align:center}
             .nav-links a:hover,.nav-links a.active{color:var(--black)}
             .nav-linkedin{margin-left:0}
-            .page{padding-top:116px}
+            .page{padding-top:128px}
             .manifesto{padding:56px 18px 80px}.projects,.contact{padding:56px 18px 80px}.coming-soon{padding:100px 18px}.send-btn{width:100%;text-align:center}
         }
     </style>
