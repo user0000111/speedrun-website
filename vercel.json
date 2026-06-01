@@ -10,7 +10,10 @@
           "value": "speedrunlab.ai"
         }
       ]
-    }
+    },
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/papers", "destination": "/papers/", "permanent": true },
+    { "source": "/papers/index.html", "destination": "/papers/", "permanent": true }
   ],
   "headers": [
     {
