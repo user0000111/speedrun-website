@@ -327,7 +327,7 @@
     }
     </script>
 
-    <!-- ScholarlyArticle Schema — SSRN Published Papers -->
+    <!-- ScholarlyArticle Schema — Peer-Reviewed Journal & SSRN Published Papers -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -358,11 +358,37 @@
                     "worksFor": {"@type": "Organization", "name": "Speedrun AI Labs", "url": "https://www.speedrunlab.ai"}
                 },
                 "datePublished": "2026-03-17",
-                "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436138",
-                "sameAs": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436138",
+                "url": "https://mkscienceset.com/abstract/inside-nemoclaw-an-architectural-analysis-of-nvidia-s-enterprise-security-stack-for-autonomous-ai-agents",
+                "sameAs": [
+                    "https://doi.org/10.63620/MKJAEAST.2026.1014",
+                    "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6436138"
+                ],
+                "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "10.63620/MKJAEAST.2026.1014"},
                 "isAccessibleForFree": true,
-                "publisher": {"@type": "Organization", "name": "SSRN"},
+                "isPartOf": {"@type": "Periodical", "name": "Global Journal of Mobile Communication and Computing Technologies", "publisher": {"@type": "Organization", "name": "MK Science Set Publishers"}},
+                "publisher": {"@type": "Organization", "name": "MK Science Set Publishers"},
                 "about": "NemoClaw, NVIDIA, enterprise AI security, OpenClaw, autonomous AI agents, GTC 2026"
+            },
+            {
+                "@type": "ScholarlyArticle",
+                "name": "NemoClaw on Apple Silicon: Validating and Fixing NVIDIA's Enterprise Agent Security Stack on Consumer Hardware",
+                "author": {
+                    "@type": "Person",
+                    "name": "Adnan Tanveer",
+                    "alternateName": ["Addy Tanveer", "Addy"],
+                    "worksFor": {"@type": "Organization", "name": "Speedrun AI Labs", "url": "https://www.speedrunlab.ai"}
+                },
+                "datePublished": "2026-04-13",
+                "url": "https://mkscienceset.com/abstract/nemoclaw-on-apple-silicon-validating-and-fixing-nvidia-s-enterprise-agent-security-stack-on-consumer-hardware",
+                "sameAs": [
+                    "https://doi.org/10.63620/MKJAEAST.2026.1015",
+                    "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6587938"
+                ],
+                "identifier": {"@type": "PropertyValue", "propertyID": "DOI", "value": "10.63620/MKJAEAST.2026.1015"},
+                "isAccessibleForFree": true,
+                "isPartOf": {"@type": "Periodical", "name": "Global Journal of Mobile Communication and Computing Technologies", "publisher": {"@type": "Organization", "name": "MK Science Set Publishers"}},
+                "publisher": {"@type": "Organization", "name": "MK Science Set Publishers"},
+                "about": "NVIDIA NemoClaw, Apple Silicon, Apple Mac Studio, M4 Max, OpenShell, enterprise AI agent security, Landlock, seccomp, NVIDIA DGX, GTC 2026"
             }
         ]
     }
