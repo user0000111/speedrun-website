@@ -26,7 +26,11 @@ An AI-powered tool that helps GPs identify and diagnose ENT conditions earlier. 
 
 ## Research
 
-Speedrun AI Labs publishes practitioner research on autonomous AI agents, NVIDIA NemoClaw security, Apple Silicon deployments, self-improving agent architectures, and NVIDIA Nemotron local inference. Four papers are available to download at speedrunlab.ai/papers/.
+Speedrun AI Labs publishes practitioner research on autonomous AI agents, NVIDIA NemoClaw security, Apple Silicon deployments, self-improving agent architectures, NVIDIA Nemotron local inference, and multi-model review councils. Five papers are available to download at speedrunlab.ai/papers/.
+
+### The Intelligence Council: Provider-Agnostic, Domain-Specialized Multi-Model Review for Autonomous AI Systems (v1.0, July 2026)
+Presents the Intelligence Council: a provider-agnostic pattern that convenes a panel of independent frontier models to review a plan, a code change, or a decision before it is acted upon, then synthesises their verdicts into consensus, dissent, and blockers. Documents a live seven-model reference council sourced via OpenRouter and Amazon Bedrock, a four-domain taxonomy of specialised panels (Coding, SEO/Search, Cybersecurity, Intelligence) with benchmark-grounded rosters, a reproducible mandatory-reasoning failure mode, and a synthesis protocol that converts per-model verdicts into an actionable recommendation. Model-agnostic and harness-agnostic by construction. Pending SSRN review.
+Download: https://www.speedrunlab.ai/papers/intelligence-council-v1.0.pdf
 
 ### NemoClaw on Apple Silicon: Validating and Fixing NVIDIA's Enterprise Agent Security Stack on Consumer Hardware (v2.1, April 2026)
 Validates the complete NVIDIA NemoClaw/OpenShell six-layer enterprise security stack on an Apple Mac Studio (M4 Max, 64 GB unified memory) via Docker Desktop. Identifies three enforcement gaps in NVIDIA OpenShell v0.0.26: root-user bypass of Landlock via CAP_DAC_OVERRIDE, missing seccomp filters for AF_PACKET and AF_NETLINK, and a missing TLS CA certificate mount. Publishes fixes for all three gaps, achieving 6 of 6 NVIDIA NemoClaw security layers passing. Benchmarks demonstrate enterprise-grade agent security is achievable on Apple Silicon at approximately 4% of NVIDIA DGX Station pricing. Peer-reviewed and published in the Global Journal of Mobile Communication and Computing Technologies (MK Science Set Publishers), DOI 10.63620/MKJAEAST.2026.1015. Also available on SSRN.

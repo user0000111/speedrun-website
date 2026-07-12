@@ -7,12 +7,12 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
-    <meta name="description" content="Practitioner research from Speedrun AI Labs, Sydney, Australia. Four papers on NVIDIA NemoClaw, Apple Silicon agent deployment, self-improving AI agents with NVIDIA Nemotron, and fault-tolerant memory architecture.">
+    <meta name="description" content="Practitioner research from Speedrun AI Labs, Sydney, Australia. Five papers on multi-model AI review councils, NVIDIA NemoClaw, Apple Silicon agent deployment, self-improving AI agents with NVIDIA Nemotron, and fault-tolerant memory architecture.">
     <meta name="author" content="Speedrun AI Labs">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.speedrunlab.ai/papers/">
     <meta property="og:title" content="Research Papers | Speedrun AI Labs">
-    <meta property="og:description" content="Four practitioner research papers from Speedrun AI Labs, Sydney. NVIDIA NemoClaw on Apple Silicon, self-improving AI agents with NVIDIA Nemotron, and more.">
+    <meta property="og:description" content="Five practitioner research papers from Speedrun AI Labs, Sydney. The Intelligence Council multi-model review, NVIDIA NemoClaw on Apple Silicon, self-improving AI agents with NVIDIA Nemotron, and more.">
     <meta property="og:url" content="https://www.speedrunlab.ai/papers/">
     <meta property="og:site_name" content="Speedrun AI Labs">
     <meta property="og:type" content="website">
@@ -22,7 +22,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Research Papers | Speedrun AI Labs">
-    <meta name="twitter:description" content="Four practitioner research papers from Speedrun AI Labs, Sydney. NVIDIA NemoClaw on Apple Silicon, self-improving AI agents with NVIDIA Nemotron, and more.">
+    <meta name="twitter:description" content="Five practitioner research papers from Speedrun AI Labs, Sydney. The Intelligence Council multi-model review, NVIDIA NemoClaw on Apple Silicon, self-improving AI agents with NVIDIA Nemotron, and more.">
     <meta name="twitter:image" content="https://www.speedrunlab.ai/images/og-image.png">
     <meta name="geo.region" content="AU-NSW">
     <meta name="geo.placename" content="Sydney">
@@ -48,6 +48,22 @@
             "url": "https://www.speedrunlab.ai"
         },
         "hasPart": [
+            {
+                "@type": "ScholarlyArticle",
+                "name": "The Intelligence Council: Provider-Agnostic, Domain-Specialized Multi-Model Review for Autonomous AI Systems",
+                "author": {
+                    "@type": "Person",
+                    "name": "Adnan Tanveer",
+                    "alternateName": ["Addy Tanveer", "Addy"],
+                    "worksFor": {"@type": "Organization", "name": "Speedrun AI Labs", "url": "https://www.speedrunlab.ai"}
+                },
+                "datePublished": "2026-07-12",
+                "url": "https://www.speedrunlab.ai/papers/intelligence-council-v1.0.pdf",
+                "isAccessibleForFree": true,
+                "publisher": {"@type": "Organization", "name": "Speedrun AI Labs", "url": "https://www.speedrunlab.ai"},
+                "about": "Multi-model AI review, model-agnostic orchestration, LLM-as-judge, model ensembles, OpenRouter, Amazon Bedrock, agentic AI, autonomous agents, intelligence council",
+                "keywords": ["multi-model", "model-agnostic", "LLM-as-judge", "OpenRouter", "Amazon Bedrock", "agentic AI", "autonomous agents", "intelligence council"]
+            },
             {
                 "@type": "ScholarlyArticle",
                 "name": "NemoClaw on Apple Silicon: Validating and Fixing NVIDIA's Enterprise Agent Security Stack on Consumer Hardware",
@@ -339,6 +355,26 @@
         </article>
 
         <div class="paper-section-label ssrn">Preprints &middot; SSRN</div>
+
+        <article class="paper-card">
+            <img class="paper-image" src="/images/paper-intelligence-council.png" alt="The Intelligence Council — seven independent AI models convening as a review panel, rendered as glowing frosted-glass panels in a navy scene">
+            <div class="paper-badges">
+                <span class="paper-badge pending">Pending SSRN review</span>
+                <span class="paper-badge">Multi-Model</span>
+                <span class="paper-badge">cs.MA</span>
+            </div>
+            <p class="paper-hook">One AI model can't check its own work. So we convened a council of seven.</p>
+            <h2>The Intelligence Council: Provider-Agnostic, Domain-Specialized Multi-Model Review for Autonomous AI Systems</h2>
+            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; July 12, 2026 &middot; v1.0 &middot; Pending SSRN review</p>
+            <p class="paper-abstract" id="abs5">Most enterprise AI systems bind themselves to a single model, inheriting its blind spots, outages, and biases with no recourse -- a widely cited reason many AI pilots fail. This paper presents the Intelligence Council: a provider-agnostic pattern that convenes a panel of independent frontier models to review a plan, a code change, or a decision before it is acted upon, then synthesises their verdicts into consensus, dissent, and blockers. Its value is independence -- different vendors, different training, genuinely separate reasoning that a single model cannot supply when checking its own work. We document a live seven-model reference council, a four-domain taxonomy of specialised panels (Coding, SEO/Search, Cybersecurity, Intelligence) with benchmark-grounded rosters, a reproducible configuration failure mode, and a synthesis protocol. The pattern is model-agnostic and harness-agnostic by construction, embedding in any coding harness or agent framework.</p>
+            <div class="paper-actions">
+                <button class="paper-toggle" onclick="toggleAbstract('abs5', this)">Read Abstract</button>
+                <a class="paper-download" href="/papers/intelligence-council-v1.0.pdf" download>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download PDF
+                </a>
+            </div>
+        </article>
 
         <article class="paper-card">
             <img class="paper-image" src="/images/paper-self-improving.png" alt="Self-improving AI agents deployed on Apple Silicon with NVIDIA Nemotron">
