@@ -10,9 +10,31 @@
           "value": "speedrunlab.ai"
         }
       ]
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://www.speedrunlab.ai/:path*",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "www.speedrunlab.ai"
+        },
+        {
+          "type": "header",
+          "key": "x-forwarded-proto",
+          "value": "http"
+        }
+      ]
     }
   ],
   "headers": [
+    {
+      "source": "/papers/(.*\\.pdf)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
