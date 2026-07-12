@@ -86,6 +86,37 @@
     }
     </script>
 
+    <!-- ProfessionalService Schema — AI agents Speedrun deploys for Australian businesses -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Speedrun AI Labs",
+        "description": "Custom AI agents for Australian businesses. We build and deploy production AI agents for marketing, SEO, software development, cyber security, and ASIC compliance monitoring, plus bespoke agents built to brief.",
+        "url": "https://www.speedrunlab.ai/#projects",
+        "areaServed": { "@type": "Country", "name": "Australia" },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sydney",
+            "addressRegion": "NSW",
+            "addressCountry": "AU"
+        },
+        "provider": { "@type": "Organization", "name": "Speedrun AI Labs", "url": "https://www.speedrunlab.ai" },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "AI Agents",
+            "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Agent", "description": "Autonomous social media, email and content marketing agent that creates and publishes across channels, with human approval before anything goes live." } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Agent", "description": "AI SEO and GEO agent: keyword research, content briefs, technical audits, and optimisation for AI search answers." } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coding Agent", "description": "AI software development agent that writes, reviews and integrates code with an independent review pass." } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cyber Security Agent", "description": "AI security review agent that finds vulnerabilities in code and infrastructure before deployment." } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ASIC Compliance Agent", "description": "AI agent that monitors ASIC regulatory changes and surfaces what affects your Australian business." } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Agent Development", "description": "Bespoke AI agents built to brief and deployed to your stack: AI receptionist, sales and SDR, customer support, bookkeeping, and more." } }
+            ]
+        }
+    }
+    </script>
+
     <!-- FAQ Schema (GEO-optimised for AI engines) -->
     <script type="application/ld+json">
     {
@@ -186,6 +217,22 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Install the /read-before-write skill by Speedrun AI Labs. It works with Claude Code, OpenClaw, ChatGPT custom instructions, and any LLM that accepts a system prompt. The skill enforces three rules: read the full file before any edit, patch specific lines rather than rewriting the whole file, and stop completely if the file can't be read. Install via: git clone https://github.com/Speedrunlab/read-before-write.git ~/.claude/skills/read-before-write then run /read-before-write."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What AI agents does Speedrun AI Labs deploy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Speedrun AI Labs runs seven AI agents in production and deploys them to Australian businesses: a Marketing Agent (autonomous social media, email and content, with human approval), an SEO Agent (SEO and generative engine optimisation), a Coding Agent (writes, reviews and integrates code), a Cyber Security Agent (finds vulnerabilities before deployment), and an ASIC Compliance Agent (monitors ASIC regulatory changes and surfaces what affects your business). Speedrun also builds custom agents to brief, including AI receptionists, sales and SDR agents, customer support agents, and bookkeeping agents. Based in Sydney, Australia."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can Speedrun AI Labs build a custom AI agent for my business?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Speedrun AI Labs builds bespoke AI agents to your brief and deploys them to your stack. If a task is repetitive, it can usually be automated, whether that is an AI receptionist that never misses a call, an AI sales or SDR agent that fills your pipeline, an AI customer support agent, or an AI bookkeeping agent. Speedrun is a Sydney-based AI lab working with Australian businesses. Get in touch via speedrunlab.ai or info@speedrunlab.ai."
                 }
             }
         ]
@@ -591,6 +638,36 @@
         .project-card p{font-family:var(--font-sans);font-size:15px;color:var(--grey-dark);line-height:1.6;margin-bottom:16px}
         .project-card p:last-child{margin-bottom:0}
 
+        .agents{max-width:940px;margin:0 auto;padding:80px 22px 100px}
+        .agents-header{max-width:680px;margin:0 auto 52px;text-align:center}
+        .agents-header h2{font-family:var(--font-serif);font-size:clamp(30px,5vw,46px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:20px;line-height:1.12;letter-spacing:-0.02em}
+        .agents-sub{font-family:var(--font-sans);font-size:clamp(16px,2vw,18px);color:var(--grey-dark);line-height:1.65;margin-bottom:28px}
+        .agents-proof{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;align-items:center;font-family:var(--font-sans);font-size:13px;color:var(--grey-mid);margin-bottom:30px}
+        .agents-proof strong{color:var(--black);font-weight:600}
+        .agents-proof .dot{color:var(--grey-light)}
+        .agents-cta{font-family:var(--font-sans);font-size:15px;font-weight:500;color:var(--white);background:var(--black);border:none;border-radius:980px;padding:14px 34px;cursor:pointer;transition:opacity 0.2s}
+        .agents-cta:hover{opacity:0.82}
+        .agents-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;margin-bottom:56px}
+        .agent-card{padding:26px;border:1px solid var(--grey-light);border-radius:16px;background:var(--white);display:flex;flex-direction:column;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s}
+        .agent-card:hover{border-color:var(--grey-nav);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.05)}
+        .agent-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.04);color:var(--black);margin-bottom:18px;flex-shrink:0}
+        .agent-card h3{font-family:var(--font-sans);font-size:19px;font-weight:600;color:var(--black);margin-bottom:8px;letter-spacing:-0.01em}
+        .agent-hook{font-family:var(--font-sans);font-size:15px;font-weight:600;color:var(--black);line-height:1.35;margin-bottom:10px}
+        .agent-desc{font-family:var(--font-sans);font-size:14px;color:var(--grey-dark);line-height:1.6;margin-bottom:20px;flex:1}
+        .agent-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+        .agent-chip{font-family:var(--font-sans);font-size:11px;font-weight:500;color:var(--grey-mid);border:1px solid var(--grey-light);border-radius:980px;padding:4px 10px;white-space:nowrap}
+        .agent-chip.live{color:#065f46;border-color:#a7f3d0;background:#ecfdf5;display:inline-flex;align-items:center;gap:5px}
+        .agent-chip.live .live-dot{width:6px;height:6px;border-radius:50%;background:#34d399;display:inline-block}
+        .agent-card.custom{background:var(--black);border-color:var(--black)}
+        .agent-card.custom h3,.agent-card.custom .agent-hook{color:var(--white)}
+        .agent-card.custom .agent-desc{color:rgba(255,255,255,0.72)}
+        .agent-card.custom .agent-icon{background:rgba(255,255,255,0.1);color:var(--white)}
+        .agent-card-cta{font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--black);background:var(--white);border:none;border-radius:980px;padding:11px 22px;cursor:pointer;margin-top:auto;align-self:flex-start;transition:opacity 0.2s}
+        .agent-card-cta:hover{opacity:0.85}
+        .agents-close{max-width:600px;margin:0 auto;text-align:center;padding-top:8px}
+        .agents-close h3{font-family:var(--font-serif);font-size:clamp(24px,4vw,34px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:12px;line-height:1.2}
+        .agents-close p{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);margin-bottom:28px;line-height:1.55}
+
         .skills{max-width:680px;margin:0 auto;padding:80px 22px 100px}
         .skills-header{margin-bottom:64px}
         .skills-header h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:10px}
@@ -670,7 +747,8 @@
             .nav-links a:hover,.nav-links a.active{color:var(--black)}
             .nav-linkedin svg{width:22px;height:22px}
             .page{padding-top:128px}
-            .manifesto{padding:56px 18px 80px}.projects,.contact{padding:56px 18px 80px}.coming-soon{padding:100px 18px}.send-btn{width:100%;text-align:center}
+            .manifesto{padding:56px 18px 80px}.projects,.contact,.agents{padding:56px 18px 80px}.coming-soon{padding:100px 18px}.send-btn{width:100%;text-align:center}
+            .agents-cta{width:100%;text-align:center}
         }
     </style>
 </head>
@@ -705,22 +783,68 @@
 <!-- Research Papers section removed — now lives at /papers/ as single source of truth -->
 
 <section id="p-projects" class="page">
-    <div class="projects do-anim">
-        <h2 class="a1">Agents</h2>
-        <div class="project-card a2">
-            <img class="paper-image" src="/images/project-clawbot.png" alt="ClawBot AI agent deployment" width="1376" height="768" loading="lazy">
-            <div class="project-type">Custom AI Infrastructure</div>
-            <h3>ClawBot</h3>
-            <p>We deploy the world's most powerful AI agent platforms into Australian businesses. OpenClaw. NemoClaw. Perplexity Computer. Claude Cowork. Whatever your business needs, we bring the right stack and configure it to your operations.</p>
-            <p>Each deployment puts a working AI employee inside your business. It handles customers, manages inboxes, books appointments and takes action across your tools. Fully autonomous, fully configured, running on your hardware.</p>
-            <p>We are not here to sell seats. We are working with Australian SMEs to find the 15 to 20 use cases where autonomous agents genuinely change how a business operates. Then we build purpose-built solutions around each one. Quality over quantity. Real work, not demos.</p>
-            <p>Australia is behind on agentic AI. We intend to close that gap.</p>
+    <div class="agents do-anim">
+        <div class="agents-header a1">
+            <h2>Your competitors are already running these.</h2>
+            <p class="agents-sub">Across Australia, businesses are racing to put AI agents to work, and most cannot make them stick. The tools are everywhere; the expertise to build, integrate and run them is not. That is the gap we close. Every agent below is in production right now, and we deploy them to businesses like yours.</p>
+            <div class="agents-proof"><span><strong>7</strong> agents in production</span><span class="dot">&middot;</span><span>Sydney-built</span><span class="dot">&middot;</span><span><strong>5</strong> published research papers</span></div>
+            <button class="agents-cta" onclick="go('contact')">Book a build call</button>
         </div>
-        <div class="project-card a3">
-            <img class="paper-image" src="/images/project-easyent.png" alt="EasyENT AI diagnostic tool for GPs" width="1376" height="768" loading="lazy">
-            <div class="project-type">AI Tool for Healthcare</div>
-            <h3>EasyENT</h3>
-            <p>Australia faces a growing shortage of ENT surgeons. EasyENT gives GPs the AI-powered tooling to identify and diagnose ENT conditions earlier, helping patients get the right care faster without waiting months for a specialist referral.</p>
+
+        <div class="agents-grid a2">
+            <article class="agent-card">
+                <div class="agent-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l3.4 3.4a1 1 0 0 0 1.6-.8V7.4a1 1 0 0 0-1.6-.8L6 10H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></div>
+                <h3>Marketing Agent</h3>
+                <p class="agent-hook">Your marketing, running while you sleep.</p>
+                <p class="agent-desc">Sources what is worth saying, creates the visuals, writes the copy, and publishes across social and email. You approve before anything goes live.</p>
+                <div class="agent-chips"><span class="agent-chip">Social</span><span class="agent-chip">Email</span><span class="agent-chip">Content</span><span class="agent-chip">Campaigns</span><span class="agent-chip live"><span class="live-dot"></span>Live in production</span></div>
+            </article>
+
+            <article class="agent-card">
+                <div class="agent-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <h3>SEO Agent</h3>
+                <p class="agent-hook">Get found on Google, and inside ChatGPT.</p>
+                <p class="agent-desc">Runs keyword research, writes content briefs, and fixes technical issues on a schedule, and optimises for the AI answers your customers now ask first.</p>
+                <div class="agent-chips"><span class="agent-chip">SEO</span><span class="agent-chip">GEO</span><span class="agent-chip">Technical audits</span><span class="agent-chip live"><span class="live-dot"></span>Live in production</span></div>
+            </article>
+
+            <article class="agent-card">
+                <div class="agent-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <h3>Coding Agent</h3>
+                <p class="agent-hook">Ship faster. Break less.</p>
+                <p class="agent-desc">Writes, reviews and integrates code with an independent review pass on every change. The same engine we use to build every agent on this page.</p>
+                <div class="agent-chips"><span class="agent-chip">Build</span><span class="agent-chip">Review</span><span class="agent-chip">Integrate</span><span class="agent-chip live"><span class="live-dot"></span>Live in production</span></div>
+            </article>
+
+            <article class="agent-card">
+                <div class="agent-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                <h3>Cyber Security Agent</h3>
+                <p class="agent-hook">A second set of eyes on every change.</p>
+                <p class="agent-desc">Reviews your code and infrastructure for weaknesses before they ship, thinking like an attacker so you are not the one who finds out later.</p>
+                <div class="agent-chips"><span class="agent-chip">Code review</span><span class="agent-chip">Vulnerability detection</span><span class="agent-chip">Adversarial</span><span class="agent-chip live"><span class="live-dot"></span>Live in production</span></div>
+            </article>
+
+            <article class="agent-card">
+                <div class="agent-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+                <h3>ASIC Compliance Agent</h3>
+                <p class="agent-hook">Never miss a regulatory change.</p>
+                <p class="agent-desc">Monitors ASIC updates and surfaces exactly what affects your business, so a rule change never catches you off guard.</p>
+                <div class="agent-chips"><span class="agent-chip">ASIC monitoring</span><span class="agent-chip">Change alerts</span><span class="agent-chip">Australian</span><span class="agent-chip live"><span class="live-dot"></span>Live in production</span></div>
+            </article>
+
+            <article class="agent-card custom">
+                <div class="agent-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg></div>
+                <h3>Custom Build</h3>
+                <p class="agent-hook">Need a different agent? We build it.</p>
+                <p class="agent-desc">A receptionist that never misses a call. An SDR that fills your pipeline. A support agent that handles half your tickets. A bookkeeper that closes your month. If the work is repetitive, we can automate it, built to your brief and deployed to your stack.</p>
+                <button class="agent-card-cta" onclick="go('contact')">Tell us what to automate</button>
+            </article>
+        </div>
+
+        <div class="agents-close a3">
+            <h3>Australia will not wait. Neither should you.</h3>
+            <p>If there is a task you would hand off tomorrow, let us talk.</p>
+            <button class="agents-cta" onclick="go('contact')">Book a build call</button>
         </div>
     </div>
     <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai">speedrunlab.ai</a></p></footer>
