@@ -32,13 +32,9 @@ Monitors ASIC regulatory updates and surfaces what affects your business. It mon
 ### Custom Build
 Bespoke agents built to brief and deployed to your stack: AI receptionist, sales and SDR, customer support, bookkeeping, and more. If the work is repetitive, it can usually be automated.
 
-## What We Build
+## Open Source
 
-### ClawBot
-Custom AI agent deployment for Australian businesses. ClawBot builds on OpenClaw to deliver tailored AI solutions hosted locally or on a private VPN — fully under the client's control, fully configured to their operations.
-
-### EasyENT
-An AI-powered tool that helps GPs identify and diagnose ENT conditions earlier. Australia faces a growing shortage of ENT surgeons. EasyENT helps patients get the right care faster without waiting months for a specialist referral.
+Speedrun AI Labs publishes free, open-source skills for Claude Code and OpenClaw agents at github.com/Speedrunlab: /hermes-agent-as-a-skill-file, /read-before-write, /deep-audit, /no-slop-writing, and /no-slop-writing-au. All MIT licensed. Details at speedrunlab.ai/#skills.
 
 ## Contact
 
