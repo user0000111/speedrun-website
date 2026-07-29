@@ -10,6 +10,28 @@ Founded by Adnan Tanveer (known as Addy Tanveer or Addy), based in Cronulla, Syd
 
 Our motto: whatever we create, whatever we ship, we deliver more value than we extract.
 
+## AI Agents We Deploy
+
+Speedrun AI Labs runs seven AI agents in production and deploys them to Australian businesses. We build, integrate and run each one. A human approves before anything goes live.
+
+### Marketing Agent
+Autonomous social media, email and content marketing. Sources what is worth saying, creates the visuals, writes the copy, and publishes across social and email. Runs as three production agents — social media, email, and content — presented as one service. Human approval before anything publishes.
+
+### SEO Agent
+Search engine optimisation and generative engine optimisation (GEO). Keyword research, content briefs, scheduled technical audits, and optimisation for the AI answers customers now ask first.
+
+### Coding Agent
+Writes, reviews and integrates code, with an independent review pass on every change. The same engine Speedrun uses to build its own agents.
+
+### Cyber Security Agent
+Reviews code and infrastructure for weaknesses before deployment, thinking like an attacker.
+
+### ASIC Compliance Agent
+Monitors ASIC regulatory updates and surfaces what affects your business. It monitors and surfaces changes; it does not provide legal or compliance advice.
+
+### Custom Build
+Bespoke agents built to brief and deployed to your stack: AI receptionist, sales and SDR, customer support, bookkeeping, and more. If the work is repetitive, it can usually be automated.
+
 ## What We Build
 
 ### ClawBot

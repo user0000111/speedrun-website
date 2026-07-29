@@ -44,10 +44,11 @@ function parseFormBody(body) {
   return {
     name: params.get('name') || '',
     email: params.get('email') || '',
+    subject: params.get('subject') || '',
+    phone: params.get('phone') || '',
     message: params.get('message') || '',
+    submittedAt: params.get('submitted_at_sydney') || '',
     website: params.get('website') || '', // honeypot field
-    captchaAnswer: params.get('captcha_answer') || '',
-    captchaExpected: params.get('captcha_expected') || '',
   };
 }
 
@@ -121,10 +122,12 @@ export default async function handler(req, res) {
           <h2>New Contact Form Submission</h2>
           <p><strong>Name:</strong> ${escapeHtml(fields.name)}</p>
           <p><strong>Email:</strong> ${escapeHtml(fields.email)}</p>
+          ${fields.subject ? `<p><strong>Subject:</strong> ${escapeHtml(fields.subject)}</p>` : ''}
+          ${fields.phone ? `<p><strong>Phone:</strong> ${escapeHtml(fields.phone)}</p>` : ''}
           <p><strong>Message:</strong></p>
           <p>${escapeHtml(fields.message).replace(/\n/g, '<br>')}</p>
           <hr>
-          <p style="color:#666;font-size:12px;">Sent via speedrunlab.ai contact form</p>
+          <p style="color:#666;font-size:12px;">Sent via speedrunlab.ai contact form${fields.submittedAt ? ` &middot; ${escapeHtml(fields.submittedAt)}` : ''}</p>
         `,
       }),
     });

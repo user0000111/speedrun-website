@@ -136,7 +136,7 @@
                 "name": "What does Speedrun AI Labs build?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We build custom AI agents and AI-powered tools. Our current products include ClawBot, a custom AI agent deployment platform for Australian businesses, and EasyENT, an AI tool that helps GPs diagnose ENT conditions earlier, reducing wait times for specialist referrals."
+                    "text": "We build and deploy custom AI agents for Australian businesses. Seven agents run in production today, covering marketing, SEO, software development, cyber security, and ASIC compliance monitoring, and we build bespoke agents to brief. We also build AI-powered products: ClawBot, a custom AI agent deployment platform for Australian businesses, and EasyENT, an AI tool that helps GPs diagnose ENT conditions earlier, reducing wait times for specialist referrals."
                 }
             },
             {
@@ -557,10 +557,12 @@
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
+        /* Instrument Serif — self-hosted (SIL OFL 1.1, see /fonts/OFL.txt) */
+        @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
         :root{--white:#FBFBFB;--black:#1D1D1F;--grey-light:#E5E5E7;--grey-nav:#86868B;--grey-mid:#6E6E73;--grey-dark:#424245;--font-sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;--font-serif:'Instrument Serif',Georgia,'Times New Roman',serif}
         html{scroll-behavior:smooth}
@@ -599,44 +601,6 @@
         .do-anim .a3{opacity:0;transform:translateY(10px);animation:mIn 0.6s ease 0.45s forwards}
         .do-anim .a4{opacity:0;transform:translateY(10px);animation:mIn 0.7s ease 0.6s forwards}
         .do-anim .a5{opacity:0;transform:translateY(10px);animation:mIn 0.6s ease 0.8s forwards}
-
-        .coming-soon{max-width:680px;margin:0 auto;padding:140px 22px;text-align:center}
-        .coming-soon-tag{display:inline-block;font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-mid);border:1px solid var(--grey-light);padding:6px 16px;margin-bottom:32px}
-        .coming-soon h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;color:var(--black);margin-bottom:16px}
-        .coming-soon p{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);line-height:1.6}
-
-        .research{max-width:680px;margin:0 auto;padding:80px 22px 100px}
-        .research-header{margin-bottom:64px}
-        .research-header h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:10px}
-        .research-header p{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);line-height:1.5}
-        .paper-card{padding:52px 0;border-bottom:1px solid var(--grey-light)}
-        .paper-card:first-of-type{border-top:1px solid var(--grey-light)}
-        .paper-image{width:100%;height:220px;object-fit:cover;border-radius:12px;display:block;margin-bottom:28px}
-        .paper-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-        .paper-badge{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:980px;border:1px solid var(--grey-light);color:var(--grey-mid)}
-        .paper-badge.pending{color:#b45309;border-color:#fde68a;background:#fffbeb}
-        .paper-badge.published{color:#166534;border-color:#bbf7d0;background:#f0fdf4}
-        .paper-ssrn{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--black);background:none;border:1px solid var(--grey-light);border-radius:980px;padding:8px 20px;text-decoration:none;transition:border-color 0.2s,background 0.2s}
-        .paper-ssrn:hover{border-color:var(--black);background:rgba(0,0,0,0.03)}
-        .paper-hook{font-family:var(--font-sans);font-size:clamp(22px,3.5vw,30px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:10px;letter-spacing:-0.02em}
-        .paper-card h3{font-family:var(--font-sans);font-size:14px;font-weight:400;color:var(--grey-mid);margin-bottom:6px;line-height:1.4}
-        .paper-meta{font-family:var(--font-sans);font-size:12px;color:var(--grey-nav);margin-bottom:20px}
-        .paper-abstract{display:none;font-family:var(--font-sans);font-size:15px;color:var(--grey-dark);line-height:1.65;margin-bottom:24px;padding-top:4px}
-        .paper-abstract.open{display:block}
-        .paper-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-        .paper-toggle{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--black);background:none;border:1px solid var(--grey-light);border-radius:980px;padding:8px 20px;cursor:pointer;transition:border-color 0.2s,background 0.2s}
-        .paper-toggle:hover{border-color:var(--black);background:rgba(0,0,0,0.03)}
-        .paper-download{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--white);background:var(--black);border:1px solid var(--black);border-radius:980px;padding:8px 20px;text-decoration:none;transition:opacity 0.2s}
-        .paper-download:hover{opacity:0.82}
-
-        .projects{max-width:680px;margin:0 auto;padding:80px 22px 100px}
-        .projects h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;color:var(--black);margin-bottom:48px}
-        .project-card{padding:32px 0;border-bottom:1px solid var(--grey-light)}
-        .project-card:first-of-type{border-top:1px solid var(--grey-light)}
-        .project-card h3{font-family:var(--font-sans);font-size:20px;font-weight:600;color:var(--black);margin-bottom:6px}
-        .project-type{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:12px}
-        .project-card p{font-family:var(--font-sans);font-size:15px;color:var(--grey-dark);line-height:1.6;margin-bottom:16px}
-        .project-card p:last-child{margin-bottom:0}
 
         .agents{max-width:940px;margin:0 auto;padding:80px 22px 100px}
         .agents-header{max-width:680px;margin:0 auto 52px;text-align:center}
@@ -747,7 +711,7 @@
             .nav-links a:hover,.nav-links a.active{color:var(--black)}
             .nav-linkedin svg{width:22px;height:22px}
             .page{padding-top:128px}
-            .manifesto{padding:56px 18px 80px}.projects,.contact,.agents{padding:56px 18px 80px}.coming-soon{padding:100px 18px}.send-btn{width:100%;text-align:center}
+            .manifesto{padding:56px 18px 80px}.contact,.agents{padding:56px 18px 80px}.send-btn{width:100%;text-align:center}
             .agents-cta{width:100%;text-align:center}
         }
     </style>
@@ -1111,7 +1075,6 @@ function go(p){document.querySelectorAll('.page').forEach(function(el){el.classL
 if(window.location.search.includes('error=1')){var e=document.getElementById('formErr');if(e){e.style.display='block';go('contact');}}if(window.location.search.includes('limit=1')){var e=document.getElementById('formErr');if(e){e.textContent='Too many submissions today. Please try again tomorrow.';e.style.display='block';go('contact');}}
 var hash=window.location.hash.replace('#','');if(hash&&document.getElementById('p-'+hash)){go(hash);}
 var cA,cB;function genCap(){cA=Math.floor(Math.random()*10)+1;cB=Math.floor(Math.random()*10)+1;document.getElementById('capQ').textContent='What is '+cA+' + '+cB+'?'}genCap();
-function toggleAbstract(id,btn){var el=document.getElementById(id);var open=el.classList.toggle('open');btn.textContent=open?'Hide Abstract':'Read Abstract'}
 
 document.getElementById('cForm').addEventListener('submit',function(ev){var ph=document.getElementById('c-phone').value.trim();var a=document.getElementById('capA').value.trim();if(ph){var digits=ph.replace(/[\s\-()]+/g,'');if(!/^(04\d{8}|0[2378]\d{8}|\+614\d{8})$/.test(digits)){ev.preventDefault();alert('Please enter a valid Australian phone number (e.g. 04XX XXX XXX or 02 XXXX XXXX).');return}}if(parseInt(a)!==(cA+cB)){ev.preventDefault();alert('That does not look right. Please try the maths question again.');genCap();document.getElementById('capA').value='';return}document.getElementById('sydTime').value=new Date().toLocaleString('en-AU',{timeZone:'Australia/Sydney',dateStyle:'full',timeStyle:'short'})})
 </script>
