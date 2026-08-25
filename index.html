@@ -1058,7 +1058,7 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
 /* Cloudflare Turnstile. Explicit render, not implicit: the contact section
    starts display:none and a widget rendered into a hidden container does not
    reliably yield a token. Rendered the first time the section is opened. */
-var TS_SITEKEY='1x00000000000000000000AA';
+var TS_SITEKEY='0x4AAAAAAEbVwWrKNY4ZlVAO';
 var tsWidgetId=null,tsReady=false,tsWanted=false,tsPendingSubmit=false;
 function tsNote(on){var n=document.getElementById('tsNote');if(n)n.hidden=!on}
 function tsToken(){var el=document.querySelector('#cForm [name="cf-turnstile-response"]');return el?el.value:''}
