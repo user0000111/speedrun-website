@@ -669,9 +669,8 @@
         .form-group input::placeholder,.form-group textarea::placeholder{color:#AAABB0}
         .captcha-box{margin-bottom:28px;padding:16px;border:1px solid var(--grey-light);border-radius:8px;background:rgba(0,0,0,0.012)}
         .captcha-box label{font-family:var(--font-sans);font-size:13px;font-weight:400;color:var(--grey-mid);margin-bottom:8px;display:block}
-        .captcha-q{font-family:var(--font-sans);font-size:17px;font-weight:600;color:var(--black);margin-bottom:10px}
-        .captcha-box input{width:100px;font-family:var(--font-sans);font-size:15px;color:var(--black);background:var(--white);border:1px solid var(--grey-light);border-radius:8px;padding:8px 12px;outline:none;transition:border-color 0.2s}
-        .captcha-box input:focus{border-color:var(--black)}
+        .captcha-note{font-family:var(--font-sans);font-size:13px;color:var(--grey-mid);margin-top:10px}
+        .captcha-note[hidden]{display:none}
         .send-btn{font-family:var(--font-sans);font-size:15px;font-weight:500;color:var(--white);background:var(--black);border:none;border-radius:980px;padding:14px 40px;cursor:pointer;transition:opacity 0.2s}
         .send-btn:hover{opacity:0.82}
         .form-ok{display:none;text-align:center;padding:48px 0}
@@ -1035,7 +1034,7 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
             <div class="form-group"><label for="c-subject">Subject</label><input type="text" id="c-subject" name="subject" placeholder="What is this about?"></div>
             <div class="form-group"><label for="c-phone">Phone (optional)</label><input type="tel" id="c-phone" name="phone" placeholder="04XX XXX XXX" autocomplete="tel"></div>
             <div class="form-group"><label for="c-msg">Message</label><textarea id="c-msg" name="message" placeholder="Tell us what you are thinking..."></textarea></div>
-            <div class="captcha-box"><label>Quick check to prove you are human:</label><div class="captcha-q" id="capQ"></div><input type="text" id="capA" placeholder="?" aria-labelledby="capQ"></div>
+            <div class="captcha-box"><label>Quick check to prove you are human:</label><div id="turnstileBox"></div><p class="captcha-note" id="tsNote" hidden>Verifying you are human, one moment&hellip;</p></div>
             <button type="submit" class="send-btn">Send Message</button>
         </form>
         <div class="form-ok" id="formOk"><h3>Message sent.</h3><p>We will get back to you soon.</p></div>
@@ -1056,13 +1055,37 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
 </noscript>
 
 <script>
-function go(p){document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});var pg=document.getElementById('p-'+p);pg.classList.add('active');var c=pg.querySelector('.do-anim');if(c){c.classList.remove('do-anim');void c.offsetWidth;c.classList.add('do-anim');}document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===p)});window.scrollTo(0,0)}
-if(window.location.search.includes('error=1')){var e=document.getElementById('formErr');if(e){e.style.display='block';go('contact');}}if(window.location.search.includes('limit=1')){var e=document.getElementById('formErr');if(e){e.textContent='Too many submissions today. Please try again tomorrow.';e.style.display='block';go('contact');}}
-var hash=window.location.hash.replace('#','');if(hash&&document.getElementById('p-'+hash)){go(hash);}
-var cA,cB;function genCap(){cA=Math.floor(Math.random()*10)+1;cB=Math.floor(Math.random()*10)+1;document.getElementById('capQ').textContent='What is '+cA+' + '+cB+'?'}genCap();
+/* Cloudflare Turnstile. Explicit render, not implicit: the contact section
+   starts display:none and a widget rendered into a hidden container does not
+   reliably yield a token. Rendered the first time the section is opened. */
+var TS_SITEKEY='1x00000000000000000000AA';
+var tsWidgetId=null,tsReady=false,tsWanted=false,tsPendingSubmit=false;
+function tsNote(on){var n=document.getElementById('tsNote');if(n)n.hidden=!on}
+function tsToken(){var el=document.querySelector('#cForm [name="cf-turnstile-response"]');return el?el.value:''}
+function setSydneyTime(){document.getElementById('sydTime').value=new Date().toLocaleString('en-AU',{timeZone:'Australia/Sydney',dateStyle:'full',timeStyle:'short'})}
+function renderTurnstile(){
+  if(tsWidgetId!==null||!tsReady||!tsWanted||!window.turnstile)return;
+  tsWidgetId=window.turnstile.render('#turnstileBox',{sitekey:TS_SITEKEY,theme:'auto',action:'contact',
+    callback:function(){tsNote(false);if(tsPendingSubmit){tsPendingSubmit=false;setSydneyTime();document.getElementById('cForm').submit();}},
+    'expired-callback':function(){window.turnstile.reset(tsWidgetId)},
+    'error-callback':function(){tsNote(false);tsPendingSubmit=false}});
+}
+window.onTurnstileReady=function(){tsReady=true;renderTurnstile()};
 
-document.getElementById('cForm').addEventListener('submit',function(ev){var ph=document.getElementById('c-phone').value.trim();var a=document.getElementById('capA').value.trim();if(ph){var digits=ph.replace(/[\s\-()]+/g,'');if(!/^(04\d{8}|0[2378]\d{8}|\+614\d{8})$/.test(digits)){ev.preventDefault();alert('Please enter a valid Australian phone number (e.g. 04XX XXX XXX or 02 XXXX XXXX).');return}}if(parseInt(a)!==(cA+cB)){ev.preventDefault();alert('That does not look right. Please try the maths question again.');genCap();document.getElementById('capA').value='';return}document.getElementById('sydTime').value=new Date().toLocaleString('en-AU',{timeZone:'Australia/Sydney',dateStyle:'full',timeStyle:'short'})})
+function go(p){document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});var pg=document.getElementById('p-'+p);pg.classList.add('active');var c=pg.querySelector('.do-anim');if(c){c.classList.remove('do-anim');void c.offsetWidth;c.classList.add('do-anim');}document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===p)});window.scrollTo(0,0);if(p==='contact'){tsWanted=true;renderTurnstile();}}
+if(window.location.search.includes('error=1')){var e=document.getElementById('formErr');if(e){e.style.display='block';go('contact');}}
+var hash=window.location.hash.replace('#','');if(hash&&document.getElementById('p-'+hash)){go(hash);}
+
+document.getElementById('cForm').addEventListener('submit',function(ev){
+  var ph=document.getElementById('c-phone').value.trim();
+  if(ph){var digits=ph.replace(/[\s\-()]+/g,'');if(!/^(04\d{8}|0[2378]\d{8}|\+614\d{8})$/.test(digits)){ev.preventDefault();alert('Please enter a valid Australian phone number (e.g. 04XX XXX XXX or 02 XXXX XXXX).');return}}
+  /* No token yet: hold the submit, show a note, and let the callback send it. */
+  if(!tsToken()){ev.preventDefault();tsPendingSubmit=true;tsWanted=true;tsNote(true);if(tsWidgetId===null){renderTurnstile()}else{window.turnstile.reset(tsWidgetId)}return}
+  setSydneyTime();
+})
 </script>
+<!-- Loaded after the inline script so onTurnstileReady is defined before it fires. -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileReady" async defer></script>
 
 </body>
 </html>
