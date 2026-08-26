@@ -16,15 +16,18 @@
         html{scroll-behavior:smooth}
         body{font-family:var(--font-sans);background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;display:flex;flex-direction:column;min-height:100vh}
         nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,251,251,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
-        .nav-inner{max-width:980px;margin:0 auto;padding:0 22px;height:80px;display:flex;align-items:center;justify-content:center}
+        .nav-inner{max-width:980px;margin:0 auto;padding:0 22px;height:80px;display:flex;align-items:center;justify-content:space-between}
         .nav-top-row{display:contents}
-        .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--black)}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--black)}
         .nav-logo img{height:106px;width:auto}
         .nav-logo .logo-dark{display:block}
         .nav-linkedin{display:flex;align-items:center;color:var(--grey-nav);transition:color 0.2s ease;flex-shrink:0;margin-left:4px}
         .nav-linkedin:hover{color:#0A66C2}
         .nav-logo .logo-light{display:none}
         @media(prefers-color-scheme:dark){.nav-logo .logo-dark{display:none}.nav-logo .logo-light{display:block}}
+        .nav-links{display:flex;gap:28px;list-style:none;flex-wrap:nowrap;justify-content:center}
+        .nav-links a{font-family:var(--font-sans);font-size:12px;font-weight:400;color:var(--grey-nav);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s ease;white-space:nowrap}
+        .nav-links a:hover,.nav-links a.active{color:var(--black)}
         .content{flex:1;display:flex;align-items:center;justify-content:center;padding:120px 22px 80px;text-align:center}
         .thank-you h1{font-family:var(--font-serif);font-size:clamp(32px,5vw,48px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:16px}
         .thank-you p{font-family:var(--font-sans);font-size:clamp(16px,2vw,18px);color:var(--grey-dark);line-height:1.6;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
@@ -36,9 +39,15 @@
         .footer a:hover{color:var(--black)}
         @media(max-width:768px){
             .nav-inner{height:auto;flex-direction:column;align-items:stretch;padding:0;gap:0}
-            .nav-top-row{display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:64px}
+            .nav-top-row{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;padding:0 8px;height:64px}
+            .nav-logo{grid-column:1}
+            .nav-linkedin{grid-column:3;justify-self:center;margin-left:0}
             .nav-logo img{height:65px}
-            .nav-linkedin{margin-left:0}
+            .nav-links{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,auto);gap:0;list-style:none;border-top:1px solid var(--grey-light);padding:4px 8px 6px}
+            .nav-links li:nth-child(n+4){border-top:1px solid var(--grey-light)}
+            .nav-links li{display:flex;justify-content:center}
+            .nav-links a{font-size:12px;padding:8px 6px;display:block;white-space:nowrap;text-align:center}
+            .nav-linkedin svg{width:22px;height:22px}
             body{padding-top:128px}
         }
     </style>
