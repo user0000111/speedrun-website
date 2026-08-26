@@ -39,9 +39,11 @@
   } else {
     logo.href = '/';
   }
+  // One logo. The site's background is light on every page, so there is nothing for a
+  // second, white version to sit on — it was a leftover from an unfinished dark theme
+  // (a8dd610) and was being downloaded on every page load while hidden.
   logo.innerHTML =
-    '<img class="logo-dark" src="/logo.png" alt="Speedrun AI Labs" loading="eager">' +
-    '<img class="logo-light" src="/logo-white.png" alt="Speedrun AI Labs" loading="eager">';
+    '<img src="/logo.png" alt="Speedrun AI Labs" loading="eager">';
   topRow.appendChild(logo);
 
   // LinkedIn icon (top row, right side)
