@@ -7,12 +7,12 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
-    <meta name="description" content="Practitioner research from Speedrun AI Labs, Sydney, Australia. Five papers on multi-model AI review councils, NVIDIA NemoClaw, Apple Silicon agent deployment, self-improving AI agents with NVIDIA Nemotron, and fault-tolerant memory architecture.">
+    <meta name="description" content="Practitioner research from Speedrun AI Labs, Sydney, Australia. Six papers on multi-model AI review councils, reasoning-first model reliability, NVIDIA NemoClaw, Apple Silicon agent deployment, self-improving AI agents with NVIDIA Nemotron, and fault-tolerant memory architecture.">
     <meta name="author" content="Speedrun AI Labs">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.speedrunlab.ai/papers/">
     <meta property="og:title" content="Research Papers | Speedrun AI Labs">
-    <meta property="og:description" content="Five practitioner research papers from Speedrun AI Labs, Sydney. The Intelligence Council multi-model review, NVIDIA NemoClaw on Apple Silicon, self-improving AI agents with NVIDIA Nemotron, and more.">
+    <meta property="og:description" content="Six practitioner research papers from Speedrun AI Labs, Sydney. Reasoning-first models as review-council seats, The Intelligence Council multi-model review, NVIDIA NemoClaw on Apple Silicon, self-improving AI agents with NVIDIA Nemotron, and more.">
     <meta property="og:url" content="https://www.speedrunlab.ai/papers/">
     <meta property="og:site_name" content="Speedrun AI Labs">
     <meta property="og:type" content="website">
@@ -22,7 +22,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Research Papers | Speedrun AI Labs">
-    <meta name="twitter:description" content="Five practitioner research papers from Speedrun AI Labs, Sydney. The Intelligence Council multi-model review, NVIDIA NemoClaw on Apple Silicon, self-improving AI agents with NVIDIA Nemotron, and more.">
+    <meta name="twitter:description" content="Six practitioner research papers from Speedrun AI Labs, Sydney. Reasoning-first models as review-council seats, The Intelligence Council multi-model review, NVIDIA NemoClaw on Apple Silicon, self-improving AI agents with NVIDIA Nemotron, and more.">
     <meta name="twitter:image" content="https://www.speedrunlab.ai/images/og-image.png">
     <meta name="geo.region" content="AU-NSW">
     <meta name="geo.placename" content="Sydney">
@@ -48,6 +48,23 @@
             "url": "https://www.speedrunlab.ai"
         },
         "hasPart": [
+            {
+                "@type": "ScholarlyArticle",
+                "name": "GLM 5.3, Kimi K3, and DeepSeek V4 Pro as Independent Review-Council Seats: Diagnosing and Fixing Empty-Verdict Failures on a Provider-Pinned, Body-Verifying Multi-Model Review Harness over OpenRouter",
+                "author": {
+                    "@type": "Person",
+                    "name": "Adnan Tanveer",
+                    "alternateName": ["Addy Tanveer", "Addy"],
+                    "worksFor": {"@type": "Organization", "name": "Speedrun AI Labs", "url": "https://www.speedrunlab.ai"}
+                },
+                "datePublished": "2026-08-21",
+                "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7376658",
+                "sameAs": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7376658",
+                "isAccessibleForFree": true,
+                "publisher": {"@type": "Organization", "name": "SSRN"},
+                "about": "Multi-model review, reasoning-first models, LLM orchestration, model aggregators, OpenRouter, reliability, agent harness, streaming, GLM 5.3, Kimi K3, DeepSeek V4 Pro, intelligence council",
+                "keywords": ["multi-model review", "reasoning models", "LLM orchestration", "model aggregators", "reliability", "agent harness", "streaming"]
+            },
             {
                 "@type": "ScholarlyArticle",
                 "name": "The Intelligence Council: Provider-Agnostic, Domain-Specialized Multi-Model Review for Autonomous AI Systems",
@@ -355,6 +372,31 @@
         </article>
 
         <div class="paper-section-label ssrn">Preprints &middot; SSRN</div>
+
+        <article class="paper-card">
+            <img class="paper-image" src="/images/paper-reasoning-first-review-council.png" alt="Three frosted-glass review-council seats in a navy scene: two lit, one dark with its light drained into a glowing coil on the floor and a single thin stream relighting it">
+            <div class="paper-badges">
+                <span class="paper-badge published">Published on SSRN</span>
+                <span class="paper-badge">Reasoning Models</span>
+                <span class="paper-badge">Multi-Model</span>
+                <span class="paper-badge">cs.MA</span>
+            </div>
+            <p class="paper-hook">Three of our strongest review seats came back empty. The models were fine. The harness was not.</p>
+            <h2>GLM 5.3, Kimi K3, and DeepSeek V4 Pro as Independent Review-Council Seats: Diagnosing and Fixing Empty-Verdict Failures on a Provider-Pinned, Body-Verifying Multi-Model Review Harness over OpenRouter</h2>
+            <p class="paper-meta">Adnan Tanveer (Addy) &middot; Speedrun AI Labs, Sydney &middot; August 21, 2026 &middot; v1.0 &middot; SSRN 7376658</p>
+            <p class="paper-abstract" id="abs6">A multi-model review panel is only as good as the verdicts it actually collects. In production, three of our strongest independent seats returned empty verdicts under load: a 200 OK response whose body carried no review at all. Every case traced to the interaction between a reasoning-first model, whose hidden reasoning draws from the same output-token budget as its visible answer, and a harness whose defaults were tuned for non-reasoning models. We show that the widely seen error "Expecting value ... (char 7315)" is not a corruption offset but the byte length of an all-whitespace body. GLM 5.3 and Kimi K3 exhaust the budget on hidden reasoning at their default effort; the fix is to cap reasoning effort. DeepSeek V4 Pro cannot be capped and failed in three layers: a silent reasoning window that a non-streamed request drops, a ceiling its reasoning alone exhausts, and a pinned provider returning instant timeouts while its published uptime read 99 percent. Its fix is streaming, a larger ceiling, and a health-ordered provider preference. We give the exact per-model configuration, the harness code that encodes it, and the review quality recovered on real security and code-review tasks.</p>
+            <div class="paper-actions">
+                <button class="paper-toggle" onclick="toggleAbstract('abs6', this)">Read Abstract</button>
+                <a class="paper-ssrn" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7376658" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    View on SSRN
+                </a>
+                <a class="paper-download" href="/papers/reasoning-first-review-council-v1.0.pdf" download>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download PDF
+                </a>
+            </div>
+        </article>
 
         <article class="paper-card">
             <img class="paper-image" src="/images/paper-intelligence-council.png" alt="The Intelligence Council — seven independent AI models convening as a review panel, rendered as glowing frosted-glass panels in a navy scene">
