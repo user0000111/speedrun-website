@@ -41,3 +41,10 @@ Static site, no framework, no build step. Pickup state and history live in the O
   test key for plumbing.
 - Do not widen the CSP casually. Fonts are self-hosted at `/fonts/`; never re-add Google Fonts.
 - The site is light-only, with one logo. Do not reintroduce a logo swap.
+
+## Close-out and IDLE
+- Run the `close-out` skill at the end of every session that shipped work (vault `Projects/Speedrun.md` + day note,
+  this file + `AGENTS.md`, memory; `close-out.sh --sync-agents` to 0 FAIL).
+- Then become an **IDLE Agent** (Addy 2026-10-06, global rule 31 in `~/.claude/CLAUDE.md`): release your own workspace
+  (worktrees, branches, local servers, background jobs), end with *"IDLE Agent — all done, all board clear, what's next!"*,
+  and start nothing on your own until Addy's next task.
