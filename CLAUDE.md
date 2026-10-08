@@ -45,6 +45,9 @@ Static site, no framework, no build step. Pickup state and history live in the O
 ## Close-out and IDLE
 - Run the `close-out` skill at the end of every session that shipped work (vault `Projects/Speedrun.md` + day note,
   this file + `AGENTS.md`, memory; `close-out.sh --sync-agents` to 0 FAIL).
+- **Every close-out updates all three — this file, the Obsidian vault and `AGENTS.md`** (global rule 32, Addy 2026-10-08 —
+  *"at every close out we have to always update the claude.md, the obsidian vault and the agnets.md! Everytime before I get the message IDLE Agent"*): the ruling or a dated pointer line here,
+  the day note in the vault, AGENTS.md's sync line in the same commit — committed and pushed before the IDLE line.
 - Then become an **IDLE Agent** (Addy 2026-10-06, global rule 31 in `~/.claude/CLAUDE.md`): release your own workspace
   (worktrees, branches, local servers, background jobs), end with *"IDLE Agent — all done, all board clear, what's next!"*,
   and start nothing on your own until Addy's next task.
