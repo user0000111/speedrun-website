@@ -106,8 +106,10 @@
   // One logo. The site's background is light on every page, so there is nothing for a
   // second, white version to sit on — it was a leftover from an unfinished dark theme
   // (a8dd610) and was being downloaded on every page load while hidden.
+  // width/height give the browser the logo's ratio before it loads, so the LinkedIn icon
+  // does not jump ~100px on refresh (CSS sets the real height; width follows).
   logo.innerHTML =
-    '<img src="/logo.png" alt="Speedrun AI Labs" loading="eager">';
+    '<img src="/logo.png" alt="Speedrun AI Labs" width="1200" height="655" loading="eager">';
   topRow.appendChild(logo);
 
   // LinkedIn icon (top row, right side)
