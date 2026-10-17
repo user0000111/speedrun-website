@@ -42,6 +42,8 @@
     ]},
     { title: 'Speedrun AI Labs', links: [
       ['About', '/#about'],
+      ['AI Safety', '/ai-safety/'],
+      ['Data', '/data/'],
       ['Press', '/#press'],
       ['Contact Us', '/#contact'],
       ['LinkedIn', 'https://www.linkedin.com/company/speedrun-ai-labs'],
@@ -52,6 +54,8 @@
     ['Privacy Policy', '/privacy/'],
     ['Terms of Use', '/terms/'],
     ['Legal', '/legal/'],
+    ['Data', '/data/'],
+    ['AI Safety', '/ai-safety/'],
     ['Site Map', '/site-map/'],
   ];
 

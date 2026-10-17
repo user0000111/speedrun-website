@@ -67,6 +67,26 @@
       "permanent": true
     },
     {
+      "source": "/data",
+      "destination": "/data/",
+      "permanent": true
+    },
+    {
+      "source": "/data/index.html",
+      "destination": "/data/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-safety",
+      "destination": "/ai-safety/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-safety/index.html",
+      "destination": "/ai-safety/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "destination": "https://www.speedrunlab.ai/:path*",
       "permanent": true,

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Light only, like apple.com: "only" stops phones force-darkening the page and the mascot (Addy 2026-10-17). -->
+    <meta name="color-scheme" content="only light">
+    <title>Data | Speedrun AI Labs</title>
+    <meta name="description" content="How Anton and Joseph handle your data: your business owns it, decides what the agent can reach and where it lives, and we never train AI models on it.">
+    <link rel="canonical" href="https://www.speedrunlab.ai/data/">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        /* Instrument Serif — self-hosted (SIL OFL 1.1, see /fonts/OFL.txt) */
+        @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{color-scheme:only light;--white:#FBFBFB;--black:#1D1D1F;--grey-light:#E5E5E7;--grey-nav:#86868B;--grey-mid:#6E6E73;--grey-dark:#424245;--font-sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;--font-serif:'Instrument Serif',Georgia,'Times New Roman',serif}
+        html{scroll-behavior:smooth}
+        body{font-family:var(--font-sans);background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;display:flex;flex-direction:column;min-height:100vh}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,251,251,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
+        .nav-inner{max-width:980px;margin:0 auto;padding:0 22px;height:80px;display:flex;align-items:center;justify-content:space-between}
+        .nav-top-row{display:contents}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--black)}
+        .nav-logo img{height:106px;width:auto}
+        .nav-linkedin{display:flex;align-items:center;color:var(--grey-nav);transition:color 0.2s ease;flex-shrink:0;margin-left:4px}
+        .nav-linkedin:hover{color:#0A66C2}
+        .nav-links{display:flex;gap:28px;list-style:none;flex-wrap:nowrap;justify-content:center}
+        .nav-links a{font-family:var(--font-sans);font-size:12px;font-weight:400;color:var(--grey-nav);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s ease;white-space:nowrap}
+        .nav-links a:hover,.nav-links a.active{color:var(--black)}
+        @media(max-width:768px){
+            .nav-inner{height:auto;flex-direction:column;align-items:stretch;padding:0;gap:0}
+            .nav-top-row{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;padding:0 8px;height:64px}
+            .nav-logo{grid-column:1}
+            .nav-linkedin{grid-column:3;justify-self:center;margin-left:0}
+            .nav-logo img{height:65px}
+            .nav-links{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,auto);gap:0;list-style:none;border-top:1px solid var(--grey-light);padding:4px 8px 6px}
+            .nav-links li:nth-child(n+4){border-top:1px solid var(--grey-light)}
+            .nav-links li{display:flex;justify-content:center}
+            .nav-links a{font-size:12px;padding:8px 6px;display:block;white-space:nowrap;text-align:center}
+            .nav-linkedin svg{width:22px;height:22px}
+            body{padding-top:128px}
+            .doc{padding:12px 18px 72px}
+        }
+            .doc{flex:1;width:100%;max-width:736px;margin:0 auto;padding:152px 22px 96px}
+        .doc-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:20px}
+        .doc h1{font-family:var(--font-serif);font-size:clamp(36px,5vw,48px);font-weight:400;font-style:italic;letter-spacing:-0.02em;line-height:1.1;margin-bottom:16px}
+        .doc-meta{font-size:14px;color:var(--grey-mid);margin-bottom:48px}
+        .doc h2{font-size:21px;font-weight:600;letter-spacing:-0.01em;margin:44px 0 12px}
+        .doc p,.doc li{font-size:16px;line-height:1.65;color:var(--grey-dark)}
+        .doc p{margin-bottom:14px}
+        .doc ul{margin:0 0 14px 20px}
+        .doc li{margin-bottom:6px}
+        .doc a{color:#0066CC;text-decoration:none}
+        .doc a:hover{text-decoration:underline}
+        .doc strong{color:var(--black);font-weight:600}
+        .map{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 32px}
+        .map h2{margin-top:32px}
+        .map ul{list-style:none;margin:0}
+        .doc h3{font-size:17px;font-weight:600;color:var(--black);margin:26px 0 8px}
+        .doc ol{margin:0 0 14px 22px}
+        .toc{background:#F5F5F7;border-radius:14px;padding:22px 26px;margin:8px 0 44px}
+        .toc-title{font-size:12px!important;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid)!important;margin-bottom:10px!important}
+        .toc ol{margin:0 0 0 20px;columns:2;column-gap:36px}
+        .toc li{font-size:14px!important;margin-bottom:6px;break-inside:avoid}
+        .doc h2{scroll-margin-top:120px}
+        @media(max-width:768px){.toc ol{columns:1}.doc h2{scroll-margin-top:156px}}
+        @media(max-width:768px){.doc{padding:52px 18px 72px}}
+    </style>
+</head>
+<body>
+    <script src="/nav.js"></script>
+    <main class="doc">
+        <p class="doc-eyebrow">Data</p>
+        <h1>Your data stays yours.</h1>
+        <p class="doc-meta">How Anton and Joseph handle the data they work with, in plain English.</p>
+<p>Anton reads your code and infrastructure to look for weaknesses. Joseph helps your compliance team keep watch on the obligations it chooses to track. Both work with data a business would not hand to just anyone. This page says, plainly, how we treat it.</p>
+<p>The short version: your business owns its data and decides what its agent can reach. The agent runs where we agree with you; for Anton, we recommend your own hardware. We do not use your data to train AI models. And if we part ways, your data and your hardware stay with you.</p>
+<p>The binding detail is in our <a href="/privacy/">Privacy Policy</a> and in the Services Agreement we sign with each business. This page is the plain-English version.</p>
+
+<h2 id="yours">You own it. You decide who sees it.</h2>
+<p>Every deployment of Anton or Joseph is configured for one business. That business decides what data its agent can access, how that data is used and kept, and who in the business may use the agent and its reports. We do not make those decisions for you, and we do not use your data for our own purposes. The reports your agent produces belong to you as well.</p>
+<p>The decisions sit with your business because the knowledge does. You know your data, your people and the rules you work under better than any supplier can. We configure the agent to the scope you set, we show your team how to use it, and we support it. Section 2 of the <a href="/privacy/#deployment-model">Privacy Policy</a> sets out who is responsible for what.</p>
+
+<h2 id="where-it-lives">It lives where we agree with you.</h2>
+<h3>Anton</h3>
+<p>We recommend running Anton on hardware your business owns, on your premises, where you can accommodate that. Running on your own hardware keeps your security data under your control: yours to keep, read and change. Where that does not suit, we set Anton up another way to fit your business.</p>
+<p>One honest caveat. Depending on the configuration and the third-party services you choose, including any AI model provider, some data may still leave your premises. The Services Agreement records what does.</p>
+<h3>Joseph</h3>
+<p>Joseph can run in a cloud environment or entirely inside your own environment, for the whole business or for one department at a time. Compliance data is sensitive, so this is a choice to make with the sensitivity of your data in mind. In a cloud deployment the data is held by the cloud provider under its terms. Highly sensitive data may call for everything to stay inside your own environment, and if we think that is the case for you, we will say so while we scope the work.</p>
+<h3>Hosting</h3>
+<p>Whether we host or operate any part of a deployment is not fixed in advance. It depends on the Services Agreement and the discussion we have with you. Where we do, the agreement records what we hold, where it is held, who may access it and the protections that apply. Either way, your business still decides what the agent can access and remains responsible for its data.</p>
+
+<h2 id="no-training">We do not train on your data.</h2>
+<p>Speedrun AI Labs does not use your business&rsquo;s data, or any other client&rsquo;s data, to train, fine-tune or improve any AI model. Not the data your agent reads, not the reports it writes, not anything we see during a support session. We get better at this work through our own research and practice, not through your data.</p>
+<p>The same applies to this website. Nothing you send us through it is used to train a model either.</p>
+
+<h2 id="who-can-see-it">Who can see it.</h2>
+<p>Inside your business, that is up to you. You decide who may use the agent, and Anton and Joseph report to the people you name.</p>
+<p>As for us: where your agent runs in your environment, we do not store your data, we do not send it to ourselves, and we do not keep ongoing access to it. Our access is limited to support sessions you ask for and allow, and to any specific access the Services Agreement describes. You control when a session starts and ends and what we can see.</p>
+<p>We ask you to give us named accounts with the least access the job needs, rather than a staff member&rsquo;s own login, and to switch them off when they are no longer needed. During a session we may see information in your systems. We do not copy or keep it, and our record of the session describes the work we did, not what we saw.</p>
+<p>If keeping a deployment running needs technical information from the agent, such as a version number or an error message, the Services Agreement says what is sent and why. It does not include your data.</p>
+
+<h2 id="ai-providers">Third-party AI providers.</h2>
+<p>Anton and Joseph are built on large language models and other software. Your business chooses the AI model providers its agent uses, and in most deployments the agent reaches them through your own account. So your agreement with the provider, not ours, governs what it does with the data the agent sends it: whether it keeps that data, where it processes it, and whether it may use it to improve its own services.</p>
+<p>Many providers offer settings or agreements that limit retention or rule out training. We recommend using them wherever they are available, and we point them out during deployment. Where the models run inside your own environment, the agent does not send your data to an outside provider at all. The Services Agreement records which configuration applies to you.</p>
+<p>The same holds for the systems your agent plugs into, such as your code repositories, document stores or email. They remain yours, under your own arrangements with those vendors. We do not control any of these providers and we do not receive your data from them. Section 11 of the <a href="/privacy/#third-party-ai">Privacy Policy</a> has the detail.</p>
+
+<h2 id="when-you-leave">When you leave.</h2>
+<p>If a Services Agreement ends, you keep your hardware and your data. We deactivate the skills and configurations we built, which are licensed to you for the term of the agreement, we revoke any remote access we hold, and we delete the credentials you issued to us. Where we have hosted or operated any part of your deployment, we return or delete the data we hold, as the Services Agreement provides.</p>
+<p>What we keep is the record of the engagement itself, such as the agreement, our correspondence and the invoices, for as long as the law and ordinary record keeping require. Section 13 of the <a href="/privacy/#retention">Privacy Policy</a> explains how long.</p>
+
+<h2 id="website">For visitors to this website.</h2>
+<p>The website is simpler. It has no advertising or analytics cookies, no third-party trackers and no social media pixels, which is why there is no cookie banner. The typefaces are served from our own domain. Our hosting provider keeps ordinary server logs for a limited time.</p>
+<p>When you use the contact form, we receive what you type, and Cloudflare Turnstile runs a check in your browser to tell people from bots. Our own logs record whether a message was accepted and a masked form of your email address, not the full address. If you would rather not run the Turnstile check, email us instead.</p>
+<p>The <a href="/privacy/">Privacy Policy</a> covers all of this in detail, including how to ask for the personal information we hold about you, how to have it corrected, and how to complain if we get something wrong. For any question about data, email <a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a> with Privacy in the subject line.</p>
+
+<h2 id="the-detail">Where the detail lives.</h2>
+<ul>
+<li><a href="/privacy/#deployment-model">Privacy Policy, section 2</a>: how our agents are deployed, and who is responsible for the data.</li>
+<li><a href="/privacy/#agent-data">Privacy Policy, section 10</a>: agent data, what we do and do not do.</li>
+<li><a href="/privacy/#third-party-ai">Privacy Policy, section 11</a>: third-party AI model providers and other platforms.</li>
+<li><a href="/privacy/#cookies">Privacy Policy, section 9</a>: cookies, logs and the contact form.</li>
+<li><a href="/terms/#services-agreement">Terms of Use, section 4</a>: our agents are supplied under a separate Services Agreement.</li>
+<li><a href="/ai-safety/">AI Safety</a>: how we build the agents so that a person stays in charge.</li>
+</ul>
+<p>This page is a plain-English summary, not a contract. Where it and a Services Agreement differ, the Services Agreement is what applies to that business. Last updated 17 October 2026.</p>
+    </main>
+    <script src="/footer.js"></script>
+</body>
+</html>

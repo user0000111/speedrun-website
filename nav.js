@@ -1,41 +1,58 @@
 (function () {
   var IS_HOME = window.location.pathname === '/' || window.location.pathname === '/index.html';
 
+  // `flyout` names a panel in FLYOUTS; `activeFor` lights the item for extra home sections;
+  // `alsoOn` lights it on extra sub-pages.
   var LINKS = [
     { label: 'Home',            id: 'home',     href: '/',          section: true  },
-    { label: 'About',           id: 'about',    href: '/#about',    section: true  },
+    { label: 'About',           id: 'about',    href: '/#about',    section: true,  flyout: 'about', alsoOn: ['/ai-safety/', '/data/'] },
     { label: 'Agents',          id: 'projects', href: '/#projects', section: true  },
-    { label: 'Research Papers', id: null,       href: '/papers/',   section: false, flyout: 'research' },
+    { label: 'Research Papers', id: null,       href: '/papers/',   section: false, flyout: 'research', activeFor: 'skills' },
     { label: 'Press',           id: 'press',    href: '/#press',    section: true  },
     { label: 'Contact Us',      id: 'contact',  href: '/#contact',  section: true  },
   ];
 
-  // The Research flyout, Apple globalnav style: hover "Research Papers" and this panel
-  // drops down under the bar. Skill Library lives here, not in the top row (Addy 2026-10-17).
+  // Flyouts, Apple globalnav style: hover the item and a panel drops down under the bar.
+  // Research holds Skill Library (Addy 2026-10-17); About holds the manifesto and AI Safety
+  // (Addy 2026-10-17: "That AI Safety tab will also be under the About section").
   // Paper links follow the card order on /papers/; skill links are the card ids on home.
-  var FLYOUT = [
-    { label: 'Explore Research', primary: true, items: [
-      ['Research Papers', '/papers/'],
-      ['Skill Library',   '/#skills'],
-    ]},
-    { label: 'Papers', items: [
-      ['NemoClaw on Apple Silicon',        '/papers/#nemoclaw-apple-silicon'],
-      ['Inside NemoClaw',                  '/papers/#inside-nemoclaw'],
-      ['Independent Review-Council Seats', '/papers/#review-council-seats'],
-      ['The Intelligence Council',         '/papers/#intelligence-council'],
-      ['Self-Improving AI Agents',         '/papers/#self-improving-agents'],
-      ['Fault-Tolerant Memory for OpenClaw', '/papers/#fault-tolerant-memory'],
-    ]},
-    { label: 'Skills', items: [
-      ['Hermes Agent as a Skill',  '/#hermes-agent-as-a-skill'],
-      ['Read Before Write',        '/#read-before-write'],
-      ['No Slop Writing',          '/#no-slop-writing'],
-      ['No Slop Writing (AU)',     '/#no-slop-writing-au'],
-      ['Deep Audit',               '/#deep-audit'],
-    ]},
-  ];
+  var FLYOUTS = {
+    about: [
+      { label: 'About Speedrun AI Labs', primary: true, items: [
+        ['Manifesto', '/#about'],
+        ['AI Safety', '/ai-safety/'],
+      ]},
+      { label: 'More', items: [
+        ['Data',       '/data/'],
+        ['Press',      '/#press'],
+        ['Contact Us', '/#contact'],
+        ['Legal',      '/legal/'],
+      ]},
+    ],
+    research: [
+      { label: 'Explore Research', primary: true, items: [
+        ['Research Papers', '/papers/'],
+        ['Skill Library',   '/#skills'],
+      ]},
+      { label: 'Papers', items: [
+        ['NemoClaw on Apple Silicon',        '/papers/#nemoclaw-apple-silicon'],
+        ['Inside NemoClaw',                  '/papers/#inside-nemoclaw'],
+        ['Independent Review-Council Seats', '/papers/#review-council-seats'],
+        ['The Intelligence Council',         '/papers/#intelligence-council'],
+        ['Self-Improving AI Agents',         '/papers/#self-improving-agents'],
+        ['Fault-Tolerant Memory for OpenClaw', '/papers/#fault-tolerant-memory'],
+      ]},
+      { label: 'Skills', items: [
+        ['Hermes Agent as a Skill',  '/#hermes-agent-as-a-skill'],
+        ['Read Before Write',        '/#read-before-write'],
+        ['No Slop Writing',          '/#no-slop-writing'],
+        ['No Slop Writing (AU)',     '/#no-slop-writing-au'],
+        ['Deep Audit',               '/#deep-audit'],
+      ]},
+    ],
+  };
 
-  // Flyout styles live here, once, so the three pages cannot drift apart.
+  // Flyout styles live here, once, so the pages cannot drift apart.
   var CSS =
     // Desktop bar is 96px so the mascot (72px of visible artwork inside a 109px image with uneven
     // transparent padding) sits centred with ~12px above and below (Addy 2026-10-17). Phone unchanged.
@@ -44,7 +61,7 @@
     'nav.flyout-open{background:#FBFBFB;border-bottom-color:transparent}' +
     '.nav-flyout{position:absolute;top:100%;left:0;right:0;background:#FBFBFB;display:grid;grid-template-rows:0fr;visibility:hidden;' +
       'transition:grid-template-rows .32s cubic-bezier(.4,0,.6,1),visibility 0s linear .32s}' +
-    'nav.flyout-open .nav-flyout{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .32s cubic-bezier(.4,0,.6,1),visibility 0s}' +
+    '.nav-flyout.open{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .32s cubic-bezier(.4,0,.6,1),visibility 0s}' +
     '.nav-flyout-clip{overflow:hidden;min-height:0}' +
     '.nav-flyout-inner{max-width:980px;margin:0 auto;padding:40px 22px 84px;display:flex;gap:88px}' +
     '.nav-flyout-group{min-width:0}' +
@@ -56,7 +73,7 @@
     '.nav-flyout .primary a{font-size:24px;line-height:1.17;letter-spacing:0.007em;padding:3px 0;color:var(--black)}' +
     '.nav-flyout a:hover,.nav-flyout a:focus-visible{color:var(--black)}' +
     '.nav-flyout-label,.nav-flyout li{opacity:0;transform:translateY(-4px);transition:opacity .16s ease,transform .16s ease}' +
-    'nav.flyout-open .nav-flyout-label,nav.flyout-open .nav-flyout li{opacity:1;transform:none;transition:opacity .24s ease var(--d,0s),transform .24s ease var(--d,0s)}' +
+    '.nav-flyout.open .nav-flyout-label,.nav-flyout.open li{opacity:1;transform:none;transition:opacity .24s ease var(--d,0s),transform .24s ease var(--d,0s)}' +
     '.nav-curtain{position:fixed;inset:0;z-index:99;background:rgba(232,232,237,0.4);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);opacity:0;visibility:hidden;' +
       'transition:opacity .32s cubic-bezier(.4,0,.6,1),visibility 0s linear .32s}' +
     '.nav-curtain.on{opacity:1;visibility:visible;transition:opacity .32s cubic-bezier(.4,0,.6,1),visibility 0s}' +
@@ -73,19 +90,9 @@
   style.textContent = CSS;
   document.head.appendChild(style);
 
-  function currentActive() {
-    if (!IS_HOME) {
-      var path = window.location.pathname.replace(/\/$/, '');
-      for (var i = 0; i < LINKS.length; i++) {
-        var lhref = LINKS[i].href.replace(/\/$/, '').replace('/#', '/');
-        if (path === lhref || path + '/' === LINKS[i].href) return LINKS[i].id || LINKS[i].label;
-      }
-      return null;
-    }
-    return 'home';
-  }
+  var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var path = window.location.pathname;
 
-  var trigger = null, triggerLi = null;
   var nav = document.createElement('nav');
   var inner = document.createElement('div');
   inner.className = 'nav-inner';
@@ -127,16 +134,18 @@
   // Links row
   var ul = document.createElement('ul');
   ul.className = 'nav-links';
+  var triggers = []; // [{key, a, li}] for the flyouts, built after the row
 
   LINKS.forEach(function (link) {
     var li = document.createElement('li');
     var a = document.createElement('a');
     a.textContent = link.label;
 
+    var normalised = link.href.replace(/\/$/, '').replace('/#', '/');
     var isActive = IS_HOME
       ? (link.id === 'home')
-      : (window.location.pathname.replace(/\/$/, '') === link.href.replace(/\/$/, '').replace('/#', '/') ||
-         window.location.pathname === link.href);
+      : (path.replace(/\/$/, '') === normalised || path === link.href ||
+         (link.alsoOn || []).indexOf(path) !== -1);
 
     if (isActive) a.classList.add('active');
 
@@ -153,10 +162,11 @@
       a.setAttribute('aria-haspopup', 'true');
       a.setAttribute('aria-expanded', 'false');
       a.setAttribute('aria-controls', 'nav-flyout-' + link.flyout);
-      // The Skill Library section now sits under this item, so it lights up there too.
-      if (IS_HOME) a.setAttribute('data-p', 'skills');
-      trigger = a;
-      triggerLi = li;
+      // A section that lives inside this panel lights the item too (Skill Library under Research).
+      if (IS_HOME && link.activeFor) a.setAttribute('data-p', link.activeFor);
+      // Touch: the first tap opens the panel instead of navigating; the panel's primary link navigates.
+      if (!canHover) a.removeAttribute('onclick');
+      triggers.push({ key: link.flyout, a: a, li: li });
     }
 
     li.appendChild(a);
@@ -164,111 +174,130 @@
   });
 
   inner.appendChild(ul);
-
   nav.appendChild(inner);
-
-  // ---- Research flyout ----
-  var flyout = document.createElement('div');
-  flyout.className = 'nav-flyout';
-  flyout.id = 'nav-flyout-research';
-  flyout.setAttribute('role', 'region');
-  flyout.setAttribute('aria-labelledby', 'nav-trigger-research');
-  var clip = document.createElement('div');
-  clip.className = 'nav-flyout-clip';
-  var fin = document.createElement('div');
-  fin.className = 'nav-flyout-inner';
-  var step = 0;
-  function delay(el) { el.style.setProperty('--d', (0.1 + step * 0.02).toFixed(2) + 's'); step++; }
-  FLYOUT.forEach(function (group) {
-    var g = document.createElement('div');
-    g.className = 'nav-flyout-group' + (group.primary ? ' primary' : '');
-    var lab = document.createElement('div');
-    lab.className = 'nav-flyout-label';
-    lab.textContent = group.label;
-    delay(lab);
-    g.appendChild(lab);
-    var gl = document.createElement('ul');
-    group.items.forEach(function (item) {
-      var gli = document.createElement('li');
-      var ga = document.createElement('a');
-      ga.textContent = item[0];
-      ga.href = item[1];
-      ga.tabIndex = -1;
-      var hashTarget = item[1].indexOf('/#') === 0 ? item[1].slice(2) : null;
-      ga.addEventListener('click', function (ev) {
-        close(true);
-        // On home the sections are shown by go(); route the click there instead of reloading.
-        if (IS_HOME && hashTarget && typeof window.srRoute === 'function') {
-          ev.preventDefault();
-          window.srRoute(hashTarget);
-        }
-      });
-      delay(gli);
-      gli.appendChild(ga);
-      gl.appendChild(gli);
-    });
-    g.appendChild(gl);
-    fin.appendChild(g);
-  });
-  clip.appendChild(fin);
-  flyout.appendChild(clip);
-  nav.appendChild(flyout);
 
   var curtain = document.createElement('div');
   curtain.className = 'nav-curtain';
   curtain.setAttribute('aria-hidden', 'true');
 
-  var openTimer = null, closeTimer = null;
-  function isOpen() { return nav.classList.contains('flyout-open'); }
-  function setLinksFocusable(on) {
-    flyout.querySelectorAll('a').forEach(function (x) { x.tabIndex = on ? 0 : -1; });
-  }
-  function open() {
-    clearTimeout(closeTimer); clearTimeout(openTimer);
-    if (isOpen()) return;
-    nav.classList.add('flyout-open');
-    curtain.classList.add('on');
-    trigger.setAttribute('aria-expanded', 'true');
-    setLinksFocusable(true);
-  }
-  function close(now) {
-    clearTimeout(openTimer); clearTimeout(closeTimer);
-    function shut() {
-      nav.classList.remove('flyout-open');
-      curtain.classList.remove('on');
-      trigger.setAttribute('aria-expanded', 'false');
-      setLinksFocusable(false);
+  // ---- Flyouts ----
+  var active = null; // the controller whose panel is open
+
+  function makeFlyout(key, groups, trigger, triggerLi) {
+    var fly = document.createElement('div');
+    fly.className = 'nav-flyout';
+    fly.id = 'nav-flyout-' + key;
+    fly.setAttribute('role', 'region');
+    fly.setAttribute('aria-labelledby', 'nav-trigger-' + key);
+    var clip = document.createElement('div');
+    clip.className = 'nav-flyout-clip';
+    var fin = document.createElement('div');
+    fin.className = 'nav-flyout-inner';
+    var step = 0;
+    function delay(el) { el.style.setProperty('--d', (0.1 + step * 0.02).toFixed(2) + 's'); step++; }
+
+    var openTimer = null, closeTimer = null;
+    var ctl = {
+      key: key, el: fly, trigger: trigger,
+      isOpen: function () { return fly.classList.contains('open'); },
+      open: function () {
+        clearTimeout(closeTimer); clearTimeout(openTimer);
+        if (active && active !== ctl) active.close(true);
+        if (ctl.isOpen()) return;
+        fly.classList.add('open');
+        nav.classList.add('flyout-open');
+        curtain.classList.add('on');
+        trigger.setAttribute('aria-expanded', 'true');
+        setFocusable(true);
+        active = ctl;
+      },
+      close: function (now) {
+        clearTimeout(openTimer); clearTimeout(closeTimer);
+        function shut() {
+          fly.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+          setFocusable(false);
+          if (active === ctl) {
+            active = null;
+            nav.classList.remove('flyout-open');
+            curtain.classList.remove('on');
+          }
+        }
+        if (now) shut(); else closeTimer = setTimeout(shut, 160);
+      },
+      scheduleOpen: function () { clearTimeout(closeTimer); openTimer = setTimeout(ctl.open, 120); },
+      cancelOpen: function () { clearTimeout(openTimer); }
+    };
+    function setFocusable(on) {
+      fly.querySelectorAll('a').forEach(function (x) { x.tabIndex = on ? 0 : -1; });
     }
-    if (now) shut(); else closeTimer = setTimeout(shut, 160);
+
+    groups.forEach(function (group) {
+      var g = document.createElement('div');
+      g.className = 'nav-flyout-group' + (group.primary ? ' primary' : '');
+      var lab = document.createElement('div');
+      lab.className = 'nav-flyout-label';
+      lab.textContent = group.label;
+      delay(lab);
+      g.appendChild(lab);
+      var gl = document.createElement('ul');
+      group.items.forEach(function (item) {
+        var gli = document.createElement('li');
+        var ga = document.createElement('a');
+        ga.textContent = item[0];
+        ga.href = item[1];
+        ga.tabIndex = -1;
+        var hashTarget = item[1].indexOf('/#') === 0 ? item[1].slice(2) : null;
+        ga.addEventListener('click', function (ev) {
+          ctl.close(true);
+          // On home the sections are shown by go(); route the click there instead of reloading.
+          if (IS_HOME && hashTarget && typeof window.srRoute === 'function') {
+            ev.preventDefault();
+            window.srRoute(hashTarget);
+          }
+        });
+        delay(gli);
+        gli.appendChild(ga);
+        gl.appendChild(gli);
+      });
+      g.appendChild(gl);
+      fin.appendChild(g);
+    });
+    clip.appendChild(fin);
+    fly.appendChild(clip);
+    nav.appendChild(fly);
+
+    // Mouse: open on hover with a short intent delay, like apple.com; touch: first tap opens.
+    if (canHover) {
+      [triggerLi, fly].forEach(function (el) {
+        el.addEventListener('mouseenter', ctl.scheduleOpen);
+        el.addEventListener('mouseleave', function () { ctl.cancelOpen(); ctl.close(false); });
+      });
+    } else {
+      trigger.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        if (ctl.isOpen()) ctl.close(true); else ctl.open();
+      });
+    }
+    // Keyboard: ArrowDown (or Enter/Space on touch) on the trigger opens; Escape closes and returns focus.
+    trigger.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowDown' || (!canHover && (ev.key === 'Enter' || ev.key === ' '))) {
+        ev.preventDefault(); ctl.open();
+        var first = fly.querySelector('a'); if (first) first.focus();
+      }
+    });
+    return ctl;
   }
 
-  // Mouse: open on hover with a short intent delay, like apple.com; touch: first tap opens.
-  var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  if (canHover) {
-    [triggerLi, flyout].forEach(function (el) {
-      el.addEventListener('mouseenter', function () { clearTimeout(closeTimer); openTimer = setTimeout(open, 120); });
-      el.addEventListener('mouseleave', function () { clearTimeout(openTimer); close(false); });
-    });
-  } else {
-    trigger.addEventListener('click', function (ev) {
-      ev.preventDefault();
-      if (isOpen()) close(true); else open();
-    });
-  }
-  // Keyboard: Enter/Space/ArrowDown on the trigger opens; Escape closes and returns focus.
-  trigger.addEventListener('keydown', function (ev) {
-    if (ev.key === 'ArrowDown' || (!canHover && (ev.key === 'Enter' || ev.key === ' '))) {
-      ev.preventDefault(); open();
-      var first = flyout.querySelector('a'); if (first) first.focus();
-    }
-  });
+  triggers.forEach(function (t) { makeFlyout(t.key, FLYOUTS[t.key], t.a, t.li); });
+
   document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape' && isOpen()) { close(true); trigger.focus(); }
+    if (ev.key === 'Escape' && active) { var t = active.trigger; active.close(true); t.focus(); }
   });
   nav.addEventListener('focusout', function (ev) {
-    if (isOpen() && !nav.contains(ev.relatedTarget)) close(true);
+    if (active && !nav.contains(ev.relatedTarget)) active.close(true);
   });
-  curtain.addEventListener('click', function () { close(true); });
+  curtain.addEventListener('click', function () { if (active) active.close(true); });
 
   // Inject nav as first child of body
   document.body.insertBefore(nav, document.body.firstChild);

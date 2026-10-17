@@ -20,6 +20,11 @@ Reviews code and infrastructure for weaknesses before they ship and reports what
 ### Joseph, compliance agent for financial services businesses
 Helps the team at a financial services business keep watch on the obligations it chooses to track, and flags what may have changed to the people accountable. It helps the people doing compliance work by gathering and laying out what they need to review; a human stays in the loop and the compliance team makes every call. Compliance data is sensitive: the business decides what Joseph can access and keeps its data, and Speedrun AI Labs does not use client data to train AI models. Deployed in the cloud or inside your own environment, for the whole business or one per department, at scale. It does not provide legal or compliance advice.
 
+## Data and AI Safety
+
+- Data (speedrunlab.ai/data/): your data stays yours. The business that deploys an agent owns its data, decides what the agent can reach and where it lives; Speedrun AI Labs does not train AI models on it.
+- AI Safety (speedrunlab.ai/ai-safety/): a human stays in the loop. Agents act within the access the business gives them, outputs are reviewed before they are relied on, and we say plainly what we do not claim.
+
 ## Open Source
 
 Speedrun AI Labs publishes free, open-source skills for Claude Code and OpenClaw agents at github.com/Speedrunlab: /hermes-agent-as-a-skill-file, /read-before-write, /deep-audit, /no-slop-writing, and /no-slop-writing-au. All MIT licensed. Details at speedrunlab.ai/#skills.

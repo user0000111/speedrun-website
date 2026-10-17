@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Light only, like apple.com: "only" stops phones force-darkening the page and the mascot (Addy 2026-10-17). -->
+    <meta name="color-scheme" content="only light">
+    <title>AI Safety | Speedrun AI Labs</title>
+    <meta name="description" content="How Speedrun AI Labs builds Anton and Joseph: a human stays in the loop, agents act within the access you give them, and we say plainly what we do not claim.">
+    <link rel="canonical" href="https://www.speedrunlab.ai/ai-safety/">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        /* Instrument Serif — self-hosted (SIL OFL 1.1, see /fonts/OFL.txt) */
+        @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{color-scheme:only light;--white:#FBFBFB;--black:#1D1D1F;--grey-light:#E5E5E7;--grey-nav:#86868B;--grey-mid:#6E6E73;--grey-dark:#424245;--font-sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;--font-serif:'Instrument Serif',Georgia,'Times New Roman',serif}
+        html{scroll-behavior:smooth}
+        body{font-family:var(--font-sans);background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;display:flex;flex-direction:column;min-height:100vh}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,251,251,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
+        .nav-inner{max-width:980px;margin:0 auto;padding:0 22px;height:80px;display:flex;align-items:center;justify-content:space-between}
+        .nav-top-row{display:contents}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--black)}
+        .nav-logo img{height:106px;width:auto}
+        .nav-linkedin{display:flex;align-items:center;color:var(--grey-nav);transition:color 0.2s ease;flex-shrink:0;margin-left:4px}
+        .nav-linkedin:hover{color:#0A66C2}
+        .nav-links{display:flex;gap:28px;list-style:none;flex-wrap:nowrap;justify-content:center}
+        .nav-links a{font-family:var(--font-sans);font-size:12px;font-weight:400;color:var(--grey-nav);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s ease;white-space:nowrap}
+        .nav-links a:hover,.nav-links a.active{color:var(--black)}
+        @media(max-width:768px){
+            .nav-inner{height:auto;flex-direction:column;align-items:stretch;padding:0;gap:0}
+            .nav-top-row{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;padding:0 8px;height:64px}
+            .nav-logo{grid-column:1}
+            .nav-linkedin{grid-column:3;justify-self:center;margin-left:0}
+            .nav-logo img{height:65px}
+            .nav-links{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,auto);gap:0;list-style:none;border-top:1px solid var(--grey-light);padding:4px 8px 6px}
+            .nav-links li:nth-child(n+4){border-top:1px solid var(--grey-light)}
+            .nav-links li{display:flex;justify-content:center}
+            .nav-links a{font-size:12px;padding:8px 6px;display:block;white-space:nowrap;text-align:center}
+            .nav-linkedin svg{width:22px;height:22px}
+            body{padding-top:128px}
+            .doc{padding:12px 18px 72px}
+        }
+            .doc{flex:1;width:100%;max-width:736px;margin:0 auto;padding:152px 22px 96px}
+        .doc-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:20px}
+        .doc h1{font-family:var(--font-serif);font-size:clamp(36px,5vw,48px);font-weight:400;font-style:italic;letter-spacing:-0.02em;line-height:1.1;margin-bottom:16px}
+        .doc-meta{font-size:14px;color:var(--grey-mid);margin-bottom:48px}
+        .doc h2{font-size:21px;font-weight:600;letter-spacing:-0.01em;margin:44px 0 12px}
+        .doc p,.doc li{font-size:16px;line-height:1.65;color:var(--grey-dark)}
+        .doc p{margin-bottom:14px}
+        .doc ul{margin:0 0 14px 20px}
+        .doc li{margin-bottom:6px}
+        .doc a{color:#0066CC;text-decoration:none}
+        .doc a:hover{text-decoration:underline}
+        .doc strong{color:var(--black);font-weight:600}
+        .map{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 32px}
+        .map h2{margin-top:32px}
+        .map ul{list-style:none;margin:0}
+        .doc h3{font-size:17px;font-weight:600;color:var(--black);margin:26px 0 8px}
+        .doc ol{margin:0 0 14px 22px}
+        .toc{background:#F5F5F7;border-radius:14px;padding:22px 26px;margin:8px 0 44px}
+        .toc-title{font-size:12px!important;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid)!important;margin-bottom:10px!important}
+        .toc ol{margin:0 0 0 20px;columns:2;column-gap:36px}
+        .toc li{font-size:14px!important;margin-bottom:6px;break-inside:avoid}
+        .doc h2{scroll-margin-top:120px}
+        @media(max-width:768px){.toc ol{columns:1}.doc h2{scroll-margin-top:156px}}
+        @media(max-width:768px){.doc{padding:52px 18px 72px}}
+    </style>
+</head>
+<body>
+    <script src="/nav.js"></script>
+    <main class="doc">
+        <p class="doc-eyebrow">AI Safety</p>
+        <h1>A human stays in the loop.</h1>
+        <p class="doc-meta">How we build Anton and Joseph so that people stay in charge of the decisions.</p>
+<p>Anton and Joseph are AI agents, and AI agents can be wrong. They can miss something, make something up, or read a situation with complete confidence and get it backwards. We build with that in mind.</p>
+<p>We do not claim to have built an agent that is never wrong. We build so that its work is visible, so that a person checks it before anything happens, and so that a mistake stays small and easy to find. Safety, for us, is mostly practical: who the agent reports to, what it can reach, what it may be used for, and how plainly its limits are explained to the people around it. This page covers each of those.</p>
+
+<h2 id="human-in-the-loop">A human stays in the loop.</h2>
+<p>Neither agent makes decisions for your business. Anton reviews your code and infrastructure for weaknesses and reports what it finds, in plain English, to the people you name; your people decide what gets fixed and when. Joseph helps your compliance team keep watch on the obligations it chooses to track and flags what may have changed; it gathers and lays out the material, and your team reviews it and makes every call.</p>
+<p>Anton and Joseph are built to report, not to decide. A finding is something for a person to look at, not an instruction for a machine to carry out. That keeps the judgement with the people who are accountable for it, and it means a wrong finding can be caught at a desk, before anything changes. What an agent may do inside your environment is part of the scope you set, and the Services Agreement records it.</p>
+
+<h2 id="least-privilege">Agents act within the access you give them.</h2>
+<p>An agent can only reach what it has been given. Your business decides which systems, repositories, documents and sources its agent may access, and we configure it to that scope and nothing more. We ask for the least access that does the job, and we work through the scope with you during deployment so that nothing is included by accident.</p>
+<p>Anton is used only on systems your business owns or operates, or is authorised in writing to test. Pointing it at anyone else&rsquo;s systems is not permitted. That rule is written into our <a href="/legal/#acceptable-use">Acceptable Use Policy</a> and into every Services Agreement.</p>
+<p>The same principle applies to us. Where your agent runs in your environment, our own access is limited to support sessions you ask for and allow, and we ask for named accounts with the least access the job needs, which you can switch off. Our <a href="/data/#who-can-see-it">Data</a> page says more.</p>
+
+<h2 id="review">Review before reliance.</h2>
+<p>Every output of either agent is to be reviewed by a suitably qualified person before anyone relies on it or acts on it. We say this when we train your team, and we say it again in our legal pages, because it matters more than anything else on this page. Outputs can be incorrect, incomplete, out of date or misleading, and they can look confident while being wrong.</p>
+<p>So we tell you the limits up front:</p>
+<ul>
+<li><strong>Anton</strong> can miss a weakness and can report one that is not real. A clean report is not a certificate that your systems are secure, and Anton does not replace independent penetration testing or a security audit where a law, a regulator, a standard, a customer or an insurer requires one.</li>
+<li><strong>Joseph</strong> can miss, misread, mis-time or misdescribe a change, and the sources it watches can be incomplete, delayed or revised. Silence from Joseph does not mean nothing has changed. Joseph does not give legal or compliance advice, does not interpret the law for you, and does not decide whether your business is compliant.</li>
+<li><strong>Both</strong> depend on what they are given. Stale data, an incomplete scope or an unclear instruction will show up in the output.</li>
+</ul>
+<p>None of this is a reason not to use an agent. It is the reason the agents report to a person.</p>
+
+<h2 id="more-than-one-model">Checked by more than one model.</h2>
+<p>One AI model is a poor judge of its own work, because it shares its own blind spots. In our own work we do not rely on a model to check itself. We convene a panel of independent models from different vendors to review a plan, a code change or a decision before we act on it, then we read where they agree, where they disagree and what they would block.</p>
+<p>We published the method as <a href="/papers/#intelligence-council">The Intelligence Council: Provider-Agnostic, Domain-Specialized Multi-Model Review for Autonomous AI Systems</a>, and when three of our strongest review seats began returning empty verdicts we published that too, in <a href="/papers/#review-council-seats">GLM 5.3, Kimi K3, and DeepSeek V4 Pro as Independent Review-Council Seats</a>. The second paper carries a lesson we now apply everywhere: a check that quietly did not happen looks exactly like a check that passed, unless you verify that the review actually arrived. So we verify.</p>
+<p>Two honest notes. These are working papers, published for discussion, and a review council is a practice, not a proof: it raises the odds that a mistake is caught and cannot make one impossible. And the configuration of your own deployment, including any review steps built into it, is recorded in its Services Agreement. Our papers are at <a href="/papers/">Research Papers</a>.</p>
+
+<h2 id="responsible-use">Responsible use.</h2>
+<p>We supply Anton and Joseph to businesses, for the purpose each was built for. Our <a href="/legal/#acceptable-use">Acceptable Use Policy</a> sets out what an agent must not be used for. Among other things: testing systems your business does not own or is not authorised in writing to test, creating or spreading malicious code, unlawful surveillance of people, handling personal information without a lawful basis, and using Joseph to create a false appearance of compliance.</p>
+<p>We may refuse to deploy an agent for a business or a purpose we reasonably believe is unlawful or inconsistent with that policy, and we may suspend or stop a deployment that is being misused. We would rather turn work away than put an agent where it should not be.</p>
+
+<h2 id="reporting">Reporting a problem.</h2>
+<p>We build a security agent, so we expect to be held to a standard on our own security. If you believe you have found a vulnerability in speedrunlab.ai, email <a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a> with Security Report in the subject line. We acknowledge reports within five business days, we aim to fix confirmed issues within 90 days and sooner for serious ones, and good-faith research that follows our <a href="/legal/#responsible-disclosure">Responsible Disclosure Policy</a> is authorised, and we will not take legal action over it.</p>
+<p>If Anton or Joseph gets something wrong in your deployment, we want to know that too. Tell the people who look after your deployment, and tell us. Issues with a deployed agent are handled under your Services Agreement rather than the disclosure policy, which covers this website.</p>
+
+<h2 id="what-we-do-not-claim">What we do not claim.</h2>
+<p>The agents sit next to serious work, so we are careful about what we say they do. We do not claim:</p>
+<ul>
+<li>that Anton will find every weakness or prevent any attack. Security is a property of a whole organisation, its people, processes and systems, and no tool can make a business secure on its own;</li>
+<li>that a clean report from Anton is a certification, an assurance or an audit;</li>
+<li>that Joseph makes a business compliant, gives advice, or replaces its compliance function, its responsible managers, its lawyers or its auditors. Speedrun AI Labs does not hold an Australian financial services licence or an Australian credit licence, is not a law practice and is not a registered tax agent;</li>
+<li>that any AI model, including the ones our agents are built on, is free of error;</li>
+<li>any service level, uptime or performance figure. If a commitment like that exists, it is in a Services Agreement, not on this website;</li>
+<li>that our research is the last word. Our papers are working papers unless they say otherwise, and their results depend on the specific models and versions tested.</li>
+</ul>
+<p>What we do claim is narrower, and we think more useful. The agents are built so that a person stays in charge. They work within the access you give them. We tell you their limits before you rely on them. And we hold our own work to the same standard of review we ask of yours.</p>
+
+<h2 id="the-detail">Where the detail lives.</h2>
+<ul>
+<li><a href="/legal/#ai-disclaimer">Legal, section 3</a>: the AI and agent disclaimer, in full.</li>
+<li><a href="/legal/#acceptable-use">Legal, section 4</a>: the Acceptable Use Policy for Anton and Joseph.</li>
+<li><a href="/legal/#responsible-disclosure">Legal, section 5</a>: responsible disclosure and vulnerability reporting.</li>
+<li><a href="/terms/#ai-content">Terms of Use, section 8</a>: AI agents, AI-generated content and reliance.</li>
+<li><a href="/data/">Data</a>: who owns the data, where it lives, who can see it.</li>
+<li><a href="/papers/">Research Papers</a>: the review-council papers and the rest of our research.</li>
+</ul>
+<p>This page describes how we build and work. It is not a guarantee, and it is not a contract. Where it and a Services Agreement differ, the Services Agreement is what applies to that business. Last updated 17 October 2026.</p>
+    </main>
+    <script src="/footer.js"></script>
+</body>
+</html>
