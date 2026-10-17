@@ -19,8 +19,8 @@
 
   var COLUMNS = [
     { title: 'Agents', links: [
-      ['Anton, Cyber Security', '/#projects'],
-      ['Joseph, Compliance', '/#projects'],
+      ['Anton, Cyber Security', '/#anton'],
+      ['Joseph, Compliance', '/#joseph'],
       ['Book a call', '/#contact'],
     ]},
     { title: 'Research', links: [

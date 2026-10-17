@@ -4,7 +4,7 @@
 
 ## Who We Are
 
-Speedrun AI Labs (also known as Speed Run AI Labs, Speedrun Lab, Speed Run Lab, or Speedrun AI Lab) is a Sydney, Australia-based AI company. We build custom AI agents and AI-powered tools for Australian businesses, founders, and teams.
+Speedrun AI Labs (also known as Speed Run AI Labs, Speedrun Lab, Speed Run Lab, or Speedrun AI Lab) is a Sydney, Australia-based AI company. We build AI agents and install them in Australian businesses. We ship two: Anton (cyber security) and Joseph (compliance for financial services businesses).
 
 Founded by Adnan Tanveer (known as Addy Tanveer or Addy), based in Cronulla, Sydney, NSW, Australia.
 
@@ -12,25 +12,13 @@ Our motto: whatever we create, whatever we ship, we deliver more value than we e
 
 ## AI Agents We Deploy
 
-Speedrun AI Labs runs seven AI agents in production and deploys them to Australian businesses. We build, integrate and run each one. A human approves before anything goes live.
+Speedrun AI Labs ships two AI agents. We build them in Sydney and install them in your business.
 
-### Marketing Agent
-Autonomous social media, email and content marketing. Sources what is worth saying, creates the visuals, writes the copy, and publishes across social and email. Runs as three production agents — social media, email, and content — presented as one service. Human approval before anything publishes.
+### Anton, cyber security agent
+Reviews code and infrastructure for weaknesses before they ship, thinking like an attacker, and reports what it finds in plain English. A cyber security agent of your own: it plugs into your systems and can run on your own hardware, on premises, so your business keeps responsibility for its own security data. Where that does not suit, it is set up to fit the business.
 
-### SEO Agent
-Search engine optimisation and generative engine optimisation (GEO). Keyword research, content briefs, scheduled technical audits, and optimisation for the AI answers customers now ask first.
-
-### Coding Agent
-Writes, reviews and integrates code, with an independent review pass on every change. The same engine Speedrun uses to build its own agents.
-
-### Cyber Security Agent
-Reviews code and infrastructure for weaknesses before deployment, thinking like an attacker.
-
-### ASIC Compliance Agent
-Monitors ASIC regulatory updates and surfaces what affects your business. It monitors and surfaces changes; it does not provide legal or compliance advice.
-
-### Custom Build
-Bespoke agents built to brief and deployed to your stack: AI receptionist, sales and SDR, customer support, bookkeeping, and more. If the work is repetitive, it can usually be automated.
+### Joseph, compliance agent for financial services businesses
+Keeps watch on the obligations that apply to a financial services business and reports what has changed to the people accountable. Deployed in the cloud or inside your own environment, for the whole business or one per department, at scale. It does not provide legal or compliance advice.
 
 ## Open Source
 
