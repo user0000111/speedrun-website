@@ -204,7 +204,7 @@
 
     var openTimer = null, closeTimer = null;
     var ctl = {
-      key: key, el: fly, trigger: trigger,
+      key: key, el: fly, trigger: trigger, li: triggerLi,
       isOpen: function () { return fly.classList.contains('open'); },
       open: function () {
         clearTimeout(closeTimer); clearTimeout(openTimer);
@@ -279,6 +279,9 @@
         el.addEventListener('mouseenter', ctl.scheduleOpen);
         el.addEventListener('mouseleave', function () { ctl.cancelOpen(); ctl.close(false); });
       });
+      // A click on the item itself navigates (go() or its href), so the panel goes with it. The mouse is
+      // still over the item, so mouseleave alone left the panel and curtain over the new content.
+      trigger.addEventListener('click', function () { ctl.cancelOpen(); ctl.close(true); });
     } else {
       trigger.addEventListener('click', function (ev) {
         ev.preventDefault();
@@ -296,6 +299,23 @@
   }
 
   triggers.forEach(function (t) { makeFlyout(t.key, FLYOUTS[t.key], t.a, t.li); });
+
+  // Any press outside the open panel and its own item closes it: another nav item, the logo, the page
+  // behind the curtain. Touch has no mouseleave, so without this a panel opened by tap stayed up, blurring
+  // the section go() had just switched to (reviewer, 2026-10-17: "click menu it does not close and you do
+  // not see any content"). Capture phase, so it runs before the pressed element's own handler.
+  function closeIfOutside(ev) {
+    if (!active) return;
+    var t = ev.target;
+    if (!(t instanceof Node)) return;
+    if (active.el.contains(t) || active.li.contains(t)) return;
+    active.close(true);
+  }
+  document.addEventListener('pointerdown', closeIfOutside, true);
+  document.addEventListener('touchstart', closeIfOutside, { capture: true, passive: true });
+  document.addEventListener('click', closeIfOutside, true);
+  // go() on the home page calls this before it swaps sections.
+  window.srNavClose = function () { if (active) active.close(true); };
 
   document.addEventListener('keydown', function (ev) {
     if (ev.key === 'Escape' && active) { var t = active.trigger; active.close(true); t.focus(); }

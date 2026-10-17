@@ -46,7 +46,7 @@ function reject(res, reason, fields, extra = '') {
 /** Human-recoverable problems go back to the form's existing inline error UI. */
 function rejectToForm(res, reason, fields, extra = '') {
   console.warn(`contact reject reason=${reason} email=${fingerprint(fields?.email)}${extra ? ` ${extra}` : ''}`);
-  return res.redirect(303, '/#contact?error=1');
+  return res.redirect(303, '/?error=1#contact');
 }
 
 function originAllowed(origin) {
@@ -211,11 +211,11 @@ export default async function handler(req, res) {
     if (!emailRes.ok) {
       const errText = await emailRes.text();
       console.error('Resend error:', errText);
-      return res.redirect(303, '/#contact?error=1');
+      return res.redirect(303, '/?error=1#contact');
     }
   } catch (err) {
     console.error('Email send failed:', err);
-    return res.redirect(303, '/#contact?error=1');
+    return res.redirect(303, '/?error=1#contact');
   }
 
   console.log(`contact accept email=${fingerprint(fields.email)}`);
