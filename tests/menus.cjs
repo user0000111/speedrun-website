@@ -67,7 +67,8 @@ async function run(name, browserType, opts, touch) {
   // Turnstile's challenge frame logs a cross-origin access error on http://localhost; not ours.
   const errs = []; p.on('pageerror', e => { if (!/challenges\.cloudflare\.com/.test(e.message)) errs.push(e.message); });
   const settle = async (href) => { await p.waitForTimeout(250); await p.waitForLoadState('load'); await p.waitForTimeout(href && href.includes('#') ? 900 : 600); };
-  const start = async (u) => { await p.goto(url(u)); await p.waitForTimeout(700); };
+  // One slow load from the host is a hiccup, not a finding: retry a page load once before giving up.
+  const start = async (u) => { try { await p.goto(url(u), { timeout: 45000 }); } catch (e) { await p.waitForTimeout(2000); await p.goto(url(u), { timeout: 45000 }); } await p.waitForTimeout(700); };
   const press = async (sel) => { const el = p.locator(sel).first(); await el.waitFor({ state: 'visible', timeout: 8000 }); await el.scrollIntoViewIfNeeded(); await p.waitForTimeout(80); if (touch) await el.tap(); else await el.click(); };
   const pressXY = async (x, y) => { if (touch) await p.touchscreen.tap(x, y); else await p.mouse.click(x, y); };
   const openPanel = async (key) => { if (touch) await press('#nav-trigger-' + key); else await p.hover('#nav-trigger-' + key); await p.waitForTimeout(600); return (await state(p)).open; };
