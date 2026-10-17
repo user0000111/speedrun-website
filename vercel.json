@@ -11,16 +11,75 @@
         }
       ]
     },
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/papers", "destination": "/papers/", "permanent": true },
-    { "source": "/papers/index.html", "destination": "/papers/", "permanent": true },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/papers",
+      "destination": "/papers/",
+      "permanent": true
+    },
+    {
+      "source": "/papers/index.html",
+      "destination": "/papers/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy/index.html",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms/",
+      "permanent": true
+    },
+    {
+      "source": "/terms/index.html",
+      "destination": "/terms/",
+      "permanent": true
+    },
+    {
+      "source": "/legal",
+      "destination": "/legal/",
+      "permanent": true
+    },
+    {
+      "source": "/legal/index.html",
+      "destination": "/legal/",
+      "permanent": true
+    },
+    {
+      "source": "/site-map",
+      "destination": "/site-map/",
+      "permanent": true
+    },
+    {
+      "source": "/site-map/index.html",
+      "destination": "/site-map/",
+      "permanent": true
+    },
     {
       "source": "/:path*",
       "destination": "https://www.speedrunlab.ai/:path*",
       "permanent": true,
       "has": [
-        { "type": "host", "value": "www.speedrunlab.ai" },
-        { "type": "header", "key": "x-forwarded-proto", "value": "http" }
+        {
+          "type": "host",
+          "value": "www.speedrunlab.ai"
+        },
+        {
+          "type": "header",
+          "key": "x-forwarded-proto",
+          "value": "http"
+        }
       ]
     }
   ],
@@ -28,24 +87,48 @@
     {
       "source": "/papers/(.*\\.pdf)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
       ]
     },
     {
       "source": "/fonts/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; form-action 'self'; frame-ancestors 'none';" }
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; form-action 'self'; frame-ancestors 'none';"
+        }
       ]
     }
   ]

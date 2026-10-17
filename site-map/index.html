@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Map | Speedrun AI Labs</title>
+    <meta name="description" content="Every page on speedrunlab.ai.">
+    <link rel="canonical" href="https://www.speedrunlab.ai/site-map/">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        /* Instrument Serif — self-hosted (SIL OFL 1.1, see /fonts/OFL.txt) */
+        @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{color-scheme:light;--white:#FBFBFB;--black:#1D1D1F;--grey-light:#E5E5E7;--grey-nav:#86868B;--grey-mid:#6E6E73;--grey-dark:#424245;--font-sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;--font-serif:'Instrument Serif',Georgia,'Times New Roman',serif}
+        html{scroll-behavior:smooth}
+        body{font-family:var(--font-sans);background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;display:flex;flex-direction:column;min-height:100vh}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,251,251,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
+        .nav-inner{max-width:980px;margin:0 auto;padding:0 22px;height:80px;display:flex;align-items:center;justify-content:space-between}
+        .nav-top-row{display:contents}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--black)}
+        .nav-logo img{height:106px;width:auto}
+        .nav-linkedin{display:flex;align-items:center;color:var(--grey-nav);transition:color 0.2s ease;flex-shrink:0;margin-left:4px}
+        .nav-linkedin:hover{color:#0A66C2}
+        .nav-links{display:flex;gap:28px;list-style:none;flex-wrap:nowrap;justify-content:center}
+        .nav-links a{font-family:var(--font-sans);font-size:12px;font-weight:400;color:var(--grey-nav);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s ease;white-space:nowrap}
+        .nav-links a:hover,.nav-links a.active{color:var(--black)}
+        @media(max-width:768px){
+            .nav-inner{height:auto;flex-direction:column;align-items:stretch;padding:0;gap:0}
+            .nav-top-row{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;padding:0 8px;height:64px}
+            .nav-logo{grid-column:1}
+            .nav-linkedin{grid-column:3;justify-self:center;margin-left:0}
+            .nav-logo img{height:65px}
+            .nav-links{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,auto);gap:0;list-style:none;border-top:1px solid var(--grey-light);padding:4px 8px 6px}
+            .nav-links li:nth-child(n+4){border-top:1px solid var(--grey-light)}
+            .nav-links li{display:flex;justify-content:center}
+            .nav-links a{font-size:12px;padding:8px 6px;display:block;white-space:nowrap;text-align:center}
+            .nav-linkedin svg{width:22px;height:22px}
+            body{padding-top:128px}
+            .doc{padding:12px 18px 72px}
+        }
+            .doc{flex:1;width:100%;max-width:736px;margin:0 auto;padding:136px 22px 96px}
+        .doc-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:20px}
+        .doc h1{font-family:var(--font-serif);font-size:clamp(36px,5vw,48px);font-weight:400;font-style:italic;letter-spacing:-0.02em;line-height:1.1;margin-bottom:16px}
+        .doc-meta{font-size:14px;color:var(--grey-mid);margin-bottom:48px}
+        .doc h2{font-size:21px;font-weight:600;letter-spacing:-0.01em;margin:44px 0 12px}
+        .doc p,.doc li{font-size:16px;line-height:1.65;color:var(--grey-dark)}
+        .doc p{margin-bottom:14px}
+        .doc ul{margin:0 0 14px 20px}
+        .doc li{margin-bottom:6px}
+        .doc a{color:#0066CC;text-decoration:none}
+        .doc a:hover{text-decoration:underline}
+        .doc strong{color:var(--black);font-weight:600}
+        .map{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 32px}
+        .map h2{margin-top:32px}
+        .map ul{list-style:none;margin:0}
+    </style>
+</head>
+<body>
+    <script src="/nav.js"></script>
+    <main class="doc">
+        <p class="doc-eyebrow">Speedrun AI Labs</p>
+        <h1>Site Map</h1>
+        
+
+        <div class="map">
+            <div><h2>Agents</h2><ul>
+                <li><a href="/#projects">Anton, Cyber Security</a></li>
+                <li><a href="/#projects">Joseph, Compliance</a></li>
+                <li><a href="/#contact">Book a call</a></li>
+            </ul></div>
+            <div><h2>Research</h2><ul>
+                <li><a href="/papers/">Research Papers</a></li>
+                <li><a href="/#skills">Skill Library</a></li>
+                <li><a href="https://github.com/Speedrunlab" target="_blank" rel="noopener noreferrer">Open Source on GitHub</a></li>
+            </ul></div>
+            <div><h2>Speedrun AI Labs</h2><ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#press">Press</a></li>
+                <li><a href="/#contact">Contact Us</a></li>
+            </ul></div>
+            <div><h2>Legal</h2><ul>
+                <li><a href="/privacy/">Privacy Policy</a></li>
+                <li><a href="/terms/">Terms of Use</a></li>
+                <li><a href="/legal/">Legal</a></li>
+            </ul></div>
+        </div>
+    </main>
+    <script src="/footer.js"></script>
+</body>
+</html>

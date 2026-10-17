@@ -6,6 +6,7 @@
     { label: 'Agents',          id: 'projects', href: '/#projects', section: true  },
     { label: 'Research Papers', id: null,       href: '/papers/',   section: false, flyout: 'research' },
     { label: 'Press',           id: 'press',    href: '/#press',    section: true  },
+    { label: 'About',           id: 'about',    href: '/#about',    section: true  },
     { label: 'Contact Us',      id: 'contact',  href: '/#contact',  section: true  },
   ];
 
@@ -58,11 +59,6 @@
     '.nav-curtain.on{opacity:1;visibility:visible;transition:opacity .32s cubic-bezier(.4,0,.6,1),visibility 0s}' +
     '.paper-card,.skill-card{scroll-margin-top:104px}' +
     '@media(max-width:768px){' +
-      'nav .nav-links{grid-template-columns:repeat(6,1fr)}' +
-      'nav .nav-links li{grid-column:span 2}' +
-      'nav .nav-links li:nth-child(4){grid-column:2/span 2}' +
-      'nav .nav-links li:nth-child(n+4){border-top:0}' +
-      'nav .nav-links li:nth-child(-n+3){border-bottom:1px solid var(--grey-light)}' +
       '.nav-flyout-inner{flex-direction:column;gap:28px;padding:24px 24px 36px}' +
       '.nav-flyout-group.primary{min-width:0}' +
       '.nav-flyout a{font-size:14px;padding:6px 0}' +

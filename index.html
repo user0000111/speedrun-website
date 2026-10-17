@@ -583,6 +583,7 @@
         .page{display:none;min-height:100vh;padding-top:80px}
         .page.active{display:block}
 
+        .home-empty{min-height:calc(100vh - 81px)}
         .manifesto{max-width:680px;margin:0 auto;padding:80px 22px 100px}
         .manifesto-label{font-family:var(--font-sans);font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:40px}
         .manifesto-headline{font-family:var(--font-serif);font-size:clamp(36px,6vw,56px);font-weight:400;font-style:italic;line-height:1.15;letter-spacing:-0.02em;color:var(--black);margin-bottom:16px}
@@ -719,6 +720,11 @@
 
 <main>
 <section id="p-home" class="page active">
+    <!-- Home is intentionally empty for now (Addy 2026-10-17): an Apple-style agent hero comes next. -->
+    <div class="home-empty"></div>
+</section>
+
+<section id="p-about" class="page">
     <article class="manifesto do-anim">
         <p class="manifesto-label a1">Manifesto</p>
         <h1 class="manifesto-headline a2">AI with action.</h1>
@@ -738,7 +744,6 @@
         </div>
     </article>
     <p style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Speedrun AI Labs is also known as Speed Run AI Labs, Speedrun Lab, Speed Run Lab, and Speedrun AI Lab Sydney. Founded by Adnan Tanveer, also known as Addy Tanveer, in Sydney, Australia. Addy Tanveer is the founder of Speedrun AI Labs and Co-Founder of Figure 8 Capital, based in Cronulla, Sydney, NSW, Australia.</p>
-    <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai">speedrunlab.ai</a></p></footer>
 </section>
 
 <!-- Research Papers section removed — now lives at /papers/ as single source of truth -->
@@ -808,7 +813,6 @@
             <button class="agents-cta" onclick="go('contact')">Book a build call</button>
         </div>
     </div>
-    <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai">speedrunlab.ai</a></p></footer>
 </section>
 
 <section id="p-skills" class="page">
@@ -971,7 +975,6 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
         </article>
         </div>
     </div>
-    <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai">speedrunlab.ai</a></p></footer>
 </section>
 
 <section id="p-press" class="page">
@@ -1032,7 +1035,6 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
             </a>
         </div>
     </div>
-    <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai">speedrunlab.ai</a></p></footer>
 </section>
 
 <section id="p-contact" class="page">
@@ -1053,7 +1055,6 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
         <div class="form-ok" id="formOk"><h3>Message sent.</h3><p>We will get back to you soon.</p></div>
         <div class="form-err" id="formErr" style="display:none;background:#fff1f2;border:1px solid #fecdd3;border-radius:8px;padding:16px 20px;margin-bottom:24px;color:#be123c;font-family:var(--font-sans);font-size:15px;">Something went wrong. Please check your details and try again.</div>
     </div>
-    <footer class="footer"><p>&copy; 2026 Speedrun AI Labs. Sydney, Australia. <a href="https://www.speedrunlab.ai">speedrunlab.ai</a></p></footer>
 </section>
 </main>
 
@@ -1102,5 +1103,6 @@ document.getElementById('cForm').addEventListener('submit',function(ev){
 <!-- Loaded after the inline script so onTurnstileReady is defined before it fires. -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileReady" async defer></script>
 
+<script src="/footer.js"></script>
 </body>
 </html>
