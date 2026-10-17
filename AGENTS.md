@@ -1,6 +1,6 @@
 # AGENTS.md — speedrunlab.ai (for every coding agent: Claude Code, Codex, Cursor, Copilot)
 `CLAUDE.md` in this folder is the single source of rules. Read it first, in full. This file is the cross-tool front door and never duplicates a rule.
-Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 52f79e763236 · main 03b3305 — by `~/.claude/scripts/close-out.sh --sync-agents`
+Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 c1dec1ada699 · main 69d1ff4 — by `~/.claude/scripts/close-out.sh --sync-agents`
 
 ## Where things are
 - Rules: `CLAUDE.md` (this repo). State + history: Addy's private vault (`Projects/Speedrun.md`, `Sessions/Speedrun/`), written only via `~/.claude/scripts/obsidian-log.sh`.
@@ -14,6 +14,7 @@ Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 52f79e763236 · main 
 - Nothing is "done" until `tests/audit.cjs` (every page × four viewports, sheets read phone first) and `tests/menus.cjs` (every menu pressed by touch and by mouse) have run green against production (CLAUDE.md "Testing before done").
 - Two agents only (Anton, Joseph); no human hands in imagery; legal copy is drafted by Fable 5.1; never a bare `<nav>` below the top bar (CLAUDE.md).
 - A new page is wired in six places (nav flyout, footer, site map, sitemap, redirects, llms.txt) and then requested in Search Console; internal links never use the apex or http host (CLAUDE.md "Search Console").
+- Anything that opens on tap needs an explicit close on any press outside it; a `/#card` arrival jump is re-applied at `DOMContentLoaded`; hover opens only after real mouse movement (CLAUDE.md "Content that must stay consistent").
 - Never change mission or brand copy, or deploy an image, without Addy's explicit approval (CLAUDE.md "Imagery").
 - The contact form fails closed; do not widen the CSP or re-add Google Fonts (CLAUDE.md "Contact form and security").
 

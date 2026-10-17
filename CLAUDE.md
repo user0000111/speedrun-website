@@ -47,6 +47,12 @@ Static site, no framework, no build step. Pickup state and history live in the O
 - `go()` keeps the URL hash in step with the section (`#about`, `#projects` ...) so a refresh or a shared
   link keeps it and Back returns to the previous one; `srRoute()` routes `/#<section>` and `/#<card-id>`;
   an empty hash means Home. Links on home that target a section call `srRoute()` instead of navigating.
+  A `/#<card>` jump on ARRIVAL is applied twice: at once (no flash) and again, instantly, at
+  `DOMContentLoaded`, because `footer.js` runs after the inline script and a jump computed on the
+  shorter page is clamped by the browser and never revisited (Deep Audit landed 245px low on iPad,
+  2026-10-17). Anything that adds height after the inline script keeps this rule alive.
+- Desktop flyouts open on hover only after the mouse has really moved (`mouseMoved`): a page reached by
+  clicking a menu item loads with the mouse resting on that item and would otherwise drop its panel open.
 - SSRN blocks fetches: an abstract id comes from Addy and is taken on trust; say so.
 - Never change mission or brand copy without Addy's explicit approval.
 
