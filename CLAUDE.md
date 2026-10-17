@@ -16,6 +16,7 @@ Static site, no framework, no build step. Pickup state and history live in the O
 ## Content that must stay consistent (grep before you claim done)
 - `nav.js` injects the nav into ALL THREE pages, but each page styles it in its OWN inline CSS.
   Change a nav class and you touch all three.
+  The nav ORDER is only the `LINKS` array in `nav.js` (2026-10-17: Skill Library after Research Papers, Addy's ask; vault `2026-10-17 nav-skill-library-after-papers`).
 - The paper COUNT lives in six strings: papers meta description, og and twitter descriptions,
   home FAQ answer, home `agents-proof`, llms.txt. Newest paper goes FIRST in the card list,
   `hasPart`, `@graph` and llms.txt. Every JSON-LD block must still parse after an edit.
