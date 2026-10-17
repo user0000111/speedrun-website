@@ -26,11 +26,14 @@ Static site, no framework, no build step. Pickup state and history live in the O
 - **Phone nav is Apple glass** (Addy's pick "A" of three on 2026-10-17, from his iOS 26 Safari reference):
   one floating frosted card (logo row + the 3×2 link grid, no dividers, active item in a soft pill), panels
   as frosted sheets beneath it. It is styled ONLY in `nav.js` under `html[data-nav="glass"]` (`GLASS` holds
-  the material: bg, blur, panel), which outranks every page's inline phone-nav rules; those inline rules stay
+  the material: 45% white, 24px blur, panel 84%, his pick of three transparency levels the same evening;
+  34% and 22% lost the labels over the black Joseph section), which outranks every page's inline phone-nav rules; those inline rules stay
   as the no-JS fallback and are not edited for styling. The bar is 136px on phone, so content offsets are
   148px (`data-page` picks the right element per page) and jump targets use `scroll-margin-top:164px`;
   change the bar and change both (rule 26). Applies at ≤768px (iPhone, iPad mini portrait); 820px+ keeps
   the desktop bar. Vault `2026-10-17 glass-menu-a-shipped`.
+- The LinkedIn icon is LinkedIn's own mark: `#0A66C2` (hover `#004182`) in every page's `.nav-linkedin`, with a
+  white layer under the cut-out "in" in `nav.js` so the letters stay white on any background (Addy 2026-10-17).
 - **Never use a bare `<nav>` element for anything but the top bar**: every page styles `nav` as
   `position:fixed;top:0`. The footer columns and the legal contents list are `div role="navigation"`
   (both got pinned over the menu on 2026-10-17).

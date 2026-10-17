@@ -1,6 +1,6 @@
 # AGENTS.md — speedrunlab.ai (for every coding agent: Claude Code, Codex, Cursor, Copilot)
 `CLAUDE.md` in this folder is the single source of rules. Read it first, in full. This file is the cross-tool front door and never duplicates a rule.
-Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 5470f198f885 · main 69875bf — by `~/.claude/scripts/close-out.sh --sync-agents`
+Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 d96bb5d98a04 · main cf0712f — by `~/.claude/scripts/close-out.sh --sync-agents`
 
 ## Where things are
 - Rules: `CLAUDE.md` (this repo). State + history: Addy's private vault (`Projects/Speedrun.md`, `Sessions/Speedrun/`), written only via `~/.claude/scripts/obsidian-log.sh`.
@@ -11,7 +11,7 @@ Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 5470f198f885 · main 
 - Repo-only files stay in `.vercelignore` (`CLAUDE.md`, `AGENTS.md`, `design/`, `tests/`) — anything else in the tree is served publicly.
 - Grep every copy before claiming a change is done: the base nav lives in three pages' CSS, the Research flyout only in `nav.js`, the paper count in six strings (CLAUDE.md "Content that must stay consistent").
 - The design follows apple.com; keep it that way (CLAUDE.md, Addy 2026-10-17).
-- The phone nav is Apple glass, styled only in `nav.js` under `html[data-nav="glass"]`; bar height, content offsets and jump margins move together (CLAUDE.md).
+- The phone nav is Apple glass (45% white), styled only in `nav.js` under `html[data-nav="glass"]`; bar height, content offsets and jump margins move together; the LinkedIn icon is #0A66C2 with white letters (CLAUDE.md).
 - Nothing is "done" until `tests/audit.cjs` (every page × four viewports, sheets read phone first) and `tests/menus.cjs` (every menu pressed by touch and by mouse) have run green against production (CLAUDE.md "Testing before done").
 - Two agents only (Anton, Joseph); no human hands in imagery; legal copy is drafted by Fable 5.1; never a bare `<nav>` below the top bar (CLAUDE.md).
 - A new page is wired in six places (nav flyout, footer, site map, sitemap, redirects, llms.txt) and then requested in Search Console; internal links never use the apex or http host (CLAUDE.md "Search Console").
