@@ -1,6 +1,6 @@
 # Speedrun AI Labs
 
-> AI with action. We build working AI products that make a meaningful difference.
+> AI with action. Speedrun AI Labs (Sydney) ships two AI agents: Anton, a cyber security agent of your own, and Joseph, a compliance agent for financial services businesses. A human stays in the loop.
 
 ## Who We Are
 
