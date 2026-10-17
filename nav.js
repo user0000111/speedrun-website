@@ -3,10 +3,10 @@
 
   var LINKS = [
     { label: 'Home',            id: 'home',     href: '/',          section: true  },
+    { label: 'About',           id: 'about',    href: '/#about',    section: true  },
     { label: 'Agents',          id: 'projects', href: '/#projects', section: true  },
     { label: 'Research Papers', id: null,       href: '/papers/',   section: false, flyout: 'research' },
     { label: 'Press',           id: 'press',    href: '/#press',    section: true  },
-    { label: 'About',           id: 'about',    href: '/#about',    section: true  },
     { label: 'Contact Us',      id: 'contact',  href: '/#contact',  section: true  },
   ];
 
