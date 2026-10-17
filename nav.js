@@ -92,9 +92,36 @@
       '.paper-card,.skill-card{scroll-margin-top:156px}' +
     '}' +
     '@media(prefers-reduced-motion:reduce){nav,.nav-flyout,.nav-flyout *,.nav-curtain{transition:none!important}}';
+  // Phone nav: Apple-style glass, Addy's pick of three on 2026-10-17 ("A"). It is styled from here under
+  // html[data-nav="glass"], which outranks each page's inline phone-nav rules (those stay as the no-JS
+  // fallback), and data-page lets the content offsets follow the bar. GLASS holds the material so the
+  // transparency can be tuned in one place.
+  var GLASS = { bg: 'rgba(255,255,255,.62)', blur: 'saturate(180%) blur(22px)', panel: 'rgba(255,255,255,.9)' };
+  var EDGE = 'inset 0 1px 0 rgba(255,255,255,.85),0 0 0 .5px rgba(0,0,0,.06)';
+  var GLASS_CSS = '@media(max-width:768px){' +
+    'html[data-nav="glass"] nav,html[data-nav="glass"] nav.flyout-open{top:0;left:0;right:0;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:0;pointer-events:none}' +
+    'html[data-nav="glass"] .nav-inner{margin:10px 10px 0;padding:0 0 6px;border-radius:26px;max-width:none;height:auto;pointer-events:auto;background:' + GLASS.bg + ';-webkit-backdrop-filter:' + GLASS.blur + ';backdrop-filter:' + GLASS.blur + ';box-shadow:' + EDGE + ',0 8px 28px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04)}' +
+    'html[data-nav="glass"] .nav-top-row{height:56px;padding:0 14px 0 6px;display:grid;grid-template-columns:1fr auto;align-items:center}' +
+    'html[data-nav="glass"] .nav-logo{grid-column:1}' +
+    'html[data-nav="glass"] .nav-logo img{height:56px}' +
+    'html[data-nav="glass"] .nav-linkedin{grid-column:2;justify-self:end;margin:0}' +
+    'html[data-nav="glass"] .nav-linkedin svg{width:20px;height:20px}' +
+    'html[data-nav="glass"] .nav-links{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,auto);gap:2px 4px;border-top:0;padding:0 10px 4px;margin:0;pointer-events:auto}' +
+    'html[data-nav="glass"] .nav-links li,html[data-nav="glass"] .nav-links li:nth-child(n+4){display:flex;justify-content:center;border:0}' +
+    'html[data-nav="glass"] .nav-links a{display:block;font-size:12px;font-weight:400;letter-spacing:.01em;color:var(--grey-dark);padding:7px 10px;border-radius:980px;text-align:center;white-space:nowrap}' +
+    'html[data-nav="glass"] .nav-links a.active{color:var(--black);background:rgba(0,0,0,.055)}' +
+    'html[data-nav="glass"] .nav-flyout{pointer-events:auto;top:calc(100% + 8px);left:10px;right:10px;border-radius:22px;background:' + GLASS.panel + ';-webkit-backdrop-filter:' + GLASS.blur + ';backdrop-filter:' + GLASS.blur + ';box-shadow:' + EDGE + ',0 12px 36px rgba(0,0,0,.1);overflow:hidden}' +
+    'html[data-nav="glass"] .nav-flyout-clip{max-height:calc(100dvh - 170px)}' +
+    'html[data-nav="glass"] .nav-curtain{background:rgba(232,232,237,.35)}' +
+    // the bar is 136px tall on phone: content offsets and jump margins follow it (rule 26)
+    'html[data-nav="glass"][data-page="home"] .page,html[data-nav="glass"][data-page="papers"] .main,html[data-nav="glass"][data-page="doc"] body,html[data-nav="glass"][data-page="thanks"] body{padding-top:148px}' +
+    'html[data-nav="glass"] .paper-card,html[data-nav="glass"] .skill-card,html[data-nav="glass"] .agent-tile,html[data-nav="glass"] .agent-detail,html[data-nav="glass"] .doc h2,html[data-nav="glass"] .sf-notes li{scroll-margin-top:164px}' +
+    '}';
   var style = document.createElement('style');
-  style.textContent = CSS;
+  style.textContent = CSS + GLASS_CSS;
   document.head.appendChild(style);
+  document.documentElement.setAttribute('data-nav', 'glass');
+  document.documentElement.setAttribute('data-page', IS_HOME ? 'home' : /^\/papers\/?$/.test(window.location.pathname) ? 'papers' : window.location.pathname === '/thank-you.html' ? 'thanks' : 'doc');
 
   var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var path = window.location.pathname;

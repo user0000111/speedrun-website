@@ -23,6 +23,14 @@ Static site, no framework, no build step. Pickup state and history live in the O
   and `llms.txt`. New sub-pages are built from `legal/index.html` as the template (Addy 2026-10-17).
   Desktop bar height (96px) and the logo offset live once in `nav.js`; change them and re-measure every
   offset tied to the bar (rule 26: `.page`, `.main`, `.doc`, `.content` padding, scroll-margins).
+- **Phone nav is Apple glass** (Addy's pick "A" of three on 2026-10-17, from his iOS 26 Safari reference):
+  one floating frosted card (logo row + the 3×2 link grid, no dividers, active item in a soft pill), panels
+  as frosted sheets beneath it. It is styled ONLY in `nav.js` under `html[data-nav="glass"]` (`GLASS` holds
+  the material: bg, blur, panel), which outranks every page's inline phone-nav rules; those inline rules stay
+  as the no-JS fallback and are not edited for styling. The bar is 136px on phone, so content offsets are
+  148px (`data-page` picks the right element per page) and jump targets use `scroll-margin-top:164px`;
+  change the bar and change both (rule 26). Applies at ≤768px (iPhone, iPad mini portrait); 820px+ keeps
+  the desktop bar. Vault `2026-10-17 glass-menu-a-shipped`.
 - **Never use a bare `<nav>` element for anything but the top bar**: every page styles `nav` as
   `position:fixed;top:0`. The footer columns and the legal contents list are `div role="navigation"`
   (both got pinned over the menu on 2026-10-17).
@@ -108,7 +116,7 @@ Static site, no framework, no build step. Pickup state and history live in the O
 ## Testing before "done" (Addy 2026-10-17: *"test it test it test it ... make sure on mobile or iPad or web it looks great on all of it"*)
 - Before any change is reported done, run the gate against production:
   `B=https://www.speedrunlab.ai NODE_PATH=~/Documents/investing-platform-v1/node_modules node tests/audit.cjs`
-  (14 pages × iPhone 393 / iPad 820 / iPad landscape 1180 / desktop 1440: horizontal scroll, elements past
+  (14 pages × iPhone 393 / iPad mini 768 / iPad 820 / iPad landscape 1180 / desktop 1440: horizontal scroll, elements past
   the edge, broken images, footnote anchors, page errors; full-page screenshots and one review sheet per
   viewport in `/tmp/speedrun-audit`). Then READ the sheets, phone first. Addy reviews from his phone when
   he is away from the desk; a desktop-only check is not a check. A change to a shared block (nav, footer,

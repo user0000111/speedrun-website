@@ -1,6 +1,6 @@
 // tests/audit.cjs — the "test it test it test it" gate (Addy 2026-10-17: "make sure on mobile or iPad or
 // web it looks great on all of it"). Renders every page at iPhone / iPad portrait / iPad landscape / desktop
-// against production (or B=http://localhost:8765), checks horizontal scroll, elements past the viewport edge,
+// against production (or B=http://localhost:8765): iPhone, iPad mini portrait (the 768 breakpoint), iPad, iPad landscape, desktop; checks horizontal scroll, elements past the viewport edge,
 // images that failed to load, footnote markers with no target, page and console errors, and writes full-page
 // screenshots plus one review sheet per viewport to OUT (default <tmpdir>/speedrun-audit). READ THE SHEETS,
 // phone first. Exit code 1 when any render has a problem. tests/ is in .vercelignore and never deploys.
@@ -14,7 +14,7 @@ fs.mkdirSync(OUT, { recursive: true });
 // PAGES=/#contact,/data/ re-checks a few pages quickly; the default is every page.
 const PAGES = process.env.PAGES ? process.env.PAGES.split(',') : ['/', '/#about', '/#projects', '/#skills', '/#press', '/#contact', '/papers/', '/data/', '/ai-safety/',
   '/privacy/', '/terms/', '/legal/', '/site-map/', '/thank-you.html'];
-const VP = [['phone', 393, 852, true], ['ipad', 820, 1180, true], ['ipad-l', 1180, 820, true], ['desk', 1440, 900, false]];
+const VP = [['phone', 393, 852, true], ['ipad-mini', 768, 1024, true], ['ipad', 820, 1180, true], ['ipad-l', 1180, 820, true], ['desk', 1440, 900, false]];
 // Accepted console noise, both from Cloudflare Turnstile on the contact section: its "data:," probe, which our
 // CSP connect-src refuses (the widget still renders), and its "%c%d font-size:0;color:transparent" console check.
 const IGNORE = [/data:,/, /font-size:0;color:transparent/];
@@ -67,7 +67,7 @@ const IGNORE = [/data:,/, /font-size:0;color:transparent/];
   const sheet = await b.newPage();
   for (const [n] of VP) {
     const shots = report.filter(x => x.vp === n);
-    const colw = n === 'phone' ? 260 : n === 'desk' ? 480 : 400, cap = n === 'phone' ? 2600 : 2000, perRow = n === 'phone' ? 7 : n === 'desk' ? 4 : 5;
+    const colw = n === 'phone' ? 260 : n === 'desk' ? 480 : n === 'ipad-mini' ? 380 : 400, cap = n === 'phone' ? 2600 : 2000, perRow = n === 'phone' ? 7 : n === 'desk' ? 4 : 5;
     const rows = [];
     for (let i = 0; i < shots.length; i += perRow) rows.push(shots.slice(i, i + perRow));
     const html = `<!doctype html><meta charset="utf-8"><style>body{margin:0;background:#777;font:12px -apple-system,sans-serif}.row{display:flex;gap:10px;padding:10px}.c{width:${colw}px}.c div{color:#fff;margin:0 0 4px;white-space:nowrap;overflow:hidden}.c img{width:${colw}px;max-height:${cap}px;object-fit:cover;object-position:top;display:block;background:#fff}</style>` +
