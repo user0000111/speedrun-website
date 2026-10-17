@@ -178,9 +178,22 @@ async function run(name, browserType, opts, touch) {
   // 6. Contact-form error return, both URL shapes the handler has used.
   for (const u of ['/?error=1#contact', '/#contact?error=1']) {
     await p.goto(B + u); await p.waitForTimeout(900);
-    const r = await p.evaluate(() => ({ section: (document.querySelector('.page.active') || {}).id, err: (function () { const e = document.getElementById('formErr'); return e ? getComputedStyle(e).display : 'missing'; })() }));
-    check(name, `form error return ${u}`, r.section === 'p-contact' && r.err === 'block', JSON.stringify(r));
+    const r = await p.evaluate(() => { const e = document.getElementById('formErr'); const b = e ? e.getBoundingClientRect() : null; return { section: (document.querySelector('.page.active') || {}).id, err: e ? getComputedStyle(e).display : 'missing', onScreen: b ? (b.top >= 0 && b.bottom <= innerHeight) : false }; });
+    check(name, `form error return ${u}`, r.section === 'p-contact' && r.err === 'block' && r.onScreen, JSON.stringify(r));
   }
+  // 6b. Contact: each topic chip fills the Subject and is the only one marked; typing clears the mark.
+  await start('/#contact');
+  { const chips = await p.$$eval('.cx-chip', cs => cs.map(c => c.getAttribute('data-intent')));
+    let ok = chips.length === 3, why = [];
+    for (let i = 0; i < chips.length; i++) {
+      await press(`.cx-chip >> nth=${i}`); await p.waitForTimeout(200);
+      const r = await p.evaluate(() => ({ subj: document.getElementById('c-subject').value, on: [...document.querySelectorAll('.cx-chip.on')].map(c => c.getAttribute('data-intent')) }));
+      if (r.subj !== chips[i] || r.on.length !== 1 || r.on[0] !== chips[i]) { ok = false; why.push(JSON.stringify(r)); }
+    }
+    await p.fill('#c-subject', 'Typed by hand'); await p.waitForTimeout(150);
+    const left = await p.$$eval('.cx-chip.on', cs => cs.length); if (left) { ok = false; why.push('chip still marked after typing'); }
+    const fs = await p.$eval('#c-name', e => parseFloat(getComputedStyle(e).fontSize)); if (fs < 16) { ok = false; why.push('field font ' + fs + 'px zooms on iPhone'); }
+    check(name, 'contact: topic chips fill the subject', ok, why.join(' | ')); }
   // 7. Papers: the Read Abstract toggle opens and closes.
   await start('/papers/');
   { const id = await p.$eval('.paper-card [onclick*="toggleAbstract"]', b => (b.getAttribute('onclick').match(/'([^']+)'/) || [])[1]);
