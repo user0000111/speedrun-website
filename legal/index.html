@@ -58,6 +58,15 @@
         .map{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 32px}
         .map h2{margin-top:32px}
         .map ul{list-style:none;margin:0}
+        .doc h3{font-size:17px;font-weight:600;color:var(--black);margin:26px 0 8px}
+        .doc ol{margin:0 0 14px 22px}
+        .toc{background:#F5F5F7;border-radius:14px;padding:22px 26px;margin:8px 0 44px}
+        .toc-title{font-size:12px!important;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid)!important;margin-bottom:10px!important}
+        .toc ol{margin:0 0 0 20px;columns:2;column-gap:36px}
+        .toc li{font-size:14px!important;margin-bottom:6px;break-inside:avoid}
+        .doc h2{scroll-margin-top:120px}
+        @media(max-width:768px){.toc ol{columns:1}.doc h2{scroll-margin-top:156px}}
+        @media(max-width:768px){.doc{padding:52px 18px 72px}}
     </style>
 </head>
 <body>
@@ -65,25 +74,126 @@
     <main class="doc">
         <p class="doc-eyebrow">Legal</p>
         <h1>Legal</h1>
-        <p class="doc-meta">Last updated 17 October 2026</p>
+        <p class="doc-meta">Effective 17 October 2026</p>
+<p>This page collects the legal information for Speedrun AI Labs and the website at speedrunlab.ai. It is effective from 17 October 2026. The policies on this page form part of our <a href="/terms/">Terms of Use</a> and should be read with our <a href="/privacy/">Privacy Policy</a>.</p>
 
-        <h2>Company</h2>
-        <p>Speedrun AI Labs Pty Ltd<br>ABN 38 695 878 356<br>Sydney, New South Wales, Australia<br><a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a></p>
+<div class="toc" role="navigation" aria-label="Contents"><p class="toc-title">Contents</p><ol>
+<li><a href="#company">Company details</a></li>
+<li><a href="#policies">Our policies</a></li>
+<li><a href="#ai-disclaimer">AI and agent disclaimer</a></li>
+<li><a href="#acceptable-use">Acceptable Use Policy for Anton and Joseph</a></li>
+<li><a href="#responsible-disclosure">Responsible disclosure and vulnerability reporting</a></li>
+<li><a href="#third-party-names">Third-party names and trade marks</a></li>
+<li><a href="#open-source">Open-source licences</a></li>
+<li><a href="#research-notice">Research publications notice</a></li>
+<li><a href="#changes">Changes to this page</a></li>
+<li><a href="#contact">Contact</a></li>
+</ol></div>
 
-        <h2>Policies</h2>
-        <ul>
-            <li><a href="/privacy/">Privacy Policy</a></li>
-            <li><a href="/terms/">Terms of Use</a></li>
-        </ul>
+<h2 id="company">1. Company details</h2>
+<ul>
+<li><strong>Legal name:</strong> Speedrun AI Labs Pty Ltd</li>
+<li><strong>Entity type:</strong> Australian private company</li>
+<li><strong>ABN:</strong> 38 695 878 356</li>
+<li><strong>GST:</strong> registered for goods and services tax from 5 March 2026</li>
+<li><strong>Principal place of business:</strong> Cronulla, New South Wales 2230, Australia (Sydney). Please contact us by email; we do not receive visitors or post without an appointment.</li>
+<li><strong>Email:</strong> <a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a></li>
+<li><strong>Website:</strong> www.speedrunlab.ai</li>
+</ul>
+<p>Speedrun AI Labs does not hold an Australian financial services licence or an Australian credit licence, is not a law practice, and is not a registered tax agent. We do not provide legal, financial, tax or compliance advice. See section 3.</p>
 
-        <h2>Disclaimer</h2>
-        <p>Anton and Joseph are AI agents. They support the judgement of your security, compliance and leadership teams; they do not replace it. Review what an agent produces before you act on it. Nothing on this website is legal, financial, tax or regulatory advice, and using an agent does not by itself make a business compliant with any law, licence condition or regulatory obligation.</p>
+<h2 id="policies">2. Our policies</h2>
+<ul>
+<li><a href="/privacy/">Privacy Policy</a>: how we collect, hold, use and disclose personal information, and how responsibility for data handled by an agent is divided between us and the business that deploys it.</li>
+<li><a href="/terms/">Terms of Use</a>: the terms on which you may use this website, including the relationship between the website and the Services Agreement under which our agents are supplied.</li>
+<li><a href="#ai-disclaimer">AI and agent disclaimer</a>, <a href="#acceptable-use">Acceptable Use Policy</a>, <a href="#responsible-disclosure">Responsible Disclosure Policy</a> and <a href="#research-notice">Research Publications Notice</a>: on this page.</li>
+</ul>
+<p>Our agents are supplied to businesses only under a separate written <strong>Services Agreement</strong>. The Services Agreement governs the services and prevails over anything on this website in relation to them. Nothing on this website is an offer to supply an agent, and we do not publish prices.</p>
 
-        <h2>Open-source licences</h2>
-        <p>Skills in the Skill Library are published under the MIT License. This website uses the Instrument Serif typeface under the SIL Open Font License 1.1 (<a href="/fonts/OFL.txt">licence text</a>).</p>
+<h2 id="ai-disclaimer">3. AI and agent disclaimer</h2>
+<p><strong>Anton</strong> and <strong>Joseph</strong> are AI agents built on large language models and other software, configured by Speedrun AI Labs to the context of each business that deploys them. This disclaimer applies to both agents, to every description, demonstration and example on this website, and to every deployment, subject to the Services Agreement for that deployment.</p>
+<h3>3.1 What the agents are</h3>
+<p>The agents are productivity tools. They support the judgement of a business&rsquo;s security, compliance and leadership teams; they do not replace it. They are not licensed professionals, they are not a law practice, a financial adviser, an auditor, a compliance consultant or a penetration-testing firm, and they do not owe anyone a professional duty of care. They operate within the scope, data sources and permissions the deploying business gives them, and their outputs depend on the quality, completeness and currency of the data, systems and instructions they receive.</p>
+<h3>3.2 Anton (cyber security)</h3>
+<p>Anton reviews a business&rsquo;s code and infrastructure for weaknesses, approaches them as an attacker would, and reports in plain English to the people the business names. Anton does not guarantee that it will detect every vulnerability, misconfiguration or weakness, and it cannot prevent every attack. Security is a property of a whole organisation, its people, processes and systems, and no tool can make a business secure on its own. Anton&rsquo;s findings may include false positives (reported issues that are not real) and false negatives (real issues that are not reported), and a clean report is not a certification, an assurance or a guarantee that systems are free of vulnerabilities. Anton is not a substitute for independent penetration testing, security audits or certifications where a law, regulator, standard, customer or insurer requires them. Anton must be used only on systems that the deploying business owns or operates, or is expressly authorised in writing to test (see section 4).</p>
+<h3>3.3 Joseph (compliance)</h3>
+<p>Joseph keeps watch on the regulatory obligations that a financial-services regulated business selects, and reports what has changed to the people accountable within the business. Joseph does not provide legal, financial, tax or compliance advice, and nothing it produces is advice. Joseph does not interpret the law for a business, does not decide whether a business is compliant, and does not replace the business&rsquo;s compliance function, its responsible managers, its legal advisers or its auditors. Using Joseph does not by itself make a business compliant with any law, licence condition, regulatory guide, prudential standard, reporting obligation or industry code, and it does not discharge or transfer any obligation the business owes to ASIC, APRA, AUSTRAC, the ATO, the OAIC or any other regulator. Joseph may miss, misread, mis-time or misdescribe a change, and the sources it monitors may be incomplete, delayed or revised. The business remains responsible for identifying the obligations that apply to it, for deciding how to meet them, and for every regulatory decision and lodgement.</p>
+<h3>3.4 Human review</h3>
+<p>Every output of either agent must be reviewed by a suitably qualified person before it is relied on or acted on. Outputs can be incorrect, incomplete, out of date, inconsistent or misleading, including when they appear confident and well-reasoned. Over-reliance on an agent without human review is a known risk of AI systems and is a misuse of the agents. The deploying business decides how outputs are used in its decisions and is responsible for those decisions.</p>
+<h3>3.5 Known risks</h3>
+<p>Known risks of AI agents include: incorrect, fabricated or incomplete outputs (sometimes called hallucinations); outputs that reflect errors or gaps in the data they were given; changes, outages, rate limits or policy changes by third-party model providers and platforms that affect functionality; misuse of an agent for a purpose it was not designed or configured for; over-reliance without human review; and loss of data held on hardware or in environments outside our control. The Services Agreement describes how these risks are allocated between us and each deploying business. In outline, and subject always to the Australian Consumer Law and the Services Agreement, we are responsible for performing our services with due care and skill, and we are not responsible for loss caused by the deploying business&rsquo;s own acts or omissions, by its configuration choices made against our guidance, by failures of its hardware or environment, by third-party services, or by acting on an output without the review this disclaimer requires.</p>
+<h3>3.6 Not advice, no outcome promised</h3>
+<p>Nothing on this website is legal, financial, tax, accounting, cyber security, regulatory, compliance or other professional advice, and nothing on it is a promise that any business will achieve any outcome, including compliance with any law or protection from any attack, by deploying an agent.</p>
 
-        <h2>Third-party names</h2>
-        <p>Product and company names mentioned on this website and in our research, such as NVIDIA, Apple, Anthropic, Claude and OpenClaw, belong to their respective owners. Mentioning them does not mean they endorse us.</p>
+<h2 id="acceptable-use">4. Acceptable Use Policy for Anton and Joseph</h2>
+<p>This Acceptable Use Policy applies to every business that deploys an agent (a <strong>Deploying Business</strong>) and to everyone who uses an agent or its outputs on that business&rsquo;s behalf. It is incorporated into each Services Agreement, which may add to it. A Deploying Business is responsible for the use of its agent by its personnel, contractors and anyone else it allows to use it.</p>
+<h3>4.1 Prohibited uses</h3>
+<p>An agent must not be used, directly or indirectly, to:</p>
+<ul>
+<li>access, scan, probe, test, attack or interfere with any system, network, application, account or data that the Deploying Business does not own or operate, or is not expressly authorised in writing by the owner to test, including systems of its customers, suppliers, competitors or any government body. Participation in third-party bug-bounty or vulnerability-disclosure programs using Anton is not permitted unless we have agreed to it in writing in the Services Agreement;</li>
+<li>exceed the scope, timing or conditions of any authorisation the Deploying Business holds to test a system;</li>
+<li>create, develop, obtain, distribute or deploy malware, ransomware, exploits, command-and-control infrastructure or any other tool whose purpose is unauthorised access, damage or disruption, other than analysing a known threat to the Deploying Business&rsquo;s own systems in a controlled environment;</li>
+<li>carry out unlawful surveillance, monitoring, tracking or interception of any person or communication, or covertly monitor employees or others in breach of workplace surveillance, telecommunications interception or privacy laws;</li>
+<li>collect, use, disclose or process personal information without a lawful basis, in breach of the Privacy Act 1988 (Cth), the Australian Privacy Principles, a collection notice, a consent, or any other law that applies to the Deploying Business, or to re-identify de-identified data without authority;</li>
+<li>commit, facilitate or conceal fraud, theft, forgery, identity theft, money laundering, terrorism financing or any other crime;</li>
+<li>engage in insider trading, market manipulation, front running or any other conduct that contravenes the Corporations Act 2001 (Cth), the ASIC market integrity rules or equivalent laws, or to make or execute trading, investment or lending decisions without the human authorisation and controls the law requires;</li>
+<li>provide, or hold out as providing, financial product advice, credit assistance, legal advice or tax agent services in breach of licensing or registration laws;</li>
+<li>breach sanctions laws, export-control laws or anti-bribery laws, or deal with a person or entity that is the subject of sanctions administered by Australia or by another jurisdiction whose laws apply;</li>
+<li>discriminate against any person unlawfully, including in employment, credit, insurance or the supply of goods or services, or make decisions that significantly affect a person without the human oversight, transparency and review that the law requires;</li>
+<li>generate or distribute content that is defamatory, harassing, threatening, obscene, hateful or otherwise unlawful, or that infringes anyone&rsquo;s intellectual property or other rights;</li>
+<li>evade, circumvent, disguise or misrepresent compliance with any legal or regulatory obligation, including by using Joseph to create a false appearance of compliance or by suppressing or altering its reports;</li>
+<li>operate safety-critical systems, or make decisions affecting health, safety or physical security, without appropriate human control;</li>
+<li>breach the terms, acceptable use policies or usage policies of any third-party AI model provider, platform or system that the agent uses, which flow down to the Deploying Business through its own agreements with those providers; or</li>
+<li>do anything else that is unlawful, that is likely to bring Speedrun AI Labs into disrepute, or that is inconsistent with the purpose for which the agent was deployed and configured.</li>
+</ul>
+<h3>4.2 Obligations of the Deploying Business</h3>
+<p>The Deploying Business must: hold and be able to demonstrate authority over every system it points an agent at; configure and permit the agent to access only the data and systems it needs; keep its hardware, environment, credentials and integrations secure; tell its people, in the way the law and its policies require, that it uses an AI agent; review outputs before acting on them; keep appropriate backups of its data; and tell us promptly if it becomes aware of any actual or suspected misuse.</p>
+<h3>4.3 Our rights</h3>
+<p>We may refuse to deploy an agent for any business or purpose that we reasonably believe is unlawful or inconsistent with this policy. We may suspend or stop a deployment, deactivate our skills and configurations, and revoke any remote access we hold, if we reasonably believe that an agent is being used in breach of this policy or the law, or that continued operation would expose us, the Deploying Business or any third party to legal liability or serious harm. Where it is practicable and lawful to do so, we will give the Deploying Business notice and a reasonable opportunity to remedy the problem before we suspend or stop a deployment; where the risk is urgent or notice would be unlawful, we may act first and notify as soon as we can. We may report unlawful conduct to law enforcement, regulators or other authorities where we are required or permitted to do so. The Services Agreement sets out the notice, remediation, suspension and termination procedures that apply, and the consequences for the Deploying Business, including that it keeps its hardware and data. Nothing in this section limits any other right we have under the Services Agreement or the law.</p>
+
+<h2 id="responsible-disclosure">5. Responsible disclosure and vulnerability reporting</h2>
+<p>We build a security agent, and we take the security of our own website seriously. If you believe you have found a security vulnerability in speedrunlab.ai, we want to hear from you, and we will work with you in good faith. This policy explains how to report, what we ask of you, and what you can expect from us.</p>
+<h3>5.1 Scope</h3>
+<p>This policy covers the website at www.speedrunlab.ai and speedrunlab.ai, including its pages, static assets and the contact form handler at the /api/contact endpoint, and the open-source skill repositories we publish under the Speedrunlab organisation on GitHub (for the code we author). It does not cover: the infrastructure or services of third parties on which the website relies, including Vercel, Cloudflare, Resend and GitHub, which have their own disclosure programs; SSRN, LinkedIn or any other third-party site we link to; or the agents we deploy for businesses, which run in those businesses&rsquo; environments and are not ours to authorise testing of. If you find an issue in a third-party service, please report it to that provider.</p>
+<h3>5.2 How to report</h3>
+<p>Email <a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a> with the words Security Report in the subject line. Please include: a description of the issue and its potential impact; the URL, endpoint or repository affected; step-by-step instructions to reproduce it; any proof-of-concept code or screenshots, kept to the minimum needed to demonstrate the issue; and how you would like to be credited, if at all. You may report anonymously or under a pseudonym, but we will not be able to keep you informed unless you give us a way to contact you. Please do not send a report through the contact form, which is designed for enquiries and is not a secure channel for technical detail beyond a short note asking us to get in touch.</p>
+<h3>5.3 Our commitments</h3>
+<p>We will acknowledge your report within five business days (Sydney). We will investigate, keep you informed of our progress at reasonable intervals, and tell you when the issue is fixed. We aim to fix confirmed vulnerabilities within 90 days of your report, or sooner for serious issues, and we will tell you if we need longer and why. With your agreement, we will credit you publicly when the issue is resolved. We do not currently run a paid bug-bounty program and we do not promise rewards, although we may offer a token of thanks at our discretion.</p>
+<h3>5.4 Safe harbour</h3>
+<p>If you carry out security research on the systems within the scope of this policy in good faith and in accordance with it, we consider that research authorised for the purposes of our Terms of Use, we will not initiate or support legal action against you, and we will not make a complaint to police or other authorities about it, in each case to the extent the conduct complies with this policy. We regard research that complies with this policy as access that we have authorised for the purposes of the computer-offence provisions of the Criminal Code Act 1995 (Cth) and the Crimes Act 1900 (NSW), so far as those provisions concern our systems. We cannot authorise access to systems that are not ours, including those of our third-party providers, and we cannot bind third parties or law enforcement; if a third party takes action against you for research that complied with this policy, we will, on request, confirm that your conduct was authorised by us.</p>
+<h3>5.5 What we ask of you</h3>
+<ul>
+<li>Act in good faith to avoid harm: do not degrade, disrupt or deny service to the website or the contact form, and do not run automated scanning at volumes that could do so.</li>
+<li>Do not access, modify, delete or exfiltrate data that is not yours. If you encounter personal information or other people&rsquo;s data, stop, do not save or share it, and tell us.</li>
+<li>Do not send test submissions through the contact form in bulk, and do not use the form to deliver payloads to our inbox. One or two clearly marked test messages to confirm a finding are acceptable.</li>
+<li>Do not use social engineering, phishing, physical intrusion or attacks on our people, our premises or our personal accounts.</li>
+<li>Do not test third-party services, even where the website relies on them.</li>
+<li>Do not publicly disclose the issue, or share it with anyone else, until we have fixed it and agreed a disclosure date with you, or 90 days have passed since your report, whichever is earlier, unless we agree otherwise. We support coordinated disclosure and will not ask you to stay silent indefinitely.</li>
+<li>Do not demand payment or threaten disclosure as a condition of reporting. That is not security research.</li>
+<li>Comply with all laws that apply to you.</li>
+</ul>
+<h3>5.6 Out of scope findings</h3>
+<p>The following are generally not security vulnerabilities for the purposes of this policy, although we are happy to hear about them: missing security headers that do not lead to an exploitable condition; the presence or absence of DNS records such as SPF, DKIM or DMARC on domains we do not control; clickjacking on pages with no sensitive actions; reports from automated tools without a demonstrated impact; rate-limiting of the contact form; and version disclosure without an exploitable vulnerability.</p>
+
+<h2 id="third-party-names">6. Third-party names and trade marks</h2>
+<p>Speedrun AI Labs, Anton and Joseph, and our logos, are trade marks or trade names of Speedrun AI Labs Pty Ltd, whether or not registered. Product, company and project names mentioned on this website and in our research and skills belong to their respective owners. They include, without limitation, NVIDIA, Apple, Anthropic, Claude, OpenAI, ChatGPT, Google, Gemini, OpenClaw, Nous Research, Hermes Agent, GitHub, SSRN, LinkedIn, Vercel, Cloudflare and Resend. We mention them to identify the products, platforms and research we discuss, integrate with or rely on. Their mention does not mean that those owners endorse, sponsor or are affiliated with us or our agents, and we do not claim any rights in their names or marks. If you are a rights holder and believe a reference on this website is inaccurate or inappropriate, please contact us and we will review it.</p>
+
+<h2 id="open-source">7. Open-source licences</h2>
+<h3>7.1 Skill Library</h3>
+<p>The skills in our Skill Library are published in repositories on GitHub under the <strong>MIT License</strong>. The licence text is included in each repository and governs your use of that skill. In summary, the MIT License permits you to use, copy, modify, merge, publish, distribute, sublicense and sell copies of the software, provided that the copyright notice and permission notice are included in all copies or substantial portions of it, and it provides the software as is, without warranty of any kind, with the authors and copyright holders not liable for any claim arising from it. Where a skill packages or adapts work by others (for example, patterns published by another project under an open-source licence), the repository identifies that work and its licence, and that licence continues to apply to that work.</p>
+<h3>7.2 Typeface</h3>
+<p>This website uses the Instrument Serif typeface, copyright The Instrument Serif Project Authors, licensed under the SIL Open Font License, Version 1.1. The licence text is at <a href="/fonts/OFL.txt">/fonts/OFL.txt</a>. The font files are served from our own domain.</p>
+<h3>7.3 Components used in our agents</h3>
+<p>Anton and Joseph incorporate open-source components and rely on third-party platforms, models and APIs that we do not own. Those components and services are licensed under their own terms, which we acknowledge and which, where required, flow down to the business that deploys the agent. The Services Agreement and the deployment documentation for each business identify the components and third-party services used in that deployment and the licences and terms that apply to them.</p>
+
+<h2 id="research-notice">8. Research publications notice</h2>
+<p>Speedrun AI Labs publishes practitioner research about AI agents and related subjects on this website and on third-party platforms such as SSRN. Our papers are published for information and discussion. Unless a paper says otherwise, it is a working paper or preprint and has not been peer reviewed. Papers reflect the views and findings of their authors as at the date of writing, which may change as the field develops; the authors&rsquo; views are not necessarily the views of any organisation they are affiliated with. Results depend on the specific models, tools, versions, configurations, datasets and conditions described in each paper, and may not be reproducible with other models, versions or settings, which change frequently. Papers are not legal, financial, security, compliance or other professional advice, are not an endorsement or criticism of any product or vendor named in them, and should not be relied on for any decision without independent verification. References to third-party products, models and research are made for identification and discussion only. Our papers are protected by copyright; you may quote reasonable extracts with attribution and a citation, and you may share links to them, but you may not republish them in full or use them to train machine-learning models without our written permission. Where a paper is hosted on SSRN or another platform, that platform&rsquo;s terms also apply. If you believe a paper contains an error, please tell us at <a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a>.</p>
+
+<h2 id="changes">9. Changes to this page</h2>
+<p>We may update this page and the policies on it from time to time. The effective date at the top shows when it last changed. Changes to the Acceptable Use Policy apply to a Deploying Business in the manner its Services Agreement provides. Changes to the Responsible Disclosure Policy do not withdraw the safe harbour from research that complied with the policy as it stood when the research was carried out.</p>
+
+<h2 id="contact">10. Contact</h2>
+<p>Speedrun AI Labs Pty Ltd, ABN 38 695 878 356, Cronulla, New South Wales 2230, Australia. Email <a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a> for all legal, privacy, security and general enquiries. Please put Privacy, Security Report or Legal in the subject line so that we can route your message quickly.</p>
     </main>
     <script src="/footer.js"></script>
 </body>

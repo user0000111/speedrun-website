@@ -58,6 +58,15 @@
         .map{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 32px}
         .map h2{margin-top:32px}
         .map ul{list-style:none;margin:0}
+        .doc h3{font-size:17px;font-weight:600;color:var(--black);margin:26px 0 8px}
+        .doc ol{margin:0 0 14px 22px}
+        .toc{background:#F5F5F7;border-radius:14px;padding:22px 26px;margin:8px 0 44px}
+        .toc-title{font-size:12px!important;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid)!important;margin-bottom:10px!important}
+        .toc ol{margin:0 0 0 20px;columns:2;column-gap:36px}
+        .toc li{font-size:14px!important;margin-bottom:6px;break-inside:avoid}
+        .doc h2{scroll-margin-top:120px}
+        @media(max-width:768px){.toc ol{columns:1}.doc h2{scroll-margin-top:156px}}
+        @media(max-width:768px){.doc{padding:52px 18px 72px}}
     </style>
 </head>
 <body>
@@ -65,30 +74,175 @@
     <main class="doc">
         <p class="doc-eyebrow">Legal</p>
         <h1>Terms of Use</h1>
-        <p class="doc-meta">Last updated 17 October 2026</p>
+        <p class="doc-meta">Effective 17 October 2026</p>
+<p>These Terms of Use are effective from 17 October 2026. They govern your access to and use of the website at speedrunlab.ai and www.speedrunlab.ai (the <strong>Website</strong>), which is operated by <strong>Speedrun AI Labs Pty Ltd</strong> (ABN 38 695 878 356) (<strong>Speedrun AI Labs</strong>, <strong>we</strong>, <strong>us</strong> and <strong>our</strong>). Please read them together with our <a href="/privacy/">Privacy Policy</a> and the policies on our <a href="/legal/">Legal</a> page, which form part of these Terms.</p>
 
-        <p>These terms apply to your use of speedrunlab.ai, operated by Speedrun AI Labs Pty Ltd (ABN 38 695 878 356). By using the website you agree to them.</p>
+<div class="toc" role="navigation" aria-label="Contents"><p class="toc-title">Contents</p><ol>
+<li><a href="#acceptance">About these Terms and your acceptance</a></li>
+<li><a href="#who-we-are">Who we are</a></li>
+<li><a href="#changes">Changes to these Terms</a></li>
+<li><a href="#services-agreement">Our agents are supplied under a separate Services Agreement</a></li>
+<li><a href="#permitted-use">Permitted use of the Website</a></li>
+<li><a href="#prohibited-conduct">Prohibited conduct</a></li>
+<li><a href="#security-testing">Security testing and vulnerability research</a></li>
+<li><a href="#ai-content">AI agents, AI-generated content and reliance</a></li>
+<li><a href="#research">Research papers</a></li>
+<li><a href="#skill-library">Skill Library and open-source software</a></li>
+<li><a href="#contact-form">Contact form and communications</a></li>
+<li><a href="#intellectual-property">Intellectual property</a></li>
+<li><a href="#trade-marks">Trade marks and third-party names</a></li>
+<li><a href="#submissions">Your submissions and feedback</a></li>
+<li><a href="#third-party-links">Third-party websites, services and links</a></li>
+<li><a href="#availability">Availability and changes to the Website</a></li>
+<li><a href="#disclaimers">Disclaimers</a></li>
+<li><a href="#consumer-law">Australian Consumer Law</a></li>
+<li><a href="#liability">Limitation of liability</a></li>
+<li><a href="#indemnity">Your indemnity</a></li>
+<li><a href="#privacy">Privacy</a></li>
+<li><a href="#suspension">Suspension and termination of access</a></li>
+<li><a href="#governing-law">Governing law and jurisdiction</a></li>
+<li><a href="#general">General</a></li>
+<li><a href="#notices">Notices and contact</a></li>
+</ol></div>
 
-        <h2>Information only</h2>
-        <p>The content on this website, including our research papers, is general information. It is not legal, financial, tax, security or regulatory advice, and it does not take your circumstances into account. Get advice from a qualified professional before relying on it.</p>
+<h2 id="acceptance">1. About these Terms and your acceptance</h2>
+<p>By accessing or using the Website, including by reading its pages, downloading material from it, following links from it or sending us a message through it, you agree to be bound by these Terms. If you do not agree, you must not use the Website. If you use the Website on behalf of a business or other organisation, you represent that you are authorised to accept these Terms on its behalf, and <strong>you</strong> and <strong>your</strong> in these Terms refer to both you and that organisation.</p>
+<p>These Terms are a binding agreement between you and us about your use of the Website. They apply in addition to any law that cannot be excluded, including the Australian Consumer Law. Nothing in these Terms is intended to exclude, restrict or modify any right or remedy you have under a law that cannot be excluded, restricted or modified by agreement.</p>
 
-        <h2>Our agents</h2>
-        <p>Anton and Joseph are supplied under a separate written agreement with each business we work with. Nothing on this website is an offer to supply them, and descriptions here do not form part of any agreement.</p>
+<h2 id="who-we-are">2. Who we are</h2>
+<p>Speedrun AI Labs is an Australian private company based in Sydney, New South Wales. We are registered for goods and services tax. We build, deploy and support two AI agents for businesses, <strong>Anton</strong> (a cyber security agent) and <strong>Joseph</strong> (a compliance agent for financial-services regulated businesses) (together, the <strong>Agents</strong>), and we publish practitioner research papers and free open-source skills. Our company details are on the <a href="/legal/">Legal</a> page. You can contact us at <a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a>.</p>
 
-        <h2>Intellectual property</h2>
-        <p>The website and its content are owned by or licensed to Speedrun AI Labs. You may view and share pages for personal or internal business use. Skills in our Skill Library are open source and are governed by their own licence, the MIT License, published with each skill on GitHub.</p>
+<h2 id="changes">3. Changes to these Terms</h2>
+<p>We may change these Terms from time to time, for example to reflect changes in the Website, our business, our policies or the law. When we do, we will publish the revised Terms on the Website and update the effective date at the top of this page. If a change is material and adverse to users of the Website, we will take reasonable steps to draw attention to it, for example with a notice on the Website for a reasonable period. A change does not apply retrospectively. Your continued use of the Website after a change takes effect is your acceptance of the revised Terms; if you do not accept a change, your remedy is to stop using the Website. We will not change these Terms in a way that removes a right you have under a law that cannot be excluded.</p>
 
-        <h2>Links to other websites</h2>
-        <p>We link to websites we do not control, such as GitHub, SSRN and news publishers. We are not responsible for their content or their privacy practices.</p>
+<h2 id="services-agreement">4. Our agents are supplied under a separate Services Agreement</h2>
+<p>The Agents are supplied only to businesses, and only under a separate written agreement between us and each business (a <strong>Services Agreement</strong>). The Services Agreement, not these Terms, governs the installation, deployment, configuration, integration, staff training, support, maintenance and subscription of an Agent (the <strong>Services</strong>), together with fees and payment, any support commitments, minimum terms and renewals, suspension and termination, intellectual property and licensing, data handling, risk allocation and everything else about the Services. If there is any inconsistency between these Terms and a Services Agreement, the Services Agreement prevails in relation to the Services.</p>
+<p>Accordingly:</p>
+<ul>
+<li>nothing on the Website is an offer to supply an Agent or the Services, and no agreement for the Services is formed by your use of the Website, by an enquiry or by any response we give to an enquiry. An agreement is formed only when a Services Agreement is signed or otherwise accepted in the way it provides;</li>
+<li>descriptions of the Agents on the Website are general and illustrative. They describe what the Agents are designed to do, not what any particular deployment will do. Each deployment is configured to the business concerned, and its scope, deployment model, integrations and limitations are recorded in the Services Agreement. Descriptions on the Website do not form part of any Services Agreement unless the Services Agreement expressly incorporates them;</li>
+<li>the Website makes no service-level, uptime, response-time or performance commitment about any Agent. Any such commitment exists only if and to the extent the Services Agreement contains it;</li>
+<li>we do not publish prices on the Website. Fees for the Services, and any charges payable to third-party providers (for example, usage-based charges of AI model providers accessed through a business&rsquo;s own account), are addressed in the Services Agreement and in the business&rsquo;s own arrangements with those providers; and</li>
+<li>we may decline to supply the Services to any business, and we may decline or stop a deployment that we reasonably believe is for an unlawful purpose or is otherwise inconsistent with our Acceptable Use Policy on the <a href="/legal/#acceptable-use">Legal</a> page.</li>
+</ul>
+<p>If you are a business considering the Agents, please contact us. We will discuss your needs and, if we can help, provide a proposal and a Services Agreement for your review.</p>
 
-        <h2>Liability</h2>
-        <p>We work to keep the website accurate and available, but we do not promise that it is complete, current or free of errors. To the extent the law allows, we are not liable for any loss arising from your use of the website. Nothing in these terms excludes any right you have under the Australian Consumer Law that cannot be excluded.</p>
+<h2 id="permitted-use">5. Permitted use of the Website</h2>
+<p>We grant you a limited, revocable, non-exclusive, non-transferable licence to access and use the Website for your personal information, for the internal business purposes of the organisation you represent, and to evaluate our Agents, research and skills. You may view, download and print pages for those purposes, and you may share links to our pages. You may quote reasonable extracts from our research papers and pages with attribution to Speedrun AI Labs and a link to the source. Any other use of the Website or its content requires our prior written permission, except where a law (such as the fair-dealing provisions of the Copyright Act 1968 (Cth)) or an applicable open-source licence (see section 10) permits it.</p>
+<p>You must comply with these Terms and with all laws that apply to your use of the Website, and you are responsible for anyone who uses the Website using your devices or network with your permission.</p>
 
-        <h2>Governing law</h2>
-        <p>These terms are governed by the laws of New South Wales, Australia.</p>
+<h2 id="prohibited-conduct">6. Prohibited conduct</h2>
+<p>You must not, and must not attempt to, and must not allow or assist anyone else to:</p>
+<ul>
+<li>use the Website for any purpose that is unlawful, fraudulent, deceptive or harmful, or in a way that infringes anyone&rsquo;s rights;</li>
+<li>access, probe, scan or test the Website, its infrastructure or any connected system for vulnerabilities, or circumvent any security or authentication measure, except in accordance with our Responsible Disclosure Policy on the <a href="/legal/#responsible-disclosure">Legal</a> page or with our prior written authorisation (see section 7);</li>
+<li>interfere with or disrupt the Website or the servers and networks connected to it, including by denial-of-service attacks, flooding, sending unreasonable volumes of requests, or introducing viruses, malware or any other harmful code;</li>
+<li>use robots, spiders, scrapers, crawlers or other automated means to access, copy, index or extract the Website or its content, other than search engines and similar services that comply with our robots.txt file and access the Website in a reasonable manner to index it, and other than the ordinary operation of a web browser;</li>
+<li>copy, reproduce, frame, mirror, republish, redistribute, sell or commercially exploit the Website or any of its content, or use it to build a competing product, service or dataset, except as section 5 or section 10 permits;</li>
+<li>use our content, research or data to train, fine-tune, evaluate or improve a machine-learning model without our prior written permission, except for content that is published under an open-source licence that permits that use;</li>
+<li>reverse engineer, decompile, disassemble or otherwise attempt to derive the source code of any part of the Website that is not published under an open-source licence, except to the extent the law allows despite this restriction;</li>
+<li>remove, obscure or alter any copyright, trade mark, licence or other proprietary notice on the Website or in our content;</li>
+<li>misuse the contact form, including by sending spam, bulk, automated, abusive, threatening, defamatory or unlawful messages, by impersonating another person or organisation, by providing false contact details, or by submitting someone else&rsquo;s personal information without authority;</li>
+<li>use the Website to send unsolicited commercial electronic messages or to harvest email addresses or other contact details;</li>
+<li>misrepresent your identity or your affiliation with any person or organisation, or suggest that we endorse you or your products when we do not; or</li>
+<li>use the Website in a way that breaches the Criminal Code Act 1995 (Cth), the Crimes Act 1900 (NSW), the Spam Act 2003 (Cth), the Privacy Act 1988 (Cth), the Copyright Act 1968 (Cth) or any other applicable law.</li>
+</ul>
+<p>We may investigate suspected breaches of this section, take any action we consider appropriate, including the steps described in section 22, and report unlawful conduct to law enforcement or other authorities.</p>
 
-        <h2>Contact</h2>
-        <p>Questions about these terms: <a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a>.</p>
+<h2 id="security-testing">7. Security testing and vulnerability research</h2>
+<p>We welcome good-faith security research into the Website carried out in accordance with our <a href="/legal/#responsible-disclosure">Responsible Disclosure Policy</a>. Research within that policy is authorised for the purposes of these Terms, and we will not pursue or support legal action against you for it. Any testing that falls outside that policy, including testing of the third-party services on which the Website relies, testing that accesses or alters other people&rsquo;s data, and denial-of-service, social-engineering or physical attacks, is not authorised and is prohibited by section 6. If you are unsure whether something is within the policy, ask us first at <a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a>.</p>
+
+<h2 id="ai-content">8. AI agents, AI-generated content and reliance</h2>
+<h3>8.1 Information only</h3>
+<p>The content of the Website, including descriptions of the Agents, research papers, skills, articles and press items, is general information for businesses and the public. It is not legal, financial, tax, accounting, cyber security, regulatory, compliance or other professional advice, and it does not take your circumstances into account. You should obtain advice from a suitably qualified professional before acting on anything you read on the Website.</p>
+<h3>8.2 The Agents are tools, not professionals</h3>
+<p>Anton and Joseph are AI agents. They are productivity tools that support the judgement of a business&rsquo;s security, compliance and leadership teams; they do not replace it, and they are not licensed professionals. Joseph does not provide legal, financial or compliance advice, and using Joseph does not by itself make a business compliant with any law, licence condition or regulatory obligation. Anton does not guarantee that it will detect every vulnerability or prevent every attack, and using Anton does not by itself make a business or its systems secure. The detailed disclaimer for both Agents is on the <a href="/legal/#ai-disclaimer">Legal</a> page and forms part of these Terms.</p>
+<h3>8.3 Outputs can be wrong and must be reviewed</h3>
+<p>Like all systems built on large language models, the Agents can produce outputs that are incorrect, incomplete, out of date, inconsistent or misleading, including outputs that appear confident and well-reasoned. Their outputs depend on the quality, completeness and currency of the data, systems and instructions they are given. Every output must be reviewed by a suitably qualified person before it is relied on or acted on. No example, demonstration, sample output or description of an Agent on the Website is a representation about the accuracy or completeness of any output in any particular deployment.</p>
+<h3>8.4 No reliance on the Website</h3>
+<p>To the extent permitted by law, you agree that you use the Website at your own risk and that you will not rely on its content as a substitute for professional advice or for your own enquiries. This section does not limit section 18.</p>
+
+<h2 id="research">9. Research papers</h2>
+<p>The research papers published or linked on the Website are practitioner research by Speedrun AI Labs and its authors, published for information and discussion. Unless a paper says otherwise, it is a working paper or preprint and has not been peer reviewed. Papers reflect the authors&rsquo; views and findings as at the date of writing, which may change, and results may depend on the specific models, tools, versions, configurations and conditions described in the paper and may not be reproducible in other settings. Papers are not advice, are not an endorsement of any product or vendor named in them, and should not be relied on for any decision without independent verification. Where a paper is hosted on a third-party platform such as SSRN, that platform&rsquo;s terms also apply to your access to it. Our full Research Publications Notice is on the <a href="/legal/#research-notice">Legal</a> page.</p>
+
+<h2 id="skill-library">10. Skill Library and open-source software</h2>
+<p>The skills in our Skill Library are free, open-source software published in repositories on GitHub under the MIT License. Your use of a skill is governed by the MIT License in its repository, not by these Terms, and nothing in these Terms limits the rights the MIT License gives you or imposes obligations beyond it. In accordance with the MIT License, each skill is provided as is, without warranty of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose and non-infringement, and in no event will the authors or copyright holders be liable for any claim, damages or other liability arising from or in connection with the skill or its use, except to the extent that a law that cannot be excluded provides otherwise.</p>
+<p>Skills are designed to be used inside third-party AI tools and agent frameworks that you choose and operate. You are responsible for reviewing a skill before you install it, for deciding whether it is suitable for your environment and purposes, for the permissions you give it, for the outputs it produces, and for complying with the terms of the AI tools and platforms in which you run it. GitHub is a third-party platform governed by its own terms. We may update, deprecate or remove a skill at any time; earlier versions remain available under the MIT License to the extent they were distributed. Contributions you make to a skill repository are made under the terms set out in that repository, or, if none are set out, under the MIT License.</p>
+
+<h2 id="contact-form">11. Contact form and communications</h2>
+<p>The contact form is for genuine enquiries about our Agents, our research and our work. When you use it you must provide accurate information, and you must not submit the personal information of another person without their authority. We use anti-spam measures, including Cloudflare Turnstile and server-side checks, and we may reject a submission that appears to be automated or abusive without telling you why. We aim to respond to genuine enquiries within a reasonable time, but we do not promise to respond to every message. Our <a href="/privacy/">Privacy Policy</a> describes how we handle the information you send us. Do not send passwords, access keys or other secrets through the form or by email.</p>
+
+<h2 id="intellectual-property">12. Intellectual property</h2>
+<p>The Website and its content, including text, graphics, images, illustrations, logos, page designs, layouts, code that is not published under an open-source licence, research papers, and the selection and arrangement of all of them, are owned by or licensed to Speedrun AI Labs and are protected by the Copyright Act 1968 (Cth), the Trade Marks Act 1995 (Cth) and other intellectual property laws in Australia and elsewhere. Except as expressly permitted by section 5, section 10 or a law that cannot be excluded, you may not use our intellectual property without our prior written permission. All rights not expressly granted are reserved.</p>
+<p>In relation to the Agents, our intellectual property includes our configuration methodology, our deployment process, the custom skills, plugins and configurations we build, our documentation and training materials, and our brand names. The Agents also incorporate open-source components and rely on third-party platforms and models that we do not own; those components are licensed under their own terms. The ownership and licensing of intellectual property in a particular deployment, including the licence of our configurations and skills to a business for the term of its engagement and the business&rsquo;s ownership of the outputs its Agent generates, are set out in the Services Agreement.</p>
+
+<h2 id="trade-marks">13. Trade marks and third-party names</h2>
+<p>Speedrun AI Labs, Anton and Joseph, and our logos, are trade marks or trade names of Speedrun AI Labs Pty Ltd, whether or not registered. You must not use them without our prior written permission, other than to refer to us or our Agents accurately and in a way that does not suggest endorsement or affiliation. Other product and company names mentioned on the Website belong to their respective owners, and their mention does not imply any endorsement, sponsorship or affiliation. See the <a href="/legal/#third-party-names">Legal</a> page.</p>
+
+<h2 id="submissions">14. Your submissions and feedback</h2>
+<p>If you send us ideas, suggestions, feedback, bug reports, vulnerability reports or other material about the Website, the Agents, our research or our skills (<strong>Feedback</strong>), you grant us a perpetual, irrevocable, worldwide, royalty-free, non-exclusive licence to use, reproduce, adapt and incorporate that Feedback for any purpose connected with our business, without any obligation to you, and you agree that we are not obliged to keep Feedback confidential unless we have agreed in writing to do so. You remain the owner of your Feedback, you warrant that you have the right to give it to us and that it does not infringe anyone else&rsquo;s rights, and you must not send us anything you are obliged to keep confidential. Nothing in this section applies to Business Data handled under a Services Agreement, which is governed by that agreement and our <a href="/privacy/">Privacy Policy</a>, or to personal information, which is governed by our Privacy Policy. This section does not restrict any right the law gives you to raise a concern about us with a regulator.</p>
+
+<h2 id="third-party-links">15. Third-party websites, services and links</h2>
+<p>The Website links to websites and services that we do not own or control, including GitHub, SSRN, LinkedIn and news publishers, and it relies on third-party services to operate, including our host, our spam-protection provider and our email delivery provider. We provide links for your convenience and information. We do not endorse, and we are not responsible for, the content, accuracy, availability, security, privacy practices or terms of any third-party website or service, and your use of them is at your own risk and subject to their terms. A link to a news item about us is not a representation by us that the item is accurate or complete.</p>
+
+<h2 id="availability">16. Availability and changes to the Website</h2>
+<p>We aim to keep the Website available and up to date, but we do not promise that it will be available at any particular time, that it will be uninterrupted or error-free, or that its content will be complete, accurate or current. We may change, suspend or discontinue any part of the Website at any time without notice, and we may restrict access to parts of it. We may take the Website offline for maintenance or for security reasons. We are not obliged to maintain any particular content, paper or skill on the Website.</p>
+
+<h2 id="disclaimers">17. Disclaimers</h2>
+<p>Subject to section 18, and to the extent permitted by law:</p>
+<ul>
+<li>the Website and its content are provided on an as is and as available basis, and we make no representation, warranty or guarantee, express or implied, about the Website or its content, including about accuracy, completeness, currency, reliability, suitability, availability, security, or freedom from errors, viruses or other harmful components;</li>
+<li>we do not warrant that any defect will be corrected, that the Website will meet your requirements, or that the results of using it will be accurate or reliable;</li>
+<li>we are not responsible for the content, availability or conduct of third-party websites and services, or for loss caused by their unavailability or by changes they make;</li>
+<li>nothing on the Website is advice of any kind, and we accept no responsibility for any decision made or action taken in reliance on the Website; and</li>
+<li>any statement on the Website about the capabilities of an Agent is a general description of what the Agent is designed to do, and is not a representation about what it will do in any particular deployment or about any outcome a business will achieve.</li>
+</ul>
+<p>These disclaimers do not exclude liability for misleading or deceptive conduct or for any other matter that the law does not permit us to exclude.</p>
+
+<h2 id="consumer-law">18. Australian Consumer Law</h2>
+<p>The Australian Consumer Law in Schedule 2 to the Competition and Consumer Act 2010 (Cth) (the <strong>ACL</strong>) gives consumers rights and guarantees that cannot be excluded, restricted or modified by contract. If you are a consumer under the ACL, and we supply you with services under these Terms, those services come with guarantees under the ACL, including that they will be provided with due care and skill, that they will be fit for any purpose you have told us about, and that they will be supplied within a reasonable time. Nothing in these Terms excludes, restricts or modifies those guarantees, or any other right or remedy you have under the ACL or any other law that cannot be excluded, restricted or modified by agreement.</p>
+<p>Where the ACL or another law implies or imposes a guarantee, condition or warranty that cannot be excluded but allows liability for its breach to be limited, our liability for that breach is limited, where the services are not of a kind ordinarily acquired for personal, domestic or household use or consumption, to supplying the services again or paying the cost of having the services supplied again, at our option. If that limitation is not permitted, our liability is limited to the extent the law allows.</p>
+<p>Sections 17, 19 and 20 must be read subject to this section 18. Where a provision of these Terms would otherwise be void or unenforceable under the ACL, including the unfair contract terms provisions, it is to be read down so that it is valid and enforceable, or, if it cannot be read down, severed, and the remaining provisions continue to apply.</p>
+
+<h2 id="liability">19. Limitation of liability</h2>
+<p>This section applies to the extent permitted by law and subject to section 18. It reflects the fact that the Website is provided free of charge for information, that we have no control over how you use the information on it, and that the Agents themselves are supplied only under a Services Agreement that contains its own risk allocation.</p>
+<ul>
+<li>We are not liable to you for any indirect, incidental, special or consequential loss or damage, or for any loss of profit, revenue, business, opportunity, goodwill, anticipated savings or data, however arising, whether in contract, tort (including negligence), under statute or otherwise, in connection with the Website or these Terms, even if we were aware of the possibility of that loss.</li>
+<li>We are not liable for loss or damage to the extent it is caused or contributed to by you, including by your breach of these Terms, your reliance on content in breach of section 8, your failure to take reasonable steps to protect yourself or your systems, or your use of third-party websites, services or software.</li>
+<li>We are not liable for loss or damage caused by events beyond our reasonable control, including the failure or unavailability of third-party services, networks, hosting or infrastructure, or changes made by third parties.</li>
+<li>Our total aggregate liability to you in connection with the Website and these Terms, for all claims of every kind, is limited to one hundred Australian dollars (AUD 100). This cap does not apply to liability that cannot be limited by law, to our liability under section 18, or to liability for death or personal injury caused by our negligence, or for our fraud or wilful misconduct.</li>
+<li>Our liability is reduced to the extent that your acts or omissions, or those of anyone acting on your behalf, caused or contributed to the loss or damage.</li>
+</ul>
+<p>Nothing in this section applies to the supply of the Agents or the Services, whose risk allocation is set out in the applicable Services Agreement, or excludes or limits liability in a way that the law does not permit.</p>
+
+<h2 id="indemnity">20. Your indemnity</h2>
+<p>You indemnify us, our directors, officers, employees and contractors against any loss, damage, liability, cost or expense (including reasonable legal costs) that we suffer or incur to the extent it arises from or in connection with: (a) your breach of these Terms, including the prohibited conduct in section 6; (b) your unlawful use of the Website or its content; or (c) any claim by a third party that Feedback or other material you submitted to us infringes their rights or was submitted without authority.</p>
+<p>This indemnity is reduced proportionately to the extent that our acts or omissions, or those of anyone acting on our behalf, caused or contributed to the loss. We will notify you of any claim to which the indemnity applies within a reasonable time of becoming aware of it, we will take reasonable steps to mitigate our loss, and we will not settle a claim without consulting you where it is reasonable to do so. This indemnity is intended to protect us against the cost of conduct you control and we do not, and it does not apply to loss that we could have avoided by taking reasonable steps or that arises from our own breach of these Terms or of the law.</p>
+
+<h2 id="privacy">21. Privacy</h2>
+<p>Our <a href="/privacy/">Privacy Policy</a> explains how we collect, hold, use and disclose personal information in connection with the Website and our business, and how the responsibility for data handled by an Agent is divided between us and the business that deploys it. By using the Website you acknowledge that you have read the Privacy Policy. Your use of the contact form is also subject to section 11.</p>
+
+<h2 id="suspension">22. Suspension and termination of access</h2>
+<p>We may, acting reasonably, suspend or restrict your access to the Website or any part of it, block requests from an IP address or network, reject contact form submissions, or remove content you have submitted, if we reasonably believe you have breached these Terms or the law, if we reasonably consider it necessary to protect the Website, our systems or other users, or if we are required to do so by law. Where it is practicable and appropriate, we will tell you why and give you an opportunity to respond. Sections 8, 12, 13, 14, 17, 18, 19, 20, 23 and 24 survive any suspension or termination.</p>
+
+<h2 id="governing-law">23. Governing law and jurisdiction</h2>
+<p>These Terms are governed by the laws of New South Wales, Australia, and the laws of the Commonwealth of Australia that apply there. Each party submits to the non-exclusive jurisdiction of the courts of New South Wales and the courts competent to hear appeals from them, and the federal courts of Australia sitting in New South Wales. If you access the Website from outside Australia, you are responsible for complying with the laws of the place where you are, and you acknowledge that the Website is directed to Australian businesses and may not comply with the laws of other places. Nothing in this section prevents you from bringing a claim in a court or tribunal that has jurisdiction under a law that cannot be excluded.</p>
+
+<h2 id="general">24. General</h2>
+<ul>
+<li><strong>Entire terms for the Website.</strong> These Terms, together with the Privacy Policy and the policies on the Legal page, are the entire agreement between you and us about your use of the Website and supersede any earlier terms on the Website. They do not form part of, and do not vary, any Services Agreement or any other written agreement between you and us, each of which is the entire agreement about its own subject matter.</li>
+<li><strong>Severability.</strong> If any provision of these Terms is or becomes invalid, void, unenforceable or unfair under any applicable law, it is to be read down to the extent necessary to make it valid and enforceable, or, if it cannot be read down, severed, and the remaining provisions continue in full force.</li>
+<li><strong>Waiver.</strong> A failure or delay by either party to exercise a right under these Terms is not a waiver of that right. A waiver is effective only if it is in writing and signed by the party giving it, and it applies only to the specific instance it refers to.</li>
+<li><strong>Assignment.</strong> You may not assign, transfer or novate your rights or obligations under these Terms without our prior written consent. We may assign or novate our rights and obligations under these Terms to a related body corporate or to a person who acquires our business or the Website, provided that the assignee agrees to be bound by these Terms and your rights under them are not reduced; we will publish a notice of any such assignment on the Website.</li>
+<li><strong>Relationship.</strong> Nothing in these Terms creates a partnership, joint venture, agency, employment or fiduciary relationship between you and us.</li>
+<li><strong>No third-party rights.</strong> Except for the persons indemnified in section 20, these Terms do not give any person other than you and us any right or benefit.</li>
+<li><strong>Interpretation.</strong> Headings are for convenience only. The word including and similar expressions are not words of limitation. A reference to a law includes any amendment, replacement or regulation made under it. The singular includes the plural and vice versa. A reference to a party includes its successors and permitted assigns.</li>
+<li><strong>Electronic communications.</strong> You agree that we may communicate with you electronically, and that these Terms, notices and other communications may be given and accepted electronically in accordance with the Electronic Transactions Act 1999 (Cth) and the Electronic Transactions Act 2000 (NSW).</li>
+<li><strong>Language.</strong> These Terms are written in Australian English. If they are translated, the English version prevails.</li>
+</ul>
+
+<h2 id="notices">25. Notices and contact</h2>
+<p>Notices to us under these Terms must be sent by email to <a href="mailto:info@speedrunlab.ai">info@speedrunlab.ai</a> and are taken to be received on the next business day in Sydney after they are sent, unless the sender receives a delivery failure. We may give you notice by email to an address you have given us, or by publishing a notice on the Website, and a notice given that way is taken to be received when it is sent or published. If you have a question about these Terms, please email us. Speedrun AI Labs Pty Ltd, ABN 38 695 878 356, Cronulla, New South Wales 2230, Australia.</p>
     </main>
     <script src="/footer.js"></script>
 </body>
