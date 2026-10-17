@@ -37,6 +37,9 @@
 
   // Flyout styles live here, once, so the three pages cannot drift apart.
   var CSS =
+    // Desktop bar is 96px so the mascot (72px of visible artwork inside a 109px image with uneven
+    // transparent padding) sits centred with ~12px above and below (Addy 2026-10-17). Phone unchanged.
+    '@media(min-width:769px){.nav-inner{height:96px}.nav-logo img{height:109px;position:relative;top:4px}}' +
     'nav{transition:background .32s cubic-bezier(.4,0,.6,1)}' +
     'nav.flyout-open{background:#FBFBFB;border-bottom-color:transparent}' +
     '.nav-flyout{position:absolute;top:100%;left:0;right:0;background:#FBFBFB;display:grid;grid-template-rows:0fr;visibility:hidden;' +
@@ -57,7 +60,7 @@
     '.nav-curtain{position:fixed;inset:0;z-index:99;background:rgba(232,232,237,0.4);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);opacity:0;visibility:hidden;' +
       'transition:opacity .32s cubic-bezier(.4,0,.6,1),visibility 0s linear .32s}' +
     '.nav-curtain.on{opacity:1;visibility:visible;transition:opacity .32s cubic-bezier(.4,0,.6,1),visibility 0s}' +
-    '.paper-card,.skill-card{scroll-margin-top:104px}' +
+    '.paper-card,.skill-card{scroll-margin-top:120px}' +
     '@media(max-width:768px){' +
       '.nav-flyout-inner{flex-direction:column;gap:28px;padding:24px 24px 36px}' +
       '.nav-flyout-group.primary{min-width:0}' +
