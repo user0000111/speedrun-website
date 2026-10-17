@@ -14,12 +14,17 @@ Static site, no framework, no build step. Pickup state and history live in the O
 - This file and `design/` never deploy: both are in `.vercelignore`. Keep it that way.
 
 ## Content that must stay consistent (grep before you claim done)
-- `nav.js` injects the nav into ALL THREE pages, but each page styles it in its OWN inline CSS.
-  Change a nav class and you touch all three.
-  The nav ORDER is only the `LINKS` array in `nav.js` (2026-10-17: Skill Library after Research Papers, Addy's ask; vault `2026-10-17 nav-skill-library-after-papers`).
+- `nav.js` injects the nav into ALL THREE pages, but each page styles the base nav in its OWN inline
+  CSS. Change a base nav class and you touch all three. The nav ORDER is only the `LINKS` array.
+- The site follows apple.com's design (Addy 2026-10-17: *"built on Apple Computer's website. That's
+  the design philosophy … that's what we want to keep"*). The Research flyout (hover Research Papers:
+  Explore Research / Papers / Skills, Apple globalnav behaviour) is built and styled ONLY in `nav.js`
+  (`FLYOUT` + the injected `CSS`), never copied into the pages. Skill Library lives in the flyout,
+  not the top row. A new paper or skill adds a `FLYOUT` line too (paper cards carry anchor ids; home
+  routes `/#<card-id>` through `srRoute()`). Vault `2026-10-17 research-flyout-apple-style`.
 - The paper COUNT lives in six strings: papers meta description, og and twitter descriptions,
   home FAQ answer, home `agents-proof`, llms.txt. Newest paper goes FIRST in the card list,
-  `hasPart`, `@graph` and llms.txt. Every JSON-LD block must still parse after an edit.
+  `hasPart`, `@graph`, llms.txt and the nav.js `FLYOUT` Papers list. Every JSON-LD block must still parse after an edit.
 - Press cards live only in the ItemList JSON-LD. PDFs carry `X-Robots-Tag: noindex`, so keep
   them OUT of `sitemap.xml`.
 - SSRN blocks fetches: an abstract id comes from Addy and is taken on trust; say so.
