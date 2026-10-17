@@ -18,6 +18,12 @@ function check(ctx, name, ok, detail) {
 const cb = () => 'cb=' + Date.now() + Math.random().toString(36).slice(2, 6);
 const url = (u) => { const [path, hash] = u.split('#'); return B + path + (path.includes('?') ? '&' : '?') + cb() + (hash ? '#' + hash : ''); };
 async function state(p) {
+  // A press that navigates can still be mid-navigation here; retry instead of dying on a destroyed context.
+  for (let i = 0; ; i++) {
+    try { return await stateOnce(p); } catch (e) { if (i >= 4) throw e; await p.waitForTimeout(500); try { await p.waitForLoadState('load'); } catch (_) {} }
+  }
+}
+async function stateOnce(p) {
   return p.evaluate(() => ({
     path: location.pathname + location.hash,
     section: (document.querySelector('.page.active') || {}).id || null,
@@ -60,7 +66,7 @@ async function run(name, browserType, opts, touch) {
   const p = await c.newPage();
   // Turnstile's challenge frame logs a cross-origin access error on http://localhost; not ours.
   const errs = []; p.on('pageerror', e => { if (!/challenges\.cloudflare\.com/.test(e.message)) errs.push(e.message); });
-  const settle = async (href) => { await p.waitForLoadState('load'); await p.waitForTimeout(href && href.includes('#') ? 900 : 600); };
+  const settle = async (href) => { await p.waitForTimeout(250); await p.waitForLoadState('load'); await p.waitForTimeout(href && href.includes('#') ? 900 : 600); };
   const start = async (u) => { await p.goto(url(u)); await p.waitForTimeout(700); };
   const press = async (sel) => { const el = p.locator(sel).first(); await el.waitFor({ state: 'visible', timeout: 8000 }); await el.scrollIntoViewIfNeeded(); await p.waitForTimeout(80); if (touch) await el.tap(); else await el.click(); };
   const pressXY = async (x, y) => { if (touch) await p.touchscreen.tap(x, y); else await p.mouse.click(x, y); };
