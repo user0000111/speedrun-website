@@ -747,7 +747,15 @@
             .hx-fact{font-size:17px}
             .hb{font-size:14px;padding:8px 15px}
             .hx-img{min-height:300px;margin-top:-10px;background-size:auto 100%}
-            .agent-tiles,.agent-details{grid-template-columns:1fr}
+            /* Phone reads one agent at a time: Anton tile, Anton detail, Joseph tile, Joseph detail. */
+            .agents{display:flex;flex-direction:column}
+            .agent-tiles,.agent-details{display:contents}
+            .agents-header{order:0}
+            #anton{order:1}
+            #anton-more{order:2;margin-top:36px}
+            #joseph{order:3;margin-top:56px}
+            #joseph-more{order:4;margin-top:36px;margin-bottom:72px}
+            .agents-close{order:5}
             .agent-tile{min-height:540px;padding:44px 22px 0}
             .agent-visual{margin:0 -22px;min-height:260px}
             .agent-tile,.agent-detail{scroll-margin-top:156px}
@@ -824,8 +832,8 @@
             <div class="agents-proof"><span>Built in Sydney</span><span class="dot">&middot;</span><span><strong>6</strong> published research papers<sup class="fn"><a href="#fn-5" aria-label="Footnote 5">5</a></sup></span></div>
         </div>
 
-        <div class="agent-tiles a2">
-            <article class="agent-tile anton" id="anton">
+        <div class="agent-tiles">
+            <article class="agent-tile anton a2" id="anton">
                 <h3 class="agent-name">Anton</h3>
                 <p class="agent-warm">Anton moves in.</p>
                 <p class="agent-fact">A cyber security agent of your own. It plugs into your systems and can run on your own hardware.<sup class="fn"><a href="#fn-6" aria-label="Footnote 6">6</a></sup></p>
@@ -835,7 +843,7 @@
                 </div>
                 <div class="agent-visual" role="img" aria-label="Anton: a compact graphite cyber security appliance standing on a concrete floor beside a server rack, its power lead running to the rack"></div>
             </article>
-            <article class="agent-tile joseph" id="joseph">
+            <article class="agent-tile joseph a2" id="joseph">
                 <h3 class="agent-name">Joseph</h3>
                 <p class="agent-warm">Quiet, until something changes.<sup class="fn"><a href="#fn-2" aria-label="Footnote 2">2</a></sup></p>
                 <p class="agent-fact">A compliance agent for financial services businesses, in the cloud or inside your own environment.<sup class="fn"><a href="#fn-7" aria-label="Footnote 7">7</a></sup></p>
@@ -847,8 +855,8 @@
             </article>
         </div>
 
-        <div class="agent-details a3">
-            <div class="agent-detail" id="anton-more">
+        <div class="agent-details">
+            <div class="agent-detail a3" id="anton-more">
                 <h4>Anton</h4>
                 <p class="detail-identity">Australian businesses are taking responsibility for their own security and their own data. We think every business should have a cyber security agent of its own. Anton is built to be yours.</p>
                 <ul>
@@ -859,7 +867,7 @@
                 </ul>
                 <p class="detail-deploy">On premises, on your own hardware, where you can. Set up to suit your business where you cannot.</p>
             </div>
-            <div class="agent-detail" id="joseph-more">
+            <div class="agent-detail a3" id="joseph-more">
                 <h4>Joseph</h4>
                 <p class="detail-identity">A patient, methodical compliance agent for the people who run financial services businesses. Joseph supports their judgement; he never replaces it.</p>
                 <ul>

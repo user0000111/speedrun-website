@@ -100,7 +100,8 @@
       '.sf-more{border-bottom:1px solid #D2D2D7}' +
       '.sf-bottom{display:block}' +
       '.sf-copy{margin:0 0 8px}' +
-      '.sf-legal{margin-bottom:8px}' +
+      '.sf-legal{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin:4px 0 12px}' +
+      '.sf-legal li{border-right:0;padding:0;line-height:1.3}' +
       '.sf-region{margin:0}' +
     '}';
   var style = document.createElement('style');

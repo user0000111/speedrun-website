@@ -79,10 +79,16 @@
     '.nav-curtain.on{opacity:1;visibility:visible;transition:opacity .32s cubic-bezier(.4,0,.6,1),visibility 0s}' +
     '.paper-card,.skill-card{scroll-margin-top:120px}' +
     '@media(max-width:768px){' +
-      '.nav-flyout-inner{flex-direction:column;gap:28px;padding:24px 24px 36px}' +
+      // Phone: the panel is a menu, not a poster. Primary choices are full-width rows with a chevron,
+      // group labels are small caps, list items are regular weight, and the panel scrolls on short phones.
+      '.nav-flyout-clip{max-height:calc(100vh - 140px);max-height:calc(100dvh - 140px);overflow-y:auto;-webkit-overflow-scrolling:touch}' +
+      '.nav-flyout-inner{flex-direction:column;gap:22px;padding:14px 20px 28px}' +
       '.nav-flyout-group.primary{min-width:0}' +
-      '.nav-flyout a{font-size:14px;padding:6px 0}' +
-      '.nav-flyout .primary a{font-size:24px;padding:4px 0}' +
+      '.nav-flyout-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-mid);margin:0 0 2px}' +
+      '.nav-flyout a{display:block;font-size:15px;font-weight:400;color:var(--grey-dark);padding:10px 0}' +
+      '.nav-flyout .primary a{display:flex;align-items:center;justify-content:space-between;font-size:20px;font-weight:600;letter-spacing:-0.01em;color:var(--black);padding:14px 0;border-bottom:1px solid var(--grey-light)}' +
+      '.nav-flyout .primary li:last-child a{border-bottom:0}' +
+      '.nav-flyout .primary a::after{content:"\\203A";font-size:26px;line-height:1;font-weight:400;color:var(--grey-nav);margin-left:12px}' +
       '.paper-card,.skill-card{scroll-margin-top:156px}' +
     '}' +
     '@media(prefers-reduced-motion:reduce){nav,.nav-flyout,.nav-flyout *,.nav-curtain{transition:none!important}}';
