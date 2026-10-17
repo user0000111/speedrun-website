@@ -71,7 +71,8 @@ async function run(name, browserType, opts, touch) {
   const start = async (u) => { try { await p.goto(url(u), { timeout: 45000 }); } catch (e) { await p.waitForTimeout(2000); await p.goto(url(u), { timeout: 45000 }); } await p.waitForTimeout(700); };
   const press = async (sel) => { const el = p.locator(sel).first(); await el.waitFor({ state: 'visible', timeout: 8000 }); await el.scrollIntoViewIfNeeded(); await p.waitForTimeout(80); if (touch) await el.tap(); else await el.click(); };
   const pressXY = async (x, y) => { if (touch) await p.touchscreen.tap(x, y); else await p.mouse.click(x, y); };
-  const openPanel = async (key) => { if (touch) await press('#nav-trigger-' + key); else await p.hover('#nav-trigger-' + key); await p.waitForTimeout(600); return (await state(p)).open; };
+  // Mouse: the site opens a panel only after real movement, so move off first (a real hand always does).
+  const openPanel = async (key) => { if (touch) await press('#nav-trigger-' + key); else { await p.mouse.move(20, 400); await p.hover('#nav-trigger-' + key); } await p.waitForTimeout(600); return (await state(p)).open; };
   const navItem = (label) => `.nav-links a:text-is("${label}")`;
   const TOP = [['Home', 'p-home'], ['Agents', 'p-projects'], ['Press', 'p-press'], ['Contact Us', 'p-contact']];
 
