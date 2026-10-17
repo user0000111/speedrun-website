@@ -581,7 +581,25 @@
         .page{display:none;min-height:100vh;padding-top:96px}
         .page.active{display:block}
 
-        .home-empty{min-height:calc(100vh - 97px)}
+        .home{padding:12px 0 12px}
+        .hx{position:relative;overflow:hidden;text-align:center;margin-bottom:12px;display:flex;flex-direction:column;align-items:center;min-height:692px}
+        .hx-light{background:#F5F5F7;color:var(--black)}
+        .hx-dark{background:#000;color:#F5F5F7}
+        .hx-copy{padding:56px 22px 0;position:relative;z-index:1}
+        .hx-name{font-family:var(--font-serif);font-size:72px;font-weight:400;font-style:italic;line-height:1;letter-spacing:-0.02em;margin-bottom:10px}
+        .hx-line{font-family:var(--font-sans);font-size:28px;font-weight:400;line-height:1.14;letter-spacing:0.007em;margin-bottom:6px}
+        .hx-fact{font-family:var(--font-sans);font-size:21px;line-height:1.38;color:var(--grey-mid);margin-bottom:18px}
+        .hx-dark .hx-fact{color:#86868B}
+        .hx-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+        .hb{font-family:var(--font-sans);font-size:17px;line-height:1.18;border-radius:980px;padding:11px 21px;text-decoration:none;border:1px solid transparent;transition:background .2s,color .2s}
+        .hb-fill{background:#0071E3;color:#fff}
+        .hb-fill:hover{background:#0077ED}
+        .hb-line{color:#0066CC;border-color:#0066CC}
+        .hb-line:hover{background:#0066CC;color:#fff}
+        .hx-dark .hb-line{color:#2997FF;border-color:#2997FF}
+        .hx-dark .hb-line:hover{background:#2997FF;color:#000}
+        .hb-sm{font-size:14px;padding:8px 15px}
+        .hx-img{flex:1;align-self:stretch;min-height:420px;margin-top:-40px;background-repeat:no-repeat;background-position:center 60%;background-size:auto 100%}
         .manifesto{max-width:680px;margin:0 auto;padding:80px 22px 100px}
         .manifesto-label{font-family:var(--font-sans);font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:40px}
         .manifesto-headline{font-family:var(--font-serif);font-size:clamp(36px,6vw,56px);font-weight:400;font-style:italic;line-height:1.15;letter-spacing:-0.02em;color:var(--black);margin-bottom:16px}
@@ -712,6 +730,13 @@
             .page{padding-top:128px}
             .manifesto{padding:56px 18px 80px}.contact,.agents{padding:56px 18px 80px}.send-btn{width:100%;text-align:center}
             .agents-cta{width:100%;text-align:center}
+            .hx{min-height:560px}
+            .hx-copy{padding:40px 18px 0}
+            .hx-name{font-size:52px}
+            .hx-line{font-size:21px}
+            .hx-fact{font-size:17px}
+            .hb{font-size:14px;padding:8px 15px}
+            .hx-img{min-height:300px;margin-top:-10px;background-size:auto 100%}
             .agent-tiles,.agent-details{grid-template-columns:1fr}
             .agent-tile{min-height:540px;padding:44px 22px 0}
             .agent-visual{margin:0 -22px;min-height:260px}
@@ -725,8 +750,35 @@
 
 <main>
 <section id="p-home" class="page active">
-    <!-- Home is intentionally empty for now (Addy 2026-10-17): an Apple-style agent hero comes next. -->
-    <div class="home-empty"></div>
+    <!-- Home, modelled on apple.com/au (measured 2026-10-17): full-width product heroes, then a 2x2 tile grid. -->
+    <div class="home do-anim">
+        <article class="hx hx-light a1">
+            <div class="hx-copy">
+                <h1 class="hx-name">Anton</h1>
+                <p class="hx-line">Anton moves in.</p>
+                <p class="hx-fact">A cyber security agent of your own, built to plug into your systems.</p>
+                <div class="hx-btns">
+                    <a class="hb hb-fill" href="/#anton-more" onclick="srRoute('anton-more');return false">Learn more</a>
+                    <a class="hb hb-line" href="/#contact" onclick="go('contact');return false">Talk to us</a>
+                </div>
+            </div>
+            <div class="hx-img" role="img" aria-label="Anton, a compact graphite cyber security appliance with vertical cooling fins, its power lead trailing away" style="background-image:url(/images/home-anton.jpg)"></div>
+        </article>
+
+        <article class="hx hx-dark a2">
+            <div class="hx-copy">
+                <h2 class="hx-name">Joseph</h2>
+                <p class="hx-line">Quiet, until something changes.</p>
+                <p class="hx-fact">A compliance agent for financial services businesses.</p>
+                <div class="hx-btns">
+                    <a class="hb hb-fill" href="/#joseph-more" onclick="srRoute('joseph-more');return false">Learn more</a>
+                    <a class="hb hb-line" href="/#contact" onclick="go('contact');return false">Talk to us</a>
+                </div>
+            </div>
+            <div class="hx-img" role="img" aria-label="Joseph, a slim pale silver compliance appliance standing upright on black" style="background-image:url(/images/home-joseph.jpg)"></div>
+        </article>
+
+    </div>
 </section>
 
 <section id="p-about" class="page">
