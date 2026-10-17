@@ -96,8 +96,9 @@
   // html[data-nav="glass"], which outranks each page's inline phone-nav rules (those stay as the no-JS
   // fallback), and data-page lets the content offsets follow the bar. GLASS holds the material so the
   // transparency can be tuned in one place.
-  var GLASS = { bg: 'rgba(255,255,255,.62)', blur: 'saturate(180%) blur(22px)', panel: 'rgba(255,255,255,.9)' };
-  var EDGE = 'inset 0 1px 0 rgba(255,255,255,.85),0 0 0 .5px rgba(0,0,0,.06)';
+  // Transparency: Addy's pick of three on 2026-10-17 (option 1, 45% white; 34% and 22% lost the labels over the black section).
+  var GLASS = { bg: 'rgba(255,255,255,.45)', blur: 'saturate(180%) blur(24px)', panel: 'rgba(255,255,255,.84)' };
+  var EDGE = 'inset 0 1px 0 rgba(255,255,255,.9),0 0 0 .5px rgba(0,0,0,.08)';
   var GLASS_CSS = '@media(max-width:768px){' +
     'html[data-nav="glass"] nav,html[data-nav="glass"] nav.flyout-open{top:0;left:0;right:0;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:0;pointer-events:none}' +
     'html[data-nav="glass"] .nav-inner{margin:10px 10px 0;padding:0 0 6px;border-radius:26px;max-width:none;height:auto;pointer-events:auto;background:' + GLASS.bg + ';-webkit-backdrop-filter:' + GLASS.blur + ';backdrop-filter:' + GLASS.blur + ';box-shadow:' + EDGE + ',0 8px 28px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04)}' +
@@ -159,7 +160,9 @@
   liLink.rel = 'noopener noreferrer';
   liLink.className = 'nav-linkedin';
   liLink.setAttribute('aria-label', 'Speedrun AI Labs on LinkedIn');
-  liLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
+  // LinkedIn's own mark: brand blue (#0A66C2, set in each page's .nav-linkedin) with white "in" letters;
+  // the white rect sits under the cut-out letters so they stay white over the dark Joseph section too.
+  liLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2" fill="#fff"/><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
   topRow.appendChild(liLink);
 
   inner.appendChild(topRow);
