@@ -11,7 +11,7 @@ Static site, no framework, no build step. Pickup state and history live in the O
   marker from the new build appears, then smoke every page and every new asset by content-length.
   Never hand over a link before that.
 - Stage files explicitly, never `git add -A`. Author commits as Adnan Tanveer.
-- This file and `design/` never deploy: both are in `.vercelignore`. Keep it that way.
+- This file, `design/` and `tests/` never deploy: all three are in `.vercelignore`. Keep it that way.
 
 ## Content that must stay consistent (grep before you claim done)
 - `nav.js` injects the nav into EVERY page (home, papers, thank-you, the four legal pages, `/data/`,
@@ -92,6 +92,19 @@ Static site, no framework, no build step. Pickup state and history live in the O
   test key for plumbing.
 - Do not widen the CSP casually. Fonts are self-hosted at `/fonts/`; never re-add Google Fonts.
 - The site is light-only, with one logo. Do not reintroduce a logo swap.
+
+## Testing before "done" (Addy 2026-10-17: *"test it test it test it ... make sure on mobile or iPad or web it looks great on all of it"*)
+- Before any change is reported done, run the gate against production:
+  `B=https://www.speedrunlab.ai NODE_PATH=~/Documents/investing-platform-v1/node_modules node tests/audit.cjs`
+  (14 pages × iPhone 393 / iPad 820 / iPad landscape 1180 / desktop 1440: horizontal scroll, elements past
+  the edge, broken images, footnote anchors, page errors; full-page screenshots and one review sheet per
+  viewport in `/tmp/speedrun-audit`). Then READ the sheets, phone first. Addy reviews from his phone when
+  he is away from the desk; a desktop-only check is not a check. A change to a shared block (nav, footer,
+  tiles) re-opens every page that uses it.
+- Phone conventions from his review: the Agents section reads one agent at a time (tile, detail, tile,
+  detail; `display:contents` + `order` at ≤768px); flyout panels are menus (full-width rows with chevrons,
+  small-caps group labels, the panel scrolls on short phones), not posters; the footer legal links are a
+  two-column grid with no separators. Vault `2026-10-17 phone-fixes-and-three-viewport-audit`.
 
 ## Close-out and IDLE
 - Run the `close-out` skill at the end of every session that shipped work (vault `Projects/Speedrun.md` + day note,
