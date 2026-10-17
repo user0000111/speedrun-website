@@ -15,10 +15,10 @@ Our motto: whatever we create, whatever we ship, we deliver more value than we e
 Speedrun AI Labs ships two AI agents. We build them in Sydney and install them in your business.
 
 ### Anton, cyber security agent
-Reviews code and infrastructure for weaknesses before they ship, thinking like an attacker, and reports what it finds in plain English. A cyber security agent of your own: it plugs into your systems and can run on your own hardware, on premises, so your business keeps responsibility for its own security data. Where that does not suit, it is set up to fit the business.
+Reviews code and infrastructure for weaknesses before they ship and reports what it finds in plain English. A human stays in the loop: the business decides what gets fixed and when. Speedrun AI Labs does not use client data to train AI models. A cyber security agent of your own: it plugs into your systems and can run on your own hardware, on premises, so your business keeps responsibility for its own security data. Where that does not suit, it is set up to fit the business.
 
 ### Joseph, compliance agent for financial services businesses
-Keeps watch on the obligations that apply to a financial services business and reports what has changed to the people accountable. Deployed in the cloud or inside your own environment, for the whole business or one per department, at scale. It does not provide legal or compliance advice.
+Helps the team at a financial services business keep watch on the obligations it chooses to track, and flags what may have changed to the people accountable. It helps the people doing compliance work by gathering and laying out what they need to review; a human stays in the loop and the compliance team makes every call. Deployed in the cloud or inside your own environment, for the whole business or one per department, at scale. It does not provide legal or compliance advice.
 
 ## Open Source
 
