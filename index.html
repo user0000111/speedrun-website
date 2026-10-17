@@ -1087,7 +1087,9 @@ window.onTurnstileReady=function(){tsReady=true;renderTurnstile()};
 
 function go(p){document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});var pg=document.getElementById('p-'+p);pg.classList.add('active');var c=pg.querySelector('.do-anim');if(c){c.classList.remove('do-anim');void c.offsetWidth;c.classList.add('do-anim');}document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===p)});window.scrollTo(0,0);if(p==='contact'){tsWanted=true;renderTurnstile();}}
 if(window.location.search.includes('error=1')){var e=document.getElementById('formErr');if(e){e.style.display='block';go('contact');}}
-var hash=window.location.hash.replace('#','');if(hash&&document.getElementById('p-'+hash)){go(hash);}
+/* Routes /#section and /#card-id (the nav's Research flyout links straight to a skill card). */
+function srRoute(h){if(!h)return false;if(document.getElementById('p-'+h)){go(h);return true}var el=document.getElementById(h);var pg=el&&el.closest('.page');if(!pg)return false;go(pg.id.slice(2));el.scrollIntoView();return true}
+srRoute(window.location.hash.replace('#',''));window.addEventListener('hashchange',function(){srRoute(window.location.hash.replace('#',''))});
 
 document.getElementById('cForm').addEventListener('submit',function(ev){
   var ph=document.getElementById('c-phone').value.trim();
