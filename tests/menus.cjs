@@ -5,11 +5,11 @@
 // asserts that no panel or curtain is left open and that the destination is right (section shown, URL,
 // target under the bar). Exit code 1 on any failure.
 // Run: B=https://www.speedrunlab.ai NODE_PATH=~/Documents/investing-platform-v1/node_modules node tests/menus.cjs
-//      (B=http://localhost:8765 locally; CTX=phone,ipad,desk,webkit to pick contexts)
+//      (B=http://localhost:8765 locally; CTX=phone,ipad-mini,ipad,desk,webkit,links to pick contexts)
 const { chromium, webkit, devices } = require('playwright');
 const fs = require('fs');
 const B = (process.env.B || 'https://www.speedrunlab.ai').replace(/\/$/, '');
-const WANT = (process.env.CTX || 'phone,ipad,desk,webkit').split(',');
+const WANT = (process.env.CTX || 'phone,ipad-mini,ipad,desk,webkit').split(',');
 const results = [];
 function check(ctx, name, ok, detail) {
   results.push({ ctx, name, ok, detail });
@@ -211,6 +211,7 @@ async function crawl() {
 (async () => {
   const have = (n) => WANT.includes(n);
   if (have('phone')) await run('phone', chromium, { viewport: { width: 393, height: 852 }, isMobile: true, hasTouch: true }, true);
+  if (have('ipad-mini')) await run('ipad-mini', chromium, { viewport: { width: 768, height: 1024 }, isMobile: true, hasTouch: true }, true);
   if (have('ipad')) await run('ipad', chromium, { viewport: { width: 820, height: 1180 }, isMobile: true, hasTouch: true }, true);
   if (have('desk')) await run('desk', chromium, { viewport: { width: 1440, height: 900 } }, false);
   if (have('webkit')) {
