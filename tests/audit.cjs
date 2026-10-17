@@ -5,16 +5,19 @@
 // screenshots plus one review sheet per viewport to OUT (default <tmpdir>/speedrun-audit). READ THE SHEETS,
 // phone first. Exit code 1 when any render has a problem. tests/ is in .vercelignore and never deploys.
 // Run: B=https://www.speedrunlab.ai NODE_PATH=~/Documents/investing-platform-v1/node_modules node tests/audit.cjs
+//      (add PAGES=/#contact to re-check one page; OUT=<dir> to choose where the screenshots go)
 const { chromium } = require('playwright');
 const os = require('os'), fs = require('fs'), path = require('path');
 const B = (process.env.B || 'https://www.speedrunlab.ai').replace(/\/$/, '');
 const OUT = process.env.OUT || path.join(os.tmpdir(), 'speedrun-audit');
 fs.mkdirSync(OUT, { recursive: true });
-const PAGES = ['/', '/#about', '/#projects', '/#skills', '/#press', '/#contact', '/papers/', '/data/', '/ai-safety/',
+// PAGES=/#contact,/data/ re-checks a few pages quickly; the default is every page.
+const PAGES = process.env.PAGES ? process.env.PAGES.split(',') : ['/', '/#about', '/#projects', '/#skills', '/#press', '/#contact', '/papers/', '/data/', '/ai-safety/',
   '/privacy/', '/terms/', '/legal/', '/site-map/', '/thank-you.html'];
 const VP = [['phone', 393, 852, true], ['ipad', 820, 1180, true], ['ipad-l', 1180, 820, true], ['desk', 1440, 900, false]];
-// Accepted console noise: Cloudflare Turnstile probes "data:," which our CSP connect-src refuses; the widget still renders.
-const IGNORE = [/Connecting to 'data:,'/];
+// Accepted console noise, both from Cloudflare Turnstile on the contact section: its "data:," probe, which our
+// CSP connect-src refuses (the widget still renders), and its "%c%d font-size:0;color:transparent" console check.
+const IGNORE = [/data:,/, /font-size:0;color:transparent/];
 (async () => {
   const b = await chromium.launch();
   const report = [];
