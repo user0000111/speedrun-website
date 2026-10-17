@@ -110,6 +110,12 @@ Static site, no framework, no build step. Pickup state and history live in the O
   three Vercel env vars exist and the code reads no others.
 - Turnstile blocks agent-browser. Test the form through claude-in-chrome, or with Cloudflare's
   test key for plumbing.
+- Contact page (Addy's pick of three, 2026-10-18): "Start with a conversation.", topic chips (Anton,
+  Joseph, Something else) that fill the editable Subject, the form in a grey card, "What happens next" in
+  three steps, a direct email line. Fields are 17px+ (iPhone Safari zooms into anything smaller); the error
+  sits above the form and is scrolled into view; copy uses only claims the site already makes and promises
+  no reply time. The form's field names, handler and Turnstile placement are unchanged: any redesign keeps
+  them (checked by `FormData` keys on production). Vault `2026-10-18 contact-start-with-a-conversation`.
 - The handler's error return is `/?error=1#contact` (query BEFORE the hash); the page reads both that
   and the older `/#contact?error=1`. A redirect that puts the query inside the hash is invisible to
   `location.search`, which is how failed submissions landed on Home with no message until 2026-10-17.
