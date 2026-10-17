@@ -18,7 +18,7 @@ Speedrun AI Labs ships two AI agents. We build them in Sydney and install them i
 Reviews code and infrastructure for weaknesses before they ship and reports what it finds in plain English. A human stays in the loop: the business decides what gets fixed and when. Speedrun AI Labs does not use client data to train AI models. A cyber security agent of your own: it plugs into your systems and can run on your own hardware, on premises, so your business keeps responsibility for its own security data. Where that does not suit, it is set up to fit the business.
 
 ### Joseph, compliance agent for financial services businesses
-Helps the team at a financial services business keep watch on the obligations it chooses to track, and flags what may have changed to the people accountable. It helps the people doing compliance work by gathering and laying out what they need to review; a human stays in the loop and the compliance team makes every call. Deployed in the cloud or inside your own environment, for the whole business or one per department, at scale. It does not provide legal or compliance advice.
+Helps the team at a financial services business keep watch on the obligations it chooses to track, and flags what may have changed to the people accountable. It helps the people doing compliance work by gathering and laying out what they need to review; a human stays in the loop and the compliance team makes every call. Compliance data is sensitive: the business decides what Joseph can access and keeps its data, and Speedrun AI Labs does not use client data to train AI models. Deployed in the cloud or inside your own environment, for the whole business or one per department, at scale. It does not provide legal or compliance advice.
 
 ## Open Source
 
