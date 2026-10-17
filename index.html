@@ -1167,7 +1167,11 @@ if(/[?&]error=1/.test(window.location.search+window.location.hash)){var e=docume
 /* Routes /#section and /#card-id (the nav's Research flyout links straight to a skill card). */
 function srRoute(h){if(!h)return false;if(document.getElementById('p-'+h)){go(h);return true}var el=document.getElementById(h);var pg=el&&el.closest('.page');if(!pg)return false;go(pg.id.slice(2));el.scrollIntoView();return true}
 function srHash(){return window.location.hash.replace('#','').split('?')[0]}
-srRoute(srHash());window.addEventListener('hashchange',function(){var h=srHash();if(!h){go('home');return;}srRoute(h);});
+/* Route at once so the right section shows without a flash; then jump again when the document is complete.
+   The footer script runs after this one, so a jump made now sees a page ~1,000px shorter than final and the
+   browser clamps the scroll to that height and never revisits it (Deep Audit landed 245px low on iPad). */
+(function(){var h=srHash();if(!h)return;srRoute(h);document.addEventListener('DOMContentLoaded',function(){var el=document.getElementById(h);if(el&&!document.getElementById('p-'+h)){el.scrollIntoView({behavior:'instant',block:'start'});}});})();
+window.addEventListener('hashchange',function(){var h=srHash();if(!h){go('home');return;}srRoute(h);});
 
 document.getElementById('cForm').addEventListener('submit',function(ev){
   var ph=document.getElementById('c-phone').value.trim();

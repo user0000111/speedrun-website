@@ -62,7 +62,7 @@ async function run(name, browserType, opts, touch) {
   const b = await browserType.launch();
   const c = await b.newContext(opts);
   // The site scrolls smoothly; Playwright's "element is stable" check fights that, so scroll instantly in the test.
-  await c.addInitScript(() => { const st = document.createElement('style'); st.textContent = 'html{scroll-behavior:auto!important}'; (document.head || document.documentElement).appendChild(st); });
+  await c.addInitScript(() => { const add = () => { const st = document.createElement('style'); st.textContent = 'html{scroll-behavior:auto!important}'; document.documentElement.appendChild(st); }; if (document.documentElement) add(); else new MutationObserver((m, o) => { if (document.documentElement) { add(); o.disconnect(); } }).observe(document, { childList: true }); });
   const p = await c.newPage();
   // Turnstile's challenge frame logs a cross-origin access error on http://localhost; not ours.
   const errs = []; p.on('pageerror', e => { if (!/challenges\.cloudflare\.com/.test(e.message)) errs.push(e.message); });

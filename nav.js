@@ -188,6 +188,15 @@
 
   // ---- Flyouts ----
   var active = null; // the controller whose panel is open
+  var ctls = [];
+  // A page that has just loaded with the mouse already over an item (the previous page's click put it
+  // there) gets a hover event without any movement; the panel must wait for the mouse to actually move.
+  var mouseMoved = false;
+  document.addEventListener('mousemove', function (ev) {
+    if (mouseMoved || !(ev.movementX || ev.movementY)) return;
+    mouseMoved = true;
+    ctls.forEach(function (c) { if (c.li.matches(':hover') || c.el.matches(':hover')) c.scheduleOpen(); });
+  }, true);
 
   function makeFlyout(key, groups, trigger, triggerLi) {
     var fly = document.createElement('div');
@@ -231,7 +240,7 @@
         }
         if (now) shut(); else closeTimer = setTimeout(shut, 160);
       },
-      scheduleOpen: function () { clearTimeout(closeTimer); openTimer = setTimeout(ctl.open, 120); },
+      scheduleOpen: function () { if (!mouseMoved) return; clearTimeout(closeTimer); openTimer = setTimeout(ctl.open, 120); },
       cancelOpen: function () { clearTimeout(openTimer); }
     };
     function setFocusable(on) {
@@ -295,6 +304,7 @@
         var first = fly.querySelector('a'); if (first) first.focus();
       }
     });
+    ctls.push(ctl);
     return ctl;
   }
 
