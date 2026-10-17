@@ -14,9 +14,13 @@ Static site, no framework, no build step. Pickup state and history live in the O
 - This file and `design/` never deploy: both are in `.vercelignore`. Keep it that way.
 
 ## Content that must stay consistent (grep before you claim done)
-- `nav.js` injects the nav into EVERY page (home, papers, thank-you and the four legal pages), but each
-  page styles the base nav in its OWN inline CSS. Change a base nav class and you touch them all. The nav
-  ORDER is only the `LINKS` array (Home · About · Agents · Research Papers · Press · Contact Us).
+- `nav.js` injects the nav into EVERY page (home, papers, thank-you, the four legal pages, `/data/`,
+  `/ai-safety/`), but each page styles the base nav in its OWN inline CSS. Change a base nav class and you
+  touch them all. The nav ORDER is only the `LINKS` array (Home · About · Agents · Research Papers · Press ·
+  Contact Us). Two flyouts live in `FLYOUTS` (`about`: Manifesto, AI Safety, Data, Press, Contact Us, Legal;
+  `research`: Skill Library, papers, skills); a new page under About or Research is added there, in
+  `footer.js` (`COLUMNS` + `LEGAL`), `site-map/index.html`, `sitemap.xml`, `vercel.json` (slash redirects)
+  and `llms.txt`. New sub-pages are built from `legal/index.html` as the template (Addy 2026-10-17).
   Desktop bar height (96px) and the logo offset live once in `nav.js`; change them and re-measure every
   offset tied to the bar (rule 26: `.page`, `.main`, `.doc`, `.content` padding, scroll-margins).
 - **Never use a bare `<nav>` element for anything but the top bar**: every page styles `nav` as
@@ -27,7 +31,10 @@ Static site, no framework, no build step. Pickup state and history live in the O
 - The site is LIGHT ONLY: `color-scheme: only light` on `:root` plus `<meta name="color-scheme"
   content="only light">` on every page (Addy 2026-10-17, like apple.com). New pages copy both.
 - The site follows apple.com's design (Addy 2026-10-17: *"built on Apple Computer's website. That's
-  the design philosophy … that's what we want to keep"*). The Research flyout (hover Research Papers:
+  the design philosophy … that's what we want to keep"*). Home = two full-width product heroes (Anton on
+  #F5F5F7, Joseph on black) then the footer, measured from apple.com/au; no tile grid (Addy cut it).
+  Footer fine print = numbered footnotes keyed to `<sup class="fn">` markers on home + Agents (`NOTES` in
+  `footer.js`); a new claim on the page gets a note, and the whole block stays near 650 words. The Research flyout (hover Research Papers:
   Explore Research / Papers / Skills, Apple globalnav behaviour) is built and styled ONLY in `nav.js`
   (`FLYOUT` + the injected `CSS`), never copied into the pages. Skill Library lives in the flyout,
   not the top row. A new paper or skill adds a `FLYOUT` line too (paper cards carry anchor ids; home
@@ -50,9 +57,20 @@ Static site, no framework, no build step. Pickup state and history live in the O
   Nano Banana Pro WITHOUT the glass references. **No human hands, ever.** Present any visual choice to
   Addy as the real UI (desktop + phone mock), never as loose pictures. Vault `2026-10-17 anton-joseph-agents`.
 
+## Search Console (Addy 2026-10-17: fix the notifications "so it doesn't happen again")
+- Every internal link uses `https://www.speedrunlab.ai` or a root-relative path; never the apex or http
+  (the thank-you "Back to Home" apex link fed GSC's recurring "Page with redirect"). The three host
+  variants in that report are correct 308s: never click "Validate fix" on them, it fails and emails Addy.
+- `/thank-you.html` is `noindex, follow` (crawlable, not a robots.txt Disallow); PDFs are noindex via
+  `vercel.json` headers and stay out of the sitemap. `sitemap.xml` lists only canonical HTML pages with a
+  real `lastmod`; after adding or materially changing a page: update it, push, then in GSC request indexing
+  for the page and resubmit the sitemap. Vault `2026-10-17 seo-rewrite-search-console`.
+
 ## Legal pages
 - Privacy Policy, Terms of Use and Legal were drafted by **Fable 5.1** (Addy: it writes the best legal
-  copy) from Cowan Law's March 2026 brief. Any change to legal copy goes through Fable 5.1 and Addy.
+  copy) from Cowan Law's March 2026 brief; `/data/` and `/ai-safety/` are plain-English principles pages
+  that summarise them and must never contradict them. Any change to legal copy is drafted on Fable
+  (the session model since 2026-10-17 afternoon) and shipped on Addy's word.
   Core allocation: the deploying business decides and is responsible for its data; hosting depends on
   the Services Agreement and discussion with each client. Open points for Addy / Taryn: vault
   `2026-10-17 legal-pages-fable-5-1`. If `api/contact.js` logging changes, Privacy s 9 must change too.

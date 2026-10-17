@@ -1,10 +1,10 @@
 # AGENTS.md — speedrunlab.ai (for every coding agent: Claude Code, Codex, Cursor, Copilot)
 `CLAUDE.md` in this folder is the single source of rules. Read it first, in full. This file is the cross-tool front door and never duplicates a rule.
-Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 05e5a0840756 · main 5adaac3 — by `~/.claude/scripts/close-out.sh --sync-agents`
+Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 2f4a761d1f28 · main 6b38f3a — by `~/.claude/scripts/close-out.sh --sync-agents`
 
 ## Where things are
 - Rules: `CLAUDE.md` (this repo). State + history: Addy's private vault (`Projects/Speedrun.md`, `Sessions/Speedrun/`), written only via `~/.claude/scripts/obsidian-log.sh`.
-- Site: static pages, `nav.js`, `api/contact.js`, `images/`, `fonts/`; `design/` holds specs and never deploys. No framework, no build.
+- Site: static pages (home, papers, thank-you, privacy, terms, legal, site-map, data, ai-safety), `nav.js` + `footer.js` injected everywhere, `api/contact.js`, `images/`, `fonts/`; `design/` holds specs and never deploys. No framework, no build.
 
 ## Non-negotiables in one screen
 - Push to `main` is production; author commits as Adnan Tanveer, stage files explicitly, and verify the new build is served before handing over a link (CLAUDE.md "Deploy").
@@ -12,6 +12,7 @@ Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 05e5a0840756 · main 
 - Grep every copy before claiming a change is done: the base nav lives in three pages' CSS, the Research flyout only in `nav.js`, the paper count in six strings (CLAUDE.md "Content that must stay consistent").
 - The design follows apple.com; keep it that way (CLAUDE.md, Addy 2026-10-17).
 - Two agents only (Anton, Joseph); no human hands in imagery; legal copy is drafted by Fable 5.1; never a bare `<nav>` below the top bar (CLAUDE.md).
+- A new page is wired in six places (nav flyout, footer, site map, sitemap, redirects, llms.txt) and then requested in Search Console; internal links never use the apex or http host (CLAUDE.md "Search Console").
 - Never change mission or brand copy, or deploy an image, without Addy's explicit approval (CLAUDE.md "Imagery").
 - The contact form fails closed; do not widen the CSP or re-add Google Fonts (CLAUDE.md "Contact form and security").
 
