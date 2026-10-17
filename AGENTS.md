@@ -1,6 +1,6 @@
 # AGENTS.md — speedrunlab.ai (for every coding agent: Claude Code, Codex, Cursor, Copilot)
 `CLAUDE.md` in this folder is the single source of rules. Read it first, in full. This file is the cross-tool front door and never duplicates a rule.
-Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 1df4ca24c9e0 · main 98ffc6b — by `~/.claude/scripts/close-out.sh --sync-agents`
+Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 05e5a0840756 · main 5adaac3 — by `~/.claude/scripts/close-out.sh --sync-agents`
 
 ## Where things are
 - Rules: `CLAUDE.md` (this repo). State + history: Addy's private vault (`Projects/Speedrun.md`, `Sessions/Speedrun/`), written only via `~/.claude/scripts/obsidian-log.sh`.
@@ -11,6 +11,7 @@ Last synced with CLAUDE.md: 2026-10-17 · CLAUDE.md sha256 1df4ca24c9e0 · main 
 - Repo-only files stay in `.vercelignore` (`CLAUDE.md`, `AGENTS.md`, `design/`) — anything else in the tree is served publicly.
 - Grep every copy before claiming a change is done: the base nav lives in three pages' CSS, the Research flyout only in `nav.js`, the paper count in six strings (CLAUDE.md "Content that must stay consistent").
 - The design follows apple.com; keep it that way (CLAUDE.md, Addy 2026-10-17).
+- Two agents only (Anton, Joseph); no human hands in imagery; legal copy is drafted by Fable 5.1; never a bare `<nav>` below the top bar (CLAUDE.md).
 - Never change mission or brand copy, or deploy an image, without Addy's explicit approval (CLAUDE.md "Imagery").
 - The contact form fails closed; do not widen the CSP or re-add Google Fonts (CLAUDE.md "Contact form and security").
 

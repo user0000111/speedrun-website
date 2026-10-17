@@ -14,8 +14,18 @@ Static site, no framework, no build step. Pickup state and history live in the O
 - This file and `design/` never deploy: both are in `.vercelignore`. Keep it that way.
 
 ## Content that must stay consistent (grep before you claim done)
-- `nav.js` injects the nav into ALL THREE pages, but each page styles the base nav in its OWN inline
-  CSS. Change a base nav class and you touch all three. The nav ORDER is only the `LINKS` array.
+- `nav.js` injects the nav into EVERY page (home, papers, thank-you and the four legal pages), but each
+  page styles the base nav in its OWN inline CSS. Change a base nav class and you touch them all. The nav
+  ORDER is only the `LINKS` array (Home · About · Agents · Research Papers · Press · Contact Us).
+  Desktop bar height (96px) and the logo offset live once in `nav.js`; change them and re-measure every
+  offset tied to the bar (rule 26: `.page`, `.main`, `.doc`, `.content` padding, scroll-margins).
+- **Never use a bare `<nav>` element for anything but the top bar**: every page styles `nav` as
+  `position:fixed;top:0`. The footer columns and the legal contents list are `div role="navigation"`
+  (both got pinned over the menu on 2026-10-17).
+- `footer.js` injects the footer (fine print, link columns, legal bar with Speedrun AI Labs Pty Ltd,
+  ABN 38 695 878 356) on every page, CSS inside it, like `nav.js`. Include it as the last script in `<body>`.
+- The site is LIGHT ONLY: `color-scheme: only light` on `:root` plus `<meta name="color-scheme"
+  content="only light">` on every page (Addy 2026-10-17, like apple.com). New pages copy both.
 - The site follows apple.com's design (Addy 2026-10-17: *"built on Apple Computer's website. That's
   the design philosophy … that's what we want to keep"*). The Research flyout (hover Research Papers:
   Explore Research / Papers / Skills, Apple globalnav behaviour) is built and styled ONLY in `nav.js`
@@ -29,6 +39,23 @@ Static site, no framework, no build step. Pickup state and history live in the O
   them OUT of `sitemap.xml`.
 - SSRN blocks fetches: an abstract id comes from Addy and is taken on trust; say so.
 - Never change mission or brand copy without Addy's explicit approval.
+
+## Products and the Agents section (Addy 2026-10-17)
+- Speedrun ships exactly TWO agents: **Anton** (cyber security; named after Gilfoyle's server in
+  Silicon Valley; recommend on-prem but it depends on the customer, so never claim nothing leaves the
+  building) and **Joseph** (compliance for financial-services businesses; cloud or inside their
+  environment; at scale; by department). Never "ASIC compliance agent", no custom builds, no fear copy.
+- Home (`#p-home`) is intentionally empty until Addy briefs the Apple-style hero; the manifesto lives in About.
+- Agent imagery is direction "The Resident": photoreal product shots on Apple light grey (#F5F5F7),
+  Nano Banana Pro WITHOUT the glass references. **No human hands, ever.** Present any visual choice to
+  Addy as the real UI (desktop + phone mock), never as loose pictures. Vault `2026-10-17 anton-joseph-agents`.
+
+## Legal pages
+- Privacy Policy, Terms of Use and Legal were drafted by **Fable 5.1** (Addy: it writes the best legal
+  copy) from Cowan Law's March 2026 brief. Any change to legal copy goes through Fable 5.1 and Addy.
+  Core allocation: the deploying business decides and is responsible for its data; hosting depends on
+  the Services Agreement and discussion with each client. Open points for Addy / Taryn: vault
+  `2026-10-17 legal-pages-fable-5-1`. If `api/contact.js` logging changes, Privacy s 9 must change too.
 
 ## Imagery (Addy is finicky about this, by his own description)
 - A paper hero is ONE calm frosted-glass object that is a metaphor for the paper's core idea,
