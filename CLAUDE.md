@@ -44,6 +44,9 @@ Static site, no framework, no build step. Pickup state and history live in the O
   `hasPart`, `@graph`, llms.txt and the nav.js `FLYOUT` Papers list. Every JSON-LD block must still parse after an edit.
 - Press cards live only in the ItemList JSON-LD. PDFs carry `X-Robots-Tag: noindex`, so keep
   them OUT of `sitemap.xml`.
+- `go()` keeps the URL hash in step with the section (`#about`, `#projects` ...) so a refresh or a shared
+  link keeps it and Back returns to the previous one; `srRoute()` routes `/#<section>` and `/#<card-id>`;
+  an empty hash means Home. Links on home that target a section call `srRoute()` instead of navigating.
 - SSRN blocks fetches: an abstract id comes from Addy and is taken on trust; say so.
 - Never change mission or brand copy without Addy's explicit approval.
 
@@ -90,6 +93,9 @@ Static site, no framework, no build step. Pickup state and history live in the O
   three Vercel env vars exist and the code reads no others.
 - Turnstile blocks agent-browser. Test the form through claude-in-chrome, or with Cloudflare's
   test key for plumbing.
+- The handler's error return is `/?error=1#contact` (query BEFORE the hash); the page reads both that
+  and the older `/#contact?error=1`. A redirect that puts the query inside the hash is invisible to
+  `location.search`, which is how failed submissions landed on Home with no message until 2026-10-17.
 - Do not widen the CSP casually. Fonts are self-hosted at `/fonts/`; never re-add Google Fonts.
 - The site is light-only, with one logo. Do not reintroduce a logo swap.
 
@@ -101,6 +107,14 @@ Static site, no framework, no build step. Pickup state and history live in the O
   viewport in `/tmp/speedrun-audit`). Then READ the sheets, phone first. Addy reviews from his phone when
   he is away from the desk; a desktop-only check is not a check. A change to a shared block (nav, footer,
   tiles) re-opens every page that uses it.
+- Every menu, by touch and by mouse: `tests/menus.cjs` (same env vars; `CTX=phone,ipad,desk,webkit,links`)
+  opens each flyout and presses every item, every top-level item, the logo and the page behind the panel,
+  every footer link and home button, Back and refresh, the form's error return, the Read Abstract toggle,
+  and crawls every internal link, asserting after each press that no panel or curtain is left open and the
+  destination is right. It exists because a reviewer found a tap-opened panel that never closed
+  (2026-10-17: *"click menu it does not close and you do not see any content"*). Touch has no mouseleave:
+  anything opened by a tap needs an explicit close on any press outside it (`closeIfOutside`, capture
+  phase), and `go()` closes any open panel before it swaps sections. Both scripts run before any "done".
 - Phone conventions from his review: the Agents section reads one agent at a time (tile, detail, tile,
   detail; `display:contents` + `order` at ≤768px); flyout panels are menus (full-width rows with chevrons,
   small-caps group labels, the panel scrolls on short phones), not posters; the footer legal links are a
