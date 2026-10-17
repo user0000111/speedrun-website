@@ -45,7 +45,9 @@ async function landed(p, s, href) {
     else if (info.section) { if (!info.pgActive) { ok = false; why.push('section ' + s.section + ' not ' + info.pg); } }
     else {
       if (!info.pgActive) { ok = false; why.push('section ' + s.section + ' not ' + info.pg); }
-      if (info.top < s.navBottom - 6 || info.top > s.navBottom + 260) { ok = false; why.push('#' + hash + ' top=' + info.top + ' bar=' + s.navBottom); }
+      // A target near the end of the page cannot reach the bar: accept it when the page is scrolled as far as it goes.
+      const atEnd = await p.evaluate(() => Math.ceil(scrollY + innerHeight) >= document.documentElement.scrollHeight - 2);
+      if ((info.top < s.navBottom - 6 || info.top > s.navBottom + 260) && !(atEnd && info.top > s.navBottom)) { ok = false; why.push('#' + hash + ' top=' + info.top + ' bar=' + s.navBottom); }
     }
   }
   return [ok, why.join(', ')];
