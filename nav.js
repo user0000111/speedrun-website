@@ -4,8 +4,8 @@
   var LINKS = [
     { label: 'Home',            id: 'home',     href: '/',          section: true  },
     { label: 'Agents',          id: 'projects', href: '/#projects', section: true  },
-    { label: 'Skill Library',   id: 'skills',   href: '/#skills',   section: true  },
     { label: 'Research Papers', id: null,       href: '/papers/',   section: false },
+    { label: 'Skill Library',   id: 'skills',   href: '/#skills',   section: true  },
     { label: 'Press',           id: 'press',    href: '/#press',    section: true  },
     { label: 'Contact Us',      id: 'contact',  href: '/#contact',  section: true  },
   ];
