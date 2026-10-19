@@ -144,10 +144,11 @@ async function run(name, browserType, opts, touch) {
       }
     }
   }
-  // 4. Home: hero buttons, agent tiles, manifesto link, closing CTA, a footnote marker.
+  // 4. Home: hero buttons, the footnote marker beside each picture, agent tiles, manifesto link, closing CTA, a footnote marker.
   const HOME = [
     ['.hx-light .hb-fill', '/#anton-more'], ['.hx-dark .hb-fill', '/#joseph-more'],
     ['.hx-light .hb-line', '/#contact'], ['.hx-dark .hb-line', '/#contact'],
+    ['.hx-pin-anton a', '/#fn-10'], ['.hx-pin-joseph a', '/#fn-10'],
   ];
   for (const [sel, href] of HOME) {
     await start('/'); await press(sel); await settle(href);

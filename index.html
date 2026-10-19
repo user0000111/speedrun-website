@@ -606,7 +606,17 @@
         .hx-dark .hb-line{color:#2997FF;border-color:#2997FF}
         .hx-dark .hb-line:hover{background:#2997FF;color:#000}
         .hb-sm{font-size:14px;padding:8px 15px}
-        .hx-img{flex:1;align-self:stretch;min-height:420px;margin-top:-40px;background-repeat:no-repeat;background-position:center 60%;background-size:auto 100%}
+        .hx-media{flex:1;align-self:stretch;min-height:420px;margin-top:-40px;position:relative}
+        .hx-img{position:absolute;inset:0;background-repeat:no-repeat;background-position:center 60%;background-size:auto 100%}
+        /* Footnote 10: the pictures are illustrative. The frame is the picture as drawn (full height, centred, 2400:1018),
+           so the marker sits just off each device's top right corner at every width, in the size and tone of the copy's markers. */
+        .hx-frame{position:absolute;top:0;left:50%;height:100%;aspect-ratio:2400/1018;transform:translateX(-50%);pointer-events:none}
+        .hx-pin{position:absolute;font-family:var(--font-sans);font-size:21px;line-height:1;color:var(--grey-mid);transform:translate(6px,-3px);pointer-events:auto}
+        .hx-dark .hx-pin{color:#86868B}
+        .hx-pin .fn{vertical-align:top;line-height:1;margin-left:0}
+        .hx-pin .fn a{display:inline-block;padding:12px;margin:-12px}
+        .hx-pin-anton{left:57.83%;top:34.09%}
+        .hx-pin-joseph{left:59.08%;top:26.42%}
         .manifesto{max-width:680px;margin:0 auto;padding:80px 22px 100px}
         .manifesto-label{font-family:var(--font-sans);font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:40px}
         .manifesto-headline{font-family:var(--font-serif);font-size:clamp(36px,6vw,56px);font-weight:400;font-style:italic;line-height:1.15;letter-spacing:-0.02em;color:var(--black);margin-bottom:16px}
@@ -797,7 +807,8 @@
             .hx-line{font-size:21px}
             .hx-fact{font-size:17px}
             .hb{font-size:14px;padding:8px 15px}
-            .hx-img{min-height:300px;margin-top:-10px;background-size:auto 100%}
+            .hx-media{min-height:300px;margin-top:-10px}
+            .hx-pin{font-size:17px;transform:translate(5px,-2px)}
             /* Phone reads one agent at a time: Anton tile, Anton detail, Joseph tile, Joseph detail. */
             .agents{display:flex;flex-direction:column}
             .agent-tiles,.agent-details{display:contents}
@@ -831,7 +842,10 @@
                     <a class="hb hb-line" href="/#contact" onclick="go('contact');return false">Talk to us</a>
                 </div>
             </div>
-            <div class="hx-img" role="img" aria-label="Anton, a compact graphite cyber security appliance with vertical cooling fins, its power lead trailing away" style="background-image:url(/images/home-anton.jpg)"></div>
+            <div class="hx-media">
+                <div class="hx-img" role="img" aria-label="Anton, a compact graphite cyber security appliance with vertical cooling fins, its power lead trailing away" style="background-image:url(/images/home-anton.jpg)"></div>
+                <div class="hx-frame"><span class="hx-pin hx-pin-anton"><sup class="fn"><a href="#fn-10" aria-label="Footnote 10">10</a></sup></span></div>
+            </div>
         </article>
 
         <article class="hx hx-dark a2">
@@ -844,7 +858,10 @@
                     <a class="hb hb-line" href="/#contact" onclick="go('contact');return false">Talk to us</a>
                 </div>
             </div>
-            <div class="hx-img" role="img" aria-label="Joseph, a slim pale silver compliance appliance standing upright on black" style="background-image:url(/images/home-joseph.jpg)"></div>
+            <div class="hx-media">
+                <div class="hx-img" role="img" aria-label="Joseph, a slim pale silver compliance appliance standing upright on black" style="background-image:url(/images/home-joseph.jpg)"></div>
+                <div class="hx-frame"><span class="hx-pin hx-pin-joseph"><sup class="fn"><a href="#fn-10" aria-label="Footnote 10">10</a></sup></span></div>
+            </div>
         </article>
 
     </div>
