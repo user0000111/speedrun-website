@@ -47,9 +47,9 @@ Static site, no framework, no build step. Pickup state and history live in the O
   Footer fine print = numbered footnotes keyed to `<sup class="fn">` markers on home + Agents (`NOTES` in
   `footer.js`); a new claim on the page gets a note, and the whole block stays near 700 words (701 with note 10). The device
   pictures are illustrative (Addy 2026-10-19): each home hero carries footnote 10 beside the device, a `.hx-pin`
-  inside `.hx-frame`, a box drawn to the picture's own geometry (full height, centred, 2400:1018), so the marker
-  stays on the device's top right corner at every width. A new or re-cropped hero image re-measures the device
-  corner and updates `.hx-pin-anton`/`.hx-pin-joseph` (and the frame's aspect-ratio). Vault
+  inside `.hx-frame`, the middle fifth of the picture as drawn (full height, centred, 480:1018 of the 2400:1018
+  picture, so it never passes the screen edge), so the marker stays on the device's top right corner at every width. A new or re-cropped hero image re-measures the device
+  corner and updates `.hx-pin-anton`/`.hx-pin-joseph` (left = (x − 0.4) / 0.2 of the device corner's x share). Vault
   `2026-10-19 hero-pictures-illustrative-footnote`. The Research flyout (hover Research Papers:
   Explore Research / Papers / Skills, Apple globalnav behaviour) is built and styled ONLY in `nav.js`
   (`FLYOUT` + the injected `CSS`), never copied into the pages. Skill Library lives in the flyout,
