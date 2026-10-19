@@ -45,7 +45,12 @@ Static site, no framework, no build step. Pickup state and history live in the O
   the design philosophy … that's what we want to keep"*). Home = two full-width product heroes (Anton on
   #F5F5F7, Joseph on black) then the footer, measured from apple.com/au; no tile grid (Addy cut it).
   Footer fine print = numbered footnotes keyed to `<sup class="fn">` markers on home + Agents (`NOTES` in
-  `footer.js`); a new claim on the page gets a note, and the whole block stays near 650 words. The Research flyout (hover Research Papers:
+  `footer.js`); a new claim on the page gets a note, and the whole block stays near 700 words (701 with note 10). The device
+  pictures are illustrative (Addy 2026-10-19): each home hero carries footnote 10 beside the device, a `.hx-pin`
+  inside `.hx-frame`, a box drawn to the picture's own geometry (full height, centred, 2400:1018), so the marker
+  stays on the device's top right corner at every width. A new or re-cropped hero image re-measures the device
+  corner and updates `.hx-pin-anton`/`.hx-pin-joseph` (and the frame's aspect-ratio). Vault
+  `2026-10-19 hero-pictures-illustrative-footnote`. The Research flyout (hover Research Papers:
   Explore Research / Papers / Skills, Apple globalnav behaviour) is built and styled ONLY in `nav.js`
   (`FLYOUT` + the injected `CSS`), never copied into the pages. Skill Library lives in the flyout,
   not the top row. A new paper or skill adds a `FLYOUT` line too (paper cards carry anchor ids; home
@@ -72,7 +77,7 @@ Static site, no framework, no build step. Pickup state and history live in the O
   Silicon Valley; recommend on-prem but it depends on the customer, so never claim nothing leaves the
   building) and **Joseph** (compliance for financial-services businesses; cloud or inside their
   environment; at scale; by department). Never "ASIC compliance agent", no custom builds, no fear copy.
-- Home (`#p-home`) is intentionally empty until Addy briefs the Apple-style hero; the manifesto lives in About.
+- Home (`#p-home`) is the two Apple-style product heroes (Anton, Joseph); the manifesto lives in About.
 - Agent imagery is direction "The Resident": photoreal product shots on Apple light grey (#F5F5F7),
   Nano Banana Pro WITHOUT the glass references. **No human hands, ever.** Present any visual choice to
   Addy as the real UI (desktop + phone mock), never as loose pictures. Vault `2026-10-17 anton-joseph-agents`.

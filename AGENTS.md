@@ -1,6 +1,6 @@
 # AGENTS.md — speedrunlab.ai (for every coding agent: Claude Code, Codex, Cursor, Copilot)
 `CLAUDE.md` in this folder is the single source of rules. Read it first, in full. This file is the cross-tool front door and never duplicates a rule.
-Last synced with CLAUDE.md: 2026-10-18 · CLAUDE.md sha256 09f1bed8c162 · main 836bd6e — by `~/.claude/scripts/close-out.sh --sync-agents`
+Last synced with CLAUDE.md: 2026-10-19 · CLAUDE.md sha256 8c7471e538a0 · main 2915d9d — by `~/.claude/scripts/close-out.sh --sync-agents`
 
 ## Where things are
 - Rules: `CLAUDE.md` (this repo). State + history: Addy's private vault (`Projects/Speedrun.md`, `Sessions/Speedrun/`), written only via `~/.claude/scripts/obsidian-log.sh`.
