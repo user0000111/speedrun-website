@@ -143,6 +143,11 @@ Static site, no framework, no build step. Pickup state and history live in the O
   (2026-10-17: *"click menu it does not close and you do not see any content"*). Touch has no mouseleave:
   anything opened by a tap needs an explicit close on any press outside it (`closeIfOutside`, capture
   phase), and `go()` closes any open panel before it swaps sections. Both scripts run before any "done".
+- Run both locally (`B=http://127.0.0.1:8765`, `python3 -m http.server 8765`) BEFORE the push, then on production
+  after it (2026-10-19: the footnote-10 frame passed a pixel diff and the menu test, but only the production audit's
+  edge check caught it, which cost a second deploy). Locally `/#contact` logs Turnstile's 400 (127.0.0.1 is not an
+  allowed hostname): expected there, never on production. Start both detached (`nohup sh -c '…' & disown`): a
+  background Bash command dies at 10 minutes and the full menu run takes ~12. Vault `2026-10-19 hero-pictures-illustrative-footnote`.
 - Phone conventions from his review: the Agents section reads one agent at a time (tile, detail, tile,
   detail; `display:contents` + `order` at ≤768px); flyout panels are menus (full-width rows with chevrons,
   small-caps group labels, the panel scrolls on short phones), not posters; the footer legal links are a
