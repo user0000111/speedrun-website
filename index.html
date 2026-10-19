@@ -608,15 +608,16 @@
         .hb-sm{font-size:14px;padding:8px 15px}
         .hx-media{flex:1;align-self:stretch;min-height:420px;margin-top:-40px;position:relative}
         .hx-img{position:absolute;inset:0;background-repeat:no-repeat;background-position:center 60%;background-size:auto 100%}
-        /* Footnote 10: the pictures are illustrative. The frame is the picture as drawn (full height, centred, 2400:1018),
-           so the marker sits just off each device's top right corner at every width, in the size and tone of the copy's markers. */
-        .hx-frame{position:absolute;top:0;left:50%;height:100%;aspect-ratio:2400/1018;transform:translateX(-50%);pointer-events:none}
+        /* Footnote 10: the pictures are illustrative. The frame is the middle fifth of the picture as drawn (full height,
+           centred; the picture is 2400:1018, so the band is 480:1018 and never passes the screen edge). The marker sits just
+           off each device's top right corner at every width, in the size and tone of the copy's markers. */
+        .hx-frame{position:absolute;top:0;left:50%;height:100%;aspect-ratio:480/1018;transform:translateX(-50%);pointer-events:none}
         .hx-pin{position:absolute;font-family:var(--font-sans);font-size:21px;line-height:1;color:var(--grey-mid);transform:translate(6px,-3px);pointer-events:auto}
         .hx-dark .hx-pin{color:#86868B}
         .hx-pin .fn{vertical-align:top;line-height:1;margin-left:0}
         .hx-pin .fn a{display:inline-block;padding:12px;margin:-12px}
-        .hx-pin-anton{left:57.83%;top:34.09%}
-        .hx-pin-joseph{left:59.08%;top:26.42%}
+        .hx-pin-anton{left:89.15%;top:34.09%}
+        .hx-pin-joseph{left:95.4%;top:26.42%}
         .manifesto{max-width:680px;margin:0 auto;padding:80px 22px 100px}
         .manifesto-label{font-family:var(--font-sans);font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:40px}
         .manifesto-headline{font-family:var(--font-serif);font-size:clamp(36px,6vw,56px);font-weight:400;font-style:italic;line-height:1.15;letter-spacing:-0.02em;color:var(--black);margin-bottom:16px}
