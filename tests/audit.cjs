@@ -32,7 +32,15 @@ const IGNORE = [/data:,/, /font-size:0;color:transparent/];
       await p.goto(url, { waitUntil: 'load' });
       await p.waitForTimeout(1500);
       // Sweep the page so lazy images load, then return to the top before measuring and shooting.
-      await p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += 700) { scrollTo(0, y); await new Promise(r => setTimeout(r, 80)); } scrollTo(0, 0); });
+      // behavior 'instant': the site sets smooth scrolling, under which scrollTo(0, y) only animates a few
+      // hundred px in 80 ms, so the old sweep never reached the lower cards (found 2026-10-22: scrollY
+      // topped out at 752 on a 7,335 px phone page and the last card's lazy image never requested).
+      await p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += 700) { scrollTo({ top: y, behavior: 'instant' }); await new Promise(r => setTimeout(r, 80)); } scrollTo({ top: 0, behavior: 'instant' }); });
+      // Wait (up to 10 s) for images the sweep started but that are still downloading: an image in
+      // flight is not broken. One that errors or never arrives is still reported below.
+      await p.evaluate(() => Promise.all([...document.images].filter(i => !i.complete).map(i => new Promise(r => {
+        i.addEventListener('load', r, { once: true }); i.addEventListener('error', r, { once: true }); setTimeout(r, 10000);
+      }))));
       await p.waitForTimeout(600);
       const r = await p.evaluate(() => {
         const iw = innerWidth, over = [];
