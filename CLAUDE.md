@@ -109,6 +109,12 @@ Static site, no framework, no build step. Pickup state and history live in the O
 - GPT image models are off-style for this site. Never deploy an image Addy has not seen.
 - Skill banners follow `design/SKILL-BANNER-SPEC.md`. Recipe and rulings: memory
   `reference_openrouter_image_gen.md`.
+- A skill banner need not be the bird (Addy 2026-10-22, Reverse Engineer Anything: *"a graphic instead of
+  the mascot"*): keep the house material (brushed chrome, navy arcs, blue/copper glow, pixel trail) and draw
+  a metaphor object instead. Skill-card image crop is 570x180 desktop/iPad and 283x180 phone (object-fit
+  cover), so the subject sits in the middle half of a 16:9 frame; the contact sheet shows both crops and
+  goes to his phone (SendUserFile) when he is away. Never write "middle band" in the prompt: the model
+  paints a literal band. Vault `2026-10-22 reverse-engineer-anything-skill`.
 
 ## Contact form and security
 - `api/contact.js` fails CLOSED at every layer; Turnstile is the load-bearing control; exactly

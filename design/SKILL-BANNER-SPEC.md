@@ -155,3 +155,12 @@ GitHub shows "MIT License" in repo listings only when a `LICENSE` file exists. M
 | Deep Audit | `images/skill-deep-audit.png` | Live ✅ |
 | No-Slop Writing | `images/skill-no-slop.png` | Live ✅ |
 | Read-Before-Write | `images/skill-read-before-write.png` | Live ✅ |
+| Reverse Engineer Anything | `images/skill-reverse-engineer-anything.png` | Live ✅ (non-mascot: exploded chrome engine, Addy's pick #4 of 8, 2026-10-22) |
+
+## Non-mascot banners (Addy 2026-10-22)
+
+A skill may use a graphic instead of the bird. Keep the house material and lighting (attach an approved
+banner as a STYLE reference, say "do NOT include the bird character") and draw one metaphor object. State
+"one seamless, uniform navy background: no bands, no stripes, no letterbox" and keep the subject in the
+central half of the frame height. Validator: the Qwen id above is retired on OpenRouter; use the newest
+Qwen vision model (`qwen/qwen3.8-max-prime` on 2026-10-22, score 8/10 for the REA banner).

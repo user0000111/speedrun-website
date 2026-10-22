@@ -81,11 +81,6 @@
         "publisher": {
             "@type": "Organization",
             "name": "Speedrun AI Labs"
-        },
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.speedrunlab.ai/?q={search_term_string}",
-            "query-input": "required name=search_term_string"
         }
     }
     </script>
@@ -1000,7 +995,7 @@
             <p class="skill-hook">Reverse Engineer Anything: see how any binary, app or firmware works, when you can't read its source.</p>
             <h3>/reverse-engineer-anything: Analyse shipped software with standard open-source tools, and tie every finding to evidence.</h3>
             <p class="skill-meta">Speedrun AI Labs &middot; v1.0 &middot; October 2026 &middot; MIT License</p>
-            <p class="skill-desc">Point any AI agent at a binary, a packaged or mobile app, a firmware image or a captured session, and it works out how it is built. It routes each target to the right open-source tool (Ghidra, radare2, binwalk, JADX and more), stays static and read-only by default, and ties every finding to the file's checksum and the exact command that produced it. An authorisation gate comes first, live analysis needs explicit approval in an isolated environment, and nothing auto-installs or edits your agent's configuration, so it is safe to hand to a whole team.</p>
+            <p class="skill-desc">Point any AI agent at a binary, a packaged or mobile app, a firmware image or a captured session, and it works out how it is built. It routes each target to the right open-source tool (Ghidra, radare2, binwalk, JADX and more), stays static and read-only by default, and ties every finding to the file's checksum and the exact command that produced it. An authorisation gate comes first, live analysis needs explicit approval in an isolated environment, and nothing auto-installs or edits your agent's configuration.</p>
             <details class="skill-install-details">
                 <summary>Install Instructions</summary>
                 <div class="skill-install-body">
@@ -1264,7 +1259,7 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
                 <div class="form-group"><label for="c-subject">Subject</label><input type="text" id="c-subject" name="subject" placeholder="What is this about?"></div>
                 <div class="form-group"><label for="c-phone">Phone <span class="opt">(optional)</span></label><input type="tel" id="c-phone" name="phone" placeholder="04XX XXX XXX" autocomplete="tel"></div>
             </div>
-            <div class="form-group"><label for="c-msg">Message</label><textarea id="c-msg" name="message" placeholder="What does your business do, and what would you like an agent to help with?"></textarea></div>
+            <div class="form-group"><label for="c-msg">Message</label><textarea id="c-msg" name="message" required minlength="10" placeholder="What does your business do, and what would you like an agent to help with?"></textarea></div>
             <div class="captcha-box"><div id="turnstileBox"></div><p class="captcha-note" id="tsNote" hidden>Checking you are human, one moment&hellip;</p></div>
             <button type="submit" class="send-btn">Send message</button>
             </form>
