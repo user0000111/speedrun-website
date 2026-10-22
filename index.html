@@ -1376,8 +1376,15 @@ var tsWidgetId=null,tsReady=false,tsWanted=false,tsPendingSubmit=false;
 function tsNote(on){var n=document.getElementById('tsNote');if(n)n.hidden=!on}
 function tsToken(){var el=document.querySelector('#cForm [name="cf-turnstile-response"]');return el?el.value:''}
 function setSydneyTime(){document.getElementById('sydTime').value=new Date().toLocaleString('en-AU',{timeZone:'Australia/Sydney',dateStyle:'full',timeStyle:'short'})}
+/* Turnstile's script loads only once the contact form is wanted (opened or submitted), never on a plain
+   page view: Privacy Policy s9 says it runs when you open the form. */
+var tsLoading=false;
+function loadTurnstile(){if(tsLoading)return;tsLoading=true;var s=document.createElement('script');
+  s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileReady';s.async=true;s.defer=true;
+  s.onerror=function(){tsLoading=false;tsNote(false);tsPendingSubmit=false};document.head.appendChild(s)}
 function renderTurnstile(){
-  if(tsWidgetId!==null||!tsReady||!tsWanted||!window.turnstile)return;
+  if(tsWidgetId!==null||!tsWanted)return;
+  if(!tsReady||!window.turnstile){loadTurnstile();return}
   tsWidgetId=window.turnstile.render('#turnstileBox',{sitekey:TS_SITEKEY,theme:'auto',action:'contact',
     callback:function(){tsNote(false);if(tsPendingSubmit){tsPendingSubmit=false;setSydneyTime();document.getElementById('cForm').submit();}},
     'expired-callback':function(){window.turnstile.reset(tsWidgetId)},
@@ -1411,8 +1418,6 @@ document.getElementById('cForm').addEventListener('submit',function(ev){
   setSydneyTime();
 })
 </script>
-<!-- Loaded after the inline script so onTurnstileReady is defined before it fires. -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileReady" async defer></script>
 
 <script src="/footer.js"></script>
 </body>
