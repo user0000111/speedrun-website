@@ -27,7 +27,7 @@ Helps the team at a financial services business keep watch on the obligations it
 
 ## Open Source
 
-Speedrun AI Labs publishes free, open-source skills for Claude Code and OpenClaw agents at github.com/Speedrunlab: /hermes-agent-as-a-skill-file, /read-before-write, /deep-audit, /no-slop-writing, and /no-slop-writing-au. All MIT licensed. Details at speedrunlab.ai/#skills.
+Speedrun AI Labs publishes free, open-source skills for Claude Code and OpenClaw agents at github.com/Speedrunlab: /hermes-agent-as-a-skill-file, /read-before-write, /deep-audit, /no-slop-writing, and /no-slop-writing-au. All MIT licensed. /hermes-agent-as-a-skill-file (v2.0, October 2026) is agent-agnostic: it brings Nous Research's Hermes Agent learning loop to any agent. Details at speedrunlab.ai/#skills.
 
 ## Contact
 

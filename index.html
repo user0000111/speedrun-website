@@ -176,7 +176,7 @@
                 "name": "What is the Hermes Agent skill by Speedrun AI Labs?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The /hermes-agent-as-a-skill-file skill by Speedrun AI Labs packages the Hermes Agent learning-loop patterns (by Nous Research, MIT licence) as a portable SKILL.md file. Instead of migrating to a new agent runtime, you drop this skill into your existing agent — Claude Code, OpenClaw, NemoClaw, or any AgentSkills-compatible framework — and it gains a closed self-improvement loop: auto skill creation after complex tasks, cross-session recall before asking users to repeat themselves, memory capacity management, periodic self-checks, compound learning from mistakes, skill versioning, and inter-agent skill sharing. Free and open source at github.com/Speedrunlab/hermes-agent-as-a-skill-file."
+                    "text": "The /hermes-agent-as-a-skill-file skill by Speedrun AI Labs brings the learning loop of Nous Research's Hermes Agent (MIT licence) to any agent as a portable, agent-agnostic SKILL.md file. Instead of migrating to a new agent runtime, you drop this skill into your existing agent — Claude Code, OpenClaw, NemoClaw, or any other agent with memory, a skills directory and session search — and it gains a closed self-improvement loop: a review pass after every task, lessons saved into skills before memory, a never-capture list so failures never harden into rules, recall from past sessions before asking users to repeat themselves, curation of the skill library, and an audit ledger. Version 2.0 (October 2026) was rebuilt against the current Hermes source. Free and open source at github.com/Speedrunlab/hermes-agent-as-a-skill-file."
                 }
             },
             {
@@ -232,15 +232,16 @@
         "url": "https://www.speedrunlab.ai/#hermes-agent-as-a-skill",
         "codeRepository": "https://github.com/Speedrunlab/hermes-agent-as-a-skill-file",
         "programmingLanguage": "Markdown",
-        "runtimePlatform": "Claude Code, OpenClaw, NemoClaw, Hermes Agent, AgentSkills",
-        "description": "Hermes Agent as a skill file. Packages the Hermes Agent learning-loop patterns (Nous Research) as a portable SKILL.md file. Auto skill creation, cross-session recall, memory management, compound learning, and more. Works with Claude Code, OpenClaw, NemoClaw, Hermes Agent, and any AgentSkills-compatible framework.",
+        "runtimePlatform": "Agent-agnostic: Claude Code, OpenClaw, NemoClaw, AgentSkills-compatible frameworks and any agent with memory, a skills directory and session search",
+        "description": "Hermes Agent as a skill file. Brings the learning loop of Nous Research's Hermes Agent to any agent as a portable, agent-agnostic SKILL.md file, rebuilt in October 2026 against the current Hermes source: a review pass after every task, lessons saved into skills before memory, a never-capture list, recall from past sessions, curation of the skill library, and an audit ledger.",
         "author": {
             "@type": "Organization",
             "name": "Speedrun AI Labs",
             "url": "https://www.speedrunlab.ai"
         },
-        "version": "1.0",
+        "version": "2.0.0",
         "datePublished": "2026-04-21",
+        "dateModified": "2026-10-22",
         "license": "https://opensource.org/licenses/MIT"
     }
     </script>
@@ -973,13 +974,13 @@
                 <span class="skill-badge">Claude Code</span>
                 <span class="skill-badge">OpenClaw</span>
                 <span class="skill-badge">NemoClaw</span>
-                <span class="skill-badge">Hermes Agent</span>
                 <span class="skill-badge">AgentSkills</span>
+                <span class="skill-badge">Any agent</span>
             </div>
             <p class="skill-hook">Hermes Agent as a skill file: Upgrade your existing agent, no need to migrate.</p>
             <h3>/hermes-agent-as-a-skill-file: A closed self-improvement loop that makes your agent smarter with every task it completes.</h3>
-            <p class="skill-meta">Speedrun AI Labs &middot; Inspired by Nous Research &middot; v1.0 &middot; April 2026 &middot; MIT License</p>
-            <p class="skill-desc">Nous Research released Hermes Agent -- a genuinely useful learning loop for autonomous agents. This skill packages those patterns as a portable SKILL.md file: auto skill creation, cross-session recall, memory capacity management, periodic self-checks, compound learning, skill versioning, and inter-agent skill sharing. Drop it into your existing agent. No migration. No new runtime.</p>
+            <p class="skill-meta">Speedrun AI Labs &middot; Based on Nous Research's Hermes Agent &middot; v2.0 &middot; October 2026 &middot; MIT License</p>
+            <p class="skill-desc">Nous Research's Hermes Agent learns from its own work. This skill brings that learning loop to any agent as a portable SKILL.md file, rebuilt in October 2026 against the current Hermes source: a review pass after every task, lessons saved into skills before memory, a never-capture list so failures never harden into rules, recall from past sessions before asking, and a curator that archives skills nobody uses. Agent-agnostic. Drop it into your existing agent. No migration. No new runtime.</p>
             <details class="skill-install-details">
                 <summary>Install Instructions</summary>
                 <div class="skill-install-body">
@@ -988,6 +989,8 @@
 git clone https://github.com/Speedrunlab/hermes-agent-as-a-skill-file.git ~/.claude/skills/hermes-agent-as-a-skill-file</code>
                     <p class="skill-install-label" style="margin-top:16px">Then run</p>
                     <code>/hermes-agent-as-a-skill-file</code>
+                    <p class="skill-install-label" style="margin-top:16px">Any other agent</p>
+                    <p style="font-size:13px;line-height:1.7;color:var(--black)">Copy <code style="display:inline">SKILL.md</code> into its skills directory, then fill in the "Map it to your agent" table once.</p>
                 </div>
             </details>
             <div class="skill-actions">
