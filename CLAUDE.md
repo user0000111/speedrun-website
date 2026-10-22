@@ -74,6 +74,11 @@ Static site, no framework, no build step. Pickup state and history live in the O
   clicking a menu item loads with the mouse resting on that item and would otherwise drop its panel open.
 - SSRN blocks fetches: an abstract id comes from Addy and is taken on trust; say so.
 - Never change mission or brand copy without Addy's explicit approval.
+- A skill's version shows in three places: the card's `skill-meta` line, its `SoftwareSourceCode` JSON-LD
+  `version`, and `llms.txt`. Bump all three when the Speedrunlab repo releases (2026-10-23: Reverse Engineer
+  Anything at v1.13, `92a7637`). It is "Reverse Engineer Anything" everywhere, never "REA" (Addy 2026-10-22:
+  *"All this vague naming needs to stop"*), and no copy refers to the project it was audited against. Vault
+  `2026-10-23 reverse-engineer-anything-hardening`.
 
 ## Products and the Agents section (Addy 2026-10-17)
 - Speedrun ships exactly TWO agents: **Anton** (cyber security; named after Gilfoyle's server in
