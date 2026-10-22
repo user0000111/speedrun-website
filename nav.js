@@ -44,10 +44,10 @@
       ]},
       { label: 'Skills', items: [
         ['Reverse Engineer Anything', '/#reverse-engineer-anything'],
-        ['Hermes Agent as a Skill',  '/#hermes-agent-as-a-skill'],
+        ['Hermes Agent as a Skill File', '/#hermes-agent-as-a-skill'],
         ['Read Before Write',        '/#read-before-write'],
-        ['No Slop Writing',          '/#no-slop-writing'],
-        ['No Slop Writing (AU)',     '/#no-slop-writing-au'],
+        ['No-Slop Writing',          '/#no-slop-writing'],
+        ['No-Slop Writing (AU)',     '/#no-slop-writing-au'],
         ['Deep Audit',               '/#deep-audit'],
       ]},
     ],

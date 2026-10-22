@@ -34,7 +34,7 @@
     { title: 'Agents', links: [
       ['Anton, Cyber Security', '/#anton'],
       ['Joseph, Compliance', '/#joseph'],
-      ['Book a call', '/#contact'],
+      ['Talk to us', '/#contact'],
     ]},
     { title: 'Research', links: [
       ['Research Papers', '/papers/'],

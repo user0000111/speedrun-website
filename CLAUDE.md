@@ -56,8 +56,11 @@ Static site, no framework, no build step. Pickup state and history live in the O
   not the top row. A new paper or skill adds a `FLYOUT` line too (paper cards carry anchor ids; home
   routes `/#<card-id>` through `srRoute()`). Vault `2026-10-17 research-flyout-apple-style`.
 - The paper COUNT lives in six strings: papers meta description, og and twitter descriptions,
-  home FAQ answer, home `agents-proof`, llms.txt. Newest paper goes FIRST in the card list,
-  `hasPart`, `@graph`, llms.txt and the nav.js `FLYOUT` Papers list. Every JSON-LD block must still parse after an edit.
+  home FAQ answer, home `agents-proof`, llms.txt. The /papers/ cards sit in two labelled sections,
+  "Peer-reviewed journal" then "Preprints · SSRN", each newest first; a new paper goes FIRST in its section,
+  and the nav.js `FLYOUT` Papers list follows that card order. `hasPart`, the home `@graph` and llms.txt are
+  strictly newest first across both sections (fixed 2026-10-22: they had drifted; do not flatten the page
+  sections to match them). Every JSON-LD block must still parse after an edit.
 - Press cards live only in the ItemList JSON-LD. PDFs carry `X-Robots-Tag: noindex`, so keep
   them OUT of `sitemap.xml`.
 - `go()` keeps the URL hash in step with the section (`#about`, `#projects` ...) so a refresh or a shared
