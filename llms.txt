@@ -27,7 +27,7 @@ Helps the team at a financial services business keep watch on the obligations it
 
 ## Open Source
 
-Speedrun AI Labs publishes free, open-source skills for Claude Code, OpenClaw and any agent at github.com/Speedrunlab: /reverse-engineer-anything, /hermes-agent-as-a-skill-file, /read-before-write, /deep-audit, /no-slop-writing, and /no-slop-writing-au. All MIT licensed. /hermes-agent-as-a-skill-file (v2.0, October 2026) is agent-agnostic: it brings Nous Research's Hermes Agent learning loop to any agent. Reverse Engineer Anything (/reverse-engineer-anything, v1.13, October 2026) guides authorised analysis of binaries, apps, firmware and captured traffic with standard open-source tools, static-first and evidence-led. Details at speedrunlab.ai/#skills.
+Speedrun AI Labs publishes free, open-source skills for Claude Code, OpenClaw and any agent at github.com/Speedrunlab: /reverse-engineer-anything, /hermes-agent-as-a-skill-file, /read-before-write, /deep-audit, /no-slop-writing, and /no-slop-writing-au. All MIT licensed. /hermes-agent-as-a-skill-file (v2.0, October 2026) is agent-agnostic: it brings Nous Research's Hermes Agent learning loop to any agent. Reverse Engineer Anything (/reverse-engineer-anything, v1.14, October 2026) guides authorised analysis of binaries, apps, firmware and captured traffic with standard open-source tools, static-first and evidence-led. Details at speedrunlab.ai/#skills.
 
 ## Contact
 
