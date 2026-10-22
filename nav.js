@@ -43,6 +43,7 @@
         ['Fault-Tolerant Memory for OpenClaw', '/papers/#fault-tolerant-memory'],
       ]},
       { label: 'Skills', items: [
+        ['Reverse Engineer Anything', '/#reverse-engineer-anything'],
         ['Hermes Agent as a Skill',  '/#hermes-agent-as-a-skill'],
         ['Read Before Write',        '/#read-before-write'],
         ['No Slop Writing',          '/#no-slop-writing'],

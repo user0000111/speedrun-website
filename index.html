@@ -223,6 +223,28 @@
     }
     </script>
 
+    <!-- Reverse Engineer Anything Skill Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "Reverse Engineer Anything",
+        "url": "https://www.speedrunlab.ai/#reverse-engineer-anything",
+        "codeRepository": "https://github.com/Speedrunlab/reverse-engineer-anything",
+        "programmingLanguage": "Markdown",
+        "runtimePlatform": "Agent-agnostic: Claude Code, OpenClaw and any agent with a terminal and file tools",
+        "description": "A skill for authorised analysis of shipped software: binaries, packaged and mobile apps, firmware and captured traffic. Routes each target to standard open-source tools, works static and read-only by default, gates live analysis behind explicit approval in an isolated environment, and ties every finding to a checksum and the exact command. Installs nothing on its own.",
+        "author": {
+            "@type": "Organization",
+            "name": "Speedrun AI Labs",
+            "url": "https://www.speedrunlab.ai"
+        },
+        "version": "1.0.0",
+        "datePublished": "2026-10-22",
+        "license": "https://opensource.org/licenses/MIT"
+    }
+    </script>
+
     <!-- Hermes Agent as a Skill File Schema -->
     <script type="application/ld+json">
     {
@@ -967,6 +989,37 @@
             <p>Production-grade skills for Claude Code and OpenClaw agents. Built by Speedrun AI Labs, Sydney, Australia. Free and open source.</p>
         </div>
         <div class="skills-grid">
+        <article class="skill-card" id="reverse-engineer-anything">
+            <img class="skill-image" src="/images/skill-reverse-engineer-anything.png" alt="Reverse Engineer Anything skill: a chrome engine taken apart into its components, with a plate marked REA" width="1376" height="768" loading="lazy">
+            <div class="skill-badges">
+                <span class="skill-badge free">Free</span>
+                <span class="skill-badge">Claude Code</span>
+                <span class="skill-badge">OpenClaw</span>
+                <span class="skill-badge">Any agent</span>
+            </div>
+            <p class="skill-hook">See how any binary, app or firmware works, when you can't read its source.</p>
+            <h3>/reverse-engineer-anything: Analyse shipped software with standard open-source tools, and tie every finding to evidence.</h3>
+            <p class="skill-meta">Speedrun AI Labs &middot; v1.0 &middot; October 2026 &middot; MIT License</p>
+            <p class="skill-desc">Point any AI agent at a binary, a packaged or mobile app, a firmware image or a captured session, and it works out how it is built. It routes each target to the right open-source tool (Ghidra, radare2, binwalk, JADX and more), stays static and read-only by default, and ties every finding to the file's checksum and the exact command that produced it. An authorisation gate comes first, live analysis needs explicit approval in an isolated environment, and nothing auto-installs or edits your agent's configuration, so it is safe to hand to a whole team.</p>
+            <details class="skill-install-details">
+                <summary>Install Instructions</summary>
+                <div class="skill-install-body">
+                    <p class="skill-install-label">Install (Claude Code)</p>
+                    <code>mkdir -p ~/.claude/skills
+git clone https://github.com/Speedrunlab/reverse-engineer-anything.git ~/.claude/skills/reverse-engineer-anything</code>
+                    <p class="skill-install-label" style="margin-top:16px">Then run</p>
+                    <code>/reverse-engineer-anything</code>
+                    <p class="skill-install-label" style="margin-top:16px">Any other agent</p>
+                    <p style="font-size:13px;line-height:1.7;color:var(--black)">Copy <code style="display:inline;word-break:normal">SKILL.md</code> into its skills directory. Install the open-source tools you need from <code style="display:inline;word-break:normal">references/toolchain.md</code>, at pinned versions.</p>
+                </div>
+            </details>
+            <div class="skill-actions">
+                <a class="skill-github" href="https://github.com/Speedrunlab/reverse-engineer-anything" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    View on GitHub
+                </a>
+            </div>
+        </article>
         <article class="skill-card" id="hermes-agent-as-a-skill">
             <img class="skill-image" src="/images/skill-hermes.png" alt="Hermes Skill — cyborg speedrunner bird holding clipboard marked HERMES" width="1380" height="752" loading="lazy">
             <div class="skill-badges">
@@ -990,7 +1043,7 @@ git clone https://github.com/Speedrunlab/hermes-agent-as-a-skill-file.git ~/.cla
                     <p class="skill-install-label" style="margin-top:16px">Then run</p>
                     <code>/hermes-agent-as-a-skill-file</code>
                     <p class="skill-install-label" style="margin-top:16px">Any other agent</p>
-                    <p style="font-size:13px;line-height:1.7;color:var(--black)">Copy <code style="display:inline">SKILL.md</code> into its skills directory, then fill in the "Map it to your agent" table once.</p>
+                    <p style="font-size:13px;line-height:1.7;color:var(--black)">Copy <code style="display:inline;word-break:normal">SKILL.md</code> into its skills directory, then fill in the "Map it to your agent" table once.</p>
                 </div>
             </details>
             <div class="skill-actions">
