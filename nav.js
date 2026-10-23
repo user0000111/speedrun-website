@@ -7,15 +7,16 @@
     { label: 'Home',            id: 'home',     href: '/',          section: true  },
     { label: 'About',           id: 'about',    href: '/#about',    section: true,  flyout: 'about', alsoOn: ['/ai-safety/', '/data/'] },
     { label: 'Agents',          id: 'projects', href: '/#projects', section: true  },
-    { label: 'Research Papers', id: null,       href: '/papers/',   section: false, flyout: 'research', activeFor: 'skills' },
+    { label: 'Skill Library',   id: 'skills',   href: '/#skills',   section: true,  flyout: 'research', alsoOn: ['/papers/'] },
     { label: 'Press',           id: 'press',    href: '/#press',    section: true  },
     { label: 'Contact Us',      id: 'contact',  href: '/#contact',  section: true  },
   ];
 
   // Flyouts, Apple globalnav style: hover the item and a panel drops down under the bar.
-  // Research holds Skill Library (Addy 2026-10-17); About holds the manifesto and AI Safety
-  // (Addy 2026-10-17: "That AI Safety tab will also be under the About section").
-  // Paper links follow the card order on /papers/; skill links are the card ids on home.
+  // Skill Library is the top-row item and Research Papers sits inside its panel (Addy 2026-10-23:
+  // "skills library there and research paper inside, basically a swap"; the reverse held from 2026-10-17).
+  // About holds the manifesto and AI Safety (Addy 2026-10-17: "That AI Safety tab will also be under the
+  // About section"). Skill links are the card ids on home; paper links follow the card order on /papers/.
   var FLYOUTS = {
     about: [
       { label: 'About Speedrun AI Labs', primary: true, items: [
@@ -30,17 +31,9 @@
       ]},
     ],
     research: [
-      { label: 'Explore Research', primary: true, items: [
-        ['Research Papers', '/papers/'],
+      { label: 'Explore', primary: true, items: [
         ['Skill Library',   '/#skills'],
-      ]},
-      { label: 'Papers', items: [
-        ['NemoClaw on Apple Silicon',        '/papers/#nemoclaw-apple-silicon'],
-        ['Inside NemoClaw',                  '/papers/#inside-nemoclaw'],
-        ['Independent Review-Council Seats', '/papers/#review-council-seats'],
-        ['The Intelligence Council',         '/papers/#intelligence-council'],
-        ['Self-Improving AI Agents',         '/papers/#self-improving-agents'],
-        ['Fault-Tolerant Memory for OpenClaw', '/papers/#fault-tolerant-memory'],
+        ['Research Papers', '/papers/'],
       ]},
       { label: 'Skills', items: [
         ['Reverse Engineer Anything', '/#reverse-engineer-anything'],
@@ -49,6 +42,14 @@
         ['No-Slop Writing',          '/#no-slop-writing'],
         ['No-Slop Writing (AU)',     '/#no-slop-writing-au'],
         ['Deep Audit',               '/#deep-audit'],
+      ]},
+      { label: 'Papers', items: [
+        ['NemoClaw on Apple Silicon',        '/papers/#nemoclaw-apple-silicon'],
+        ['Inside NemoClaw',                  '/papers/#inside-nemoclaw'],
+        ['Independent Review-Council Seats', '/papers/#review-council-seats'],
+        ['The Intelligence Council',         '/papers/#intelligence-council'],
+        ['Self-Improving AI Agents',         '/papers/#self-improving-agents'],
+        ['Fault-Tolerant Memory for OpenClaw', '/papers/#fault-tolerant-memory'],
       ]},
     ],
   };

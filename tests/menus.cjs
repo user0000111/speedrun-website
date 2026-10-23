@@ -98,7 +98,9 @@ async function run(name, browserType, opts, touch) {
         check(name, `${tag}: mouse leaves, closes`, clear(await state(p)), JSON.stringify(await state(p)));
         await start(from); await openPanel(key); await p.click('#nav-trigger-' + key); await settle('#x');
         const s = await state(p);
-        const dest = key === 'about' ? s.section === 'p-about' : s.path.startsWith('/papers/');
+        // The trigger's own click is its primary link: About → the manifesto section, Skill Library → the skills
+        // section (Research Papers moved inside the panel, Addy 2026-10-23).
+        const dest = key === 'about' ? s.section === 'p-about' : s.section === 'p-skills';
         check(name, `${tag}: click item closes + navigates`, clear(s) && dest, JSON.stringify(s));
       }
       await start(from); await openPanel(key);
