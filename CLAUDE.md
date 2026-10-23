@@ -81,6 +81,19 @@ Static site, no framework, no build step. Pickup state and history live in the O
   *"All this vague naming needs to stop"*), and no copy refers to the project it was audited against. Vault
   `2026-10-23 reverse-engineer-anything-hardening`, `2026-10-23 reverse-engineer-anything-coverage-pass`,
   `2026-10-23 hermes-skill-coverage-pass`.
+- **The Skill Library is one markup with two layouts** (Addy 2026-10-23: *"a multi view of list and a tile view … think as
+  if the skills keep growing … we follow apple design philosophy"*; his pick "A Store" of three, apple.com store look: white
+  tiles on `#F5F5F7`, 3-up at 1024+, 2-up to 601, one column below; the list is an inset grouped card with square thumbnails).
+  Each skill is ONE `<article class="skill-card" id="…" data-cat="agents|security|writing">` holding the name (`h3`), hook,
+  meta, platforms, actions and a hidden `.skill-detail` (install commands, note, full description) that the install sheet
+  (`#skillSheet`, a `<dialog>`: centred card on desktop, bottom sheet on phone, Copy buttons, GitHub) is filled from. The
+  toolbar is category chips (one per `data-cat`; a new category = a chip + the attribute), a live count and the Tiles / List
+  segmented control, kept for the tab in `sessionStorage` `sr-skills-view`; every visit opens in tiles (Addy 2026-10-23: *"open in tile view not list view"*). Growth is wired in and
+  tested: search appears at `data-search-at="10"` skills, the grid shows `data-page-size="12"` then "Show more", and a deep
+  link to a card (`/#deep-audit`, the Research flyout) is always revealed whatever the paging or filter: the routing IIFE
+  stashes the arrival hash in `window.srArrive` before `go()` rewrites it, and `srRoute` is wrapped to reveal the card first.
+  Adding a skill = one `<article>` (newest first) + its JSON-LD + the nav.js `FLYOUT` line + `llms.txt`; nothing else. Never
+  add a badge pill back: platform and licence are text lines. Vault `2026-10-23 skill-library-tiles-and-list`.
 
 ## Products and the Agents section (Addy 2026-10-17)
 - Speedrun ships exactly TWO agents: **Anton** (cyber security; named after Gilfoyle's server in
@@ -121,10 +134,12 @@ Static site, no framework, no build step. Pickup state and history live in the O
   `reference_openrouter_image_gen.md`.
 - A skill banner need not be the bird (Addy 2026-10-22, Reverse Engineer Anything: *"a graphic instead of
   the mascot"*): keep the house material (brushed chrome, navy arcs, blue/copper glow, pixel trail) and draw
-  a metaphor object instead. Skill-card image crop is 570x180 desktop/iPad and 283x180 phone (object-fit
-  cover), so the subject sits in the middle half of a 16:9 frame; the contact sheet shows both crops and
-  goes to his phone (SendUserFile) when he is away. Never write "middle band" in the prompt: the model
-  paints a literal band. Vault `2026-10-22 reverse-engineer-anything-skill`.
+  a metaphor object instead. Since the tile/list library (2026-10-23) the skill picture shows at 16:9 (object-fit
+  cover: ~370x208 in a desktop tile, full width on phone) and as a 72 px square thumbnail cut from the centre in the
+  list (60 px on phone), so the subject sits in the middle half of a 16:9 frame; the contact sheet shows both crops
+  and goes to his phone (SendUserFile) when he is away. Never write "middle band" in the prompt: the model
+  paints a literal band. Four of the six current banners are the same bird; new banners per skill are a separate
+  task on Addy's word. Vault `2026-10-22 reverse-engineer-anything-skill`, `2026-10-23 skill-library-tiles-and-list`.
 
 ## Contact form and security
 - `api/contact.js` fails CLOSED at every layer; Turnstile is the load-bearing control; exactly
