@@ -1549,8 +1549,9 @@ var PAGE=parseInt(grid.getAttribute('data-page-size'),10)||12,SEARCH_AT=parseInt
 var state={cat:'all',q:'',shown:PAGE,view:'tiles',want:''};
 /* A deep link to one card (/#deep-audit) stays visible whatever the paging; the page stashes the arrival hash in srArrive before go() rewrites it. */
 if(window.srArrive&&!document.getElementById('p-'+window.srArrive)){var ac=document.getElementById(window.srArrive);if(ac&&ac.classList.contains('skill-card'))state.want=ac.id;}
-try{var v=localStorage.getItem('sr-skills-view');if(v==='list'||v==='tiles')state.view=v;}catch(e){}
-function setView(v,save){state.view=v;grid.setAttribute('data-view',v);[].forEach.call(seg.querySelectorAll('[data-view]'),function(b){var on=b.getAttribute('data-view')===v;b.setAttribute('aria-checked',on?'true':'false');b.tabIndex=on?0:-1;});if(save){try{localStorage.setItem('sr-skills-view',v)}catch(e){}}}
+/* Opens in tiles on every visit (Addy 2026-10-23); the List choice lasts for the tab only. */
+try{var v=sessionStorage.getItem('sr-skills-view');if(v==='list'||v==='tiles')state.view=v;}catch(e){}
+function setView(v,save){state.view=v;grid.setAttribute('data-view',v);[].forEach.call(seg.querySelectorAll('[data-view]'),function(b){var on=b.getAttribute('data-view')===v;b.setAttribute('aria-checked',on?'true':'false');b.tabIndex=on?0:-1;});if(save){try{sessionStorage.setItem('sr-skills-view',v)}catch(e){}}}
 seg.addEventListener('click',function(e){var b=e.target.closest('[data-view]');if(b)setView(b.getAttribute('data-view'),true);});
 seg.addEventListener('keydown',function(e){if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;e.preventDefault();var v=state.view==='tiles'?'list':'tiles';setView(v,true);seg.querySelector('[data-view="'+v+'"]').focus();});
 function label(cat){var c=chips.filter(function(x){return x.getAttribute('data-cat')===cat})[0];return c?c.textContent:cat;}
