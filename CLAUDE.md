@@ -76,10 +76,11 @@ Static site, no framework, no build step. Pickup state and history live in the O
 - Never change mission or brand copy without Addy's explicit approval.
 - A skill's version shows in three places: the card's `skill-meta` line, its `SoftwareSourceCode` JSON-LD
   `version`, and `llms.txt`. Bump all three when the Speedrunlab repo releases (2026-10-23: Reverse Engineer
-  Anything at v1.14, `7d45f1a`, after the coverage pass that added eight target types). It is "Reverse
-  Engineer Anything" everywhere, never "REA" (Addy 2026-10-22: *"All this vague naming needs to stop"*), and
-  no copy refers to the project it was audited against. Vault `2026-10-23 reverse-engineer-anything-hardening`,
-  `2026-10-23 reverse-engineer-anything-coverage-pass`.
+  Anything at v1.14, `7d45f1a`, and Hermes Agent as a Skill File at v2.1, `d51aa22`, each after a coverage
+  pass against its original). It is "Reverse Engineer Anything" everywhere, never "REA" (Addy 2026-10-22:
+  *"All this vague naming needs to stop"*), and no copy refers to the project it was audited against. Vault
+  `2026-10-23 reverse-engineer-anything-hardening`, `2026-10-23 reverse-engineer-anything-coverage-pass`,
+  `2026-10-23 hermes-skill-coverage-pass`.
 
 ## Products and the Agents section (Addy 2026-10-17)
 - Speedrun ships exactly TWO agents: **Anton** (cyber security; named after Gilfoyle's server in
