@@ -771,31 +771,143 @@
         .agents-close h3{font-family:var(--font-serif);font-size:clamp(24px,4vw,34px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:12px;line-height:1.2}
         .agents-close p{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);margin-bottom:28px;line-height:1.55}
 
-        .skills{max-width:680px;margin:0 auto;padding:80px 22px 100px}
-        .skills-header{margin-bottom:64px}
+        /* Skill Library: one markup, two layouts (tiles / list), category chips, an install sheet. */
+        .skills{max-width:1180px;margin:0 auto;padding:80px 22px 100px}
+        .skills-header{margin-bottom:40px;max-width:680px}
         .skills-header h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,40px);font-weight:400;font-style:italic;color:var(--black);margin-bottom:10px}
         .skills-header p{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);line-height:1.5}
-        .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;margin-top:48px}
-        .skill-card{padding:32px;border:1px solid var(--grey-light);border-radius:16px;display:flex;flex-direction:column;background:var(--white)}
-        .skill-image{width:100%;height:180px;object-fit:cover;border-radius:10px;display:block;margin-bottom:24px}
-        .skill-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-        .skill-badge{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:980px;border:1px solid var(--grey-light);color:var(--grey-mid)}
-        .skill-badge.free{color:#065f46;border-color:#a7f3d0;background:#ecfdf5}
-        .skill-hook{font-family:var(--font-sans);font-size:clamp(22px,3.5vw,30px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:10px;letter-spacing:-0.02em}
-        .skill-card h3{font-family:var(--font-sans);font-size:14px;font-weight:400;color:var(--grey-mid);margin-bottom:6px;line-height:1.4}
-        .skill-meta{font-family:var(--font-sans);font-size:12px;color:var(--grey-nav);margin-bottom:20px}
-        .skill-desc{font-family:var(--font-sans);font-size:15px;color:var(--grey-dark);line-height:1.65;margin-bottom:24px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-        .skill-install-details{margin-bottom:24px}
-        .skill-install-details summary{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--black);border:1px solid var(--grey-light);border-radius:980px;padding:10px 20px;cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:6px;min-height:44px;transition:border-color 0.2s,background 0.2s;user-select:none}
-        .skill-install-details summary::-webkit-details-marker{display:none}
-        .skill-install-details summary:hover{border-color:var(--black);background:rgba(0,0,0,0.03)}
-        .skill-install-details[open] summary{border-color:var(--black);background:rgba(0,0,0,0.04)}
-        .skill-install-body{margin-top:12px;padding:20px;background:rgba(0,0,0,0.03);border-radius:8px;border:1px solid var(--grey-light)}
-        .skill-install-body code{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;color:var(--black);line-height:1.7;display:block;white-space:pre-wrap;word-break:break-all}
-        .skill-install-label{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:10px}
-        .skill-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
-        .skill-github{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--white);background:var(--black);border:1px solid var(--black);border-radius:980px;padding:8px 20px;text-decoration:none;transition:opacity 0.2s}
-        .skill-github:hover{opacity:0.82}
+        .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+        .skills-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin-bottom:28px}
+        .skills-filters{display:flex;gap:8px;flex-wrap:wrap}
+        .chip{font-family:var(--font-sans);font-size:13px;font-weight:500;line-height:1;color:var(--black);background:#fff;border:1px solid var(--grey-light);border-radius:980px;height:32px;padding:0 14px;cursor:pointer;transition:border-color .2s,background .2s,color .2s;-webkit-appearance:none;appearance:none}
+        .chip:hover{border-color:var(--black)}
+        .chip[aria-pressed="true"]{background:var(--black);color:#fff;border-color:var(--black)}
+        .skills-tools{display:flex;align-items:center;gap:14px}
+        .skills-count{font-family:var(--font-sans);font-size:14px;color:var(--grey-mid);white-space:nowrap;margin:0}
+        .skills-search{position:relative;display:inline-flex;align-items:center}
+        .skills-search[hidden]{display:none}
+        .skills-search svg{position:absolute;left:10px;width:14px;height:14px;color:var(--grey-nav);pointer-events:none}
+        .skills-search input{font-family:var(--font-sans);font-size:14px;color:var(--black);height:32px;width:200px;border:0;border-radius:9px;background:rgba(118,118,128,.12);padding:0 10px 0 30px;outline:none;-webkit-appearance:none;appearance:none}
+        .skills-search input::-webkit-search-cancel-button{-webkit-appearance:none}
+        .seg{display:inline-flex;align-items:center;padding:2px;background:rgba(118,118,128,.12);border-radius:9px;height:32px;box-sizing:border-box}
+        .seg-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:28px;border:0;border-radius:7px;background:transparent;color:var(--grey-mid);cursor:pointer;padding:0;transition:background .2s,color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+        .seg-btn svg{width:16px;height:16px;fill:currentColor}
+        .seg-btn[aria-checked="true"]{background:#fff;color:var(--black);box-shadow:0 3px 8px rgba(0,0,0,.12),0 3px 1px rgba(0,0,0,.04)}
+        .chip:focus-visible,.seg-btn:focus-visible,.skill-install:focus-visible,.skill-github:focus-visible,.skill-figure:focus-visible,.skill-name button:focus-visible,.sheet-close:focus-visible,.sheet-copy:focus-visible,.sheet-github:focus-visible,.skills-search input:focus-visible,.skills-empty button:focus-visible{outline:2px solid #0071E3;outline-offset:2px}
+        .skills-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+        .skill-card{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:box-shadow .3s,transform .3s}
+        .skill-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.10);transform:translateY(-2px)}
+        .skill-card[hidden]{display:none}
+        .skill-figure{display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;background:#0F1420;cursor:pointer;overflow:hidden;-webkit-appearance:none;appearance:none}
+        .skill-image{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+        .skill-card:hover .skill-image{transform:scale(1.03)}
+        .skill-body{padding:20px 22px 0;flex:1 1 auto;display:flex;flex-direction:column}
+        .skill-kicker{font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--grey-nav);margin:0 0 8px}
+        .skill-name{margin:0 0 8px}
+        .skill-name button{font-family:var(--font-sans);font-size:21px;font-weight:600;letter-spacing:-0.01em;line-height:1.2;color:var(--black);background:none;border:0;padding:0;text-align:left;cursor:pointer;-webkit-appearance:none;appearance:none}
+        .skill-hook{font-family:var(--font-sans);font-size:15px;line-height:1.47;color:var(--grey-dark);margin:0 0 14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+        .skill-meta{font-family:var(--font-sans);font-size:13px;color:var(--grey-nav);margin:auto 0 0;line-height:1.4}
+        .skill-platforms{font-family:var(--font-sans);font-size:13px;color:var(--grey-mid);margin:4px 0 0;line-height:1.4;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+        .skill-actions{display:flex;align-items:center;gap:18px;padding:18px 22px 22px}
+        .skill-install{font-family:var(--font-sans);font-size:14px;font-weight:500;color:#fff;background:var(--black);border:1px solid var(--black);border-radius:980px;height:36px;padding:0 18px;cursor:pointer;transition:opacity .2s;-webkit-appearance:none;appearance:none}
+        .skill-install:hover{opacity:.82}
+        .skill-github{display:inline-flex;align-items:center;gap:3px;font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--black);text-decoration:none}
+        .skill-github:hover{text-decoration:underline}
+        .skill-detail{display:none}
+        .skills-grid[data-view="list"]{display:block;position:relative;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+        .skills-grid[data-view="list"]::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:#fff;z-index:1}
+        .skills-grid[data-view="list"] .skill-card{display:grid;grid-template-columns:72px minmax(0,1fr) auto;grid-template-areas:"fig body act";align-items:center;gap:18px;padding:16px 20px;border-radius:0;box-shadow:none;background:transparent;transform:none;border-top:1px solid rgba(0,0,0,.08);transition:background .2s}
+        .skills-grid[data-view="list"] .skill-card[hidden]{display:none}
+        .skills-grid[data-view="list"] .skill-card:hover{background:rgba(0,0,0,.02)}
+        .skills-grid[data-view="list"] .skill-figure{grid-area:fig;width:72px;height:72px;aspect-ratio:auto;border-radius:16px}
+        .skills-grid[data-view="list"] .skill-card:hover .skill-image{transform:none}
+        .skills-grid[data-view="list"] .skill-body{grid-area:body;padding:0;display:block;min-width:0}
+        .skills-grid[data-view="list"] .skill-kicker{display:none}
+        .skills-grid[data-view="list"] .skill-name{margin:0 0 3px}
+        .skills-grid[data-view="list"] .skill-name button{font-size:17px}
+        .skills-grid[data-view="list"] .skill-hook{font-size:14px;color:var(--grey-mid);margin:0 0 4px;-webkit-line-clamp:1}
+        .skills-grid[data-view="list"] .skill-meta{font-size:12px;margin:0;display:inline}
+        .skills-grid[data-view="list"] .skill-platforms{font-size:12px;margin:0;display:inline;color:var(--grey-nav)}
+        .skills-grid[data-view="list"] .skill-platforms::before{content:"\00b7";margin:0 6px}
+        .skills-grid[data-view="list"] .skill-actions{grid-area:act;padding:0;gap:16px}
+        .skills-grid[data-view="list"] .skill-install{height:32px;font-size:13px;padding:0 16px}
+        .skills-more{display:flex;justify-content:center;margin-top:32px}
+        .skills-more[hidden]{display:none}
+        .skills-more .chip{height:40px;padding:0 22px;font-size:14px}
+        .skills-empty{font-family:var(--font-sans);font-size:15px;color:var(--grey-mid);text-align:center;padding:48px 0}
+        .skills-empty[hidden]{display:none}
+        .skills-empty button{font:inherit;color:var(--black);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+        .skill-sheet{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;height:100dvh;margin:0;inset:0;position:fixed;overflow:visible}
+        .skill-sheet[open]{display:grid;place-items:center}
+        .skill-sheet::backdrop{background:rgba(0,0,0,.32);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+        .sheet-card{position:relative;width:min(600px,calc(100vw - 32px));max-height:min(82vh,780px);background:#fff;border-radius:22px;box-shadow:0 24px 80px rgba(0,0,0,.28);display:flex;flex-direction:column;overflow:hidden;animation:sheetIn .26s cubic-bezier(.2,.8,.2,1)}
+        @keyframes sheetIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+        .sheet-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(118,118,128,.12);color:var(--grey-dark);cursor:pointer;display:grid;place-items:center;z-index:2;-webkit-appearance:none;appearance:none}
+        .sheet-close:hover{background:rgba(118,118,128,.2)}
+        .sheet-close svg{width:12px;height:12px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round}
+        .sheet-scroll{overflow:auto;padding:30px 30px 24px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+        .sheet-kicker{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--grey-nav);margin:0 0 10px;padding-right:44px}
+        .sheet-kicker .k{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+        .sheet-title{font-family:var(--font-sans);font-size:26px;font-weight:600;letter-spacing:-0.015em;line-height:1.15;color:var(--black);margin:0 0 10px;padding-right:44px}
+        .sheet-hook{font-family:var(--font-sans);font-size:17px;line-height:1.45;color:var(--grey-dark);margin:0 0 6px}
+        .sheet-credit{font-family:var(--font-sans);font-size:13px;color:var(--grey-nav);margin:0 0 6px}
+        .sheet-credit[hidden]{display:none}
+        .sheet-body .skill-credit{display:none}
+        .sheet-body .skill-sub{font-family:var(--font-sans);font-size:15px;line-height:1.5;color:var(--grey-mid);margin:0 0 22px}
+        .sheet-body .skill-install-label{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-mid);margin:18px 0 8px}
+        .sheet-body .skill-code{position:relative;margin:0;background:#F5F5F7;border-radius:12px;padding:14px 76px 14px 16px}
+        .sheet-body .skill-code code{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.6;color:var(--black);white-space:pre-wrap;word-break:break-all;display:block}
+        .sheet-copy{position:absolute;top:9px;right:9px;height:28px;padding:0 10px;border-radius:7px;background:#fff;border:1px solid var(--grey-light);font-family:var(--font-sans);font-size:12px;font-weight:500;color:var(--black);cursor:pointer;-webkit-appearance:none;appearance:none}
+        .sheet-copy:hover{border-color:var(--black)}
+        .sheet-body .skill-note{font-family:var(--font-sans);font-size:14px;line-height:1.55;color:var(--grey-dark);margin:0}
+        .sheet-body .skill-note code{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;background:#F5F5F7;border-radius:5px;padding:1px 6px}
+        .sheet-body .skill-desc{font-family:var(--font-sans);font-size:15px;line-height:1.6;color:var(--grey-dark);margin:0}
+        .sheet-platforms,.sheet-licence{font-family:var(--font-sans);font-size:13px;color:var(--grey-nav);margin:18px 0 0;line-height:1.5}
+        .sheet-licence{margin-top:4px}
+        .sheet-actions{display:flex;justify-content:flex-end;gap:12px;padding:16px 30px 24px;border-top:1px solid var(--grey-light);background:#fff}
+        .sheet-github{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:14px;font-weight:500;color:#fff;background:var(--black);border:1px solid var(--black);border-radius:980px;height:40px;padding:0 20px;text-decoration:none;transition:opacity .2s}
+        .sheet-github:hover{opacity:.82}
+        .sheet-github svg{width:15px;height:15px;fill:currentColor}
+        html.sheet-open{overflow:hidden}
+        #p-skills{background:#F5F5F7}
+        @media(max-width:1023px){
+            .skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+        }
+        @media(max-width:768px){
+            .skills{padding:56px 18px 80px}
+            .skills-header{margin-bottom:28px}
+            .skills-toolbar{gap:14px;margin-bottom:20px}
+            .skills-tools{order:-1;width:100%;justify-content:space-between}
+            .chip{height:36px;padding:0 15px;font-size:14px}
+            .seg{height:36px}
+            .seg-btn{width:44px;height:32px}
+            .skills-grid{gap:20px}
+            .skill-body{padding:18px 18px 0}
+            .skill-actions{padding:16px 18px 20px}
+            .skills-grid[data-view="list"]{border-radius:16px}
+            .skills-grid[data-view="list"] .skill-card{grid-template-columns:60px minmax(0,1fr) auto;gap:14px;padding:14px 16px}
+            .skills-grid[data-view="list"] .skill-figure{width:60px;height:60px;border-radius:14px}
+            .skills-grid[data-view="list"] .skill-name button{font-size:16px}
+            .skills-grid[data-view="list"] .skill-hook{-webkit-line-clamp:2;font-size:13px}
+            .skills-grid[data-view="list"] .skill-platforms{display:none}
+            .skills-grid[data-view="list"] .skill-github{display:none}
+            .skills-grid[data-view="list"] .skill-install{height:32px;padding:0 14px}
+            .skill-sheet[open]{place-items:end center}
+            .sheet-card{width:100%;max-height:88vh;max-height:88dvh;border-radius:22px 22px 0 0;animation:sheetUp .32s cubic-bezier(.2,.8,.2,1)}
+            @keyframes sheetUp{from{transform:translateY(100%)}to{transform:none}}
+            .sheet-scroll{padding:24px 20px 20px}
+            .sheet-title{font-size:23px}
+            .sheet-actions{padding:14px 20px calc(20px + env(safe-area-inset-bottom))}
+            .sheet-github{width:100%;justify-content:center}
+        }
+        @media(max-width:600px){
+            .skills-grid{grid-template-columns:1fr;gap:16px}
+        }
+        @media(prefers-reduced-motion:reduce){
+            .skill-card,.skill-image,.sheet-card,.chip,.seg-btn{transition:none;animation:none}
+            .skill-card:hover{transform:none}
+            .skill-card:hover .skill-image{transform:none}
+        }
 
         .press{max-width:680px;margin:0 auto;padding:80px 22px 100px}
         .press-header{margin-bottom:25px}
@@ -1064,192 +1176,182 @@
             <h2>Skill Library.</h2>
             <p>Production-grade skills for Claude Code, OpenClaw and any agent. Built by Speedrun AI Labs, Sydney, Australia. Free and open source.</p>
         </div>
-        <div class="skills-grid">
-        <article class="skill-card" id="reverse-engineer-anything">
-            <img class="skill-image" src="/images/skill-reverse-engineer-anything.png" alt="Reverse Engineer Anything skill: a chrome engine taken apart into its components, with a plate reading Reverse Engineer Anything" width="1376" height="768" loading="lazy">
-            <div class="skill-badges">
-                <span class="skill-badge free">Free</span>
-                <span class="skill-badge">Claude Code</span>
-                <span class="skill-badge">OpenClaw</span>
-                <span class="skill-badge">Any agent</span>
+        <div class="skills-toolbar a2">
+            <div class="skills-filters" role="group" aria-label="Filter by category">
+                <button class="chip" type="button" aria-pressed="true" data-cat="all">All</button>
+                <button class="chip" type="button" aria-pressed="false" data-cat="agents">Agents</button>
+                <button class="chip" type="button" aria-pressed="false" data-cat="security">Security</button>
+                <button class="chip" type="button" aria-pressed="false" data-cat="writing">Writing</button>
             </div>
-            <p class="skill-hook">Reverse Engineer Anything: see how any binary, app or firmware works, when you can't read its source.</p>
-            <h3>/reverse-engineer-anything: Analyse shipped software with standard open-source tools, and tie every finding to evidence.</h3>
-            <p class="skill-meta">Speedrun AI Labs &middot; v1.14 &middot; October 2026 &middot; MIT License</p>
-            <p class="skill-desc">Point any AI agent at a binary, a packaged or mobile app, a firmware image or a captured session, and it works out how it is built. It routes each target to the right open-source tool (Ghidra, radare2, binwalk, JADX and more), stays static and read-only by default, and ties every finding to the file's checksum and the exact command that produced it. An authorisation gate comes first, live analysis needs explicit approval in an isolated environment, and nothing auto-installs or edits your agent's configuration.</p>
-            <details class="skill-install-details">
-                <summary>Install Instructions</summary>
-                <div class="skill-install-body">
-                    <p class="skill-install-label">Install (Claude Code)</p>
-                    <code>mkdir -p ~/.claude/skills
-git clone https://github.com/Speedrunlab/reverse-engineer-anything.git ~/.claude/skills/reverse-engineer-anything</code>
-                    <p class="skill-install-label" style="margin-top:16px">Then run</p>
-                    <code>/reverse-engineer-anything</code>
-                    <p class="skill-install-label" style="margin-top:16px">Any other agent</p>
-                    <p style="font-size:13px;line-height:1.7;color:var(--black)">Copy <code style="display:inline;word-break:normal">SKILL.md</code> into its skills directory. Install the open-source tools you need from <code style="display:inline;word-break:normal">references/toolchain.md</code>, at pinned versions.</p>
+            <div class="skills-tools">
+                <label class="skills-search" hidden>
+                    <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 10.5 14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    <span class="vh">Search skills</span>
+                    <input type="search" placeholder="Search" autocomplete="off" spellcheck="false">
+                </label>
+                <p class="skills-count" aria-live="polite">6 skills</p>
+                <div class="seg" role="radiogroup" aria-label="View">
+                    <button class="seg-btn" type="button" role="radio" aria-checked="true" data-view="tiles" title="Tiles" aria-label="Tiles"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.6"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1.6"/><rect x="1.5" y="9" width="5.5" height="5.5" rx="1.6"/><rect x="9" y="9" width="5.5" height="5.5" rx="1.6"/></svg></button>
+                    <button class="seg-btn" type="button" role="radio" aria-checked="false" data-view="list" title="List" aria-label="List"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="2.6" cy="3.6" r="1.3"/><rect x="5.5" y="2.6" width="9" height="2" rx="1"/><circle cx="2.6" cy="8" r="1.3"/><rect x="5.5" y="7" width="9" height="2" rx="1"/><circle cx="2.6" cy="12.4" r="1.3"/><rect x="5.5" y="11.4" width="9" height="2" rx="1"/></svg></button>
                 </div>
-            </details>
+            </div>
+        </div>
+        <div class="skills-grid a3" data-view="tiles" data-page-size="12" data-search-at="10">
+        <article class="skill-card" id="reverse-engineer-anything" data-cat="security" data-search="reverse engineer anything binary app firmware ghidra radare2 binwalk jadx security">
+            <button class="skill-figure" type="button" data-sheet aria-label="Reverse Engineer Anything: details and install"><img class="skill-image" src="/images/skill-reverse-engineer-anything.png" alt="Reverse Engineer Anything skill: a chrome engine taken apart into its components, with a plate reading Reverse Engineer Anything" width="1376" height="768" loading="lazy"></button>
+            <div class="skill-body">
+                <p class="skill-kicker">Security</p>
+                <h3 class="skill-name"><button type="button" data-sheet>Reverse Engineer Anything</button></h3>
+                <p class="skill-hook">See how any binary, app or firmware works, when you can't read its source.</p>
+                <p class="skill-meta">v1.14 &middot; October 2026 &middot; MIT</p>
+                <p class="skill-platforms">Claude Code &middot; OpenClaw &middot; Any agent</p>
+            </div>
             <div class="skill-actions">
-                <a class="skill-github" href="https://github.com/Speedrunlab/reverse-engineer-anything" target="_blank" rel="noopener">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                    View on GitHub
-                </a>
+                <button class="skill-install" type="button" data-sheet>Install</button>
+                <a class="skill-github" href="https://github.com/Speedrunlab/reverse-engineer-anything" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="skill-detail" hidden>
+                <p class="skill-sub">/reverse-engineer-anything: Analyse shipped software with standard open-source tools, and tie every finding to evidence.</p>
+                <p class="skill-install-label">Install (Claude Code)</p>
+                <pre class="skill-code"><code>mkdir -p ~/.claude/skills
+git clone https://github.com/Speedrunlab/reverse-engineer-anything.git ~/.claude/skills/reverse-engineer-anything</code></pre>
+                <p class="skill-install-label">Then run</p>
+                <pre class="skill-code"><code>/reverse-engineer-anything</code></pre>
+                <p class="skill-install-label">Any other agent</p>
+                <p class="skill-note">Copy <code>SKILL.md</code> into its skills directory. Install the open-source tools you need from <code>references/toolchain.md</code>, at pinned versions.</p>
+                <p class="skill-install-label">About</p>
+                <p class="skill-desc">Point any AI agent at a binary, a packaged or mobile app, a firmware image or a captured session, and it works out how it is built. It routes each target to the right open-source tool (Ghidra, radare2, binwalk, JADX and more), stays static and read-only by default, and ties every finding to the file's checksum and the exact command that produced it. An authorisation gate comes first, live analysis needs explicit approval in an isolated environment, and nothing auto-installs or edits your agent's configuration.</p>
             </div>
         </article>
-        <article class="skill-card" id="hermes-agent-as-a-skill">
-            <img class="skill-image" src="/images/skill-hermes.png" alt="Hermes Skill — cyborg speedrunner bird holding clipboard marked HERMES" width="1380" height="752" loading="lazy">
-            <div class="skill-badges">
-                <span class="skill-badge free">Free</span>
-                <span class="skill-badge">Claude Code</span>
-                <span class="skill-badge">OpenClaw</span>
-                <span class="skill-badge">NemoClaw</span>
-                <span class="skill-badge">AgentSkills</span>
-                <span class="skill-badge">Any agent</span>
+        <article class="skill-card" id="hermes-agent-as-a-skill" data-cat="agents" data-search="hermes agent as a skill file nous research learning loop memory self-improving agents">
+            <button class="skill-figure" type="button" data-sheet aria-label="Hermes Agent as a Skill File: details and install"><img class="skill-image" src="/images/skill-hermes.png" alt="Hermes Skill — cyborg speedrunner bird holding clipboard marked HERMES" width="1380" height="752" loading="lazy"></button>
+            <div class="skill-body">
+                <p class="skill-kicker">Agents</p>
+                <h3 class="skill-name"><button type="button" data-sheet>Hermes Agent as a Skill File</button></h3>
+                <p class="skill-hook">Upgrade your existing agent, no need to migrate.</p>
+                <p class="skill-meta">v2.1 &middot; October 2026 &middot; MIT</p>
+                <p class="skill-platforms">Claude Code &middot; OpenClaw &middot; NemoClaw &middot; AgentSkills &middot; Any agent</p>
             </div>
-            <p class="skill-hook">Hermes Agent as a skill file: Upgrade your existing agent, no need to migrate.</p>
-            <h3>/hermes-agent-as-a-skill-file: A closed self-improvement loop that makes your agent smarter with every task it completes.</h3>
-            <p class="skill-meta">Speedrun AI Labs &middot; Based on Nous Research's Hermes Agent &middot; v2.1 &middot; October 2026 &middot; MIT License</p>
-            <p class="skill-desc">Nous Research's Hermes Agent learns from its own work. This skill brings that learning loop to any agent as a portable SKILL.md file, rebuilt in October 2026 against the current Hermes source: a review pass after every task, lessons saved into skills before memory, a never-capture list so failures never harden into rules, recall from past sessions before asking, and a curator that archives skills nobody uses. Agent-agnostic. Drop it into your existing agent. No migration. No new runtime.</p>
-            <details class="skill-install-details">
-                <summary>Install Instructions</summary>
-                <div class="skill-install-body">
-                    <p class="skill-install-label">Install (Claude Code)</p>
-                    <code>mkdir -p ~/.claude/skills
-git clone https://github.com/Speedrunlab/hermes-agent-as-a-skill-file.git ~/.claude/skills/hermes-agent-as-a-skill-file</code>
-                    <p class="skill-install-label" style="margin-top:16px">Then run</p>
-                    <code>/hermes-agent-as-a-skill-file</code>
-                    <p class="skill-install-label" style="margin-top:16px">Any other agent</p>
-                    <p style="font-size:13px;line-height:1.7;color:var(--black)">Copy <code style="display:inline;word-break:normal">SKILL.md</code> into its skills directory, then fill in the "Map it to your agent" table once.</p>
-                </div>
-            </details>
             <div class="skill-actions">
-                <a class="skill-github" href="https://github.com/Speedrunlab/hermes-agent-as-a-skill-file" target="_blank" rel="noopener">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                    View on GitHub
-                </a>
+                <button class="skill-install" type="button" data-sheet>Install</button>
+                <a class="skill-github" href="https://github.com/Speedrunlab/hermes-agent-as-a-skill-file" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="skill-detail" hidden>
+                <p class="skill-credit">Based on Nous Research's Hermes Agent</p>
+                <p class="skill-sub">/hermes-agent-as-a-skill-file: A closed self-improvement loop that makes your agent smarter with every task it completes.</p>
+                <p class="skill-install-label">Install (Claude Code)</p>
+                <pre class="skill-code"><code>mkdir -p ~/.claude/skills
+git clone https://github.com/Speedrunlab/hermes-agent-as-a-skill-file.git ~/.claude/skills/hermes-agent-as-a-skill-file</code></pre>
+                <p class="skill-install-label">Then run</p>
+                <pre class="skill-code"><code>/hermes-agent-as-a-skill-file</code></pre>
+                <p class="skill-install-label">Any other agent</p>
+                <p class="skill-note">Copy <code>SKILL.md</code> into its skills directory, then fill in the "Map it to your agent" table once.</p>
+                <p class="skill-install-label">About</p>
+                <p class="skill-desc">Nous Research's Hermes Agent learns from its own work. This skill brings that learning loop to any agent as a portable SKILL.md file, rebuilt in October 2026 against the current Hermes source: a review pass after every task, lessons saved into skills before memory, a never-capture list so failures never harden into rules, recall from past sessions before asking, and a curator that archives skills nobody uses. Agent-agnostic. Drop it into your existing agent. No migration. No new runtime.</p>
             </div>
         </article>
-        <article class="skill-card" id="read-before-write">
-            <img class="skill-image" src="/images/skill-read-before-write.png" alt="Read-Before-Write Skill — cyborg speedrunner bird holding clipboard marked RBW SKILL" width="2760" height="1504" loading="lazy">
-            <div class="skill-badges">
-                <span class="skill-badge free">Free</span>
-                <span class="skill-badge">Claude Code</span>
-                <span class="skill-badge">OpenClaw</span>
-                <span class="skill-badge">Any LLM</span>
+        <article class="skill-card" id="read-before-write" data-cat="agents" data-search="read before write edit files patch agents safety">
+            <button class="skill-figure" type="button" data-sheet aria-label="Read Before Write: details and install"><img class="skill-image" src="/images/skill-read-before-write.png" alt="Read-Before-Write Skill — cyborg speedrunner bird holding clipboard marked RBW SKILL" width="2760" height="1504" loading="lazy"></button>
+            <div class="skill-body">
+                <p class="skill-kicker">Agents</p>
+                <h3 class="skill-name"><button type="button" data-sheet>Read Before Write</button></h3>
+                <p class="skill-hook">Every AI edits files without reading them first. This skill fixes that.</p>
+                <p class="skill-meta">v1.0 &middot; April 2026 &middot; MIT</p>
+                <p class="skill-platforms">Claude Code &middot; OpenClaw &middot; Any LLM</p>
             </div>
-            <p class="skill-hook">Every AI edits files without reading them first. This skill fixes that.</p>
-            <h3>/read-before-write: Force any AI agent to read the full file before changing a single line — like a contract lawyer reads the whole document before touching it.</h3>
-            <p class="skill-meta">Speedrun AI Labs &middot; v1.0 &middot; April 2026 &middot; MIT License</p>
-            <p class="skill-desc">On the morning this skill was written, two AI systems — our in-house agent and Claude.ai — made the same mistake within an hour of each other: both overwrote existing files without reading them first. Silently. No warning. This skill hardens any AI agent against that failure: mandatory full-file read before any edit, patch-not-replace discipline, conflict flagging before proceeding, and a hard stop if the file can't be read. Built in Sydney by Speedrun AI Labs — where we caught this bug the hard way.</p>
-            <details class="skill-install-details">
-                <summary>Install Instructions</summary>
-                <div class="skill-install-body">
-                    <p class="skill-install-label">Install (Claude Code)</p>
-                    <code>mkdir -p ~/.claude/skills
-git clone https://github.com/Speedrunlab/read-before-write.git ~/.claude/skills/read-before-write</code>
-                    <p class="skill-install-label" style="margin-top:16px">Then run</p>
-                    <code>/read-before-write</code>
-                </div>
-            </details>
             <div class="skill-actions">
-                <a class="skill-github" href="https://github.com/Speedrunlab/read-before-write" target="_blank" rel="noopener">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                    View on GitHub
-                </a>
+                <button class="skill-install" type="button" data-sheet>Install</button>
+                <a class="skill-github" href="https://github.com/Speedrunlab/read-before-write" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="skill-detail" hidden>
+                <p class="skill-sub">/read-before-write: Force any AI agent to read the full file before changing a single line — like a contract lawyer reads the whole document before touching it.</p>
+                <p class="skill-install-label">Install (Claude Code)</p>
+                <pre class="skill-code"><code>mkdir -p ~/.claude/skills
+git clone https://github.com/Speedrunlab/read-before-write.git ~/.claude/skills/read-before-write</code></pre>
+                <p class="skill-install-label">Then run</p>
+                <pre class="skill-code"><code>/read-before-write</code></pre>
+                <p class="skill-install-label">About</p>
+                <p class="skill-desc">On the morning this skill was written, two AI systems — our in-house agent and Claude.ai — made the same mistake within an hour of each other: both overwrote existing files without reading them first. Silently. No warning. This skill hardens any AI agent against that failure: mandatory full-file read before any edit, patch-not-replace discipline, conflict flagging before proceeding, and a hard stop if the file can't be read. Built in Sydney by Speedrun AI Labs — where we caught this bug the hard way.</p>
             </div>
         </article>
-        <article class="skill-card" id="no-slop-writing">
-            <img class="skill-image" src="/images/skill-no-slop.png" alt="No-Slop Writing Skill mascot with clipboard" width="2760" height="1504" loading="lazy">
-            <div class="skill-badges">
-                <span class="skill-badge free">Free</span>
-                <span class="skill-badge">Claude Code</span>
-                <span class="skill-badge">OpenClaw</span>
-                <span class="skill-badge">ChatGPT</span>
-                <span class="skill-badge">Any LLM</span>
-                <span class="skill-badge">🇺🇸 American English</span>
+        <article class="skill-card" id="no-slop-writing" data-cat="writing" data-search="no-slop writing ai-speak anti-patterns american english chatgpt">
+            <button class="skill-figure" type="button" data-sheet aria-label="No-Slop Writing: details and install"><img class="skill-image" src="/images/skill-no-slop.png" alt="No-Slop Writing Skill mascot with clipboard" width="2760" height="1504" loading="lazy"></button>
+            <div class="skill-body">
+                <p class="skill-kicker">Writing</p>
+                <h3 class="skill-name"><button type="button" data-sheet>No-Slop Writing</button></h3>
+                <p class="skill-hook">AI writing sounds like AI. This skill fixes that: 13 anti-patterns, zero tolerance, output that reads like a human wrote it.</p>
+                <p class="skill-meta">v1.0 &middot; March 2026 &middot; MIT &middot; American English</p>
+                <p class="skill-platforms">Claude Code &middot; OpenClaw &middot; ChatGPT &middot; Any LLM</p>
             </div>
-            <p class="skill-hook">AI writing sounds like AI. This skill fixes that: 13 anti-patterns, zero tolerance, output that reads like a human wrote it.</p>
-            <h3>/no-slop-writing: Eliminate AI-speak from every message, memo, email, and report you generate.</h3>
-            <p class="skill-meta">Speedrun AI Labs &middot; Inspired by Leila Hormozi &middot; v1.0 &middot; March 2026 &middot; MIT License</p>
-            <p class="skill-desc">Catches the 13 patterns that betray AI-generated text: hollow openers, hedge stacking, narration without opinion, transition padding, and the rest. Works with Claude Code, OpenClaw, ChatGPT, and any LLM that accepts a system prompt. Drop it in, run it, and your output stops sounding like it came from a committee. American English edition.</p>
-            <details class="skill-install-details">
-                <summary>Install Instructions</summary>
-                <div class="skill-install-body">
-                    <p class="skill-install-label">Install (Claude Code)</p>
-                    <code>mkdir -p ~/.claude/skills
-git clone https://github.com/Speedrunlab/no-slop-writing.git ~/.claude/skills/no-slop-writing</code>
-                    <p class="skill-install-label" style="margin-top:16px">Then run</p>
-                    <code>/no-slop-writing</code>
-                </div>
-            </details>
             <div class="skill-actions">
-                <a class="skill-github" href="https://github.com/Speedrunlab/no-slop-writing" target="_blank" rel="noopener">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                    View on GitHub
-                </a>
+                <button class="skill-install" type="button" data-sheet>Install</button>
+                <a class="skill-github" href="https://github.com/Speedrunlab/no-slop-writing" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="skill-detail" hidden>
+                <p class="skill-credit">Inspired by Leila Hormozi</p>
+                <p class="skill-sub">/no-slop-writing: Eliminate AI-speak from every message, memo, email, and report you generate.</p>
+                <p class="skill-install-label">Install (Claude Code)</p>
+                <pre class="skill-code"><code>mkdir -p ~/.claude/skills
+git clone https://github.com/Speedrunlab/no-slop-writing.git ~/.claude/skills/no-slop-writing</code></pre>
+                <p class="skill-install-label">Then run</p>
+                <pre class="skill-code"><code>/no-slop-writing</code></pre>
+                <p class="skill-install-label">About</p>
+                <p class="skill-desc">Catches the 13 patterns that betray AI-generated text: hollow openers, hedge stacking, narration without opinion, transition padding, and the rest. Works with Claude Code, OpenClaw, ChatGPT, and any LLM that accepts a system prompt. Drop it in, run it, and your output stops sounding like it came from a committee. American English edition.</p>
             </div>
         </article>
-        <article class="skill-card" id="no-slop-writing-au">
-            <img class="skill-image" src="/images/skill-no-slop.png" alt="No-Slop Writing AU Skill mascot with clipboard" width="2760" height="1504" loading="lazy">
-            <div class="skill-badges">
-                <span class="skill-badge free">Free</span>
-                <span class="skill-badge">Claude Code</span>
-                <span class="skill-badge">OpenClaw</span>
-                <span class="skill-badge">ChatGPT</span>
-                <span class="skill-badge">Any LLM</span>
-                <span class="skill-badge">🇦🇺 Australian English</span>
+        <article class="skill-card" id="no-slop-writing-au" data-cat="writing" data-search="no-slop writing au ai-speak anti-patterns australian english chatgpt">
+            <button class="skill-figure" type="button" data-sheet aria-label="No-Slop Writing (AU): details and install"><img class="skill-image" src="/images/skill-no-slop.png" alt="No-Slop Writing AU Skill mascot with clipboard" width="2760" height="1504" loading="lazy"></button>
+            <div class="skill-body">
+                <p class="skill-kicker">Writing</p>
+                <h3 class="skill-name"><button type="button" data-sheet>No-Slop Writing (AU)</button></h3>
+                <p class="skill-hook">AI writing sounds like AI. This skill fixes that: 13 anti-patterns, zero tolerance, output that reads like a human wrote it.</p>
+                <p class="skill-meta">v1.0 &middot; March 2026 &middot; MIT &middot; Australian English</p>
+                <p class="skill-platforms">Claude Code &middot; OpenClaw &middot; ChatGPT &middot; Any LLM</p>
             </div>
-            <p class="skill-hook">AI writing sounds like AI. This skill fixes that: 13 anti-patterns, zero tolerance, output that reads like a human wrote it.</p>
-            <h3>/no-slop-writing-au: Eliminate AI-speak from every message, memo, email, and report you generate.</h3>
-            <p class="skill-meta">Speedrun AI Labs &middot; Inspired by Leila Hormozi &middot; v1.0 &middot; March 2026 &middot; MIT License</p>
-            <p class="skill-desc">Catches the 13 patterns that betray AI-generated text: hollow openers, hedge stacking, narration without opinion, transition padding, and the rest. Works with Claude Code, OpenClaw, ChatGPT, and any LLM that accepts a system prompt. Drop it in, run it, and your output stops sounding like it came from a committee. Australian English edition.</p>
-            <details class="skill-install-details">
-                <summary>Install Instructions</summary>
-                <div class="skill-install-body">
-                    <p class="skill-install-label">Install (Claude Code)</p>
-                    <code>mkdir -p ~/.claude/skills
-git clone https://github.com/Speedrunlab/no-slop-writing-au.git ~/.claude/skills/no-slop-writing-au</code>
-                    <p class="skill-install-label" style="margin-top:16px">Then run</p>
-                    <code>/no-slop-writing-au</code>
-                </div>
-            </details>
             <div class="skill-actions">
-                <a class="skill-github" href="https://github.com/Speedrunlab/no-slop-writing-au" target="_blank" rel="noopener">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                    View on GitHub
-                </a>
+                <button class="skill-install" type="button" data-sheet>Install</button>
+                <a class="skill-github" href="https://github.com/Speedrunlab/no-slop-writing-au" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="skill-detail" hidden>
+                <p class="skill-credit">Inspired by Leila Hormozi</p>
+                <p class="skill-sub">/no-slop-writing-au: Eliminate AI-speak from every message, memo, email, and report you generate.</p>
+                <p class="skill-install-label">Install (Claude Code)</p>
+                <pre class="skill-code"><code>mkdir -p ~/.claude/skills
+git clone https://github.com/Speedrunlab/no-slop-writing-au.git ~/.claude/skills/no-slop-writing-au</code></pre>
+                <p class="skill-install-label">Then run</p>
+                <pre class="skill-code"><code>/no-slop-writing-au</code></pre>
+                <p class="skill-install-label">About</p>
+                <p class="skill-desc">Catches the 13 patterns that betray AI-generated text: hollow openers, hedge stacking, narration without opinion, transition padding, and the rest. Works with Claude Code, OpenClaw, ChatGPT, and any LLM that accepts a system prompt. Drop it in, run it, and your output stops sounding like it came from a committee. Australian English edition.</p>
             </div>
         </article>
-        <article class="skill-card" id="deep-audit">
-            <img class="skill-image" src="/images/skill-deep-audit.png" alt="Deep Audit Skill — code audit pipeline visualization" width="1376" height="768" loading="lazy">
-            <div class="skill-badges">
-                <span class="skill-badge free">Free</span>
-                <span class="skill-badge">Claude Code</span>
-                <span class="skill-badge">OpenClaw</span>
-                <span class="skill-badge">Agent Skills Standard</span>
+        <article class="skill-card" id="deep-audit" data-cat="security" data-search="deep audit code auditor evidence findings security review">
+            <button class="skill-figure" type="button" data-sheet aria-label="Deep Audit: details and install"><img class="skill-image" src="/images/skill-deep-audit.png" alt="Deep Audit Skill — code audit pipeline visualization" width="1376" height="768" loading="lazy"></button>
+            <div class="skill-body">
+                <p class="skill-kicker">Security</p>
+                <h3 class="skill-name"><button type="button" data-sheet>Deep Audit</button></h3>
+                <p class="skill-hook">AI writes your code. This skill audits it like an accountant: evidence first, findings second, fixes only when it can prove them.</p>
+                <p class="skill-meta">v1.1 &middot; March 2026 &middot; MIT</p>
+                <p class="skill-platforms">Claude Code &middot; OpenClaw &middot; Agent Skills Standard</p>
             </div>
-            <p class="skill-hook">AI writes your code. This skill audits it like an accountant: evidence first, findings second, fixes only when it can prove them.</p>
-            <h3>/deep-audit: A four-phase code auditor with operating modes, severity definitions, and an evidence standard that prevents overclaiming.</h3>
-            <p class="skill-meta">Speedrun AI Labs &middot; v1.1 &middot; March 2026 &middot; MIT License</p>
-            <p class="skill-desc">Catches what pattern-matching tools miss: business logic flaws, race conditions, silent failures, subtle auth bypasses, and the kind of bugs that survive years of human review. Every finding is labelled observed or inferred, comes with a file path and line number, and includes a fix only when the evidence supports it. Runs in Full, Scoped, PR, Audit-Only, or Fix Mode. Compatible with Claude Code, OpenClaw, and any tool supporting the Agent Skills open standard.</p>
-            <details class="skill-install-details">
-                <summary>Install Instructions</summary>
-                <div class="skill-install-body">
-                    <p class="skill-install-label">Install (Claude Code)</p>
-                    <code>mkdir -p ~/.claude/skills
-git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-audit</code>
-                    <p class="skill-install-label" style="margin-top:16px">Then run</p>
-                    <code>/deep-audit</code>
-                </div>
-            </details>
             <div class="skill-actions">
-                <a class="skill-github" href="https://github.com/Speedrunlab/deep-audit" target="_blank" rel="noopener">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                    View on GitHub
-                </a>
+                <button class="skill-install" type="button" data-sheet>Install</button>
+                <a class="skill-github" href="https://github.com/Speedrunlab/deep-audit" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&rsaquo;</span></a>
+            </div>
+            <div class="skill-detail" hidden>
+                <p class="skill-sub">/deep-audit: A four-phase code auditor with operating modes, severity definitions, and an evidence standard that prevents overclaiming.</p>
+                <p class="skill-install-label">Install (Claude Code)</p>
+                <pre class="skill-code"><code>mkdir -p ~/.claude/skills
+git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-audit</code></pre>
+                <p class="skill-install-label">Then run</p>
+                <pre class="skill-code"><code>/deep-audit</code></pre>
+                <p class="skill-install-label">About</p>
+                <p class="skill-desc">Catches what pattern-matching tools miss: business logic flaws, race conditions, silent failures, subtle auth bypasses, and the kind of bugs that survive years of human review. Every finding is labelled observed or inferred, comes with a file path and line number, and includes a fix only when the evidence supports it. Runs in Full, Scoped, PR, Audit-Only, or Fix Mode. Compatible with Claude Code, OpenClaw, and any tool supporting the Agent Skills open standard.</p>
             </div>
         </article>
         </div>
+        <div class="skills-more" hidden><button class="chip" type="button">Show more</button></div>
+        <p class="skills-empty" hidden>No skills match. <button type="button">Show all</button></p>
+        <noscript><style>.skill-detail{display:block!important;padding:0 22px 22px}.skills-toolbar,.skills-more,.skills-empty{display:none!important}.skill-install{display:none}</style></noscript>
     </div>
 </section>
 
@@ -1367,6 +1469,23 @@ git clone https://github.com/Speedrunlab/deep-audit.git ~/.claude/skills/deep-au
     </div>
 </noscript>
 
+<dialog class="skill-sheet" id="skillSheet" aria-labelledby="sheetTitle">
+    <div class="sheet-card">
+        <button class="sheet-close" type="button" aria-label="Close"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 1.5l9 9M10.5 1.5l-9 9"/></svg></button>
+        <div class="sheet-scroll">
+            <p class="sheet-kicker"></p>
+            <h3 class="sheet-title" id="sheetTitle"></h3>
+            <p class="sheet-hook"></p>
+            <p class="sheet-credit" hidden></p>
+            <div class="sheet-body"></div>
+            <p class="sheet-platforms"></p>
+            <p class="sheet-licence">Free and open source under the MIT License. Built by Speedrun AI Labs, Sydney.</p>
+        </div>
+        <div class="sheet-actions">
+            <a class="sheet-github" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>View on GitHub</a>
+        </div>
+    </div>
+</dialog>
 <script>
 /* Cloudflare Turnstile. Explicit render, not implicit: the contact section
    starts display:none and a widget rendered into a hidden container does not
@@ -1401,7 +1520,7 @@ function srHash(){return window.location.hash.replace('#','').split('?')[0]}
 /* Route at once so the right section shows without a flash; then jump again when the document is complete.
    The footer script runs after this one, so a jump made now sees a page ~1,000px shorter than final and the
    browser clamps the scroll to that height and never revisits it (Deep Audit landed 245px low on iPad). */
-(function(){var h=srHash();if(!h)return;srRoute(h);document.addEventListener('DOMContentLoaded',function(){var el=document.getElementById(h);if(el&&!document.getElementById('p-'+h)){el.scrollIntoView({behavior:'instant',block:'start'});}});})();
+(function(){var h=srHash();window.srArrive=h;if(!h)return;srRoute(h);document.addEventListener('DOMContentLoaded',function(){var el=document.getElementById(h);if(el&&!document.getElementById('p-'+h)){el.scrollIntoView({behavior:'instant',block:'start'});}});})();
 window.addEventListener('hashchange',function(){var h=srHash();if(!h){go('home');return;}srRoute(h);});
 
 
@@ -1417,6 +1536,76 @@ document.getElementById('cForm').addEventListener('submit',function(ev){
   if(!tsToken()){ev.preventDefault();tsPendingSubmit=true;tsWanted=true;tsNote(true);if(tsWidgetId===null){renderTurnstile()}else{window.turnstile.reset(tsWidgetId)}return}
   setSydneyTime();
 })
+;
+/* Skill Library: view switch (tiles / list, remembered per visitor), category chips, search once the library
+   passes data-search-at, "Show more" past data-page-size, and the install sheet. One markup, no dependencies. */
+(function(){
+var grid=document.querySelector('.skills-grid');if(!grid)return;
+var cards=[].slice.call(grid.querySelectorAll('.skill-card'));
+var seg=document.querySelector('.seg'),chips=[].slice.call(document.querySelectorAll('.skills-filters .chip'));
+var count=document.querySelector('.skills-count'),search=document.querySelector('.skills-search'),input=search&&search.querySelector('input');
+var moreWrap=document.querySelector('.skills-more'),moreBtn=moreWrap&&moreWrap.querySelector('button'),empty=document.querySelector('.skills-empty');
+var PAGE=parseInt(grid.getAttribute('data-page-size'),10)||12,SEARCH_AT=parseInt(grid.getAttribute('data-search-at'),10)||10;
+var state={cat:'all',q:'',shown:PAGE,view:'tiles',want:''};
+/* A deep link to one card (/#deep-audit) stays visible whatever the paging; the page stashes the arrival hash in srArrive before go() rewrites it. */
+if(window.srArrive&&!document.getElementById('p-'+window.srArrive)){var ac=document.getElementById(window.srArrive);if(ac&&ac.classList.contains('skill-card'))state.want=ac.id;}
+try{var v=localStorage.getItem('sr-skills-view');if(v==='list'||v==='tiles')state.view=v;}catch(e){}
+function setView(v,save){state.view=v;grid.setAttribute('data-view',v);[].forEach.call(seg.querySelectorAll('[data-view]'),function(b){var on=b.getAttribute('data-view')===v;b.setAttribute('aria-checked',on?'true':'false');b.tabIndex=on?0:-1;});if(save){try{localStorage.setItem('sr-skills-view',v)}catch(e){}}}
+seg.addEventListener('click',function(e){var b=e.target.closest('[data-view]');if(b)setView(b.getAttribute('data-view'),true);});
+seg.addEventListener('keydown',function(e){if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;e.preventDefault();var v=state.view==='tiles'?'list':'tiles';setView(v,true);seg.querySelector('[data-view="'+v+'"]').focus();});
+function label(cat){var c=chips.filter(function(x){return x.getAttribute('data-cat')===cat})[0];return c?c.textContent:cat;}
+function apply(){
+  var q=state.q.trim().toLowerCase(),want=state.want,n=0,shown=0;
+  cards.forEach(function(c){
+    var ok=(state.cat==='all'||c.getAttribute('data-cat')===state.cat)&&(!q||(c.getAttribute('data-search')+' '+c.textContent).toLowerCase().indexOf(q)>-1);
+    if(!ok){c.hidden=true;return;}
+    n++;
+    if(shown<state.shown||c.id===want){c.hidden=false;shown++;}else{c.hidden=true;}
+  });
+  count.textContent=n+(n===1?' skill':' skills')+(state.cat!=='all'?' in '+label(state.cat):'')+(q?' matching “'+state.q.trim()+'”':'');
+  moreWrap.hidden=!(n>shown);if(!moreWrap.hidden)moreBtn.textContent='Show more ('+(n-shown)+')';
+  empty.hidden=n>0;
+}
+function reveal(id){var c=document.getElementById(id);if(!c||!c.classList.contains('skill-card'))return;state.want=id;if(state.q||(state.cat!=='all'&&c.getAttribute('data-cat')!==state.cat)){state.q='';if(input)input.value='';pick('all');}else{apply();}}
+if(typeof srRoute==='function'){var srRouteBase=srRoute;srRoute=function(h){if(h&&!document.getElementById('p-'+h))reveal(h);return srRouteBase(h);};}
+function pick(cat){chips.forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-cat')===cat?'true':'false')});state.cat=cat;state.shown=PAGE;apply();}
+chips.forEach(function(ch){ch.addEventListener('click',function(){state.want='';pick(ch.getAttribute('data-cat'))});});
+if(input){if(cards.length>=SEARCH_AT)search.hidden=false;input.addEventListener('input',function(){state.want='';state.q=input.value;state.shown=PAGE;apply();});}
+moreBtn.addEventListener('click',function(){state.shown+=PAGE;apply();});
+empty.querySelector('button').addEventListener('click',function(){state.q='';if(input)input.value='';pick('all');});
+/* The sheet: one dialog, filled from the card that opened it. */
+var dlg=document.getElementById('skillSheet'),opener=null;
+function text(el,sel){var n=el.querySelector(sel);return n?n.textContent.trim():'';}
+function fill(card){
+  dlg.querySelector('.sheet-kicker').textContent=text(card,'.skill-kicker')+' · '+text(card,'.skill-meta');
+  dlg.querySelector('.sheet-title').textContent=text(card,'.skill-name');
+  dlg.querySelector('.sheet-hook').textContent=text(card,'.skill-hook');
+  var credit=dlg.querySelector('.sheet-credit'),cr=text(card,'.skill-credit');credit.textContent=cr;credit.hidden=!cr;
+  var body=dlg.querySelector('.sheet-body');body.innerHTML='';
+  var detail=card.querySelector('.skill-detail');
+  if(detail){[].forEach.call(detail.children,function(ch){body.appendChild(ch.cloneNode(true));});}
+  [].forEach.call(body.querySelectorAll('.skill-code'),function(pre){var b=document.createElement('button');b.type='button';b.className='sheet-copy';b.textContent='Copy';pre.appendChild(b);});
+  dlg.querySelector('.sheet-platforms').textContent='Works with '+text(card,'.skill-platforms')+'.';
+  var gh=card.querySelector('.skill-github');dlg.querySelector('.sheet-github').href=gh?gh.href:'https://github.com/Speedrunlab';
+}
+function openSheet(card){
+  if(!dlg||!dlg.showModal){var d=card.querySelector('.skill-detail');if(d){d.hidden=!d.hidden;d.style.display=d.hidden?'':'block';}return;}
+  fill(card);opener=document.activeElement;dlg.showModal();dlg.querySelector('.sheet-scroll').scrollTop=0;document.documentElement.classList.add('sheet-open');
+}
+if(dlg){
+  dlg.addEventListener('close',function(){document.documentElement.classList.remove('sheet-open');if(opener&&opener.focus)opener.focus();opener=null;});
+  dlg.addEventListener('click',function(e){
+    if(e.target===dlg){dlg.close();return;}
+    if(e.target.closest('.sheet-close')){dlg.close();return;}
+    var b=e.target.closest('.sheet-copy');
+    if(b){var code=b.parentNode.querySelector('code').textContent;var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(done,function(){});}
+      else{var r=document.createRange();r.selectNodeContents(b.parentNode.querySelector('code'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(x){}}}
+  });
+}
+grid.addEventListener('click',function(e){var b=e.target.closest('[data-sheet]');if(!b)return;e.preventDefault();openSheet(b.closest('.skill-card'));});
+setView(state.view,false);apply();
+})();
 </script>
 
 <script src="/footer.js"></script>
