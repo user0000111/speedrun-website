@@ -156,6 +156,7 @@ GitHub shows "MIT License" in repo listings only when a `LICENSE` file exists. M
 | No-Slop Writing | `images/skill-no-slop.png` | Live ✅ |
 | Read-Before-Write | `images/skill-read-before-write.png` | Live ✅ |
 | Reverse Engineer Anything | `images/skill-reverse-engineer-anything.png` | Live ✅ (non-mascot: exploded chrome engine, Addy's pick #4 of 8, 2026-10-22) |
+| Reverse Engineer Anything with a Self-Learning Loop | `images/skill-reverse-engineer-anything-self-learning-loop.png` | Live ✅ (non-mascot: the assembled chrome engine with one luminous ring, Addy's pick F of 10, 2026-10-23; two approved banners as style references, 18 rendered, Qwen `qwen3.8-max-prime` 9/10) |
 
 ## Non-mascot banners (Addy 2026-10-22)
 

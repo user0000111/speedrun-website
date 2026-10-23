@@ -16,9 +16,11 @@ Static site, no framework, no build step. Pickup state and history live in the O
 ## Content that must stay consistent (grep before you claim done)
 - `nav.js` injects the nav into EVERY page (home, papers, thank-you, the four legal pages, `/data/`,
   `/ai-safety/`), but each page styles the base nav in its OWN inline CSS. Change a base nav class and you
-  touch them all. The nav ORDER is only the `LINKS` array (Home · About · Agents · Research Papers · Press ·
-  Contact Us). Two flyouts live in `FLYOUTS` (`about`: Manifesto, AI Safety, Data, Press, Contact Us, Legal;
-  `research`: Skill Library, papers, skills); a new page under About or Research is added there, in
+  touch them all. The nav ORDER is only the `LINKS` array (Home · About · Agents · Skill Library · Press ·
+  Contact Us; Addy 2026-10-23: *"skills library there and research paper inside, basically a swap"*, the reverse
+  held from 17 Oct). Two flyouts live in `FLYOUTS` (`about`: Manifesto, AI Safety, Data, Press, Contact Us, Legal;
+  `research`, under Skill Library: Skill Library, Research Papers, the skills, the papers; the key and panel id stay
+  `research`); a new page under About or Skill Library is added there, in
   `footer.js` (`COLUMNS` + `LEGAL`), `site-map/index.html`, `sitemap.xml`, `vercel.json` (slash redirects)
   and `llms.txt`. New sub-pages are built from `legal/index.html` as the template (Addy 2026-10-17).
   Desktop bar height (96px) and the logo offset live once in `nav.js`; change them and re-measure every
@@ -50,11 +52,12 @@ Static site, no framework, no build step. Pickup state and history live in the O
   inside `.hx-frame`, the middle fifth of the picture as drawn (full height, centred, 480:1018 of the 2400:1018
   picture, so it never passes the screen edge), so the marker stays on the device's top right corner at every width. A new or re-cropped hero image re-measures the device
   corner and updates `.hx-pin-anton`/`.hx-pin-joseph` (left = (x − 0.4) / 0.2 of the device corner's x share). Vault
-  `2026-10-19 hero-pictures-illustrative-footnote`. The Research flyout (hover Research Papers:
-  Explore Research / Papers / Skills, Apple globalnav behaviour) is built and styled ONLY in `nav.js`
-  (`FLYOUT` + the injected `CSS`), never copied into the pages. Skill Library lives in the flyout,
-  not the top row. A new paper or skill adds a `FLYOUT` line too (paper cards carry anchor ids; home
-  routes `/#<card-id>` through `srRoute()`). Vault `2026-10-17 research-flyout-apple-style`.
+  `2026-10-19 hero-pictures-illustrative-footnote`. The `research` flyout (hover Skill Library:
+  Explore / Skills / Papers, Apple globalnav behaviour) is built and styled ONLY in `nav.js`
+  (`FLYOUT` + the injected `CSS`), never copied into the pages. Since 2026-10-23 Skill Library is the
+  top-row item (it lights on `/#skills` and, via `alsoOn`, on `/papers/`) and Research Papers lives inside
+  its panel. A new paper or skill adds a `FLYOUT` line too (paper cards carry anchor ids; home
+  routes `/#<card-id>` through `srRoute()`). Vault `2026-10-17 research-flyout-apple-style`, `2026-10-23 nav-skill-library-top-row`.
 - The paper COUNT lives in six strings: papers meta description, og and twitter descriptions,
   home FAQ answer, home `agents-proof`, llms.txt. The /papers/ cards sit in two labelled sections,
   "Peer-reviewed journal" then "Preprints · SSRN", each newest first; a new paper goes FIRST in its section,
@@ -92,8 +95,11 @@ Static site, no framework, no build step. Pickup state and history live in the O
   tested: search appears at `data-search-at="10"` skills, the grid shows `data-page-size="12"` then "Show more", and a deep
   link to a card (`/#deep-audit`, the Research flyout) is always revealed whatever the paging or filter: the routing IIFE
   stashes the arrival hash in `window.srArrive` before `go()` rewrites it, and `srRoute` is wrapped to reveal the card first.
-  Adding a skill = one `<article>` (newest first) + its JSON-LD + the nav.js `FLYOUT` line + `llms.txt`; nothing else. Never
-  add a badge pill back: platform and licence are text lines. Vault `2026-10-23 skill-library-tiles-and-list`.
+  Adding a skill = one `<article>` (newest first) + its JSON-LD + the nav.js `FLYOUT` line + `llms.txt` + the static count in
+  `.skills-count`; nothing else (done 2026-10-23 for the seventh skill, **Reverse Engineer Anything with a Self-Learning Loop**
+  v1.0, `15eb23b`, Addy's banner pick F of ten: the assembled chrome engine with one luminous ring, the sibling of the Reverse
+  Engineer Anything engine taken apart; its name is written in full, never shortened). Never add a badge pill back: platform
+  and licence are text lines. Vault `2026-10-23 skill-library-tiles-and-list`, `2026-10-23 reverse-engineer-anything-self-learning-loop`.
 
 ## Products and the Agents section (Addy 2026-10-17)
 - Speedrun ships exactly TWO agents: **Anton** (cyber security; named after Gilfoyle's server in
