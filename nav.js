@@ -36,6 +36,7 @@
         ['Research Papers', '/papers/'],
       ]},
       { label: 'Skills', items: [
+        ['Reverse Engineer Anything with a Self-Learning Loop', '/#reverse-engineer-anything-self-learning-loop'],
         ['Reverse Engineer Anything', '/#reverse-engineer-anything'],
         ['Hermes Agent as a Skill File', '/#hermes-agent-as-a-skill'],
         ['Read Before Write',        '/#read-before-write'],
